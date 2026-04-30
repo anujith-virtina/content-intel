@@ -1,0 +1,52 @@
+# Credentials — NEVER commit
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+.secrets/
+
+# Per-client generated output (uncomment if you want output kept local only)
+# clients/*/output/
+
+# Keep the example client folder structure but ignore its outputs
+clients/_example-client/output/research/*
+clients/_example-client/output/briefs/*
+clients/_example-client/output/drafts/*
+clients/_example-client/output/published/*
+clients/_example-client/output/social/*
+!clients/_example-client/output/research/.gitkeep
+!clients/_example-client/output/briefs/.gitkeep
+!clients/_example-client/output/drafts/.gitkeep
+!clients/_example-client/output/published/.gitkeep
+!clients/_example-client/output/social/.gitkeep
+
+# Claude Code local settings (user-specific overrides)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if you add any tooling later)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python (if you add any scripts later)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs
+*.log
