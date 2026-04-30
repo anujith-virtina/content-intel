@@ -93,6 +93,43 @@ Reply to the orchestrator with:
 - The first 200 chars of each social variant for quick approval
 - A reminder of any manual steps left (e.g., "post the LinkedIn comment with the link after publishing")
 
+## Pre-publish checklist
+
+Before pushing to any CMS channel, confirm each of the following:
+
+1. **Status is `draft`** — never set `status: publish` without explicit user confirmation
+2. **Slug is set** — never leave slug blank; generate from title (kebab-case, max 5 words)
+3. **Categories are set** — never leave as [1] (Uncategorized); match content topic to the category list in `cms.md`
+4. **Featured image** — note if `featured_media` is 0 and flag for client to supply
+5. **Yoast SEO meta** — include `_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw` in the `meta` payload
+6. **Summary block** — uses `<h2 dir="ltr">Summary</h2>`, not `<p><strong>Summary:</strong>`
+7. **TOC** — uses `<h3>Table of Contents</h3>` with `<span>`-wrapped anchors
+8. **Internal links** — 5-10 internal links woven into body sections (see rule below)
+9. **Block format** — plain HTML only, no Gutenberg `<!-- wp: -->` block markup
+
+## Internal linking rule
+
+Every article published to virtina.com must include **5 to 10 internal links** drawn from `clients/virtina/style/internal-links.md`.
+
+Rules:
+- Place links in body sections only — not in the Summary, Introduction, or Conclusion
+- Never place more than 2-3 internal links in a single section
+- Anchor text must be varied and descriptive — never "click here" or "read more"
+- Use different anchor text variations from the library for each link; do not repeat the same phrase twice in one article
+- Match link targets to the article topic: a WooCommerce performance article should link to WooCommerce service pages, B2B pages, and performance pages — not to unrelated platform pages
+- Links should read naturally in context; do not force them
+
+## WordPress content format
+
+All content submitted to virtina.com must follow the block structure documented in `clients/virtina/style/cms.md` under "## WordPress block structure":
+
+- Submit plain HTML — no Gutenberg `<!-- wp: -->` block comments
+- Summary uses `<h2 dir="ltr">Summary</h2>`
+- TOC uses `<h3>Table of Contents</h3>` with span-wrapped anchors
+- List items use `<li style=""><span>text</span></li>`
+- Conclusion uses `<h2 style="">Conclusion</h2>` with `<p style="">` paragraphs
+- Featured image is set via the `featured_media` field (attachment ID), not inline `<img>`
+
 ## Constraints
 
 - Never invent a URL. If CMS push fails, don't put a fake canonical.

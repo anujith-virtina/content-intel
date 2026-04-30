@@ -66,6 +66,17 @@ In your reply to the orchestrator, give:
 
 Don't summarize the draft. The user reads the draft.
 
+## Internal linking rule
+
+Every draft for virtina.com must include **5 to 10 internal links** to virtina.com pages.
+
+Rules:
+- Draw all URLs from `clients/virtina/style/internal-links.md` — do not invent or guess URLs
+- Place links in body sections only (not in Summary, Introduction, or Conclusion)
+- Vary anchor text: use different anchor text for each link; never repeat the same phrase twice in one article; never use "click here"
+- Match link targets to the article content: link to contextually relevant service pages, platform pages, and blog posts
+- Links must read naturally — they should be embedded in sentences where they add context, not dropped as standalone references
+
 ## Constraints
 
 - Never quote more than 15 words from any source. Paraphrase otherwise.
