@@ -130,6 +130,94 @@ All content submitted to virtina.com must follow the block structure documented 
 - Conclusion uses `<h2 style="">Conclusion</h2>` with `<p style="">` paragraphs
 - Featured image is set via the `featured_media` field (attachment ID), not inline `<img>`
 
+---
+
+## VIRTINA WORDPRESS TEMPLATES
+
+These are the confirmed structural patterns extracted from reference post ID 41576 (`launching-fast-without-strategy-ecommerce-costs`) — verified via REST API `context=edit` and live page HTML, 2026-04-30.
+
+**Important — REST API content filtering:** WordPress's `wp_kses_post` filter strips `<div>` elements with non-standard classes and inline `<svg>` elements when content is submitted via the REST API, even for admin users without `unfiltered_html` capability. Thrive Architect visual wrapper divs (`thrv_*`, `tcb-*`, `tve_*` classes) are stripped on save. Only the inner plain HTML survives. **The manual Thrive Architect activation step is still required after every REST API push** — Thrive reads the saved plain HTML on activation and applies its visual layer.
+
+### Template 1 — Summary block
+
+```html
+<h2 dir="ltr">Summary</h2>
+<p dir="ltr">{{SUMMARY_TEXT}}</p>
+```
+
+### Template 2 — Table of Contents
+
+```html
+<h3>Table of Contents</h3>
+<ul>
+<li style=""><span style=""><a href="#{{FIRST_ANCHOR}}" style="outline: none;">{{FIRST_SECTION_TITLE}}</a></span></li>
+<li><span><a href="#{{ANCHOR}}" style="outline: none;">{{SECTION_TITLE}}</a></span></li>
+<li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
+<li><span><a href="#faq">FAQ&#8217;s</a></span></li>
+</ul>
+```
+
+Rules:
+- First `<li>` always has `style=""` on both the `<li>` and inner `<span>`
+- All subsequent `<li>` items have no style attribute
+- Body section `<a>` links use `style="outline: none;"`
+- FAQ link is bare — no `style="outline: none;"`
+
+### Template 3 — Body bullet list (Font Awesome icons)
+
+```html
+<ul>
+<li style=""><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><span>{{LIST_ITEM_TEXT}}</span></li>
+<li style=""><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><span>{{LIST_ITEM_TEXT}}</span></li>
+</ul>
+```
+
+The FA license comment must appear immediately before `<span>` inside every body `<li style="">`. TOC `<li>` items do NOT use this pattern.
+
+### Template 4 — Table
+
+```html
+<table data-rows="{{ROW_COUNT}}" data-cols="{{COL_COUNT}}" data-v="middle">
+  <thead>
+    <tr>
+      <th style="" data-direction=""><p><strong>{{HEADER}}</strong></p></th>
+      <th style="" data-direction=""><p><strong>{{HEADER}}</strong></p></th>
+      <th style="" data-direction="" colspan="1" rowspan="1"><p><strong>{{HEADER}}</strong></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-th="{{HEADER}}" style=""><p>{{CELL}}</p></td>
+      <td data-th="{{HEADER}}" style=""><p>{{CELL}}</p></td>
+      <td data-th="{{HEADER}}" style="" colspan="1" rowspan="1"><p>{{CELL}}</p></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Last column in each row uses explicit `colspan="1" rowspan="1"`. All `<th>` carry `data-direction=""`.
+
+### Template 5 — Conclusion block
+
+```html
+<h2 style="" id="conclusion">Conclusion</h2>
+<p style="">{{CONCLUSION_TEXT}}</p>
+```
+
+Both `<h2>` and every `<p>` in Conclusion carry `style=""` (empty). The `<h2>` also carries `id="conclusion"`.
+
+### Template 6 — FAQ block
+
+```html
+<h2 style="" id="faq">Frequently Asked Questions</h2>
+<h3>{{QUESTION_TEXT}}?</h3>
+<p dir="ltr">{{ANSWER_TEXT}}</p>
+<h3>{{QUESTION_TEXT}}?</h3>
+<p dir="ltr">{{ANSWER_TEXT}}</p>
+```
+
+FAQ is flat sequential HTML — `<h3>` questions followed by `<p dir="ltr">` answers. No accordion markup survives the REST API filter. The `<h2>` carries `style=""` and `id="faq"`.
+
 ## Constraints
 
 - Never invent a URL. If CMS push fails, don't put a fake canonical.
