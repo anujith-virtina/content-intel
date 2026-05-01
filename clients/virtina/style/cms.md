@@ -9,6 +9,23 @@
 - [x] instagram
 - [x] x
 
+## Critical: Thrive Architect activation (manual step required)
+
+Virtina's WordPress site uses **Thrive Architect** as its visual page builder. Every published post gets its design (SVG icon bullets, section boxes, FAQ accordion, styled content boxes) from Thrive Architect's metadata — NOT from the post_content field.
+
+**The WordPress REST API cannot activate Thrive Architect for a post.** Thrive stores its design data in post meta fields (`tve_updated_post`, `tve_globals`) that are inaccessible via REST API or Application Password auth.
+
+**Required manual step after every REST API push:**
+1. Go to WP Admin > Posts > find the post > click Edit
+2. Click the **"Launch Thrive Architect"** button (blue, near top of editor)
+3. Thrive will import the post HTML into its visual editor
+4. Review layout — apply section box backgrounds, confirm FAQ accordion style, verify bullet icons
+5. Save from within Thrive Architect
+
+**Without this step, the post renders as plain unstyled HTML** — no design boxes, no SVG bullets, no FAQ accordion. The HTML content we push is still correct and will be correctly parsed by Thrive when it's activated.
+
+---
+
 ## Confirmation policy
 
 ```yaml
@@ -131,11 +148,15 @@ Use one of:
 
 ## WordPress block structure
 
-> Findings based on reference post ID 41576 (`launching-fast-without-strategy-ecommerce-costs`), fetched 2026-04-30 with `context=edit`.
+> Findings verified against reference post ID 41576 (`launching-fast-without-strategy-ecommerce-costs`) raw content via REST API `context=edit`, 2026-04-30.
 
 ### Critical: Virtina uses plain HTML, not Gutenberg blocks
 
 Post content is stored and submitted as **flat HTML with no Gutenberg block comment delimiters**. There are zero `<!-- wp: -->` comments in any published post's `content.raw`. Do not wrap content in Gutenberg block markup. Submit raw semantic HTML only.
+
+### Page builder / theme
+
+**No Elementor, no page builder.** Posts use a standard WordPress theme with hand-authored flat HTML. There are no `elementor-*` wrapper divs, no `.wp-block-*` classes, and no shortcodes in post content. The theme applies Font Awesome icon styling via CSS pseudo-elements — it expects the FA license comment + `<span>` structure inside `<li>` elements (see Body list items below).
 
 ---
 
@@ -146,7 +167,7 @@ Post content is stored and submitted as **flat HTML with no Gutenberg block comm
 <p dir="ltr">Summary paragraph text here.</p>
 ```
 
-The Summary is a standard `<h2>` with `dir="ltr"`. Do NOT use `<p><strong>Summary:</strong> text</p>`.
+The Summary `<h2>` carries `dir="ltr"`. Subsequent paragraphs also use `dir="ltr"`. Do NOT use `<p><strong>Summary:</strong> text</p>`.
 
 ---
 
@@ -157,7 +178,7 @@ The Summary is a standard `<h2>` with `dir="ltr"`. Do NOT use `<p><strong>Summar
 <p dir="ltr">Introduction paragraph.</p>
 ```
 
-Note: The Introduction `<h2>` does NOT carry `dir="ltr"` (unlike Summary). Paragraphs use `dir="ltr"`.
+The Introduction `<h2>` does NOT carry `dir="ltr"` (unlike Summary). Paragraphs use `dir="ltr"`.
 
 ---
 
@@ -169,74 +190,127 @@ Note: The Introduction `<h2>` does NOT carry `dir="ltr"` (unlike Summary). Parag
 <li style=""><span style=""><a href="#section-anchor-slug" style="outline: none;">Section Title</a></span></li>
 <li><span><a href="#section-anchor-slug" style="outline: none;">Section Title</a></span></li>
 <li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
-<li><span><a href="#faq">FAQ</a></span></li>
+<li><span><a href="#faq">FAQ&#8217;s</a></span></li>
 </ul>
 ```
 
 - Uses `<h3>` (not `<h2>`)
-- First `<li>` has `style=""` on the element; subsequent items have no style attribute
-- Every `<a>` uses `style="outline: none;"`
+- First `<li>` has `style=""` on both the `<li>` and the inner `<span>`: `<li style=""><span style="">`. All subsequent `<li>` items have no style attribute on the `<li>`, and the `<span>` has no style attribute either.
+- Every body section `<a>` uses `style="outline: none;"`
+- The final FAQ link does NOT use `style="outline: none;"` — it is bare: `<a href="#faq">FAQ&#8217;s</a>`
 - Hand-rolled HTML — no plugin, no shortcode, no block
-- Anchor IDs are kebab-case slugs matching the section heading text
+- Anchor IDs on section headings: `id="section-anchor-slug"` (kebab-case of heading text)
 
 ---
 
-### Body list items (with icon treatment)
+### Body list items (with Font Awesome icon treatment)
 
 ```html
 <ul>
-<li style=""><span>List item text</span></li>
-<li style=""><span>List item text</span></li>
+<li style=""><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><span>List item text</span></li>
+<li style=""><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><span>List item text</span></li>
 </ul>
 ```
 
-Body list items use `<li style=""><span>text</span></li>` pattern (not plain `<li>text</li>`). The theme applies Font Awesome icon treatment via CSS pseudo-elements to this `<span>` structure. In the reference post these items also contain an FA license comment before the span — that comment is cosmetic only and does not need to be reproduced.
+**Critical:** The FA license HTML comment `<!--! Font Awesome Free 6.7.1 ... -->` must appear immediately before `<span>` inside every `<li style="">` in body sections. Without it, the theme's CSS pseudo-element targeting fails and the icon does not render. All `<li>` elements in body bullet lists must use `style=""` (empty style attribute).
+
+The FA comment in full:
+```
+<!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. -->
+```
+
+Note: TOC `<li>` items do NOT use this FA comment pattern — only body section bullet lists do.
 
 ---
 
-### Section headings
+### Section headings with anchor IDs
 
 ```html
-<h2>Section heading</h2>
+<h2 id="section-anchor-slug">Section heading</h2>
 <p dir="ltr">Body paragraph.</p>
 ```
 
-Standard `<h2>` without style or dir attribute for most body sections. Use `<h3>` for subsections. Paragraphs use `dir="ltr"`.
+Body section `<h2>` elements carry `id="..."` for anchor navigation (matches TOC href). No `style=""` or `dir=""` attribute on body `<h2>` elements. Use `<h3>` for subsections. Paragraphs use `dir="ltr"`.
+
+---
+
+### Tables
+
+```html
+<table data-rows="5" data-cols="3" data-v="middle">
+  <thead>
+    <tr>
+      <th style="" data-direction=""><p><strong>Column Header</strong></p></th>
+      <th style="" data-direction=""><p><strong>Column Header</strong></p></th>
+      <th style="" data-direction="" colspan="1" rowspan="1"><p><strong>Column Header</strong></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-th="Column Header" style=""><p>Cell text</p></td>
+      <td data-th="Column Header" style=""><p>Cell text</p></td>
+      <td data-th="Column Header" style="" colspan="1" rowspan="1"><p>Cell text</p></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+- `<table>` carries `data-rows`, `data-cols`, `data-v` attributes
+- `<th>` carries `style=""` and `data-direction=""` attributes; header text wrapped in `<p><strong>...</strong></p>`
+- `<td>` carries `data-th="Column Header"` and `style=""` attributes; cell text wrapped in `<p>...</p>`
+- Last column in each row uses explicit `colspan="1" rowspan="1"`
+
+---
+
+### Inline images
+
+```html
+<span><img alt="Alt text" data-id="41607" width="670" data-init-width="768" height="352" data-init-height="404" title="" loading="lazy" src="https://virtina.com/wp-content/uploads/2026/03/img1.jpg" data-width="670" data-height="352" style="aspect-ratio: auto 768 / 404;"></span>
+```
+
+- Images are wrapped in `<span>` (not `<figure>`)
+- Carry `data-id`, `data-init-width`, `data-init-height`, `data-width`, `data-height` attributes
+- `style="aspect-ratio: auto {original-width} / {original-height};"` inline style
+- `loading="lazy"` attribute present
+- No `<figcaption>`, no caption wrapper
 
 ---
 
 ### Conclusion block
 
 ```html
-<h2 style="">Conclusion</h2>
+<h2 style="" id="conclusion">Conclusion</h2>
 <p style="">Conclusion paragraph text.</p>
+<p style="">Second conclusion paragraph with links.</p>
 ```
 
-Note the `style=""` empty attribute on both the `<h2>` and the first `<p>` — this distinguishes Conclusion from regular body sections visually.
+Both the `<h2>` and every `<p>` in Conclusion carry `style=""` (empty style attribute). The `<h2>` also carries `id="conclusion"`. This pattern distinguishes Conclusion from regular body sections.
 
 ---
 
 ### FAQ / Frequently Asked Questions block
 
 ```html
-<h2 style="">Frequently Asked Questions</h2>
-```
-
-**UNKNOWN — inspect manually.** The FAQ answers are not present in `content.raw`. They appear to be stored outside the post content field — likely in ACF fields, a custom FAQ plugin, or a separate post type. The raw API response for the reference post (ID 41576) contains only the `<h2>` heading with no Q&A items following it. Until this is confirmed, place FAQ Q&A as standard HTML:
-
-```html
-<h2 style="">Frequently Asked Questions</h2>
+<h2 style="" id="faq">Frequently Asked Questions</h2>
 <h3>Question text here?</h3>
-<p>Answer text here.</p>
+<p dir="ltr">Answer text here.</p>
+<h3>Another question?</h3>
+<p dir="ltr">Answer text.</p>
 ```
+
+**CONFIRMED:** FAQ Q&A items are stored directly in `content.raw` as `<h3>` questions followed by `<p dir="ltr">` answers. There is no separate ACF field or plugin for FAQ rendering. The `<h2>` heading carries both `style=""` and `id="faq"`. Answer paragraphs use `dir="ltr"`. There is no accordion — FAQ renders as flat sequential HTML.
 
 ---
 
-### Image blocks
+### People Also Ask block
 
-**UNKNOWN — inspect manually.** The reference post has no `<img>` tags in `content.raw`. The featured image is set via the `featured_media` REST API field (integer, media attachment ID). Inline images may be absent from this post type or stored differently. Do not guess at image block markup.
+```html
+<h2 id="people-also-ask">People also ask</h2>
+<h3>Question text?</h3>
+<p dir="ltr">Answer text.</p>
+```
 
-**Featured image:** Set via REST API as `"featured_media": <attachment_id>`. The attachment must already exist in the WordPress media library.
+Plain `<h2>` with `id="people-also-ask"` (no `style=""`). Questions as `<h3>`, answers as `<p dir="ltr">`. Structurally identical to FAQ section but uses plain heading (no `style=""`).
 
 ---
 
