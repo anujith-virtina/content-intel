@@ -184,22 +184,25 @@ The Introduction `<h2>` does NOT carry `dir="ltr"` (unlike Summary). Paragraphs 
 
 ### Table of Contents
 
+Confirmed against reference post 41576 Thrive CSS (tve-u-19a78073f6e, tve-u-19a78073fba), 2026-05-02.
+
 ```html
-<h3>Table of Contents</h3>
-<ul>
-<li style=""><span style=""><a href="#section-anchor-slug" style="outline: none;">Section Title</a></span></li>
-<li><span><a href="#section-anchor-slug" style="outline: none;">Section Title</a></span></li>
-<li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
-<li><span><a href="#faq">FAQ&#8217;s</a></span></li>
+<h3 style="color:#43627f;font-size:23px;">Table of Contents</h3>
+<ul style="list-style:none;padding:0;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#section-anchor-slug" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">Section Title</a></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#conclusion" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">Conclusion</a></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#faq" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">FAQ</a></li>
 </ul>
 ```
 
-- Uses `<h3>` (not `<h2>`)
-- First `<li>` has `style=""` on both the `<li>` and the inner `<span>`: `<li style=""><span style="">`. All subsequent `<li>` items have no style attribute on the `<li>`, and the `<span>` has no style attribute either.
-- Every body section `<a>` uses `style="outline: none;"`
-- The final FAQ link does NOT use `style="outline: none;"` — it is bare: `<a href="#faq">FAQ&#8217;s</a>`
-- Hand-rolled HTML — no plugin, no shortcode, no block
-- Anchor IDs on section headings: `id="section-anchor-slug"` (kebab-case of heading text)
+**Rules:**
+- Uses `<h3>` (not `<h2>`), styled `color:#43627f;font-size:23px`
+- **No outer colored box** — TOC sits directly inside the Introduction section's gray box
+- Arrow icon: 18px SVG (`icon-arrow-right-solid`), color `#43627f` — confirmed from `--tve-icon-size:18px` on reference
+- Links: `font-size:16px`, `line-height:2.3`, `color:#43627f`, no underline
+- Each `<li>`: flex row, `gap:10px`, `padding:4px 0` — **no border-bottom separators**
+- `list-style:none` on the `<ul>`, no padding-left
+- Anchor IDs on section headings: `id="section-anchor-slug"` (kebab-case)
 
 ---
 
@@ -290,15 +293,49 @@ Both the `<h2>` and every `<p>` in Conclusion carry `style=""` (empty style attr
 
 ### FAQ / Frequently Asked Questions block
 
+> Specs confirmed from reference post 41576 CSS: `.thrv_toggle_title` (collapsed), `.tve-state-expanded` (open), `.tve-toggle-text`, `tve-u-19d0618d368`, 2026-05-02.
+
+The FAQ section uses an inline-styled `<details>/<summary>` HTML5 accordion that visually replicates Thrive Architect's toggle component. Because WordPress's `wp_kses_post` filter strips Thrive wrapper divs on REST API save, we use `<details>/<summary>` with matching inline CSS instead.
+
+**Inject this `<style>` block once, immediately before the FAQ `<h2>` heading:**
+
 ```html
-<h2 style="" id="faq">Frequently Asked Questions</h2>
-<h3>Question text here?</h3>
-<p dir="ltr">Answer text here.</p>
-<h3>Another question?</h3>
-<p dir="ltr">Answer text.</p>
+<style>
+details.vfaq>summary{list-style:none;}
+details.vfaq>summary::-webkit-details-marker{display:none;}
+details.vfaq[open]>summary{background:linear-gradient(#00d5c0,#00d5c0)!important;}
+details.vfaq .vfaq-answer p{font-size:15px!important;color:#6e6e6e!important;line-height:1.75!important;}
+</style>
 ```
 
-**CONFIRMED:** FAQ Q&A items are stored directly in `content.raw` as `<h3>` questions followed by `<p dir="ltr">` answers. There is no separate ACF field or plugin for FAQ rendering. The `<h2>` heading carries both `style=""` and `id="faq"`. Answer paragraphs use `dir="ltr"`. There is no accordion — FAQ renders as flat sequential HTML.
+**FAQ heading:**
+
+```html
+<h2 style="" id="faq">Frequently Asked Questions</h2>
+```
+
+**Each FAQ item (repeat for every Q&A pair):**
+
+```html
+<details class="vfaq" style="background:transparent;margin-top:7px;">
+<summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);">
+<span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Question text here?</span>
+<svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg>
+</summary>
+<div class="vfaq-answer" style="padding:30px 22px;background:#fff;">
+<p>Answer text here.</p>
+</div>
+</details>
+```
+
+**Visual rules (confirmed from ref 41576):**
+- Collapsed header background: `rgba(245,245,245,0.5)` — near-white
+- Open header background: `linear-gradient(#00d5c0,#00d5c0)` — teal (applied via `details[open]>summary` CSS)
+- Question text: 16px, `font-weight:600`, `color:#43627f`, `line-height:2`, `flex:1`
+- Dots icon: 17px SVG (three-dots / more-vert), `fill:#50565f`, on the **right** side
+- Answer container: `padding:30px 22px`, `background:#fff`
+- Answer paragraph text: `font-size:15px`, `color:#6e6e6e`, `line-height:1.75` (forced via CSS `!important` to override inline paragraph styles)
+- `margin-top:7px` between items; no margin on outer container
 
 ---
 

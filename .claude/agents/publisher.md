@@ -107,8 +107,9 @@ Before pushing to any CMS channel, confirm each of the following:
 8. **Internal links** — 5-10 internal links woven into body sections (see rule below)
 9. **Block format** — plain HTML only, no Gutenberg `<!-- wp: -->` block markup
 10. **Image sizes** — all images use only 1309×500 (featured, via `featured_media`) or 670×352 (body sections) — no other dimensions
-11. **External links** — all links to non-virtina.com URLs carry `target="_blank" rel="noopener noreferrer"`
-12. **Internal links open in same tab** — virtina.com links must NOT have `target="_blank"`
+11. - [ ] **Image count** — exactly 1 featured (1309×500) + 2 to 3 body images (670×352). Not 0, not 1, not 4 or more. All body images same size.
+12. **External links** — all links to non-virtina.com URLs carry `target="_blank" rel="noopener noreferrer"`
+13. **Internal links open in same tab** — virtina.com links must NOT have `target="_blank"`
 
 ## Internal linking rule
 
@@ -132,6 +133,20 @@ All content submitted to virtina.com must follow the block structure documented 
 - List items use `<li style=""><span>text</span></li>`
 - Conclusion uses `<h2 style="">Conclusion</h2>` with `<p style="">` paragraphs
 - Featured image is set via the `featured_media` field (attachment ID), not inline `<img>`
+
+---
+
+## VIRTINA IMAGE COUNT — HARD LIMIT
+
+Every Virtina blog post MUST have:
+- 1 featured/hero image at top, exactly 1309 x 500 pixels
+- Minimum 2, maximum 3 in-body section images, each exactly 670 x 352 pixels
+- This is a HARD count, not a suggestion
+- If the article structure has fewer than 2 image opportunities, restructure to add them
+- If the article structure has more than 3 image opportunities, pick the 3 most valuable and skip the rest
+- Never publish a Virtina post with 0, 1, 4, or more body images
+- All body images must be the same dimensions: 670 x 352 px
+- The featured image must be 1309 x 500 px
 
 ---
 

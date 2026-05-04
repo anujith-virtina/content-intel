@@ -77,6 +77,18 @@ Rules:
 - Match link targets to the article content: link to contextually relevant service pages, platform pages, and blog posts
 - Links must read naturally — they should be embedded in sentences where they add context, not dropped as standalone references
 
+## VIRTINA IMAGE COUNT — HARD LIMIT
+
+Every Virtina blog post MUST have:
+- 1 featured/hero image at top, exactly 1309 x 500 pixels
+- Minimum 2, maximum 3 in-body section images, each exactly 670 x 352 pixels
+- This is a HARD count, not a suggestion
+- If the article structure has fewer than 2 image opportunities, restructure to add them
+- If the article structure has more than 3 image opportunities, pick the 3 most valuable and skip the rest
+- Never publish a Virtina post with 0, 1, 4, or more body images
+- All body images must be the same dimensions: 670 x 352 px
+- The featured image must be 1309 x 500 px
+
 ## Constraints
 
 - Never quote more than 15 words from any source. Paraphrase otherwise.
