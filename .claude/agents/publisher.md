@@ -103,7 +103,7 @@ Before pushing to any CMS channel, confirm each of the following:
 4. **Featured image** — note if `featured_media` is 0 and flag for client to supply
 5. **Yoast SEO meta** — include `_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw` in the `meta` payload
 6. **Summary block** — uses `<h2 dir="ltr">Summary</h2>`, not `<p><strong>Summary:</strong>`
-7. **TOC** — uses SVG-arrow format with `color:#43627f` heading and inline-styled list (Template 2 below) — NOT plain `<h3>` with `<span>`-wrapped anchors
+7. **TOC** — uses plain `<h3>Table of Contents</h3>` (no inline style) with `<li style=""><span style=""><a style="outline: none;">` format (Template 2) — NO inline SVG arrows, NO `color:#43627f`, NO custom list styles; Thrive applies visual layer on activation
 8. **Internal links** — 5-10 internal links woven into body sections (see rule below)
 9. **Block format** — plain HTML only, no Gutenberg `<!-- wp: -->` block markup
 10. **Image sizes** — all images use only 1309×500 (featured, via `featured_media`) or 670×352 (body sections) — no other dimensions
@@ -204,26 +204,27 @@ These are the confirmed structural patterns extracted from reference post ID 415
 
 ### Template 2 — Table of Contents
 
+**Critical:** Use PLAIN HTML only. Thrive Architect applies the visual layer (arrows, link color, box background) on activation. Do NOT add inline SVG arrows, inline colors, or custom list styles.
+
 ```html
-<h3 style="color:#43627f;font-size:23px;">Table of Contents</h3>
-<ul style="list-style:none;padding:0;margin:8px 0 16px 0;">
-<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#{{FIRST_ANCHOR}}" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">{{FIRST_SECTION_TITLE}}</a></li>
-<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#{{ANCHOR}}" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">{{SECTION_TITLE}}</a></li>
-<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#conclusion" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">Conclusion</a></li>
-<li style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;flex-shrink:0;margin-top:4px;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg><a href="#faq" style="color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;">FAQ</a></li>
+<h3>Table of Contents</h3>
+<ul>
+<li style=""><span style=""><a href="#{{FIRST_ANCHOR}}" style="outline: none;">{{FIRST_SECTION_TITLE}}</a></span></li>
+<li><span><a href="#{{ANCHOR}}" style="outline: none;">{{SECTION_TITLE}}</a></span></li>
+<li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
+<li><span><a href="#faq" style="outline: none;">FAQ</a></span></li>
 </ul>
 ```
 
 Rules:
-- `<h3>` carries `style="color:#43627f;font-size:23px;"` — no plain unstyled `<h3>`
-- `<ul>` carries `style="list-style:none;padding:0;margin:8px 0 16px 0;"`
-- Every `<li>` carries `style="display:flex;align-items:flex-start;gap:10px;padding:4px 0;"`
-- Each item has the inline SVG right-arrow (18px, `fill:#43627f`) immediately before the link — no wrapper div
-- Link style: `color:#43627f;text-decoration:none;font-size:16px;line-height:2.3;font-weight:500;`
-- No `style="outline: none;"` on TOC links (that was the old format)
-- No `<span>` wrappers around the link text
-- Every item uses the same pattern — Conclusion and FAQ are not special-cased
+- Plain `<h3>` — NO inline style attribute (Thrive styles the heading)
+- `<ul>` — no inline style attribute
+- First `<li>` and first `<span>` use empty `style=""` attributes (as Thrive generates)
+- All subsequent `<li>` and `<span>` have no style attribute
+- Every `<a>`: ONLY `style="outline: none;"` — no color, no font-size, no other inline styles
+- Links open in same tab — no `target` attribute on TOC links
 - Anchor IDs on section headings must match TOC hrefs exactly
+- Thrive applies on activation: arrow icons, `#00a0e2` link color (global CSS), content box background
 
 ### Template 3 — Body bullet list (Font Awesome icons)
 
