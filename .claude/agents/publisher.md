@@ -103,7 +103,7 @@ Before pushing to any CMS channel, confirm each of the following:
 4. **Featured image** — note if `featured_media` is 0 and flag for client to supply
 5. **Yoast SEO meta** — include `_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw` in the `meta` payload
 6. **Summary block** — uses `<h2 dir="ltr">Summary</h2>`, not `<p><strong>Summary:</strong>`
-7. **TOC** — uses inline-styled `<ul style="list-style:none!important">` with SVG arrow spans (Template 2); `list-style:none!important` on BOTH `<ul>` AND `<li>` — without this, browser shows disc bullets; arrow `fill:#00a0e2`, link `color:#00a0e2`, `font-family:metropolis,arial`, `font-size:16px`, `font-weight:500`, all `!important`
+7. **TOC** — uses inline-styled `<ul style="list-style:none!important">` with SVG arrow spans (Template 2); `list-style:none!important` on BOTH `<ul>` AND `<li>` — without this, browser shows disc bullets; arrow `fill:#43627f` (slate, NOT link blue), link `color:#00a0e2`, `font-family:metropolis,arial`, `font-size:16px`, `font-weight:500`, all `!important`
    - [ ] TOC has visible teal SVG arrows, NOT default round bullets
    - [ ] TOC arrows use `!important` inline styles to override theme
 8. **Internal links** — 5-10 internal links woven into body sections (see rule below)
@@ -206,14 +206,14 @@ These are the confirmed structural patterns extracted from reference post ID 415
 
 ### Template 2 — Table of Contents
 
-**Arrow source:** The reference uses an inline SVG (`icon-arrow-right-solid`, path `M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z`). Thrive applies arrow color via JS at page load. For REST API pushes (pre-Thrive-activation), use inline `fill:#00a0e2` on the SVG. Without `list-style:none!important` on `<ul>` AND `<li>`, the browser shows default disc bullets.
+**Arrow source:** The reference uses an inline SVG (`icon-arrow-right-solid`, path `M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z`). Thrive applies arrow color via JS at page load using `--tcb-local-color-icon: rgb(67,98,127)` = `#43627f`. For REST API pushes (pre-Thrive-activation), use inline `fill:#43627f` on the SVG. Without `list-style:none!important` on `<ul>` AND `<li>`, the browser shows default disc bullets.
 
 ```html
 <h3>Table of Contents</h3>
 <ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
-<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#{{ANCHOR}}" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">{{SECTION_TITLE}}</a></li>
-<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
-<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">FAQ</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#{{ANCHOR}}" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">{{SECTION_TITLE}}</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">FAQ</a></li>
 </ul>
 ```
 
@@ -221,7 +221,7 @@ Rules:
 - Plain `<h3>` — NO inline style on the heading (Thrive handles heading styling)
 - `list-style:none!important` on BOTH `<ul>` AND every `<li>` — kills default disc bullets
 - `padding-left:32px` on `<li>` creates space for the absolutely-positioned arrow
-- Arrow: inline SVG, `fill:#00a0e2`, `position:absolute;left:0;top:8px` inside `<span aria-hidden>`
+- Arrow: inline SVG, `fill:#43627f` (slate — different from link blue `#00a0e2`), `position:absolute;left:0;top:8px` inside `<span aria-hidden>`
 - Link: `color:#00a0e2`, `font-family:metropolis,arial`, `font-size:16px`, `font-weight:500`, all `!important`
 - No `target` attribute on TOC links — same tab
 - Anchor IDs on section headings must match TOC hrefs exactly

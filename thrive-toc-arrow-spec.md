@@ -16,11 +16,16 @@ source: ref41576_full_page.html (scraped rendered Thrive HTML)
 </svg>
 ```
 
-**Arrow color:** Thrive applies color via JavaScript at page load using CSS variable
-`--tcb-local-color-icon: rgb(67, 98, 127)` on the icon wrapper div.
-The static HTML has `style=""` (empty) on the wrapper — fill is JS-applied.
-User-confirmed rendered appearance: teal, matching brand CTA button (#00a0e2).
-**Use `#00a0e2` for all inline-style reproductions.**
+**Arrow color:** `#43627f` (rgb 67, 98, 127) — confirmed from two independent CSS sources:
+1. `--tcb-local-color-icon: rgb(67, 98, 127)` on the Thrive icon wrapper (applied to SVG fill via JS)
+2. `article.post h3 { color: #43627f }` — the same slate color used for all post headings
+
+The static HTML has `style=""` (empty inline) on the icon wrapper; Thrive JS reads
+`--tcb-local-color-icon` and sets `color:` at page load, which cascades to `fill:currentcolor`
+on the `.tcb-icon` SVG.
+
+**Use `fill:#43627f` for arrow SVGs in all inline-style reproductions.**
+Note: arrow color (`#43627f` slate) ≠ link text color (`#00a0e2` bright blue). These are different.
 
 **Rendered Thrive wrapper around arrow (full):**
 ```html
@@ -60,7 +65,7 @@ the Thrive TOC appearance independent of Thrive's JS/CSS:
 <h3>Table of Contents</h3>
 <ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
 <li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;">
-<span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span>
+<span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span>
 <a href="#anchor-id" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Section title</a>
 </li>
 </ul>
