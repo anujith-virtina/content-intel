@@ -103,7 +103,9 @@ Before pushing to any CMS channel, confirm each of the following:
 4. **Featured image** — note if `featured_media` is 0 and flag for client to supply
 5. **Yoast SEO meta** — include `_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw` in the `meta` payload
 6. **Summary block** — uses `<h2 dir="ltr">Summary</h2>`, not `<p><strong>Summary:</strong>`
-7. **TOC** — uses plain `<h3>Table of Contents</h3>` (no inline style) with `<li style=""><span style=""><a style="outline: none;">` format (Template 2) — NO inline SVG arrows, NO `color:#43627f`, NO custom list styles; Thrive applies visual layer on activation
+7. **TOC** — uses inline-styled `<ul style="list-style:none!important">` with SVG arrow spans (Template 2); `list-style:none!important` on BOTH `<ul>` AND `<li>` — without this, browser shows disc bullets; arrow `fill:#00a0e2`, link `color:#00a0e2`, `font-family:metropolis,arial`, `font-size:16px`, `font-weight:500`, all `!important`
+   - [ ] TOC has visible teal SVG arrows, NOT default round bullets
+   - [ ] TOC arrows use `!important` inline styles to override theme
 8. **Internal links** — 5-10 internal links woven into body sections (see rule below)
 9. **Block format** — plain HTML only, no Gutenberg `<!-- wp: -->` block markup
 10. **Image sizes** — all images use only 1309×500 (featured, via `featured_media`) or 670×352 (body sections) — no other dimensions
@@ -204,27 +206,25 @@ These are the confirmed structural patterns extracted from reference post ID 415
 
 ### Template 2 — Table of Contents
 
-**Critical:** Use PLAIN HTML only. Thrive Architect applies the visual layer (arrows, link color, box background) on activation. Do NOT add inline SVG arrows, inline colors, or custom list styles.
+**Arrow source:** The reference uses an inline SVG (`icon-arrow-right-solid`, path `M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z`). Thrive applies arrow color via JS at page load. For REST API pushes (pre-Thrive-activation), use inline `fill:#00a0e2` on the SVG. Without `list-style:none!important` on `<ul>` AND `<li>`, the browser shows default disc bullets.
 
 ```html
 <h3>Table of Contents</h3>
-<ul>
-<li style=""><span style=""><a href="#{{FIRST_ANCHOR}}" style="outline: none;">{{FIRST_SECTION_TITLE}}</a></span></li>
-<li><span><a href="#{{ANCHOR}}" style="outline: none;">{{SECTION_TITLE}}</a></span></li>
-<li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
-<li><span><a href="#faq" style="outline: none;">FAQ</a></span></li>
+<ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#{{ANCHOR}}" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">{{SECTION_TITLE}}</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">FAQ</a></li>
 </ul>
 ```
 
 Rules:
-- Plain `<h3>` — NO inline style attribute (Thrive styles the heading)
-- `<ul>` — no inline style attribute
-- First `<li>` and first `<span>` use empty `style=""` attributes (as Thrive generates)
-- All subsequent `<li>` and `<span>` have no style attribute
-- Every `<a>`: ONLY `style="outline: none;"` — no color, no font-size, no other inline styles
-- Links open in same tab — no `target` attribute on TOC links
+- Plain `<h3>` — NO inline style on the heading (Thrive handles heading styling)
+- `list-style:none!important` on BOTH `<ul>` AND every `<li>` — kills default disc bullets
+- `padding-left:32px` on `<li>` creates space for the absolutely-positioned arrow
+- Arrow: inline SVG, `fill:#00a0e2`, `position:absolute;left:0;top:8px` inside `<span aria-hidden>`
+- Link: `color:#00a0e2`, `font-family:metropolis,arial`, `font-size:16px`, `font-weight:500`, all `!important`
+- No `target` attribute on TOC links — same tab
 - Anchor IDs on section headings must match TOC hrefs exactly
-- Thrive applies on activation: arrow icons, `#00a0e2` link color (global CSS), content box background
 
 ### Template 3 — Body bullet list (Font Awesome icons)
 

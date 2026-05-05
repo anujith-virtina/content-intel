@@ -186,27 +186,27 @@ The Introduction `<h2>` does NOT carry `dir="ltr"` (unlike Summary). Paragraphs 
 
 Confirmed against reference post 41576 content.raw and rendered Thrive CSS, 2026-05-05.
 
-**Critical:** The reference post uses PLAIN HTML for the TOC in `content.raw` — no inline colors, no inline SVG arrows. Thrive Architect applies the visual layer (arrows, teal link color, content box) on activation. Do NOT hand-craft inline SVG arrows or color styles.
+**Critical:** Bullets vs arrows — the `<ul>` MUST have `list-style:none!important` or the browser shows default disc bullets. Thrive normally applies this via its CSS class `.tcb-styled-list`, but that class is only present after Thrive activation. For REST API pushes, apply `list-style:none!important` inline on both `<ul>` and every `<li>`.
 
 ```html
 <h3>Table of Contents</h3>
-<ul>
-<li style=""><span style=""><a href="#section-anchor-slug" style="outline: none;">Section Title</a></span></li>
-<li><span><a href="#another-anchor" style="outline: none;">Another Section</a></span></li>
-<li><span><a href="#conclusion" style="outline: none;">Conclusion</a></span></li>
-<li><span><a href="#faq" style="outline: none;">FAQ</a></span></li>
+<ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#section-anchor-slug" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Section Title</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#00a0e2;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">FAQ</a></li>
 </ul>
 ```
 
 **Rules:**
-- Plain `<h3>` — **NO inline style attribute** on the heading
-- `<ul>` — no inline style attribute
-- First `<li>` uses `style=""` and first `<span>` uses `style=""` (Thrive-generated empty attributes)
-- Subsequent `<li>` and `<span>` have no style attribute
-- Every `<a>`: only `style="outline: none;"` — **no color, no font-size, no other inline styles**
-- Links open in same tab (no `target` attribute)
+- Plain `<h3>` — NO inline style on the heading
+- `list-style:none!important` on BOTH `<ul>` AND every `<li>` — mandatory, kills disc bullets
+- `padding-left:32px` on `<li>` creates space for the absolute-positioned arrow SVG
+- Arrow: inline SVG, `fill:#00a0e2`, `position:absolute;left:0;top:8px`, inside `<span aria-hidden="true">`
+- Arrow SVG path: `M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z`
+- Link: `color:#00a0e2!important`, `font-family:metropolis,arial!important`, `font-size:16px!important`, `font-weight:500!important`
+- Links open in same tab — no `target` attribute
 - Anchor IDs on section headings: `id="section-anchor-slug"` (kebab-case)
-- **Thrive applies on activation:** arrow icons (`icon-arrow-right-solid`, 18px), link color (`#00a0e2` from global CSS), content box background
+- **Font:** `metropolis, arial` — confirmed from `body { font-family:metropolis,arial }` page CSS
 
 ---
 
