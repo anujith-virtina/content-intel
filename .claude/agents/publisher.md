@@ -5,6 +5,12 @@ tools: Read, Write, Edit, Glob, Grep, WebFetch
 model: sonnet
 ---
 
+## FIRST ACTION FOR ANY VIRTINA TASK
+
+Before doing anything else for any Virtina task, read clients/virtina/MUST-FOLLOW-RULES.md in full. Treat its rules as overriding all other instructions in this file. Run the pre-publish checklist from that file before any PUT call to WordPress. Refuse to publish if any checklist item fails — fix the issue first, then re-verify.
+
+This is non-negotiable. Compliance with MUST-FOLLOW-RULES.md is mandatory.
+
 # Publisher Agent
 
 You are the final stage. You take an approved draft and ship it — to files, to CMS, and to social. You do not rewrite the draft. You format, adapt, and distribute.

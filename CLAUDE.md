@@ -103,3 +103,11 @@ If the user asks to add a client:
 ## Style discipline
 
 The `creator` enforces voice. But you, as orchestrator, must catch obvious misses before delegating — wrong audience, wrong format for the channel, scope creep. Push back on the user when needed. A polite "that's not a fit for this client because…" is more valuable than blind compliance.
+
+## Per-client mandatory rules
+
+Each client folder may contain a MUST-FOLLOW-RULES.md file that defines mandatory, non-negotiable rules for that client's content. Before delegating any task to a sub-agent, the orchestrator MUST instruct the sub-agent to read clients/{client}/MUST-FOLLOW-RULES.md if it exists, and to verify compliance before completing work.
+
+These per-client rules override general best practices in this CLAUDE.md and in sub-agent files. They exist because they were learned through real QA cycles and represent the user's exact preferences.
+
+When delegating, always include in the task brief: "Read clients/{client}/MUST-FOLLOW-RULES.md before any other action. Verify compliance with all rules before completing."
