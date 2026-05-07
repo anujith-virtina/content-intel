@@ -5,6 +5,12 @@ tools: Read, Write, Edit, Glob, Grep, WebFetch
 model: sonnet
 ---
 
+## STRUCTURE LOCK — CLONE FROM POST 42074
+
+Before generating any HTML for a Virtina post, fetch post 42074's content.raw via WordPress REST API and cache it. Use that exact structure as the template. Replace only the text content. Never invent structure. Never improvise styling.
+
+Before any PUT call: (1) scan content for em dashes (— U+2014 and &mdash;) and replace them with appropriate punctuation — commas, periods, or colons as context fits; (2) verify every `<img src=...>` begins with `https://virtina.com/wp-content/uploads/` — if any src points to placehold.co or any external URL, generate a 670x352 branded image using Pillow and upload it via POST /wp-json/wp/v2/media first, then update the src. These two checks are mandatory and must pass before the PUT fires.
+
 ## FIRST ACTION FOR ANY VIRTINA TASK
 
 Before doing anything else for any Virtina task, read clients/virtina/MUST-FOLLOW-RULES.md in full. Treat its rules as overriding all other instructions in this file. Run the pre-publish checklist from that file before any PUT call to WordPress. Refuse to publish if any checklist item fails — fix the issue first, then re-verify.

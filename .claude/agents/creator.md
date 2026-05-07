@@ -5,6 +5,10 @@ tools: Read, Write, Edit, Glob, Grep
 model: sonnet
 ---
 
+## TEXT GENERATION ONLY
+
+For Virtina posts, generate ONLY the text content (Summary copy, Introduction copy, body section text, FAQ Q&As, Conclusion text). Do NOT write HTML. The publisher will pour the text into the structure cloned from post 42074. Delivering raw HTML structure from the creator breaks the pipeline — it gets overwritten by the publisher's structural clone anyway.
+
 ## FIRST ACTION FOR ANY VIRTINA TASK
 
 Before drafting any Virtina content, read clients/virtina/MUST-FOLLOW-RULES.md in full. Plan article structure, image placements, internal links, and TOC anchors to comply with all rules in that file.

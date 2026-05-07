@@ -1,3 +1,21 @@
+# REFERENCE POST — ALWAYS COPY THIS STRUCTURE
+
+Post ID 42074 on virtina.com is the locked reference for every Virtina blog. Before writing or publishing any new Virtina post:
+
+1. Fetch post 42074 via WordPress REST API (?context=edit)
+2. Use its EXACT HTML structure for: Summary block, TOC, body section headings, body image markup, FAQ accordion, Conclusion block, featured image markup
+3. Copy the same inline styles, CSS classes, id attributes, span wrappers, list-style overrides
+4. Only change the TEXT CONTENT — never the HTML structure
+5. Verify the new post's HTML structure matches 42074 by diffing before publishing
+
+Local cached copy lives at reference-42074-working.html in project root. Refresh this cache once a month or when 42074 is manually updated.
+
+DO NOT try to construct Thrive/Gutenberg HTML from scratch. DO NOT improvise structure. ALWAYS clone from 42074.
+
+This rule overrides everything else in this file. If you cannot fetch 42074, refuse to publish until you can.
+
+---
+
 # Virtina Blog — Mandatory Rules (Locked Memory)
 
 This file is the source of truth for every Virtina blog. The orchestrator, creator, analyzer, and publisher agents MUST read this file at the start of every Virtina task. These rules were established after extensive QA in May 2026. Do not deviate.
@@ -56,6 +74,12 @@ Rules:
 - Naturally include 1-2 article keywords without stuffing
 - Length: 80-150 characters
 
+### REAL IMAGES, NEVER PLACEHOLDER URLS
+
+For every Virtina post, body and featured images must be real files uploaded to virtina.com WordPress media library via POST /wp/v2/media. Never reference placehold.co, placeholder.com, or any external placeholder URL in published post content. Placeholder URLs are only acceptable during draft generation as a marker; they MUST be replaced with uploaded media before any PUT call to /wp/v2/posts/{id}. The publisher's pre-publish checklist must verify every image src begins with https://virtina.com/wp-content/uploads/ — no exceptions.
+
+If real image generation fails for a section, generate a branded placeholder image locally using Pillow (light teal background #e0f2f1, dark slate text #2d3e50, 670x352 canvas) and upload that. Never publish with external placeholder URLs.
+
 ## 3. LINKS
 
 - Every external link (non-virtina.com): target="_blank" rel="noopener noreferrer"
@@ -88,6 +112,7 @@ Key reminders:
 - Sentence case headings, not Title Case
 - Active voice, second person ("you")
 - Banned words: delve, leverage, navigate (verb), realm, landscape, ecosystem, "in today's fast-paced world", "it's important to note", "in conclusion", "revolutionary", "game-changing", "best-in-class", "cutting-edge", "transform your", "unlock value", "synergize"
+- Banned characters: Em dashes (— Unicode U+2014) and HTML entity &mdash; are forbidden in all Virtina content. Use periods, commas, colons, or regular hyphens instead. The publisher must scan content for em dashes before any PUT and replace them with proper punctuation. This applies to all article body, FAQ, summary, and conclusion text.
 - 1500-2500 words for standard articles, 2500-3500 for pillar guides
 - Always include Summary block at top
 - Quotes from sources: under 15 words, paraphrase otherwise
@@ -125,5 +150,7 @@ The publisher MUST verify ALL of these before any PUT call. If any fails, fix be
 - [ ] No banned words from voice.md present
 - [ ] Summary, Introduction, Conclusion, FAQ all present
 - [ ] Word count appropriate
+- [ ] No em dashes (— U+2014) or &mdash; entities anywhere in content
+- [ ] All image src URLs begin with https://virtina.com/wp-content/uploads/ — no external placeholder URLs
 
 If ANY checklist item fails, fix before publishing. Never push a broken post. This rule overrides any other instruction.
