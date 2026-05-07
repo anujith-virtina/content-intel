@@ -130,6 +130,9 @@ ALWAYS use one of these working APIs (in priority order — all free, no registr
 - Every article must include 5-10 internal Virtina links to service, platform, industry, or related blog pages
 - Links woven into body prose naturally — not in intro, not in conclusion
 - Anchor text varied — never "click here", never the same anchor twice in one article
+- **Maximum 2 external (non-virtina.com) links per article** — no exceptions. More external links look spammy and dilute authority.
+- **Never link to competitor domains** (e.g. shopify.com, bigcommerce.com). Strip all competitor links before publishing.
+- Pre-publish: count external hrefs. If > 2, convert excess links to plain text (keep anchor text, remove `<a>` tag). Strip all banned-domain links entirely.
 
 ## 4. STRUCTURE
 
@@ -231,6 +234,8 @@ The publisher MUST verify ALL of these before any PUT call. If any fails, fix be
 - [ ] All external links: target="_blank" rel="noopener noreferrer"
 - [ ] All internal virtina.com links open in same tab
 - [ ] Article has 5-10 internal Virtina links
+- [ ] External (non-virtina.com) link count is 2 or fewer
+- [ ] No links to competitor domains (shopify.com, bigcommerce.com, etc.)
 - [ ] Status is draft
 - [ ] No banned words from voice.md present
 - [ ] Summary, Introduction, Conclusion, FAQ all present
