@@ -88,24 +88,40 @@ NEVER use these (they are deprecated, random, or fake):
 - Pillow text-on-color cards (e.g. teal background with "B2B Pricing Architecture" text) — categorically rejected
 - Random stock images with no topical relevance (flowers, landscapes, nature scenes on a B2B tech article)
 
-ALWAYS use one of these working APIs (in priority order):
-1. **Pexels API**: `https://api.pexels.com/v1/search?query={keywords}&orientation=landscape&per_page=5`
+ALWAYS use one of these working APIs (in priority order — all free, no registration required except Pexels):
+1. **Pexels API** (best quality): `https://api.pexels.com/v1/search?query={keywords}&orientation=landscape&per_page=5`
    - Header: `Authorization: $env:PEXELS_API_KEY`
-   - Use `src.large2x` field from each photo in response
-2. **Pixabay API**: `https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={keywords}&image_type=photo&orientation=horizontal&per_page=5`
-   - Use `largeImageURL` field from each hit in response
+   - Use `src.large2x` field
+2. **Openverse API** (free, no key): `https://api.openverse.org/v1/images/?q={keywords}&license=cc0,pdm&page_size=10&aspect_ratio=wide`
+   - Use `url` field; validate image downloads (must be >8000 bytes, valid JPEG/PNG signature)
+3. **Wikimedia Commons** (free, no key): `https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srsearch={keywords}+filetype:bitmap&srnamespace=6&srlimit=10`
+   - Then fetch image URL: `?action=query&titles={title}&prop=imageinfo&iiprop=url|mime&iiurlwidth=1920`
+   - Add 1-second delays between Wikimedia API calls to avoid 429 rate limits
 
 **Image sourcing process:**
-1. Search with topic-specific keywords (e.g. `warehouse manager laptop` for B2B operations)
-2. Pick the first relevant result
-3. Download the high-res source URL
+1. Search with topic-specific keywords (e.g. `warehouse logistics interior` for a warehouse image)
+2. Pick first result that passes: >8000 bytes, valid image signature, not a diagram/map/logo/icon/flag
+3. Download bytes
 4. Crop with Pillow: scale-to-cover + center-crop to exact target dimensions
 5. Compress to JPEG quality 82, verify under 200KB
 6. Upload to virtina.com via POST /wp-json/wp/v2/media (multipart)
-7. Set alt_text via POST on the media item
+7. Set alt_text via POST to /wp-json/wp/v2/media/{id}
 8. Reference only the uploaded virtina.com URL in post content
 
-**If no API key is set:** STOP and tell the user to register at https://www.pexels.com/api/new/ (free, 2 minutes) and run: `[System.Environment]::SetEnvironmentVariable('PEXELS_API_KEY', 'your-key', 'User')`. Do NOT use random or unrelated images. Honesty about missing credentials beats publishing pink flowers on a B2B integration article.
+**Topic keyword library for Virtina B2B/WooCommerce articles:**
+- Featured (warehouse/B2B operations): `warehouse logistics interior`, `distribution center operations`, `fulfillment center workers`
+- Item master/SKU/data: `office worker computer desk professional`, `business analyst computer office`
+- Integration/pricing/dev: `software developers office computers monitors`, `team office computers technology`
+- Warehouse/fulfillment: `warehouse worker inventory`, `warehouse logistics worker shelving`
+
+**Brand teal (verified from live virtina.com CSS, 2026-05-07):**
+- Hex: `#00d5c0` — this is the teal end of Virtina's CTA button gradient (`#009ee2 → #00d5c0`)
+- Verified canonical value saved to `clients/virtina/brand-teal.txt`
+- Refresh monthly or when Virtina theme is updated
+
+**Body font-size (verified from post 42108, 2026-05-07):**
+- Value: `16px` — detected in live post content
+- Verified canonical value saved to `clients/virtina/body-font-size.txt`
 
 ## 3. LINKS
 
@@ -137,30 +153,41 @@ Use this exact pattern, no variations. This is the locked Virtina bullet templat
 
 ```html
 <ul style="list-style:none; padding-left:0; margin:0 0 1.5em 0;">
-<li style="position:relative; padding:8px 0 8px 28px; line-height:1.6; margin:0;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span><strong>Heading.</strong> Body text here.</li>
-<li style="position:relative; padding:8px 0 8px 28px; line-height:1.6; margin:0;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span><strong>Next heading.</strong> Body text here.</li>
+<li style="position:relative; padding:10px 0 10px 28px; line-height:1.6; margin:0; font-size:16px; color:inherit;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#00d5c0; border-radius:50%; display:inline-block;"></span><strong>Heading.</strong> Body text here.</li>
+<li style="position:relative; padding:10px 0 10px 28px; line-height:1.6; margin:0; font-size:16px; color:inherit;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#00d5c0; border-radius:50%; display:inline-block;"></span><strong>Next heading.</strong> Body text here.</li>
 </ul>
 ```
 
-Why this exact pattern:
-- Pure CSS circle via `border-radius:50%` + `background-color:#16afa0` — no SVG, no Font Awesome
-- `position:absolute; left:0; top:14px` aligns the circle with first-line text baseline, never floating above
-- `padding:8px 0 8px 28px` on `<li>` creates indented space for the circle and vertical rhythm
-- No HTML entities, no icon classes, no external dependencies
+**Key values (verified from live virtina.com CSS, 2026-05-07):**
+- Circle color: `#00d5c0` — the teal end of Virtina's CTA button gradient. Read from `clients/virtina/brand-teal.txt` before publishing.
+- Font-size: `16px` — matching body paragraph text. Read from `clients/virtina/body-font-size.txt`.
+- Circle top offset: `14px` for 16px font (formula: `round((font_size × 1.6 − 10) / 2)`)
+
+**Why this exact pattern:**
+- Pure CSS circle via `border-radius:50%` + `background-color` — no SVG, no Font Awesome
+- `position:absolute; left:0; top:14px` aligns circle with first-line text baseline, never floating above
+- `font-size:16px; color:inherit` on `<li>` matches body paragraph size exactly
+- `padding:10px 0 10px 28px` creates indented space and vertical rhythm
 - Cannot be corrupted by Thrive serialization
-- Renders identically in all browsers
+
+**CRITICAL: TOC vs body bullet exclusion**
+The TOC `<ul>` uses `!important` on all its properties. When writing a regex to find body bullet lists, you MUST exclude any `<ul>` whose style attribute contains `!important`. The safe pattern: match only `<ul>` blocks whose style does NOT contain `!important`. Failing to exclude the TOC will overwrite it with CSS circles and destroy the arrow navigation — this happened in production in May 2026.
+
+**Safe regex for body-only bullet lists:**
+```python
+# Only match <ul> blocks where the style attr does NOT contain !important
+body_ul_re = re.compile(r'<ul\s+style="(?:(?!!important)[^"])*"[^>]*>.*?</ul>', re.DOTALL)
+```
 
 **Forbidden — these ALL caused real failures:**
-- SVG inline icons (`<svg viewBox="0 0 512 512"...>`) — the outer `<ul>` tag got double-wrapped as `<<ul...>>` on PUT, rendering visible `<` and `>` characters as text on the live page
-- `display:flex` + `align-items:flex-start` approach — Thrive serializer corrupted the outer tag on save
-- Font Awesome icons (`<i class="fa-circle">`) — fail when FA stylesheet not loaded
+- SVG inline icons — the outer `<ul>` got double-wrapped as `<<ul...>>` on PUT
+- `display:flex` + `align-items:flex-start` — Thrive serializer corrupted the tag on save
+- Font Awesome icon classes — fail when FA stylesheet not loaded
 - HTML entities like `&#9679;` or `&bull;`
-- Default `<ul><li>` without list-style:none (shows browser round bullets)
-- Orphan `<<` or `>>` text outside of valid HTML tags
+- Default `<ul><li>` without `list-style:none`
+- Orphan `<<` or `>>` text outside valid HTML tags
 
-**TOC lists are different** — they use `!important` on all properties and arrow text characters. This template is for body content lists only.
-
-**Pre-publish verification:** After any PUT, GET the saved content and search for `<<` or `>>` — if found, the markup is corrupted. Also check for `list-style:none;padding-left:4px` (old SVG-style) — if found, rewrite before publish.
+**Pre-publish verification:** After PUT, GET saved content. Check: `border-radius:50%` blocks have `background-color:#00d5c0` only. TOC `<ul>` must have `!important` and `→` arrow chars, not circles.
 
 ## 5. VOICE AND STYLE
 
@@ -213,7 +240,11 @@ The publisher MUST verify ALL of these before any PUT call. If any fails, fix be
 - [ ] No source.unsplash.com URLs in content (deprecated, returns random unrelated photos)
 - [ ] No placehold.co URLs in content
 - [ ] All images visually relevant to post topic (warehouse/business/data/ecommerce, NOT flowers/landscapes/nature)
-- [ ] All body bullet lists use the simple CSS-circle pattern (background-color:#16afa0; border-radius:50%)
+- [ ] All images sourced from Pexels/Openverse/Wikimedia — never source.unsplash.com or placeholders
+- [ ] All body bullet lists use CSS-circle pattern with background-color matching brand-teal.txt (#00d5c0)
+- [ ] Bullet circle color is NOT #16afa0 (renders green) — must be #00d5c0 (Virtina brand teal)
+- [ ] All body bullet <li> have explicit font-size matching body-font-size.txt (16px)
+- [ ] TOC <ul> preserved intact with !important styles and → arrow characters (NOT overwritten with CSS circles)
 - [ ] No orphan << or >> text in body content (indicates Thrive serializer corrupted a <ul> tag)
 - [ ] All bullets align with first-line text baseline (position:absolute; top:14px)
 

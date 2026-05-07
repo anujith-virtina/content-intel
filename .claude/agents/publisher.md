@@ -16,21 +16,37 @@ Before any PUT call, run ALL of these mandatory checks in order:
 2. **Image URL verification** — verify every `<img src=...>` begins with `https://virtina.com/wp-content/uploads/`. If any src points to placehold.co, placeholder.com, or any external URL, source a replacement and upload it first.
 
 3. **Image sourcing process** — for any image that needs to be sourced or replaced:
-   - **NEVER use `source.unsplash.com`** — it was deprecated in 2024 and returns random images regardless of keywords. Using it caused a B2B integration article to be published with pink flowers and forest canyons.
-   - **NEVER use `placehold.co`** or any external placeholder service in saved content.
-   - **NEVER generate Pillow text-on-color cards.** They look amateurish and are categorically rejected.
-   - Use Pexels API: `GET https://api.pexels.com/v1/search?query={topic keywords}&orientation=landscape&per_page=5` with header `Authorization: $env:PEXELS_API_KEY`. Use `src.large2x` from response.
-   - Fall back to Pixabay: `GET https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={keywords}&image_type=photo&orientation=horizontal&per_page=5`. Use `largeImageURL` from response.
-   - If neither API key is in env: **STOP and tell the user** to set `PEXELS_API_KEY`. Do not proceed with random or off-topic images.
-   - Resize using Python Pillow: scale-to-cover then center-crop to exact dimensions (1309x500 featured, 670x352 body)
-   - Upload via POST /wp-json/wp/v2/media with multipart/form-data, then set alt_text via POST to /wp-json/wp/v2/media/{id}
+   - **NEVER use `source.unsplash.com`** — deprecated 2024, returns random unrelated images (caused pink flowers on a B2B article).
+   - **NEVER use `placehold.co`** or Pillow text-on-color cards.
+   - API priority (all work without registration except Pexels):
+     1. Pexels: `GET https://api.pexels.com/v1/search?query={keywords}&orientation=landscape&per_page=5` header `Authorization: $env:PEXELS_API_KEY`, use `src.large2x`
+     2. Openverse (free, no key): `GET https://api.openverse.org/v1/images/?q={keywords}&license=cc0,pdm&page_size=10&aspect_ratio=wide`, use `url`
+     3. Wikimedia Commons (free, no key): `https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srsearch={keywords}+filetype:bitmap&srnamespace=6&srlimit=10` then fetch imageinfo — add 1-second delays to avoid 429
+   - Validate downloads: must be >8000 bytes and have valid JPEG/PNG signature
+   - Resize with Pillow: scale-to-cover + center-crop to exact dimensions
+   - Upload via POST /wp-json/wp/v2/media, set alt_text via POST to /wp-json/wp/v2/media/{id}
 
-4. **Bullet list verification and fix** — for all body `<ul>` blocks (not TOC):
-   - Use the simple CSS-circle pattern from `clients/virtina/MUST-FOLLOW-RULES.md` section 4a.
-   - **NEVER use SVG inline icons inside `<li>`.** SVG icons inside lists caused Thrive to double-wrap the `<ul>` opening tag as `<<ul...>>` on save, rendering visible `<` and `>` characters as text on the live page.
-   - **NEVER use Font Awesome icon classes** — they fail when the stylesheet isn't loaded.
-   - After PUT, GET the saved content and check for `<<` or `>>` patterns — if found, the markup got corrupted. Fix before calling the task done.
-   - Correct pattern: `<ul style="list-style:none; padding-left:0; margin:0 0 1.5em 0;">` with `<li>` containing an empty `<span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span>` before the text.
+4. **Brand color verification** — before rebuilding any bullet lists:
+   - Read `clients/virtina/brand-teal.txt` for the circle color (currently `#00d5c0` — verified 2026-05-07)
+   - Read `clients/virtina/body-font-size.txt` for the `<li>` font-size (currently `16px`)
+   - If either file is >30 days old, re-extract from live virtina.com CSS before using
+   - Circle top offset formula: `round((font_size_px × 1.6 − 10) / 2)` — for 16px → top:14px
+
+5. **Bullet list verification and fix** — for all body `<ul>` blocks (not TOC):
+   - **TOC exclusion is critical.** TOC `<ul>` has `!important` in its style. Only match `<ul>` whose style does NOT contain `!important`. In May 2026 a regex bug rebuilt the TOC with CSS circles, destroying the arrow navigation.
+   - Safe Python regex: `re.compile(r'<ul\s+style="(?:(?!!important)[^"])*"[^>]*>.*?</ul>', re.DOTALL)`
+   - **NEVER use SVG inline icons** — caused `<<ul...>>` double-bracket corruption.
+   - **NEVER use Font Awesome** — fails when stylesheet not loaded.
+   - Correct `<li>` template: `<li style="position:relative; padding:10px 0 10px 28px; line-height:1.6; margin:0; font-size:16px; color:inherit;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#00d5c0; border-radius:50%; display:inline-block;"></span>text</li>`
+   - After PUT, GET saved content and check for `<<` or `>>` — if found, markup is corrupted, fix before completing.
+
+6. **Post-PUT verification** — refuse to mark task done until all pass:
+   - `featured_media` is a real ID, not 0
+   - All `<img src>` begin with `https://virtina.com/wp-content/uploads/`
+   - `border-radius:50%` elements all have `background-color:#00d5c0` (or value from brand-teal.txt)
+   - Body `<li>` font-size matches body-font-size.txt
+   - TOC `<ul>` contains `!important` and `→` characters
+   - Zero `<<` or `>>` fragments in content
 
 ## FIRST ACTION FOR ANY VIRTINA TASK
 
