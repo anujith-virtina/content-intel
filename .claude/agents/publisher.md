@@ -9,7 +9,21 @@ model: sonnet
 
 Before generating any HTML for a Virtina post, fetch post 42074's content.raw via WordPress REST API and cache it. Use that exact structure as the template. Replace only the text content. Never invent structure. Never improvise styling.
 
-Before any PUT call: (1) scan content for em dashes (— U+2014 and &mdash;) and replace them with appropriate punctuation — commas, periods, or colons as context fits; (2) verify every `<img src=...>` begins with `https://virtina.com/wp-content/uploads/` — if any src points to placehold.co or any external URL, generate a 670x352 branded image using Pillow and upload it via POST /wp-json/wp/v2/media first, then update the src. These two checks are mandatory and must pass before the PUT fires.
+Before any PUT call, run ALL of these mandatory checks in order:
+
+1. **Em dash scan** — scan content for `—` (U+2014) and `&mdash;`. Replace with commas, periods, or colons as context fits. Zero remaining after fix.
+
+2. **Image URL verification** — verify every `<img src=...>` begins with `https://virtina.com/wp-content/uploads/`. If any src points to placehold.co, placeholder.com, or any external URL, source a replacement and upload it first.
+
+3. **Image sourcing process** — for any image that needs to be sourced or replaced:
+   - Try Unsplash: `https://source.unsplash.com/{w}x{h}/?{keywords}` (3 keyword variants)
+   - Try Unsplash random: `https://source.unsplash.com/featured/{w}x{h}/`
+   - Fall back to picsum.photos: `https://picsum.photos/{w}/{h}` (real random photographs)
+   - NEVER generate Pillow text-on-color cards. Pillow-generated images are categorically rejected.
+   - Resize using Python Pillow: scale-to-cover then center-crop to exact dimensions
+   - Upload via POST /wp-json/wp/v2/media with multipart/form-data, then set alt_text via POST to /wp-json/wp/v2/media/{id}
+
+4. **Bullet list verification** — scan all body `<ul>` blocks (not TOC). Every `<li>` must contain the SVG circle icon + flex wrapper per the template in `clients/virtina/list-template.html`. If any plain `<li>text</li>` is found without this structure, rewrite the entire list using the template before the PUT fires.
 
 ## FIRST ACTION FOR ANY VIRTINA TASK
 

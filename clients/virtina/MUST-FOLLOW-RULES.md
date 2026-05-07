@@ -78,7 +78,23 @@ Rules:
 
 For every Virtina post, body and featured images must be real files uploaded to virtina.com WordPress media library via POST /wp/v2/media. Never reference placehold.co, placeholder.com, or any external placeholder URL in published post content. Placeholder URLs are only acceptable during draft generation as a marker; they MUST be replaced with uploaded media before any PUT call to /wp/v2/posts/{id}. The publisher's pre-publish checklist must verify every image src begins with https://virtina.com/wp-content/uploads/ — no exceptions.
 
-If real image generation fails for a section, generate a branded placeholder image locally using Pillow (light teal background #e0f2f1, dark slate text #2d3e50, 670x352 canvas) and upload that. Never publish with external placeholder URLs.
+If real image generation fails for a section, use picsum.photos random real photographs as fallback (not Pillow branded cards). Never publish with external placeholder URLs.
+
+### REAL PROFESSIONAL PHOTOS, NEVER BRANDED TEXT CARDS
+
+Virtina images must be real photographs of people, workplaces, or objects — never programmatically generated text-on-color cards (no matter how branded they look). Pillow-generated images with titles like "B2B Pricing Architecture" or "ERP Integration" printed on a teal background are categorically rejected.
+
+**Required image sourcing order:**
+1. Unsplash source URL: `https://source.unsplash.com/{w}x{h}/?{keywords}` — try 3 keyword variants
+2. Unsplash random featured: `https://source.unsplash.com/featured/{w}x{h}/`
+3. picsum.photos: `https://picsum.photos/{w}/{h}` — real random photographs, acceptable fallback
+4. NEVER fall through to Pillow text card generation
+
+**Image processing requirements:**
+- Download raw photo bytes, verify size > 5000 bytes
+- Resize using scale-to-cover + center-crop to exact target dimensions
+- Compress to JPEG quality 82/75/65/55 until under 200KB
+- All image fetching must follow HTTP redirects
 
 ## 3. LINKS
 
@@ -103,6 +119,28 @@ Every Virtina article must include in this order:
 9. <h2>Conclusion</h2> + closing paragraph
 10. <h2>Frequently Asked Questions</h2> with 6-8 Q&As (use H4 for question text)
 11. Author bio block
+
+## 4a. BULLET LISTS
+
+Every bullet list in Virtina body content must use the exact template extracted from post 42074. Default browser round bullets are categorically rejected.
+
+**Required markup (copy verbatim, extracted from 42074):**
+```html
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:8px;padding:4px 0;"><svg viewBox="0 0 512 512" width="10" height="10" style="fill:#43627f;flex-shrink:0;margin-top:5px;" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg><span style="font-size:16px;line-height:1.75;">List item text here</span></li>
+</ul>
+```
+
+Rules:
+- `list-style:none` on `<ul>` (no `!important` — body lists are not TOC)
+- `<li>` uses `display:flex;align-items:flex-start` so icon aligns with first line of text, never floats above
+- SVG circle icon: `fill:#43627f` (Virtina slate), `width="10" height="10"`, `flex-shrink:0`, `margin-top:5px`
+- `<span>` wraps all item text: `font-size:16px;line-height:1.75;`
+- TOC lists are different — they use `!important` overrides and arrow characters, not this template
+
+The canonical template file lives at `clients/virtina/list-template.html`. Refresh it from post 42074 if its content ever changes.
+
+When fixing existing lists: strip any existing SVG icons and span wrappers from each `<li>`, then re-wrap using this exact template. Never leave plain `<li>text</li>` without the SVG+span structure.
 
 ## 5. VOICE AND STYLE
 
@@ -152,5 +190,11 @@ The publisher MUST verify ALL of these before any PUT call. If any fails, fix be
 - [ ] Word count appropriate
 - [ ] No em dashes (— U+2014) or &mdash; entities anywhere in content
 - [ ] All image src URLs begin with https://virtina.com/wp-content/uploads/ — no external placeholder URLs
+- [ ] No image is a Pillow-generated text-on-color card (all images must be real photographs)
+- [ ] Featured image sourced from Unsplash or picsum.photos (real photo, not branded card)
+- [ ] All body images sourced from Unsplash or picsum.photos (real photos, not branded cards)
+- [ ] All body bullet lists use SVG circle icon + flex layout (not default round bullets)
+- [ ] No plain <li>text</li> without SVG icon and span wrapper
+- [ ] Bullet icon fill color is #43627f (Virtina slate), not any other color
 
 If ANY checklist item fails, fix before publishing. Never push a broken post. This rule overrides any other instruction.
