@@ -80,21 +80,32 @@ For every Virtina post, body and featured images must be real files uploaded to 
 
 If real image generation fails for a section, use picsum.photos random real photographs as fallback (not Pillow branded cards). Never publish with external placeholder URLs.
 
-### REAL PROFESSIONAL PHOTOS, NEVER BRANDED TEXT CARDS
+### REAL TOPICAL PHOTOS — USE WORKING APIS, NOT DEAD ENDPOINTS
 
-Virtina images must be real photographs of people, workplaces, or objects — never programmatically generated text-on-color cards (no matter how branded they look). Pillow-generated images with titles like "B2B Pricing Architecture" or "ERP Integration" printed on a teal background are categorically rejected.
+NEVER use these (they are deprecated, random, or fake):
+- `source.unsplash.com` — DEPRECATED 2024. Returns random unrelated images regardless of keywords. A B2B integration article ended up with pink flowers and forest canyons because of this endpoint. It is dead. Never use it under any condition.
+- `placehold.co` or any external placeholder service in saved post content
+- Pillow text-on-color cards (e.g. teal background with "B2B Pricing Architecture" text) — categorically rejected
+- Random stock images with no topical relevance (flowers, landscapes, nature scenes on a B2B tech article)
 
-**Required image sourcing order:**
-1. Unsplash source URL: `https://source.unsplash.com/{w}x{h}/?{keywords}` — try 3 keyword variants
-2. Unsplash random featured: `https://source.unsplash.com/featured/{w}x{h}/`
-3. picsum.photos: `https://picsum.photos/{w}/{h}` — real random photographs, acceptable fallback
-4. NEVER fall through to Pillow text card generation
+ALWAYS use one of these working APIs (in priority order):
+1. **Pexels API**: `https://api.pexels.com/v1/search?query={keywords}&orientation=landscape&per_page=5`
+   - Header: `Authorization: $env:PEXELS_API_KEY`
+   - Use `src.large2x` field from each photo in response
+2. **Pixabay API**: `https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={keywords}&image_type=photo&orientation=horizontal&per_page=5`
+   - Use `largeImageURL` field from each hit in response
 
-**Image processing requirements:**
-- Download raw photo bytes, verify size > 5000 bytes
-- Resize using scale-to-cover + center-crop to exact target dimensions
-- Compress to JPEG quality 82/75/65/55 until under 200KB
-- All image fetching must follow HTTP redirects
+**Image sourcing process:**
+1. Search with topic-specific keywords (e.g. `warehouse manager laptop` for B2B operations)
+2. Pick the first relevant result
+3. Download the high-res source URL
+4. Crop with Pillow: scale-to-cover + center-crop to exact target dimensions
+5. Compress to JPEG quality 82, verify under 200KB
+6. Upload to virtina.com via POST /wp-json/wp/v2/media (multipart)
+7. Set alt_text via POST on the media item
+8. Reference only the uploaded virtina.com URL in post content
+
+**If no API key is set:** STOP and tell the user to register at https://www.pexels.com/api/new/ (free, 2 minutes) and run: `[System.Environment]::SetEnvironmentVariable('PEXELS_API_KEY', 'your-key', 'User')`. Do NOT use random or unrelated images. Honesty about missing credentials beats publishing pink flowers on a B2B integration article.
 
 ## 3. LINKS
 
@@ -120,27 +131,36 @@ Every Virtina article must include in this order:
 10. <h2>Frequently Asked Questions</h2> with 6-8 Q&As (use H4 for question text)
 11. Author bio block
 
-## 4a. BULLET LISTS
+## 4a. BULLET LISTS — SIMPLE BULLETPROOF MARKUP
 
-Every bullet list in Virtina body content must use the exact template extracted from post 42074. Default browser round bullets are categorically rejected.
+Use this exact pattern, no variations. This is the locked Virtina bullet template:
 
-**Required markup (copy verbatim, extracted from 42074):**
 ```html
-<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
-<li style="display:flex;align-items:flex-start;gap:8px;padding:4px 0;"><svg viewBox="0 0 512 512" width="10" height="10" style="fill:#43627f;flex-shrink:0;margin-top:5px;" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg><span style="font-size:16px;line-height:1.75;">List item text here</span></li>
+<ul style="list-style:none; padding-left:0; margin:0 0 1.5em 0;">
+<li style="position:relative; padding:8px 0 8px 28px; line-height:1.6; margin:0;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span><strong>Heading.</strong> Body text here.</li>
+<li style="position:relative; padding:8px 0 8px 28px; line-height:1.6; margin:0;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span><strong>Next heading.</strong> Body text here.</li>
 </ul>
 ```
 
-Rules:
-- `list-style:none` on `<ul>` (no `!important` — body lists are not TOC)
-- `<li>` uses `display:flex;align-items:flex-start` so icon aligns with first line of text, never floats above
-- SVG circle icon: `fill:#43627f` (Virtina slate), `width="10" height="10"`, `flex-shrink:0`, `margin-top:5px`
-- `<span>` wraps all item text: `font-size:16px;line-height:1.75;`
-- TOC lists are different — they use `!important` overrides and arrow characters, not this template
+Why this exact pattern:
+- Pure CSS circle via `border-radius:50%` + `background-color:#16afa0` — no SVG, no Font Awesome
+- `position:absolute; left:0; top:14px` aligns the circle with first-line text baseline, never floating above
+- `padding:8px 0 8px 28px` on `<li>` creates indented space for the circle and vertical rhythm
+- No HTML entities, no icon classes, no external dependencies
+- Cannot be corrupted by Thrive serialization
+- Renders identically in all browsers
 
-The canonical template file lives at `clients/virtina/list-template.html`. Refresh it from post 42074 if its content ever changes.
+**Forbidden — these ALL caused real failures:**
+- SVG inline icons (`<svg viewBox="0 0 512 512"...>`) — the outer `<ul>` tag got double-wrapped as `<<ul...>>` on PUT, rendering visible `<` and `>` characters as text on the live page
+- `display:flex` + `align-items:flex-start` approach — Thrive serializer corrupted the outer tag on save
+- Font Awesome icons (`<i class="fa-circle">`) — fail when FA stylesheet not loaded
+- HTML entities like `&#9679;` or `&bull;`
+- Default `<ul><li>` without list-style:none (shows browser round bullets)
+- Orphan `<<` or `>>` text outside of valid HTML tags
 
-When fixing existing lists: strip any existing SVG icons and span wrappers from each `<li>`, then re-wrap using this exact template. Never leave plain `<li>text</li>` without the SVG+span structure.
+**TOC lists are different** — they use `!important` on all properties and arrow text characters. This template is for body content lists only.
+
+**Pre-publish verification:** After any PUT, GET the saved content and search for `<<` or `>>` — if found, the markup is corrupted. Also check for `list-style:none;padding-left:4px` (old SVG-style) — if found, rewrite before publish.
 
 ## 5. VOICE AND STYLE
 
@@ -190,11 +210,11 @@ The publisher MUST verify ALL of these before any PUT call. If any fails, fix be
 - [ ] Word count appropriate
 - [ ] No em dashes (— U+2014) or &mdash; entities anywhere in content
 - [ ] All image src URLs begin with https://virtina.com/wp-content/uploads/ — no external placeholder URLs
-- [ ] No image is a Pillow-generated text-on-color card (all images must be real photographs)
-- [ ] Featured image sourced from Unsplash or picsum.photos (real photo, not branded card)
-- [ ] All body images sourced from Unsplash or picsum.photos (real photos, not branded cards)
-- [ ] All body bullet lists use SVG circle icon + flex layout (not default round bullets)
-- [ ] No plain <li>text</li> without SVG icon and span wrapper
-- [ ] Bullet icon fill color is #43627f (Virtina slate), not any other color
+- [ ] No source.unsplash.com URLs in content (deprecated, returns random unrelated photos)
+- [ ] No placehold.co URLs in content
+- [ ] All images visually relevant to post topic (warehouse/business/data/ecommerce, NOT flowers/landscapes/nature)
+- [ ] All body bullet lists use the simple CSS-circle pattern (background-color:#16afa0; border-radius:50%)
+- [ ] No orphan << or >> text in body content (indicates Thrive serializer corrupted a <ul> tag)
+- [ ] All bullets align with first-line text baseline (position:absolute; top:14px)
 
 If ANY checklist item fails, fix before publishing. Never push a broken post. This rule overrides any other instruction.

@@ -16,14 +16,21 @@ Before any PUT call, run ALL of these mandatory checks in order:
 2. **Image URL verification** — verify every `<img src=...>` begins with `https://virtina.com/wp-content/uploads/`. If any src points to placehold.co, placeholder.com, or any external URL, source a replacement and upload it first.
 
 3. **Image sourcing process** — for any image that needs to be sourced or replaced:
-   - Try Unsplash: `https://source.unsplash.com/{w}x{h}/?{keywords}` (3 keyword variants)
-   - Try Unsplash random: `https://source.unsplash.com/featured/{w}x{h}/`
-   - Fall back to picsum.photos: `https://picsum.photos/{w}/{h}` (real random photographs)
-   - NEVER generate Pillow text-on-color cards. Pillow-generated images are categorically rejected.
-   - Resize using Python Pillow: scale-to-cover then center-crop to exact dimensions
+   - **NEVER use `source.unsplash.com`** — it was deprecated in 2024 and returns random images regardless of keywords. Using it caused a B2B integration article to be published with pink flowers and forest canyons.
+   - **NEVER use `placehold.co`** or any external placeholder service in saved content.
+   - **NEVER generate Pillow text-on-color cards.** They look amateurish and are categorically rejected.
+   - Use Pexels API: `GET https://api.pexels.com/v1/search?query={topic keywords}&orientation=landscape&per_page=5` with header `Authorization: $env:PEXELS_API_KEY`. Use `src.large2x` from response.
+   - Fall back to Pixabay: `GET https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={keywords}&image_type=photo&orientation=horizontal&per_page=5`. Use `largeImageURL` from response.
+   - If neither API key is in env: **STOP and tell the user** to set `PEXELS_API_KEY`. Do not proceed with random or off-topic images.
+   - Resize using Python Pillow: scale-to-cover then center-crop to exact dimensions (1309x500 featured, 670x352 body)
    - Upload via POST /wp-json/wp/v2/media with multipart/form-data, then set alt_text via POST to /wp-json/wp/v2/media/{id}
 
-4. **Bullet list verification** — scan all body `<ul>` blocks (not TOC). Every `<li>` must contain the SVG circle icon + flex wrapper per the template in `clients/virtina/list-template.html`. If any plain `<li>text</li>` is found without this structure, rewrite the entire list using the template before the PUT fires.
+4. **Bullet list verification and fix** — for all body `<ul>` blocks (not TOC):
+   - Use the simple CSS-circle pattern from `clients/virtina/MUST-FOLLOW-RULES.md` section 4a.
+   - **NEVER use SVG inline icons inside `<li>`.** SVG icons inside lists caused Thrive to double-wrap the `<ul>` opening tag as `<<ul...>>` on save, rendering visible `<` and `>` characters as text on the live page.
+   - **NEVER use Font Awesome icon classes** — they fail when the stylesheet isn't loaded.
+   - After PUT, GET the saved content and check for `<<` or `>>` patterns — if found, the markup got corrupted. Fix before calling the task done.
+   - Correct pattern: `<ul style="list-style:none; padding-left:0; margin:0 0 1.5em 0;">` with `<li>` containing an empty `<span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#16afa0; border-radius:50%; display:inline-block;"></span>` before the text.
 
 ## FIRST ACTION FOR ANY VIRTINA TASK
 
