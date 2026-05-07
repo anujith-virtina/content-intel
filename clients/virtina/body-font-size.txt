@@ -1,1 +1,3 @@
-16px
+inherit
+# Bullet li font-size should inherit from parent, not override
+# Body paragraphs in post 42074 use 16px inline but li should not hardcode this

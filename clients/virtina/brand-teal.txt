@@ -1,1 +1,4 @@
-#00d5c0
+#43627f
+# Virtina slate - used for bullet icons and SVG fills in body content
+# Source: 42074 body bullet SVG fill color (verified May 2026)
+# Note: #00a0e2 is the link/CTA blue, #00d5c0 is nav gradient teal - do NOT use for bullets
