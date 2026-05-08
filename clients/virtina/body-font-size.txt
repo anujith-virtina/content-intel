@@ -1,3 +1,12 @@
-inherit
-# Bullet li font-size should inherit from parent, not override
-# Body paragraphs in post 42074 use 16px inline but li should not hardcode this
+16px
+# Body paragraph font-size — verified from post 42108 live content (May 2026)
+# Source: <p dir="ltr" style="font-size:16px;line-height:1.75;"> — post 42108
+#
+# Apply to:
+# - All <p> tags: font-size:16px;line-height:1.75
+# - Bullet <span> text: font-size:16px;line-height:1.75;color:#2d3e50
+# - TOC <a> links: font-size:16px!important (with !important)
+# - FAQ question spans: font-size:16px;font-weight:600
+# - FAQ answer paragraphs: font-size:16px;line-height:1.75
+#
+# WRONG: font-size:inherit on bullet spans — causes visible mismatch vs body text

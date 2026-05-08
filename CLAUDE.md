@@ -106,8 +106,13 @@ The `creator` enforces voice. But you, as orchestrator, must catch obvious misse
 
 ## Per-client mandatory rules
 
-Each client folder may contain a MUST-FOLLOW-RULES.md file that defines mandatory, non-negotiable rules for that client's content. Before delegating any task to a sub-agent, the orchestrator MUST instruct the sub-agent to read clients/{client}/MUST-FOLLOW-RULES.md if it exists, and to verify compliance before completing work.
+When working on any client task, before delegating to sub-agents, read `clients/{client-slug}/MUST-FOLLOW-RULES.md` if it exists. Instruct every sub-agent to read this file as their first action.
 
-These per-client rules override general best practices in this CLAUDE.md and in sub-agent files. They exist because they were learned through real QA cycles and represent the user's exact preferences.
+For **Virtina** specifically: `clients/virtina/MUST-FOLLOW-RULES.md` is the authoritative source for all visual, structural, content, format, and uniqueness rules. It references additional files in `clients/virtina/reference/` and `clients/virtina/style/`. All these must be loaded before any Virtina work begins.
 
-When delegating, always include in the task brief: "Read clients/{client}/MUST-FOLLOW-RULES.md before any other action. Verify compliance with all rules before completing."
+The orchestrator must:
+1. Instruct the **analyzer** to pick a blog format (Format A–F per MUST-FOLLOW-RULES.md section 11) at the brief stage and document the choice
+2. Instruct the **analyzer** to verify topic and angle uniqueness against `published-posts-inventory.md` before finalizing the brief
+3. Instruct the **publisher** to run the full pre-publish checklist (MUST-FOLLOW-RULES.md section 9) and uniqueness checks before any PUT call
+
+These per-client rules override generic best practices in this CLAUDE.md and in agent files. They exist because they were established through real QA cycles and represent the user's exact preferences.

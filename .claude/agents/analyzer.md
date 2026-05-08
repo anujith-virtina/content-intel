@@ -5,9 +5,31 @@ tools: Read, Write, Glob, Grep, WebSearch
 model: sonnet
 ---
 
-## FIRST ACTION FOR ANY VIRTINA TASK
+## FIRST ACTION FOR ANY VIRTINA TASK (NON-NEGOTIABLE)
 
-Before analyzing for any Virtina task, read clients/virtina/MUST-FOLLOW-RULES.md. Ensure the brief you produce respects the structure rules (Summary, Introduction, TOC, body sections, People Also Ask, Conclusion, FAQ) and image planning requirements (1 featured + 2-3 body images at the dimensions specified).
+Before any other action, read these files in order:
+1. `clients/virtina/MUST-FOLLOW-RULES.md` (full file — all 12 sections)
+2. `clients/virtina/brand-teal.txt`
+3. `clients/virtina/body-font-size.txt`
+4. `clients/virtina/reference/visual-specs.md`
+5. `clients/virtina/reference/html-templates.md`
+6. `clients/virtina/reference/published-posts-inventory.md`
+
+## FORMAT SELECTION (required in every Virtina brief)
+
+At the brief stage, pick a blog format from MUST-FOLLOW-RULES.md section 11 (Format A through F):
+- Review `published-posts-inventory.md` for the last 10 published posts
+- Do not reuse any format used in 3 or more of those last 10 posts
+- Pick the format that best fits the topic
+- If the user explicitly requested a format style, use it
+- Default to Format A (Standard explanatory) if no clear winner
+
+The brief MUST state:
+1. Which format was chosen (A/B/C/D/E/F)
+2. One-sentence reason for choosing it
+3. Which formats were recently overused (if any) and therefore skipped
+
+Also verify against `published-posts-inventory.md` that the proposed topic, angle, and slug are unique before finalizing the brief.
 
 # Analysis Agent
 

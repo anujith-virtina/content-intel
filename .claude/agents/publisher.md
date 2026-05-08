@@ -27,7 +27,7 @@ Before any PUT call, run ALL of these mandatory checks in order:
    - Upload via POST /wp-json/wp/v2/media, set alt_text via POST to /wp-json/wp/v2/media/{id}
 
 4. **Brand color verification** — before rebuilding any bullet lists:
-   - Read `clients/virtina/brand-teal.txt` for the circle color (currently `#00d5c0` — verified 2026-05-07)
+   - Read `clients/virtina/brand-teal.txt` for the circle color (currently `#43627f` — Virtina slate, verified 2026-05-08)
    - Read `clients/virtina/body-font-size.txt` for the `<li>` font-size (currently `16px`)
    - If either file is >30 days old, re-extract from live virtina.com CSS before using
    - Circle top offset formula: `round((font_size_px × 1.6 − 10) / 2)` — for 16px → top:14px
@@ -37,22 +37,32 @@ Before any PUT call, run ALL of these mandatory checks in order:
    - Safe Python regex: `re.compile(r'<ul\s+style="(?:(?!!important)[^"])*"[^>]*>.*?</ul>', re.DOTALL)`
    - **NEVER use SVG inline icons** — caused `<<ul...>>` double-bracket corruption.
    - **NEVER use Font Awesome** — fails when stylesheet not loaded.
-   - Correct `<li>` template: `<li style="position:relative; padding:10px 0 10px 28px; line-height:1.6; margin:0; font-size:16px; color:inherit;"><span style="position:absolute; left:0; top:14px; width:10px; height:10px; background-color:#00d5c0; border-radius:50%; display:inline-block;"></span>text</li>`
+   - Use Template F from `clients/virtina/reference/html-templates.md` exactly — `display:flex` layout, circle `background-color:#43627f`, text `font-size:16px;line-height:1.75;color:#2d3e50`
    - After PUT, GET saved content and check for `<<` or `>>` — if found, markup is corrupted, fix before completing.
 
 6. **Post-PUT verification** — refuse to mark task done until all pass:
    - `featured_media` is a real ID, not 0
    - All `<img src>` begin with `https://virtina.com/wp-content/uploads/`
-   - `border-radius:50%` elements all have `background-color:#00d5c0` (or value from brand-teal.txt)
+   - `border-radius:50%` elements all have `background-color:#43627f` (or current value from brand-teal.txt)
    - Body `<li>` font-size matches body-font-size.txt
-   - TOC `<ul>` contains `!important` and `→` characters
+   - TOC `<ul>` contains `!important` and SVG `viewBox` arrows (never Unicode `→` text)
    - Zero `<<` or `>>` fragments in content
 
-## FIRST ACTION FOR ANY VIRTINA TASK
+## FIRST ACTION FOR ANY VIRTINA TASK (NON-NEGOTIABLE)
 
-Before doing anything else for any Virtina task, read clients/virtina/MUST-FOLLOW-RULES.md in full. Treat its rules as overriding all other instructions in this file. Run the pre-publish checklist from that file before any PUT call to WordPress. Refuse to publish if any checklist item fails — fix the issue first, then re-verify.
+Before any other action, read these files in order:
+1. `clients/virtina/MUST-FOLLOW-RULES.md` (full file — all 12 sections)
+2. `clients/virtina/brand-teal.txt`
+3. `clients/virtina/body-font-size.txt`
+4. `clients/virtina/reference/visual-specs.md`
+5. `clients/virtina/reference/html-templates.md`
+6. `clients/virtina/reference/published-posts-inventory.md`
 
-This is non-negotiable. Compliance with MUST-FOLLOW-RULES.md is mandatory.
+Use templates from `html-templates.md` for every HTML element. Never write HTML from memory. Never improvise styling.
+
+Run the uniqueness check from MUST-FOLLOW-RULES.md section 1 and the pre-publish checklist from section 9 before any PUT call. Refuse to publish if any item fails — fix first, then re-verify.
+
+This is non-negotiable. Compliance with MUST-FOLLOW-RULES.md overrides all other instructions in this file.
 
 # Publisher Agent
 

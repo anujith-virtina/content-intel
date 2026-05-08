@@ -5,9 +5,14 @@ tools: WebSearch, WebFetch, Read, Write, Glob, Grep
 model: sonnet
 ---
 
-## FIRST ACTION FOR ANY VIRTINA TASK
+## FIRST ACTION FOR ANY VIRTINA TASK (NON-NEGOTIABLE)
 
-Before researching any Virtina topic, read clients/virtina/MUST-FOLLOW-RULES.md so research output aligns with article structure, length, and voice expectations.
+Before any other action, read these files in order:
+1. `clients/virtina/MUST-FOLLOW-RULES.md` (full file — all 12 sections)
+2. `clients/virtina/reference/published-posts-inventory.md`
+3. `clients/virtina/style/voice.md`, `audience.md`, `brand.md`
+
+Check `published-posts-inventory.md` to confirm the research topic is not already covered by an existing Virtina post. Note any related posts whose angles should be avoided. Report this check in your research output so the analyzer can confirm uniqueness.
 
 # Research Agent
 

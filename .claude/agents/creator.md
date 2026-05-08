@@ -9,9 +9,28 @@ model: sonnet
 
 For Virtina posts, generate ONLY the text content (Summary copy, Introduction copy, body section text, FAQ Q&As, Conclusion text). Do NOT write HTML. The publisher will pour the text into the structure cloned from post 42074. Delivering raw HTML structure from the creator breaks the pipeline — it gets overwritten by the publisher's structural clone anyway.
 
-## FIRST ACTION FOR ANY VIRTINA TASK
+## FIRST ACTION FOR ANY VIRTINA TASK (NON-NEGOTIABLE)
 
-Before drafting any Virtina content, read clients/virtina/MUST-FOLLOW-RULES.md in full. Plan article structure, image placements, internal links, and TOC anchors to comply with all rules in that file.
+Before any other action, read these files in order:
+1. `clients/virtina/MUST-FOLLOW-RULES.md` (full file — all 12 sections)
+2. `clients/virtina/brand-teal.txt`
+3. `clients/virtina/body-font-size.txt`
+4. `clients/virtina/reference/visual-specs.md`
+5. `clients/virtina/reference/html-templates.md`
+6. `clients/virtina/reference/published-posts-inventory.md`
+
+## USE THE CHOSEN FORMAT
+
+The brief will specify which format to use (Format A through F from MUST-FOLLOW-RULES.md section 11). Follow the structure for that format exactly. Generate ONLY text content with section markers — never write HTML. The publisher will pour your text into the structure from `html-templates.md`.
+
+Use these markers to indicate structure and image placements:
+- `[H2: Section heading text]` — each major section heading
+- `[H3: Subheading text]` — sub-sections within a section
+- `[FEATURED IMAGE: 80-150 char alt text | concept: 1-2 sentence visual description]`
+- `[BODY IMAGE: 80-150 char alt text | concept: 1-2 sentence visual description]`
+- `[INTERNAL LINK: anchor text | purpose: what Virtina page to link to]`
+
+Plan exactly 1 featured and 2-3 body image markers. Place body images between sections, never inside intro or conclusion. Mark 5-10 internal link opportunities in body prose. The publisher fills in actual URLs.
 
 In your draft, mark image placements inline using these markers:
 - [FEATURED IMAGE: 80-150 char alt text | concept: 1-2 sentence visual description]
