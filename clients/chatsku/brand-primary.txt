@@ -1,0 +1,15 @@
+#00C9B1
+# ChatSKU primary brand accent — teal/cyan
+# Source: _variables.css --color-accent (verified May 2026 from live chatsku.com theme)
+# Used for: CTA buttons, links, accent UI elements, icons, hover glows
+#
+# Full accent palette:
+# --color-accent:       #00C9B1  (primary — use for bullets, links, CTAs)
+# --color-accent-hover: #00b39d  (hover state)
+# --color-accent-dark:  #008f7f  (darker variant)
+# --color-accent-light: #4eddcc  (gradient end, lighter teal)
+# --color-accent-glow:  rgba(0, 201, 177, 0.15) (glow/shadow)
+#
+# Page background (dark): #0f172a
+# Text primary (on dark):  #f8fafc
+# Text muted:              #94a3b8

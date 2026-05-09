@@ -116,3 +116,14 @@ The orchestrator must:
 3. Instruct the **publisher** to run the full pre-publish checklist (MUST-FOLLOW-RULES.md section 9) and uniqueness checks before any PUT call
 
 These per-client rules override generic best practices in this CLAUDE.md and in agent files. They exist because they were established through real QA cycles and represent the user's exact preferences.
+
+## Active clients
+
+| Slug | Site | CMS / Builder | WP Credentials |
+|---|---|---|---|
+| `virtina` | https://virtina.com | WordPress + Thrive Architect | `WP_USERNAME`, `WP_APP_PASSWORD` |
+| `chatsku` | https://chatsku.com | WordPress + Elementor 4.0.3 | `CHATSKU_WP_USERNAME`, `CHATSKU_WP_APP_PASSWORD` |
+
+Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agents read those files before any task. Never mix credentials across clients — ChatSKU and Virtina are separate WordPress installations.
+
+Key difference: Virtina uses Thrive Architect (requires complex `!important` CSS, SVG arrow TOC, inline Thrive styles). ChatSKU uses Elementor (standard Gutenberg block HTML, no Thrive markup).

@@ -1,0 +1,13 @@
+16px
+# ChatSKU blog body font-size
+# Source: _variables.css --font-size-base: 1rem = 16px (verified May 2026)
+# Line-height: --line-height-base: 1.6
+#
+# Font families:
+# Body:    Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif
+# Heading: Space Grotesk, Inter, sans-serif
+#
+# Blog post images (from post 151 — verified):
+# Featured:  860 x 452 px
+# Body:      860 x 452 px (same dimensions)
+# Aspect ratio: ~1.905:1 (860/452)
