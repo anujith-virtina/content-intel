@@ -181,6 +181,7 @@ Required:
 - REST API endpoint: `/wp-json/wp/v2/posts` with Basic Auth
 - Credentials: `$env:CHATSKU_WP_USERNAME` and `$env:CHATSKU_WP_APP_PASSWORD`
 - DO NOT use Virtina's WP_USERNAME / WP_APP_PASSWORD — different site, different credentials
+- **Cloudflare requirement:** Every request to chatsku.com (REST API, media upload, GET, PUT) MUST include a browser User-Agent header or Cloudflare returns 403 error 1010. Use: `'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'`
 - `featured_media` set with a real media ID, never 0
 - Yoast meta title: 60 chars max, format `{Title} | ChatSKU`
 - Yoast meta description: 150–160 chars
