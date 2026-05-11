@@ -17,13 +17,48 @@ Local cached copy: `clients/chatsku/reference/post-151-working.html`. Refresh ev
 - `clients/chatsku/style/voice.md`, `audience.md`, `brand.md`, `cms.md`, `examples.md` — content and publishing rules
 
 ## Tech stack note (critical)
-ChatSKU uses WordPress + **Elementor 4.0.3**, NOT Thrive Architect. This means:
-- Standard Gutenberg block HTML renders correctly — no `!important` CSS wars
-- No SVG arrow TOC required — simple `<a href="#anchor">` links work
-- No complex inline style overrides needed
-- Post content is clean semantic HTML — `<h2>`, `<p>`, `<ul>`, `<li>` tags
-- Bullet styling through standard CSS classes, not inline `border-radius:50%` circles
-- The Virtina Thrive-specific HTML patterns DO NOT apply here
+ChatSKU uses WordPress + **Elementor 4.0.3 page builder**. Every post is built as an Elementor page (not a standard WordPress post). This means:
+
+### What the publisher MUST do (verified from post 151)
+Every ChatSKU post requires THREE things pushed via REST API — not just `content`:
+
+1. **`content`** — standard HTML (semantic `<h2>`, `<p>`, `<ul>` etc.) as the fallback
+2. **`meta._elementor_data`** — the full Elementor widget JSON (sections → columns → widgets)
+3. **`meta._elementor_edit_mode`** = `"builder"` and **`meta._elementor_template_type`** = `"wp-post"`
+
+Without `_elementor_data`, posts render as plain WordPress content — NOT matching the site design.
+
+### Elementor widget structure (verified from post 151)
+Each H2 section = one Elementor section with a 100% column containing:
+- **heading widget** (H2, `title_color: "#1a1a2e"`, `font_size: 28px`)
+- **text-editor widget** (HTML paragraphs/lists)
+- **image widget** (when a body image belongs in that section)
+
+H3 sub-headings (PAA questions, FAQ questions, section sub-heads):
+- Separate **heading widget** (`header_size: "h3"`, `title_color: "#1a1a2e"`, `font_size: 22px`)
+
+Image widget settings:
+```json
+{"image": {"id": MEDIA_ID, "url": "...", "alt": "...", "source": "library", "size": ""},
+ "align": "center", "width": {"size": 100, "unit": "%"},
+ "border_radius": {"top": "10", "right": "10", "bottom": "10", "left": "10", "unit": "px"}}
+```
+
+Section settings:
+```json
+{"background_background": "classic", "background_color": "#f9f9fb",
+ "padding": {"top": "20", "bottom": "20", "right": "15", "left": "15", "unit": "px"}}
+```
+
+### Script template
+`clients/chatsku/output/research/build_elementor_post186.py` — reference implementation for building `_elementor_data` from parsed HTML sections. Use as the template for every new ChatSKU post.
+
+### What does NOT apply here
+- No Thrive Architect markup
+- No `!important` CSS overrides
+- No SVG arrow TOC
+- No inline `border-radius:50%` bullet circles
+- No Virtina-style `<div>` wrappers
 
 ---
 
@@ -181,11 +216,22 @@ Required:
 - REST API endpoint: `/wp-json/wp/v2/posts` with Basic Auth
 - Credentials: `$env:CHATSKU_WP_USERNAME` and `$env:CHATSKU_WP_APP_PASSWORD`
 - DO NOT use Virtina's WP_USERNAME / WP_APP_PASSWORD — different site, different credentials
-- **Cloudflare requirement:** Every request to chatsku.com (REST API, media upload, GET, PUT) MUST include a browser User-Agent header or Cloudflare returns 403 error 1010. Use: `'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'`
+- **Cloudflare requirement:** Every request to chatsku.com MUST include browser User-Agent header or Cloudflare returns 403. Use: `'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'`
 - `featured_media` set with a real media ID, never 0
 - Yoast meta title: 60 chars max, format `{Title} | ChatSKU`
 - Yoast meta description: 150–160 chars
-- Categories and tags from ChatSKU's existing WordPress taxonomy
+
+**REQUIRED: Elementor data — every post MUST include in the `meta` field:**
+```json
+{
+  "meta": {
+    "_elementor_edit_mode": "builder",
+    "_elementor_template_type": "wp-post",
+    "_elementor_data": "[... JSON string from build_elementor script ...]"
+  }
+}
+```
+Without this, the post renders as plain WordPress content and will not match the site design. Use `clients/chatsku/output/research/build_elementor_post186.py` as the template. Parse the HTML into Elementor sections (one section per H2), with heading/text-editor/image widgets per section.
 
 ---
 
@@ -236,6 +282,9 @@ Run before any PUT call. Fix all failures before publishing.
 - [ ] Yoast meta title set (ends `| ChatSKU`, 60 chars max)
 - [ ] Yoast meta description set (150–160 chars)
 - [ ] Credentials used are `CHATSKU_WP_USERNAME` / `CHATSKU_WP_APP_PASSWORD`
+- [ ] `_elementor_edit_mode` = `"builder"` set in meta
+- [ ] `_elementor_template_type` = `"wp-post"` set in meta
+- [ ] `_elementor_data` JSON set in meta (non-empty, parses as valid JSON array)
 
 ---
 
