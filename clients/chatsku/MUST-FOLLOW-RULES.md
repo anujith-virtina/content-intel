@@ -44,10 +44,20 @@ Image widget settings:
  "border_radius": {"top": "10", "right": "10", "bottom": "10", "left": "10", "unit": "px"}}
 ```
 
-Section settings:
+Section color scheme (verified from post 151 — alternate body sections):
+| Section type       | Background | Padding (top/bottom) | Notes |
+|--------------------|-----------|----------------------|-------|
+| Executive Summary  | `#f9f9fb` | 20px | Light gray |
+| Introduction       | `#ffffff` | **0px** | White, no vertical padding |
+| Body sections      | `#f0f4ff` / `#ffffff` | 20px | Alternate starting with `#f0f4ff` |
+| PAA section        | (next alternating color) | 20px | |
+| Conclusion         | `#1a1a2e` | **60px** | Dark navy; heading `#ffffff`; body `color:#aaaacc; text-align:center; font-size:18px; max-width:720px; margin:0 auto;` |
+| FAQ                | `#f9f9fb` | 20px | Light gray (visual bookend with Exec Summary) |
+
+Section settings template:
 ```json
-{"background_background": "classic", "background_color": "#f9f9fb",
- "padding": {"top": "20", "bottom": "20", "right": "15", "left": "15", "unit": "px"}}
+{"background_background": "classic", "background_color": "<see table above>",
+ "padding": {"top": "<see table>", "bottom": "<see table>", "right": "15", "left": "15", "unit": "px"}}
 ```
 
 ### Script template
