@@ -1,0 +1,20 @@
+{
+  "post_id": 42177,
+  "edit_url": "https://virtina.com/wp-admin/post.php?post=42177&action=edit",
+  "media_ids": {
+    "featured": 42178,
+    "featured_url": "https://virtina.com/wp-content/uploads/2026/05/volusion-woocommerce-migration-featured-1309x500-2.jpg",
+    "section1": 42179,
+    "section1_url": "https://virtina.com/wp-content/uploads/2026/05/volusion-woocommerce-migration-section1-670x352-2.jpg",
+    "section2": 42180,
+    "section2_url": "https://virtina.com/wp-content/uploads/2026/05/volusion-woocommerce-migration-section2-670x352-2.jpg",
+    "section3": 42181,
+    "section3_url": "https://virtina.com/wp-content/uploads/2026/05/volusion-woocommerce-migration-section3-670x352-2.jpg"
+  },
+  "checks": {
+    "title OK": true,
+    "content length OK": true,
+    "featured_media 42178": true,
+    "status draft": true
+  }
+}
