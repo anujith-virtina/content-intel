@@ -11,7 +11,7 @@ wp_tags_applied: [16, 321, 385]
 meta_description: Frustrated with Volusion billing surprises and integration dead ends? The honest Volusion to WooCommerce migration story: what it takes and what you gain.
 seo_title: From Volusion to WooCommerce: the migration story | Virtina
 canonical_url: https://virtina.com/?p=42177
-featured_image_id: 42178
+featured_image_id: 42190
 wp_post_id: 42177
 channels: [file, cms]
 rewrite_date: 2026-05-14
@@ -24,25 +24,35 @@ checklist_notes: >
   set manually in WP dashboard — REST API cannot write Yoast fields on virtina.com.
 images:
   featured:
-    openverse_id: 7f0cd475-ee7f-48c5-add5-7c688f3820ca
+    wp_media_id: 42190
+    source: Wikimedia Commons (CC BY-SA) — Business professional at office desk
     dimensions: 1309x500
-    filename: volusion-woocommerce-migration-featured-1309x500.jpg
-    alt: Volusion merchant reviewing WooCommerce migration plan on laptop, preparing to switch eCommerce platforms for their growing online store
+    filename: volusion-migration-featured-1309x500-1.jpg
+    alt: Business professional reviewing eCommerce options at a modern office desk, evaluating Volusion to WooCommerce migration strategy
+    quality_note: Downscaled from 6016x4016 source — no upscaling, crisp output
   section1:
-    openverse_id: 3a5371c2-949c-492d-9a8e-caf5ce4dfc21
+    wp_media_id: 42187
+    source: Flickr CC-BY — Woman at work with laptop
     dimensions: 670x352
-    filename: volusion-woocommerce-migration-section1-670x352.jpg
-    alt: Online store owner frustrated by unexpected Volusion plan upgrade fees and platform billing changes affecting their eCommerce business
+    filename: volusion-migration-section1-670x352-1.jpg
+    alt: Business professional focused at laptop reviewing eCommerce platform costs and billing, evaluating Volusion migration options
+    quality_note: Downscaled from 1024x683 source — no upscaling, crisp output
   section2:
-    openverse_id: 8f40cddf-7969-4a8b-967e-b9bebfbac3af
+    wp_media_id: 42188
+    source: Flickr CC-BY — Business people in a meeting
     dimensions: 670x352
-    filename: volusion-woocommerce-migration-section2-670x352.jpg
-    alt: eCommerce developer planning Volusion to WooCommerce migration steps including 301 redirects and product data import mapping
+    filename: volusion-migration-section2-670x352-1.jpg
+    alt: Business team collaborating in office meeting to plan eCommerce platform migration strategy from Volusion to WooCommerce
+    quality_note: Downscaled from 1023x652 source — no upscaling, crisp output
   section3:
-    openverse_id: fe9c0e44-93d6-49b2-b7e5-dfb02871104f
+    wp_media_id: 42189
+    source: Flickr CC-BY — Cheerful woman holding AT sign
     dimensions: 670x352
-    filename: volusion-woocommerce-migration-section3-670x352.jpg
-    alt: Small business owner reviewing improved WooCommerce store analytics after successful migration from Volusion eCommerce platform
+    filename: volusion-migration-section3-670x352-1.jpg
+    alt: Happy smiling business professional reviewing eCommerce sales growth and analytics results after successful WooCommerce migration from Volusion
+    quality_note: Downscaled from 1024x696 source — no upscaling, crisp output
+  image_replace_date: 2026-05-14
+  image_replace_notes: All 4 images replaced with high-quality professional photos. Replaced blurry upscaled stock with crisp downscaled sources. Flickr _k.jpg/_h.jpg unavailable (410 Gone); Flickr _b.jpg (1024px) used for sections; Wikimedia Commons (6016px) for featured.
 internal_links:
   - https://virtina.com/platforms/woocommerce-development-services/
   - https://virtina.com/b2b-ecommerce-development/

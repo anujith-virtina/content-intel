@@ -28,11 +28,13 @@ Every ChatSKU post requires THREE things pushed via REST API — not just `conte
 
 Without `_elementor_data`, posts render as plain WordPress content — NOT matching the site design.
 
-### Elementor widget structure (verified from post 151)
+### Elementor widget structure (verified from post 96)
 Each H2 section = one Elementor section with a 100% column containing:
 - **heading widget** (H2, `title_color: "#1a1a2e"`, `font_size: 28px`)
 - **text-editor widget** (HTML paragraphs/lists)
-- **image widget** (when a body image belongs in that section)
+- **image widget** (when a body image belongs in that section) — **MUST come AFTER text-editor, never before**
+
+**CRITICAL — widget order**: image widget MUST be the last widget in the column (after text-editor). If image precedes text-editor, Elementor prepends the image into the text-editor's rendered div, causing a doubled image on the page. This is a confirmed Elementor 4.0.3 rendering bug.
 
 H3 sub-headings (PAA questions, FAQ questions, section sub-heads):
 - Separate **heading widget** (`header_size: "h3"`, `title_color: "#1a1a2e"`, `font_size: 22px`)
@@ -44,24 +46,37 @@ Image widget settings:
  "border_radius": {"top": "10", "right": "10", "bottom": "10", "left": "10", "unit": "px"}}
 ```
 
-Section color scheme (verified from post 151 — alternate body sections):
-| Section type       | Background | Padding (top/bottom) | Notes |
-|--------------------|-----------|----------------------|-------|
-| Executive Summary  | `#f9f9fb` | 20px | Light gray |
-| Introduction       | `#ffffff` | **0px** | White, no vertical padding |
-| Body sections      | `#f0f4ff` / `#ffffff` | 20px | Alternate starting with `#f0f4ff` |
-| PAA section        | (next alternating color) | 20px | |
-| Conclusion         | `#1a1a2e` | **60px** | Dark navy; heading `#ffffff`; body `color:#aaaacc; text-align:center; font-size:18px; max-width:720px; margin:0 auto;` |
-| FAQ                | `#f9f9fb` | 20px | Light gray (visual bookend with Exec Summary) |
+Section color scheme (verified from post 96 — b2b-ecommerce-chatbot-dallas — the authoritative reference):
+| Section type       | Background | Section padding | Notes |
+|--------------------|-----------|----------------|-------|
+| Executive Summary  | `#f9f9fb` | 60px top/bottom | Light gray |
+| Introduction       | `#ffffff` | 60px top/bottom | White |
+| Body sections      | cycle: `#f0f4ff` / `#ffffff` / `#f9f9fb` / `#ffffff` | 60px top/bottom | Starting at `#f0f4ff` |
+| PAA section        | (next in cycle) | 60px top/bottom | |
+| Conclusion         | `#1a1a2e` | 20px top / 30px bottom | Dark navy; heading `#ffffff`; body `color:#aaaacc; text-align:center; font-size:18px; max-width:720px; margin:0 auto;` |
+| FAQ                | `#f9f9fb` | 60px top/bottom | Light gray |
+
+**CRITICAL**: Section padding has NO right/left keys. All left/right padding is on the column, not the section.
+
+Column settings (every section — verified from post 96):
+```json
+{
+  "_column_size": 100, "width": "100",
+  "padding": {"unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true}
+}
+```
 
 Section settings template:
 ```json
-{"background_background": "classic", "background_color": "<see table above>",
- "padding": {"top": "<see table>", "bottom": "<see table>", "right": "15", "left": "15", "unit": "px"}}
+{
+  "background_background": "classic",
+  "background_color": "<see table above>",
+  "padding": {"top": "60", "bottom": "60", "unit": "px"}
+}
 ```
 
 ### Script template
-`clients/chatsku/output/research/build_elementor_post186.py` — reference implementation for building `_elementor_data` from parsed HTML sections. Use as the template for every new ChatSKU post.
+`clients/chatsku/output/research/build_elementor_post186_v3.py` — reference implementation matching post 96 structure exactly. Use as the template for every new ChatSKU post.
 
 ### What does NOT apply here
 - No Thrive Architect markup
@@ -230,6 +245,7 @@ Required:
 - `featured_media` set with a real media ID, never 0
 - Yoast meta title: 60 chars max, format `{Title} | ChatSKU`
 - Yoast meta description: 150–160 chars
+- **Yoast meta CANNOT be set via REST API** — `_yoast_wpseo_title` and `_yoast_wpseo_metadesc` are not registered with `show_in_rest` on chatsku.com. Must be entered manually: WP Admin → Posts → Edit → Yoast SEO panel → SEO tab.
 
 **REQUIRED: Elementor data — every post MUST include in the `meta` field:**
 ```json
@@ -241,7 +257,20 @@ Required:
   }
 }
 ```
-Without this, the post renders as plain WordPress content and will not match the site design. Use `clients/chatsku/output/research/build_elementor_post186.py` as the template. Parse the HTML into Elementor sections (one section per H2), with heading/text-editor/image widgets per section.
+Without this, the post renders as plain WordPress content and will not match the site design. Use `clients/chatsku/output/research/build_elementor_post186_v3.py` as the canonical template. Parse the HTML into Elementor sections (one section per H2), with heading/text-editor/image widgets per section.
+
+**REQUIRED after every Elementor data push — clear the cache:**
+```python
+urllib.request.Request('https://chatsku.com/wp-json/elementor/v1/cache', headers=HEADERS, method='DELETE')
+```
+Without this, WordPress serves a stale rendered version (old widget IDs, old layout). The cache clear is mandatory — not optional.
+
+**Conclusion section** requires three widgets (verified from post 96):
+1. `heading` widget — `align: "center"`, `title_color: "#ffffff"`
+2. `text-editor` widget — each `<p>` styled `color:#aaaacc; text-align:center; font-size:18px; max-width:720px; margin:0 auto;` — NO inline CTA links in body text
+3. `button` widget — `background_color: "#e94560"`, `button_text_color: "#ffffff"`, `border_radius: 6px`, `align: center`, link to `https://chatsku.com/demo/`
+
+**WP content field** — after building Elementor data, also strip any bare `<img>` tags from the WordPress `content` field. Even in Elementor builder mode, leftover `<img>` tags in `content` can leak into the rendered output alongside the Elementor image widgets, causing doubled images.
 
 ---
 
@@ -258,7 +287,9 @@ Run before any PUT call. Fix all failures before publishing.
 **Structure:**
 - [ ] All required sections present for chosen format
 - [ ] "Executive Summary" present as H2 (not "Summary")
-- [ ] Conclusion present with CTA linking to chatsku.com/signup/ or chatsku.com/demo/
+- [ ] Conclusion present with CTA button widget (not inline link) linking to chatsku.com/demo/
+- [ ] Conclusion heading is centered and white (#ffffff)
+- [ ] Conclusion body text styled: color:#aaaacc; text-align:center; font-size:18px
 
 **Images:**
 - [ ] Featured image set (real media ID, not 0)
@@ -295,6 +326,10 @@ Run before any PUT call. Fix all failures before publishing.
 - [ ] `_elementor_edit_mode` = `"builder"` set in meta
 - [ ] `_elementor_template_type` = `"wp-post"` set in meta
 - [ ] `_elementor_data` JSON set in meta (non-empty, parses as valid JSON array)
+- [ ] Elementor cache cleared after push: `DELETE /wp-json/elementor/v1/cache`
+- [ ] WP `content` field has no bare `<img>` tags (strip them before pushing)
+- [ ] Image widgets are ordered AFTER text-editor widgets in every section
+- [ ] Yoast meta title and description set manually in WP dashboard (cannot be set via REST API)
 
 ---
 
