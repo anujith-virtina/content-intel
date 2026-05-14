@@ -14,6 +14,8 @@ canonical_url: https://virtina.com/?p=42177
 featured_image_id: 42178
 wp_post_id: 42177
 channels: [file, cms]
+rewrite_date: 2026-05-14
+rewrite_notes: Converted all 4 body H2s to questions (Q&A format). Rewrote all prose to short sentences (target 18 words max). TOC updated to match new question headings. All HTML structure preserved.
 checklist_verified: 2026-05-13
 checklist_notes: >
   All pre-publish checks pass. Tags applied (volusion ID=16, woocommerce-migration ID=385,
