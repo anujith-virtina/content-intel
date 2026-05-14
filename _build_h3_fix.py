@@ -85,7 +85,7 @@ def toc_item(href, label):
             f'font-family:metropolis,arial!important;font-size:16px!important;'
             f'font-weight:500!important;">{label}</a></li>')
 
-toc = ('<h3>Table of Contents</h3>'
+toc = ('<h3 style="color:#43627f;font-size:22px;">Table of Contents</h3>'
        '<ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">'
        + toc_item('#walls',         'Why do Volusion merchants keep hitting a wall?')
        + toc_item('#decision',      'When should you migrate from Volusion to WooCommerce?')
