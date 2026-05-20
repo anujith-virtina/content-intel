@@ -1,0 +1,30 @@
+{
+  "post_id": 42202,
+  "images": {
+    "featured": {
+      "status": "OK",
+      "media_id": 42203,
+      "src_url": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-featured-1309x500-1.jpg",
+      "alt": "Business professional reviewing a B2B customer portal dashboard on a laptop in a modern office workspace"
+    },
+    "body1": {
+      "status": "FETCH_FAILED",
+      "media_id": null,
+      "src_url": null,
+      "alt": "Warehouse worker in high-visibility vest checking inventory shelves representing B2B order and stock management"
+    },
+    "body2": {
+      "status": "OK",
+      "media_id": 42204,
+      "src_url": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body2-670x352-1.jpg",
+      "alt": "Small business team reviewing WooCommerce portal implementation plans at a meeting table with laptop and documents"
+    },
+    "body3": {
+      "status": "OK",
+      "media_id": 42205,
+      "src_url": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body3-670x352-1.jpg",
+      "alt": "Account manager at a desk on a phone call while reviewing customer account data on a laptop representing B2B portal onboarding support"
+    }
+  },
+  "ts": "2026-05-20T07:51:17Z"
+}

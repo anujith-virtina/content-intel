@@ -1,14 +1,14 @@
 ---
 title: Virtina Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 301
-last_updated: 2026-05-08
+total_posts: 304
+last_updated: 2026-05-20
 update_frequency: After every published post; full refresh monthly
 ---
 
 # Virtina Published Posts Inventory
 
-Total indexed: **301 posts** as of 2026-05-08.
+Total indexed: **304 posts** as of 2026-05-20.
 
 ## How to use this file
 
@@ -20,7 +20,15 @@ Before writing any new Virtina blog:
 
 ---
 
-## WooCommerce (48 posts)
+## WooCommerce (50 posts)
+
+### Does your WooCommerce store have a B2B customer portal, or just an account page?
+- **ID**: 42202  **Slug**: `woocommerce-b2b-customer-portal`  **Date**: 2026-05-20
+- **Excerpt**: A Q&A guide covering what a WooCommerce B2B customer portal actually includes, which plugins build it (B2BKing vs Wholesale Suite vs custom dev), what it costs, and how to reduce buyer support tickets through self-service account features.
+
+### How to connect WooCommerce to your ERP: a practical guide for B2B manufacturers and distributors
+- **ID**: 42108  **Slug**: `woocommerce-erp-integration`  **Date**: 2026-05-11
+- **Excerpt**: A practical guide for B2B manufacturers and distributors on connecting WooCommerce to ERP systems — covering connector options, real-time sync requirements, and implementation pitfalls.
 
 ### Why Is Your WooCommerce B2B Store Slow? A 60-Second Diagnostic and Fix Guide
 - **ID**: 42074  **Slug**: `woocommerce-b2b-performance-fix`  **Date**: 2026-05-06
@@ -504,7 +512,11 @@ Before writing any new Virtina blog:
 - **ID**: 10700  **Slug**: `volusion-integration`  **Date**: 2015-09-07
 - **Excerpt**: Over the last 14 years, Volusion has grown into a leading eCommerce store Software As A Service (SaaS) provide with over 40,000 online stores. One of the major reasons for Volusion’s growth is that their system makes 80% of the tasks involved in sett
 
-## Migration (2 posts)
+## Migration (3 posts)
+
+### From Volusion to WooCommerce: The Migration Story Every Frustrated Store Owner Needs to Read
+- **ID**: 42177  **Slug**: `volusion-to-woocommerce-migration`  **Date**: 2026-05-14
+- **Excerpt**: A migration guide for Volusion store owners switching to WooCommerce, covering the practical steps, data migration, and what to expect during and after the transition.
 
 ### eCommerce Migration Checklist
 - **ID**: 34921  **Slug**: `ecommerce-website-migration-checklist`  **Date**: 2024-05-13

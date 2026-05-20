@@ -22,27 +22,54 @@ Local cached copies in `clients/virtina/reference/`. Refresh every 30 days or af
 
 ## 1. UNIQUENESS — EVERY VIRTINA BLOG MUST BE UNIQUE
 
-Before writing any new Virtina blog, the creator and analyzer must verify:
+Before writing any new Virtina blog, the researcher must run all 5 checks below and save a uniqueness audit file to `clients/virtina/output/research/uniqueness-audit-{YYYY-MM-DD}.md`. A topic is REJECTED if it fails ANY single check. This is non-negotiable.
 
-### A) Topic uniqueness
-- Read `clients/virtina/reference/published-posts-inventory.md` fully
-- Confirm the new topic does not duplicate any existing post's primary subject
-- If proposed topic overlaps with an existing post, either reject it or find a new angle that does not duplicate the existing piece's thesis or coverage
+### Pre-check: Refresh the inventory if stale
+- Check `last_updated` field in `published-posts-inventory.md`
+- If older than 7 days, refresh via WP REST API: `GET https://virtina.com/wp-json/wp/v2/posts?per_page=100&page=N&status=publish&orderby=date&order=desc`
+- Paginate until you have all posts published since `last_updated`
+- Add new posts to inventory and update `total_posts` and `last_updated`
 
-### B) Angle uniqueness
+### CHECK 1 — Title word overlap
+- No existing post title shares 3 or more consecutive meaningful words with the proposed title
+- Ignore stop words (the, a, an, is, to, for, in, of, and, or, with)
+- REJECT if 3+ consecutive content words match
+
+### CHECK 2 — Slug overlap
+- The proposed slug must not be a substring of any existing slug
+- The proposed slug must not contain 2 or more words from any existing slug
+- REJECT if substring match OR 2+ word overlap found
+
+### CHECK 3 — Primary keyword uniqueness
+- The primary keyword must not be the focus keyword of any existing post
+- Cross-check against slug fields (slugs encode the focus keyword)
+- REJECT if primary keyword is already claimed by an existing post
+
+### CHECK 4 — Angle/thesis uniqueness
 - The thesis (point of view) must be different from any existing Virtina post on a related topic
-- Cross-check angle against the inventory's title and excerpt fields
+- Even if the title is different, reject if the argument or coverage is substantially the same
+- Cross-check angle against the inventory's excerpt fields
+- REJECT if angle overlap exists even with a different title
 
-### C) Keyword uniqueness
-- Primary keyword/slug must not match any existing post slug
-- Secondary keywords (long-tail) should not entirely overlap with an existing post's keyword cluster
+### CHECK 5 — Topic cluster saturation
+- Count existing posts in the same topic cluster (e.g., WooCommerce, migration, SEO, B2B)
+- REJECT if 5 or more posts already exist on the same general subject within the cluster
+- "Same general subject" means posts a reader seeking info on topic X would already find
 
-### D) Phrasing uniqueness
+### Audit file requirement
+Save results to `clients/virtina/output/research/uniqueness-audit-{YYYY-MM-DD}.md` with:
+- All candidate topics evaluated (even rejected ones)
+- Which checks each candidate passed or failed
+- Final selected topic with explicit PASS notation for all 5 checks
+
+### Additional uniqueness rules (post-draft)
+
+**Phrasing uniqueness:**
 - After draft is written, no sentence longer than 8 words may appear verbatim in any existing Virtina post
 - The publisher runs this check before any PUT call
 - If duplicate phrasing detected, the creator rewrites those passages
 
-### E) Structural uniqueness via different blog formats
+**Structural uniqueness via different blog formats:**
 - The standard format (used in post 42074) is one option, not the only option
 - Section 11 defines additional supported formats — pick the format that best fits the topic and that hasn't been overused recently
 
@@ -184,10 +211,13 @@ Required:
 The publisher runs every item before any PUT call. If any item fails, fix and re-verify. Never publish a broken post.
 
 **Uniqueness:**
-- [ ] Topic not duplicated against `published-posts-inventory.md`
-- [ ] Angle/thesis distinct from existing posts on related topics
-- [ ] Slug doesn't match any existing post slug
-- [ ] No 8-word sequence appears verbatim in any existing Virtina post
+- [ ] All 5 uniqueness checks passed (audit file exists at `output/research/uniqueness-audit-{date}.md`)
+- [ ] CHECK 1 PASS: No existing post title shares 3+ consecutive meaningful words
+- [ ] CHECK 2 PASS: No existing slug is substring match or 2+ word overlap
+- [ ] CHECK 3 PASS: Primary keyword not focus of any existing post
+- [ ] CHECK 4 PASS: No angle/thesis overlap even with different title
+- [ ] CHECK 5 PASS: Topic cluster not saturated (fewer than 5 existing posts on same general subject)
+- [ ] No 8+ word verbatim sequence with any existing post (phrasing uniqueness guard)
 
 **Structure (for chosen format from section 11):**
 - [ ] All required sections present in correct order for chosen format
