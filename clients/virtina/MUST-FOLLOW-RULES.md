@@ -181,7 +181,11 @@ Pre-publish: count external hrefs. If more than 2, convert excess to plain text.
 ## 7. VOICE AND STYLE
 
 Banned characters:
-- Em dashes (— U+2014) and `&mdash;` — replace with periods, commas, colons, or hyphens
+- Em dashes (— U+2014), `&mdash;`, `&#8212;`, `&#x2014;` — banned everywhere: titles, headings, body, bullets, conclusions. Replace with commas, colons, periods, or hyphens. The publisher script must grep for all four forms before any PUT call.
+
+H3 heading pattern (verified from agentic-ai-in-ecommerce-ai-agents, May 2026):
+- Correct: `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>`
+- Wrong: `<h3 style="color:#43627f;font-size:23px;">TEXT</h3>` — do not use this older pattern
 
 Banned words:
 - Hype: revolutionary, game-changing, best-in-class, cutting-edge, transform your, unlock value, synergize
@@ -260,10 +264,11 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] No links to competitor domains (shopify.com, bigcommerce.com, etc.)
 
 **Voice:**
-- [ ] No em dashes (— or `&mdash;`)
+- [ ] No em dashes — grep for `—`, `&mdash;`, `&#8212;`, `&#x2014;` — all four forms must be zero
 - [ ] No banned hype/filler words
 - [ ] Sentence case headings throughout
 - [ ] Word count appropriate for format
+- [ ] All H3 tags use `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>` — not the old styled H3
 
 **WordPress:**
 - [ ] Status: `draft`
