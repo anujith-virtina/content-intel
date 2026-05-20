@@ -103,6 +103,43 @@ body_ul_re = re.compile(r'<ul\s+style="(?![^"]*!important)[^"]*"[^>]*>.*?</ul>',
 
 ---
 
+## Template N — Comparison table
+
+Use for any plugin/platform/option comparison. Requires full inline styles — no bare `<table>` tags.
+
+```html
+<table data-rows="{{ROW_COUNT}}" data-cols="{{COL_COUNT}}" data-v="middle" style="width:100%;border-collapse:collapse;margin:16px 0;">
+<thead>
+<tr>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>{{HEADER_1}}</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>{{HEADER_2}}</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-th="{{HEADER_1}}" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">{{CELL}}</p></td>
+<td data-th="{{HEADER_2}}" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">{{CELL}}</p></td>
+</tr>
+<tr>
+<td data-th="{{HEADER_1}}" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">{{CELL}}</p></td>
+<td data-th="{{HEADER_2}}" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">{{CELL}}</p></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr" style="font-size:14px;line-height:1.6;color:#6e6e6e;margin:4px 0 16px 0;">{{TABLE_CAPTION}}</p>
+```
+
+Rules:
+- `<th>` always: `background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;`
+- Odd data rows: `background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;`
+- Even data rows: `background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;`
+- All cell content wrapped in `<p style="font-size:16px;line-height:1.75;">` tags
+- Add `data-th="{{HEADER_NAME}}"` on every `<td>` matching its column header
+- Always follow the table with a caption `<p>` in 14px grey (`color:#6e6e6e`) noting the data date
+- Source: verified from post 42108 API response (May 2026)
+
+---
+
 ## Template G — Body image block
 
 ```html
