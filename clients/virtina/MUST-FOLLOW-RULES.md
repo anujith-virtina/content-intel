@@ -183,9 +183,9 @@ Pre-publish: count external hrefs. If more than 2, convert excess to plain text.
 Banned characters:
 - Em dashes (— U+2014), `&mdash;`, `&#8212;`, `&#x2014;` — banned everywhere: titles, headings, body, bullets, conclusions. Replace with commas, colons, periods, or hyphens. The publisher script must grep for all four forms before any PUT call.
 
-H3 heading pattern (verified from agentic-ai-in-ecommerce-ai-agents, May 2026):
-- Correct: `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>`
-- Wrong: `<h3 style="color:#43627f;font-size:23px;">TEXT</h3>` — do not use this older pattern
+H3 heading pattern for Thrive Architect posts (verified from post 42177, May 2026):
+- Correct: `<h3 style="color:#43627f;font-size:22px;">TEXT</h3>`
+- Wrong: `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>` — this is the Elementor pattern, does NOT work in Thrive posts
 
 Banned words:
 - Hype: revolutionary, game-changing, best-in-class, cutting-edge, transform your, unlock value, synergize
@@ -268,7 +268,7 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] No banned hype/filler words
 - [ ] Sentence case headings throughout
 - [ ] Word count appropriate for format
-- [ ] All H3 tags use `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>` — not the old styled H3
+- [ ] All H3 tags use `<h3 style="color:#43627f;font-size:22px;">TEXT</h3>` — never the Elementor `<span style="font-weight: normal;">` pattern
 
 **WordPress:**
 - [ ] Status: `draft`

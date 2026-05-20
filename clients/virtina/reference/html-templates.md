@@ -64,16 +64,16 @@ For sections with sub-headings (H3):
 ```html
 <div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="{{ANCHOR_ID}}" style="color:#43627f;font-size:30px;">{{HEADING}}</h2>
 <p dir="ltr" style="font-size:16px;line-height:1.75;">{{PARAGRAPH_TEXT}}</p>
-<h3><span style="font-weight: normal;"><span>{{SUBHEADING}}</span></span></h3>
+<h3 style="color:#43627f;font-size:22px;">{{SUBHEADING}}</h3>
 <p dir="ltr" style="font-size:16px;line-height:1.75;">{{PARAGRAPH_TEXT}}</p>
 </div>
 ```
 
-H3 pattern (verified from agentic-ai-in-ecommerce-ai-agents, May 2026 — newer standard):
-- `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>`
-- NO inline styles on the `<h3>` tag itself
-- The theme CSS handles color and size
-- This replaces the older `<h3 style="color:#43627f;font-size:23px;">` pattern from post 42108
+H3 pattern for Thrive Architect posts (verified from post 42177, May 2026):
+- `<h3 style="color:#43627f;font-size:22px;">TEXT</h3>`
+- Inline styles required — Thrive Architect does not apply class-based heading CSS
+- The agentic-ai blog uses Elementor class-based H3 — that pattern does NOT work in Thrive posts
+- Never use `<h3><span style="font-weight: normal;"><span>TEXT</span></span></h3>` in Thrive posts
 
 ---
 
@@ -164,11 +164,11 @@ Rules:
 
 ```html
 <div style="background:linear-gradient(rgba(241,243,250,0.5),rgba(241,243,250,0.5));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="people-also-ask" style="color:#43627f;font-size:30px;">People also ask</h2>
-<h3><span style="font-weight: normal;"><span>{{PAA_QUESTION_1}}</span></span></h3>
+<h3 style="color:#43627f;font-size:22px;">{{PAA_QUESTION_1}}</h3>
 <p dir="ltr" style="font-size:16px;line-height:1.75;">{{PAA_ANSWER_1}}</p>
-<h3><span style="font-weight: normal;"><span>{{PAA_QUESTION_2}}</span></span></h3>
+<h3 style="color:#43627f;font-size:22px;">{{PAA_QUESTION_2}}</h3>
 <p dir="ltr" style="font-size:16px;line-height:1.75;">{{PAA_ANSWER_2}}</p>
-<h3><span style="font-weight: normal;"><span>{{PAA_QUESTION_3}}</span></span></h3>
+<h3 style="color:#43627f;font-size:22px;">{{PAA_QUESTION_3}}</h3>
 <p dir="ltr" style="font-size:16px;line-height:1.75;">{{PAA_ANSWER_3}}</p>
 </div>
 ```
