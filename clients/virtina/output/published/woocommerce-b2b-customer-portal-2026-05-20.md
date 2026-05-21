@@ -33,9 +33,11 @@ word_count: ~2420
 | Placement | Media ID | URL |
 |---|---|---|
 | Featured (1309×500) | 42203 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-featured-1309x500-1.jpg |
-| Body 1 (670×352) | 42207 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body1-670x352-1.jpg |
+| Body 1 (670×352) | 42214 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body1-670x352-v2.jpg |
+| Body 1 (original, replaced) | 42207 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body1-670x352-1.jpg |
 | Body 2 (670×352) | 42204 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body2-670x352-1.jpg |
-| Body 3 (670×352) | 42205 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body3-670x352-1.jpg |
+| Body 3 (670×352) | 42212 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body3-670x352-v2.jpg |
+| Body 3 (original, replaced) | 42205 | https://virtina.com/wp-content/uploads/2026/05/woocommerce-b2b-portal-body3-670x352-1.jpg |
 
 ## Yoast meta — MANUAL ENTRY REQUIRED
 
