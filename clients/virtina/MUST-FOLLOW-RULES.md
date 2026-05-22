@@ -86,7 +86,7 @@ For standard explanatory articles (most "how to / why / what" topics), use this 
 3. Featured image at 1309×500 px
 4. Summary block (Template A)
 5. Introduction block (Template B)
-6. Table of Contents (Template C with H3 heading)
+6. Table of Contents (Template C with H3 heading) — use `clients/virtina/reference/toc-working-template.html` as the exact source. **NEVER use Thrive Architect `thrv-styled_list` class-based markup** — it depends on Thrive CSS that is not always loaded and breaks arrow rendering. The inline SVG approach in toc-working-template.html is the only approved pattern.
 7. Body sections — H2 with id (Template D), paragraphs (Template E), bullet lists (Template F), section images at 670×352 (Template G)
 8. People Also Ask block (Template H)
 9. Conclusion block (Template I)
@@ -133,13 +133,20 @@ For B2B ecommerce / WooCommerce / ERP / integration topics, images must show bus
 
 ## 4. TABLE OF CONTENTS
 
-Use **Template C** from `html-templates.md` exactly. Specs:
+Use **Template C** from `html-templates.md` exactly. The canonical live example is in `clients/virtina/reference/toc-working-template.html` (verified 2026-05-22, post 42202).
 
+**CRITICAL — Do NOT use Thrive Architect class-based markup:**
+- NEVER: `<ul class="tcb-styled-list">` / `<li class="thrv-styled-list-item">` / `<div class="tcb-styled-list-icon">`
+- These Thrive CSS classes render arrows only when Thrive's frontend CSS is loaded — they silently break otherwise
+- Post 42202 was repaired 2026-05-22 by replacing this markup with inline Template C
+
+Specs:
 - H3 'Table of Contents' heading (never H2)
 - `<ul>` with `list-style:none!important` — NO SPACE before `!important`
 - Items as real `<a href="#anchor">` links
 - TOC link text color: `#00a0e2` with `!important`
-- Arrow: SVG inline icon (`fill:#43627f`) from Template C — never Unicode `→` text, never Font Awesome
+- Arrow: inline `<svg>` inside `<span aria-hidden="true">` with `position:absolute!important;left:0!important;top:8px!important;` — `fill:#43627f`
+- NEVER Unicode `→`, NEVER Font Awesome, NEVER Thrive icon wrappers
 - Every body H2 must have `id` attribute matching anchor href
 - Place TOC after Introduction div, before first body H2 section div
 
