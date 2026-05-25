@@ -152,6 +152,81 @@ Specs:
 
 ---
 
+## 4b. MODERN CONTENT STANDARDS (LLM + SEO)
+
+Applied to every Virtina blog post. Established 2026-05-25 from audit of post 42297 and competitor gap analysis.
+
+### Paragraph length
+- **Max 3 sentences per paragraph.** No exceptions. Long-form thinking must be broken into discrete 2-3 sentence units.
+- This applies to every paragraph: summary, introduction, body sections, PAA answers, conclusion, and FAQ answers.
+- Before any PUT call, the publisher scans for paragraphs with 4+ sentences and splits them.
+
+### Sentence length
+- **Max 20 words per sentence.** Avg sentence length should stay ≤18 words at the article level.
+- Long dependent clauses signal sentence-level revision needed. Prefer two shorter sentences over one long one.
+
+### Header density
+- **One heading (H2 or H3) every 150-300 words.** If a section exceeds 300 words without a sub-heading, add an H3.
+- The H2/H3 hierarchy must follow the content structure — never use a heading just to break up space.
+
+### Direct-answer discipline (critical for LLM citation)
+- **The first sentence of every H2 section must directly answer the question posed by that H2 heading.**
+- If the H2 says "How do net terms connect to your ERP?" the first sentence must answer "Net terms connect to your ERP by routing each WooCommerce order into your AR workflow."
+- Do not open a section with context-setting, background, or caveats. Answer first.
+- This is the single most important rule for LLM citation. AI systems extract and cite the first substantive sentence of each section.
+
+### Semantic keyword coverage
+- Each post must include **10-15 semantically related terms** naturally in body prose (not stuffed).
+- For a B2B payments post: trade credit, purchase order, accounts receivable, dunning, invoice payment gateway, credit limit, buyer approval, DSO, net 30, net 60, etc.
+- The researcher includes a semantic term list in the research file. The creator confirms coverage in the draft.
+
+### Mandatory content elements by article type
+| Article type | Required elements |
+|---|---|
+| How-to / setup guide | Checklist or numbered steps |
+| Comparison / "which is best" | Comparison table (Template N) |
+| Problem/solution | Case or example snippet (2-3 sentences illustrating the problem in practice) |
+| Data-heavy | Infographic or chart |
+| Any Virtina article | FAQ section (6-8 Q&As, Template J) |
+
+### LLM extractability check
+Before publishing, ask: "Can an AI answer the primary question using only this article's content?"
+- If yes: post is well-structured.
+- If the AI would need additional context not in the article: add a clarifying paragraph or expand the PAA/FAQ.
+
+---
+
+## 4c. REAL COMPETITOR RESEARCH REQUIRED
+
+Every new Virtina post must be preceded by actual competitor research. Fabricated or assumed competitive analysis is not acceptable.
+
+### What real research means
+- Run at least 2 web_search queries targeting the primary keyword and close variants before writing.
+- Fetch the top 3-5 ranking pages to assess their actual content depth, structure, and weaknesses.
+- Save evidence to `clients/virtina/output/research/competitor-analysis-{YYYY-MM-DD}.md`.
+
+### Required competitor analysis file structure
+For each top 5 ranking page, document:
+1. Position in SERP
+2. URL
+3. Title
+4. Domain (who runs it)
+5. Estimated word count
+6. Three specific weaknesses in the competing content
+7. How the Virtina post outperforms on each weakness
+
+### Saturation flag
+- Count how many posts in the WooCommerce / B2B / target cluster already exist in `published-posts-inventory.md`.
+- If the cluster has 6+ posts already, flag as saturated and document the unique sub-niche angle that justifies a new post.
+- Saturation does NOT block a post if the sub-niche angle is clearly unique within the cluster.
+
+### Honesty rule
+- If web_search returned no useful results or the top competitors are stronger than expected, report that honestly before proceeding.
+- Never claim competitor research was done unless a real competitor-analysis file exists with actual URLs and fetched content.
+- If web_search was unavailable, state so explicitly and do not publish without it.
+
+---
+
 ## 5. BULLET LISTS
 
 Use **Template F** from `html-templates.md` exactly. Specs:
@@ -229,6 +304,20 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] CHECK 4 PASS: No angle/thesis overlap even with different title
 - [ ] CHECK 5 PASS: Topic cluster not saturated (fewer than 5 existing posts on same general subject)
 - [ ] No 8+ word verbatim sequence with any existing post (phrasing uniqueness guard)
+
+**Modern content standards (section 4b):**
+- [ ] Paragraphs: no paragraph has 4 or more sentences — scan entire content before PUT
+- [ ] Sentences: no sentence exceeds 20 words — spot check 5 random sentences per section
+- [ ] Direct answers: first sentence of every H2 body section directly answers the H2 question
+- [ ] Semantic coverage: 10-15 related terms present naturally (researcher confirms in research file)
+- [ ] Mandatory elements present per article type (checklist, table, case snippet, infographic, FAQ — as applicable)
+- [ ] LLM extractability check: primary question is answerable from this article alone
+
+**Competitor research (section 4c):**
+- [ ] web_search run for primary keyword (and at least 1 variant) before writing
+- [ ] Competitor analysis file saved: `output/research/competitor-analysis-{date}.md`
+- [ ] At least 3 top-ranking pages fetched and documented (URL, title, word count, 3 weaknesses each)
+- [ ] Cluster saturation checked and documented; sub-niche angle stated if cluster is saturated
 
 **Structure (for chosen format from section 11):**
 - [ ] All required sections present in correct order for chosen format
