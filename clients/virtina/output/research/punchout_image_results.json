@@ -1,0 +1,38 @@
+[
+  {
+    "name": "featured",
+    "status": "OK",
+    "media_id": 42325,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-punchout-catalog-integration-hero.jpg",
+    "alt": "Two B2B business professionals reviewing a WooCommerce supplier catalog and eProcurement integration setup on a laptop in a modern office",
+    "filename": "woocommerce-punchout-catalog-integration-hero.jpg",
+    "source": "pexels_cdn_id=3184297"
+  },
+  {
+    "name": "body1",
+    "status": "OK",
+    "media_id": 42326,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-punchout-catalog-what-is-punchout.jpg",
+    "alt": "Procurement officer at a desk reviewing a supplier catalog on a computer screen for enterprise B2B purchase order workflow integration",
+    "filename": "woocommerce-punchout-catalog-what-is-punchout.jpg",
+    "source": "pexels_cdn_id=1181671"
+  },
+  {
+    "name": "body2",
+    "status": "OK",
+    "media_id": 42327,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-punchout-setup-steps-developer.jpg",
+    "alt": "Developer configuring a WooCommerce punchout catalog plugin with cXML endpoint settings on a laptop during integration setup",
+    "filename": "woocommerce-punchout-setup-steps-developer.jpg",
+    "source": "pexels_cdn_id=2004161"
+  },
+  {
+    "name": "infographic",
+    "status": "OK",
+    "media_id": 42328,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/woocommerce-punchout-cxml-workflow-infographic.jpg",
+    "alt": "cXML punchout roundtrip workflow diagram for WooCommerce B2B stores showing the 5-step process from SAP Ariba to purchase order creation with implementation stats",
+    "filename": "woocommerce-punchout-cxml-workflow-infographic.jpg",
+    "source": "matplotlib_generated"
+  }
+]
