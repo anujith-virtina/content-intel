@@ -1,0 +1,32 @@
+{
+  "featured": {
+    "key": "featured",
+    "media_id": 42330,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/ecommerce-store-agent-ready-hero.jpg",
+    "alt": "Ecommerce professional reviewing AI shopping agent readiness and product data on dual monitors in a modern office setting",
+    "filename": "ecommerce-store-agent-ready-hero.jpg",
+    "dimensions": "1309x500",
+    "pexels_id": 3184297,
+    "file_size_kb": 65.3
+  },
+  "body1": {
+    "key": "body1",
+    "media_id": 42331,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/ecommerce-agent-ready-product-schema-review.jpg",
+    "alt": "Developer reviewing structured data and product schema JSON-LD implementation on a laptop screen for AI shopping agent compatibility",
+    "filename": "ecommerce-agent-ready-product-schema-review.jpg",
+    "dimensions": "670x352",
+    "pexels_id": 2004161,
+    "file_size_kb": 48.1
+  },
+  "body2": {
+    "key": "body2",
+    "media_id": 42332,
+    "src": "https://virtina.com/wp-content/uploads/2026/05/ecommerce-agent-ready-product-data-optimization.jpg",
+    "alt": "Ecommerce manager reviewing product catalog data and AI shopping performance analytics on a monitor to optimize store visibility",
+    "filename": "ecommerce-agent-ready-product-data-optimization.jpg",
+    "dimensions": "670x352",
+    "pexels_id": 1181671,
+    "file_size_kb": 34.7
+  }
+}
