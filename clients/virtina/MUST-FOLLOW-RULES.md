@@ -169,6 +169,19 @@ Applied to every Virtina blog post. Established 2026-05-25 from audit of post 42
 - **One heading (H2 or H3) every 150-300 words.** If a section exceeds 300 words without a sub-heading, add an H3.
 - The H2/H3 hierarchy must follow the content structure — never use a heading just to break up space.
 
+### H3 subheading requirements (locked 2026-06-03)
+- **Every H2 section that exceeds 200 words must contain at least one H3 subheading.**
+- Use H3 inside H2 sections whenever the H2 covers multiple sub-points, platforms, or comparisons.
+- H3 text must be natural-language questions or descriptive phrases. Generic labels are banned: "Overview", "Background", "Introduction", "Summary" are never acceptable H3 text.
+- H4 is allowed only for nested sub-points under an H3 — use sparingly.
+- At the article level: minimum 6 H3 subheadings across all H2 sections.
+- Example structure:
+  - H2: How does Shopify compare to Magento for SEO at scale?
+    - H3: Where Shopify wins on SEO
+    - H3: Where Magento Open Source wins
+    - H3: Adobe Commerce SEO trade-offs at enterprise scale
+- All H3 tags in Thrive Architect posts use: `<h3 style="color:#43627f;font-size:22px;">TEXT</h3>`
+
 ### Direct-answer discipline (critical for LLM citation)
 - **The first sentence of every H2 section must directly answer the question posed by that H2 heading.**
 - If the H2 says "How do net terms connect to your ERP?" the first sentence must answer "Net terms connect to your ERP by routing each WooCommerce order into your AR workflow."
@@ -323,6 +336,10 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] All required sections present in correct order for chosen format
 - [ ] H1, H2, H3 hierarchy correct
 - [ ] Every H2 has `id` attribute matching TOC anchor href
+- [ ] H3 subheadings present inside every H2 section that exceeds 200 words
+- [ ] H3 text is descriptive (natural-language questions or phrases) — not "Overview", "Background", "Introduction"
+- [ ] H4 used only for nested sub-points under H3 (rare; must be justified)
+- [ ] Minimum 6 H3 subheadings across the full article
 
 **Images:**
 - [ ] Featured image set (real media ID, not 0)
