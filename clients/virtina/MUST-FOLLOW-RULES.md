@@ -267,6 +267,7 @@ body_ul_re = re.compile(r'<ul\s+style="(?![^"]*!important)[^"]*"[^>]*>.*?</ul>',
 - **Maximum 2 external (non-virtina.com) links per article** — no exceptions
 - **Never link to competitor domains** (shopify.com, bigcommerce.com, etc.)
 - Anchor text varied, never repeat the same anchor twice, never "click here"
+- **Anchor text must be a clean noun phrase only** — no leading articles (a, an, the), no gerunds ("Building", "Diagnose"), no setup words ("working with", "if you need to"). Correct: "Core Web Vitals developer". Wrong: "a certified Core Web Vitals developer", "diagnose a slow WooCommerce store", "Building a proper B2B customer portal".
 - Internal links in body sections only — not in intro, not in conclusion
 
 Pre-publish: count external hrefs. If more than 2, convert excess to plain text. Strip all competitor-domain links entirely.
