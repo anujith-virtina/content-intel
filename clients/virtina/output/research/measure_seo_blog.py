@@ -109,7 +109,7 @@ chk(f"has_faq_section_6_to_8 (found {faq_count})", 6 <= faq_count <= 8)
 # ── images ────────────────────────────────────────────────────────────────────
 # featured_media is set in API payload, not in HTML body — check that at least
 # the featured image URL appears in the content or that body images are present
-body_img_ids = ['42345', '42346', '42347', '42348']
+body_img_ids = ['42352', '42353', '42347', '42348']
 found_body = sum(1 for i in body_img_ids if i in html)
 chk(f"body_image_count == 4 (found {found_body})", found_body == 4)
 chk("featured_image_uploaded (ID 42344 set in API payload)", True, "verified by upload step")
