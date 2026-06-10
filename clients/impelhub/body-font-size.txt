@@ -1,0 +1,1 @@
+16px (estimated — Elementor global CSS not publicly accessible; verify via browser dev tools on any impelhub.com blog post)

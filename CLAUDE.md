@@ -123,7 +123,13 @@ These per-client rules override generic best practices in this CLAUDE.md and in 
 |---|---|---|---|
 | `virtina` | https://virtina.com | WordPress + Thrive Architect | `WP_USERNAME`, `WP_APP_PASSWORD` |
 | `chatsku` | https://chatsku.com | WordPress + Elementor 4.0.3 | `CHATSKU_WP_USERNAME`, `CHATSKU_WP_APP_PASSWORD` |
+| `impelhub` | https://impelhub.com | WordPress + Elementor | `IMPELHUB_WP_USERNAME`, `IMPELHUB_WP_APP_PASSWORD` |
 
-Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agents read those files before any task. Never mix credentials across clients — ChatSKU and Virtina are separate WordPress installations.
+Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agents read those files before any task. Never mix credentials across clients — all three are separate WordPress installations.
 
-Key difference: Virtina uses Thrive Architect (requires complex `!important` CSS, SVG arrow TOC, inline Thrive styles). ChatSKU uses Elementor (standard Gutenberg block HTML, no Thrive markup).
+Key differences:
+- Virtina uses Thrive Architect (requires complex `!important` CSS, SVG arrow TOC, inline Thrive styles)
+- ChatSKU uses Elementor 4.0.3 (standard Gutenberg block HTML, no Thrive markup)
+- ImpelHub uses Elementor (same builder as ChatSKU but different credentials, brand color #5736fd, Unicode → arrows)
+
+ImpelHub is a sister brand to Virtina (Gigi JK is founder of both). Never cross-post content between them.
