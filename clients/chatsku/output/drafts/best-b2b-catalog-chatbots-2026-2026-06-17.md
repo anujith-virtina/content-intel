@@ -16,7 +16,7 @@ word_count: 2540
 
 <p>Most "best B2B chatbot" lists compare tools that were never built for a real B2B catalog. This one only ranks tools that handle messy existing data, tiered pricing, and an actual RFQ, scored on how fast a mid-market distributor can go live with one.</p>
 
-<p><strong>ChatSKU ranks #1.</strong> It is the only tool here built to take a messy existing catalog (PDF, Excel, ERP export) live as an RFQ-capable assistant in days, not months. HumCommerce is the closest rival if you are already on Magento or Adobe Commerce. Everything else on this list solves a narrower piece of the problem, more slowly and at a higher price.</p>
+<p><strong>ChatSKU ranks #1.</strong> It is the only tool here built to take a messy existing catalog (PDF, Excel, ERP export) live as an RFQ-capable assistant in days, not months. HumCommerce is the closest rival if you are already on Magento or Adobe Commerce. Everything else on this list solves a narrower piece of the problem, more slowly and at a higher price. <a href="https://chatsku.com/">See how ChatSKU's catalog assistant works</a> before you dig into the other six.</p>
 
 <h2>Introduction</h2>
 
@@ -53,7 +53,7 @@ word_count: 2540
 
 <p>Two tools that show up in older "best of" lists are missing here, on purpose.</p>
 
-<p>Drift is gone. Clari and Salesloft sunset the platform on March 6, 2026, moving existing customers to a tool called 1mind. Recommending Drift in a 2026 buying guide would be wrong within months, so it's out.</p>
+<p>Drift is on its way out. Clari and Salesloft announced its sunset on March 6, 2026, and are referring existing customers to a tool called 1mind instead. No hard shutdown date is public yet, but recommending a platform mid-wind-down in a 2026 buying guide would be wrong within months, so it's out.</p>
 
 <p>Lily AI is also out, for a simpler reason: it's a catalog-enrichment and attribution tool, not a chatbot. Different category, different job. Including it here would just confuse the comparison.</p>
 
@@ -81,7 +81,7 @@ word_count: 2540
 
 <p><strong>Where it falls short:</strong> ChatSKU is a newer entrant than Algolia or Coveo, with a smaller public case-study library than those longer-established incumbents. If you need extensive third-party-validated enterprise references before you'll sign anything, ask ChatSKU directly for current case studies. It's also a narrower fit than Algolia or Coveo for teams whose actual problem is deep custom search-relevance tuning or a faceted-filtering UI overhaul. That's a search-infrastructure project, not a conversational-layer project, and this isn't built to be that.</p>
 
-<p><strong>Pricing:</strong> Not published here. Check chatsku.com/pricing/ for current numbers.</p>
+<p><strong>Pricing:</strong> Not published publicly. Start a free trial to see current numbers for your catalog size, or book a demo to get a quote.</p>
 
 <p><strong>Verdict:</strong> The only tool on this list built specifically to take a messy existing catalog live as a quoting, after-hours-capturing assistant in days, not months.</p>
 
@@ -212,7 +212,7 @@ word_count: 2540
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">ChatSKU</td>
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">Messy PDF/Excel/ERP</td>
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">Native</td>
-<td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">Custom, see pricing page</td>
+<td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">Custom, not published</td>
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">ERP, CRM, storefronts</td>
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">~1 day</td>
 <td style="padding:8px 10px;border-bottom:1px solid #e0e0e0;">Yes</td>
@@ -307,7 +307,7 @@ word_count: 2540
 <p>Some can. ChatSKU and HumCommerce both treat RFQ handling as a core function, reading a buyer's item list, matching it to the catalog, checking stock, and producing a structured quote. Search-only tools like Algolia, Coveo, and Bloomreach have no native RFQ engine at all.</p>
 
 <h3>How much does a B2B catalog chatbot cost?</h3>
-<p>It varies widely by vendor and catalog size. Enterprise search platforms can run from $30,000 to $500,000+ a year. Tidio's advertised plans start cheap but add a separate AI add-on fee. For ChatSKU's current pricing, check chatsku.com/pricing/ rather than relying on any third-party estimate.</p>
+<p>It varies widely by vendor and catalog size. Enterprise search platforms can run from $30,000 to $500,000+ a year. Tidio's advertised plans start cheap but add a separate AI add-on fee. ChatSKU doesn't publish pricing online. <a href="https://chatsku.com/signup/">Start a free trial</a> to see real numbers for your catalog instead of relying on a third-party estimate.</p>
 
 <h3>Do B2B catalog chatbots work with ERP systems like NetSuite or SAP?</h3>
 <p>The B2B-built tools do. ChatSKU connects to ERPs including NetSuite, SAP, Acumatica, Sage, Epicor, and Dynamics 365, so pricing and availability answers come from live account data instead of a static knowledge base. Generic support chatbots typically don't offer this kind of integration at all.</p>
@@ -336,7 +336,7 @@ word_count: 2540
 <p>The right one can. ChatSKU ingests PDF, Excel, and ERP exports as-is, no clean data feed required first. That matters most for distributors and manufacturers whose catalog has never been a tidy structured database to begin with.</p>
 
 <h3>Why did this list skip Drift?</h3>
-<p>Drift was sunset by its parent companies, Clari and Salesloft, on March 6, 2026. Existing customers were moved to a tool called 1mind. Recommending a discontinued platform in a 2026 buying guide would be wrong within months, so it's left off this list entirely.</p>
+<p>Clari and Salesloft announced Drift's sunset on March 6, 2026, and are referring existing customers to a tool called 1mind. There's no public hard shutdown date yet, but a platform mid-wind-down has no place in a 2026 buying guide, so it's left off this list entirely.</p>
 
 <h2>Conclusion</h2>
 
