@@ -15,9 +15,9 @@ headlines:
 revision_notes:
   - "Removed fabricated author byline (no real author attribution used)."
   - "Converted body H2s to question format, except Executive summary/Introduction/FAQ which are structural labels required by MUST-FOLLOW-RULES.md."
-  - "Fixed two anchor/destination mismatches: RFQ link no longer says 'manual', features link no longer implies it's a dedicated pricing page."
   - "Removed the '20-30 min to under 5 min' order-placement stat everywhere (4 places) - its only source was flagged unverified in research notes, same source as the already-excluded 45% conversion lift stat."
   - "Split every paragraph over 3 sentences into shorter ones; converted the close-rate-by-speed-tier stat cascade into a short list."
+  - "Rewrote all 10 internal anchors: cut every anchor down to 2-5 words and rewrote each to name the actual destination page topic instead of a long descriptive clause (worst offender was an 11-word anchor on the /features/ link)."
 ---
 
 [FEATURED IMAGE: business quote document desk]
@@ -51,7 +51,7 @@ revision_notes:
 
 <p>Eighty percent of B2B deals need five or more follow-ups to close. Ninety-two percent of reps stop after four attempts or fewer. Most quit right before the deal would have converted.</p>
 
-<p>Your catalog can't help here if it's just sitting there. <a href="https://chatsku.com/passive-catalog/">A catalog that can't answer back</a> waits for a human just like the quote in the inbox does. Most teams already know about <a href="https://chatsku.com/response-gap/">the 48-hour response gap</a> on the front end, but the same gap reopens the moment a quote goes out.</p>
+<p>Your catalog can't help here if it's <a href="https://chatsku.com/passive-catalog/">a passive catalog</a> that just sits there, waiting for a human like the quote in the inbox does. Most teams already know about <a href="https://chatsku.com/response-gap/">the response gap</a> on the front end, but the same gap reopens the moment a quote goes out.</p>
 
 [BODY IMAGE: sales team computer screens overload]
 
@@ -71,11 +71,11 @@ revision_notes:
 
 <p>This isn't a CPQ problem either. CPQ tools solve quote generation speed, a real but separate issue: they get the document out faster, but stop the moment it's sent.</p>
 
-<p>Even tools built to <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">automate the RFQ-to-quote step</a> hand off a finished PDF and walk away from everything that follows.</p>
+<p>Even <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">RFQ-to-quote automation</a> tools hand off a finished PDF and walk away from everything that follows.</p>
 
 <p>And the PDF itself is a dead end. If a buyer wants to change quantity, term, or configuration, someone has to manually regenerate the document. That restarts the approval clock on a deal that's already running out of patience.</p>
 
-<p>Every current fix treats this as a timing problem. It's actually an information problem: the buyer doesn't need a faster reminder, they need an answer. And you've likely got <a href="https://chatsku.com/human-bottleneck/">reps buried across dozens of open quotes</a> who can't be everywhere a question shows up.</p>
+<p>Every current fix treats this as a timing problem. It's actually an information problem: the buyer doesn't need a faster reminder, they need an answer. And you've likely got <a href="https://chatsku.com/human-bottleneck/">the human bottleneck</a> of reps buried across dozens of open quotes who can't be everywhere a question shows up.</p>
 
 <h2>What does it actually take to close this gap?</h2>
 
@@ -87,7 +87,7 @@ revision_notes:
 
 <p>While your quote sits silent, your buyer isn't waiting. They're elsewhere, probably looking at a competitor's catalog right now.</p>
 
-<p>This is exactly where <a href="https://chatsku.com/b2b-catalog-conversion-rate/">buyers who can't confirm pricing mid-decision</a> give up on the supplier in front of them and move to whoever answers first.</p>
+<p>This is exactly why <a href="https://chatsku.com/b2b-catalog-conversion-rate/">catalog conversion rate</a> stalls: buyers who can't confirm pricing mid-decision give up on the supplier in front of them and move to whoever answers first.</p>
 
 <p>Second: persistence that's actually persistent, across more than one channel. Campaigns using three or more channels see a 287% higher purchase rate than single-channel follow-up. One email thread isn't a follow-up strategy, it's a coin flip.</p>
 
@@ -95,7 +95,7 @@ revision_notes:
 
 <p>Friction at the finish line kills deals just as often as hesitation does, and it's the easier of the two to fix.</p>
 
-<p>Put these three together and the gap closes. <a href="https://chatsku.com/ai-sales-assistant-b2b-ecommerce/">A real-time B2B sales assistant</a> that answers the pricing question, keeps nudging across channels, and removes the manual re-entry step does more for your close rate than any single CRM trick.</p>
+<p>Put these three together and the gap closes. <a href="https://chatsku.com/ai-sales-assistant-b2b-ecommerce/">A real-time sales assistant</a> that answers the pricing question, keeps nudging across channels, and removes the manual re-entry step does more for your close rate than any single CRM trick.</p>
 
 [INFOGRAPHIC: 32%/24%/15%/12% close rate by response speed tier, 7x vs 60x qualification odds by 1hr vs 24hr+ response, 80% of deals need 5+ follow-ups vs 92% of reps stop after 4, 287% higher purchase rate with 3+ follow-up channels vs one email thread]
 
@@ -107,7 +107,7 @@ revision_notes:
 
 <p>When a buyer asks "can you hold this price at 500 units" or "what's the lead time on this SKU" at 9pm on day three of silence, ChatSKU answers immediately, pulled straight from your live catalog and pricing-tier data.</p>
 
-<p>Not a guess. Not a generic chatbot response. It connects directly to <a href="https://chatsku.com/features/">the same catalog and pricing data your team already works from</a>, including tiered pricing and customer groups.</p>
+<p>Not a guess. Not a generic chatbot response. It's powered by <a href="https://chatsku.com/features/">ChatSKU's catalog integration</a>, which already handles tiered pricing and customer groups, the same way your team does.</p>
 
 <p>While that's happening, ChatSKU's follow-up keeps running in the background: multi-channel, persistent, the kind that doesn't quietly stop after attempt two because the rep moved on to the next fire.</p>
 
@@ -115,7 +115,7 @@ revision_notes:
 
 <p>ChatSKU is built on 14 years and 2,000+ B2B and B2C ecommerce implementations at Virtina, so the pricing logic isn't theoretical.</p>
 
-<p>It's <a href="https://chatsku.com/pdf-catalog-chatbot/">a catalog assistant built for existing PDFs</a>, Excel sheets, and ERP exports. Same complexity your team deals with every day, just answered around the clock instead of during business hours only.</p>
+<p>It's <a href="https://chatsku.com/pdf-catalog-chatbot/">a PDF catalog assistant</a> built for the files you already have, Excel sheets and ERP exports included. Same complexity your team deals with every day, just answered around the clock instead of during business hours only.</p>
 
 [BODY IMAGE: price negotiation business meeting]
 
@@ -174,9 +174,9 @@ revision_notes:
 <li><strong>Start a free trial.</strong> Watch which buyer questions come in first. You'll likely recognize them immediately, they're the same five questions your team answers by phone every week.</li>
 </ul>
 
-<p>If you want a number before you commit to anything, <a href="https://chatsku.com/revenue-calculator">model what a faster quote response is worth</a> using your real revenue and quote volume, not industry averages.</p>
+<p>If you want a number before you commit to anything, run your real revenue and quote volume through <a href="https://chatsku.com/revenue-calculator">the revenue calculator</a> instead of relying on industry averages.</p>
 
-<p>And if you've never been able to explain where <a href="https://chatsku.com/black-hole-pipeline/">quotes that disappear into a black hole</a> actually went, this is usually the first place to look. The leak isn't your pricing. It's the silence after the quote.</p>
+<p>And if you've never been able to explain where deals go quiet, look at <a href="https://chatsku.com/black-hole-pipeline/">your black hole pipeline</a> first. The leak isn't your pricing. It's the silence after the quote.</p>
 
 <h2>Frequently asked questions</h2>
 
