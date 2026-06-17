@@ -1,14 +1,14 @@
 ---
 title: ChatSKU Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 9
+total_posts: 10
 last_updated: 2026-06-17
 update_frequency: After every published post; full refresh monthly
 ---
 
 # ChatSKU Published Posts Inventory
 
-Total indexed: **9 posts** as of 2026-06-17.
+Total indexed: **10 posts** as of 2026-06-17.
 
 ## How to use this file
 
@@ -121,11 +121,21 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Excerpt**: Ranked, opinionated comparison of 7 B2B catalog chatbot tools (ChatSKU, HumCommerce, Algolia, Zoovu, Coveo Relevance Cloud, Bloomreach Discovery, Tidio) for a mid-market distributor evaluating vendors now. ChatSKU ranked #1. Excludes Drift (sunset March 2026) and Lily AI (wrong category). Includes a 7x7 comparison table, a 4-scenario decision tree, and a deployment-speed-vs-cost infographic. Primary keyword: B2B catalog chatbot.
 - **Note**: Yoast meta must be set manually in WP dashboard. Build script: `clients/chatsku/output/research/build_best_b2b_catalog_chatbots_post.py`. Zero external links (Gartner stat cited as plain text, not linked, since no verified specific press-release URL was available).
 
+## Quote-to-order / post-quote follow-up (1 post)
+
+### Your quote didn't lose to a lower price. It lost to silence.
+- **ID**: 298  **Slug**: `b2b-quote-to-order-automation`  **Date**: 2026-06-17  **Format**: Format F (Case study / before-and-after, first use)
+- **Link**: https://chatsku.com/?p=298 (draft)
+- **Featured Media ID**: 295  **Body Image IDs**: 296 (cost of silence section), 297 (ChatSKU fix section)
+- **Excerpt**: Covers the dead zone between "quote sent" and "order placed" as a buyer-experience silence problem, not a backend CPQ/ERP speed problem (the angle every competitor article uses). Stats: response-time close-rate tiers (32% under 5 min vs 12% past 24 hrs), 7x vs 60x qualification odds (1 hr vs 24+ hr response), 80% of deals need 5+ follow-ups vs 92% of reps stop after 4, order placement time 20-30 min manual vs under 5 min self-serve. Includes a $42K illustrative before/after scenario, manual-vs-ChatSKU comparison table, 6-item qualification checklist, inline stats infographic, and 8-Q FAQ. Primary keyword: quote to order automation software.
+- **Note**: Yoast meta must be set manually in WP dashboard (Title: "Quote to Order Automation Software | ChatSKU", Desc: "B2B quotes go cold while buyers wait for answers. See why real-time quote-to-order automation beats CRM reminders and closes more deals than email follow-up."). Build script: `clients/chatsku/output/research/build_b2b_quote_to_order_post.py`. Distinct from post 151 (quote generation) and post 251 (RFQ form conversion) — this covers what happens after the quote is sent.
+
+---
+
 ## Topic gaps (not yet covered — strong candidates for next posts)
 
 - Customer groups / tiered pricing for B2B WooCommerce
 - How to go live with an AI catalog assistant in one day
 - ERP-to-chat: turning SAP/NetSuite exports into live product answers
-- B2B quote workflow automation beyond RFQ (quote-to-order automation)
 - Why generic chatbots (Drift, Tidio) fail for B2B catalog queries
 - Catalog data quality: why bad SKU data breaks AI assistants
