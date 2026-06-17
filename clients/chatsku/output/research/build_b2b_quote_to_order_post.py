@@ -203,9 +203,7 @@ def upload_image(jpeg_bytes, filename, alt_text):
 # CONTENT BLOCKS
 # ═══════════════════════════════════════════════════════════════════════════════
 
-BYLINE_HTML = '<p style="font-size:14px;color:#666;font-style:italic;">By Marcus Webb, B2B Sales Operations Lead at ChatSKU &middot; June 17, 2026</p>'
-
-EXEC_SUMMARY_HTML = BYLINE_HTML + """
+EXEC_SUMMARY_HTML = """
 <p>A $42,000 quote goes silent for six days while the buyer waits on a pricing question. The buyer signs with a competitor who answered in twenty minutes. This is the quote-to-order gap: the space between "quote sent" and "order placed," where most closeable B2B revenue quietly disappears.</p>
 <p>It is not a CRM problem and not a CPQ problem. It is a silence problem. Buyers who can't get an answer while they're deciding go find someone who'll give them one. This article breaks down the cost, why the usual fixes (CRM reminders, drip emails) don't touch it, and what closes the gap instead.</p>
 """
@@ -266,7 +264,7 @@ INFOGRAPHIC_HTML = """<div style="background:#1a1a2e;border-radius:12px;padding:
 </div>"""
 
 CLOSES_GAP_HTML = """
-<p>This is the part of the article where I'll tell you what I actually do for a living. I spend my days looking at where B2B quotes stall, and it's almost always in this exact window: quote sent, buyer has a question, nobody's there.</p>
+<p>We spend our days at ChatSKU looking at where B2B quotes stall, and it's almost always in this exact window: quote sent, buyer has a question, nobody's there.</p>
 <p>ChatSKU sits on top of your existing catalog, the one you already have, PDF, Excel, ERP export, whatever it is. When a buyer asks "can you hold this price at 500 units" or "what's the lead time on this SKU" at 9pm on day three of silence, ChatSKU answers immediately, pulled straight from your live catalog and pricing-tier data. Not a guess. Not a generic chatbot response. The actual answer, because the assistant knows <a href="https://chatsku.com/features/">tiered pricing and customer groups</a>, the same complexity your reps already manage manually.</p>
 <p>While that's happening, ChatSKU's follow-up keeps running in the background, multi-channel, persistent, the kind of follow-up that doesn't quietly stop after attempt two because the rep moved on to the next fire.</p>
 <p>To be clear about what this is and isn't: ChatSKU doesn't replace your sales team, and it never will. It augments the moments your team can't physically cover, nights, weekends, the gap between question and answer that currently has nobody standing in it. Your reps get visibility into exactly what the buyer asked and when, so the human follow-up that does happen is informed instead of blind.</p>

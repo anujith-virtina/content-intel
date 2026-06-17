@@ -14,8 +14,6 @@ headlines:
   - "Quotes don't die from slow follow-up. They die from unanswered questions."
 ---
 
-by Marcus Webb, B2B Sales Operations Lead at ChatSKU
-
 [FEATURED IMAGE: business quote document desk]
 
 <p>You sent the quote. $42,000. Three days later, the buyer emails one question: can the price hold if they double the order to 1,000 units?</p>
@@ -74,7 +72,7 @@ by Marcus Webb, B2B Sales Operations Lead at ChatSKU
 
 <h2>How ChatSKU closes the gap</h2>
 
-<p>This is the part of the article where I'll tell you what I actually do for a living. I spend my days looking at where B2B quotes stall, and it's almost always in this exact window: quote sent, buyer has a question, nobody's there.</p>
+<p>We spend our days at ChatSKU looking at where B2B quotes stall, and it's almost always in this exact window: quote sent, buyer has a question, nobody's there.</p>
 
 <p>ChatSKU sits on top of your existing catalog, the one you already have, PDF, Excel, ERP export, whatever it is. When a buyer asks "can you hold this price at 500 units" or "what's the lead time on this SKU" at 9pm on day three of silence, ChatSKU answers immediately, pulled straight from your live catalog and pricing-tier data. Not a guess. Not a generic chatbot response. The actual answer, because the assistant knows <a href="https://chatsku.com/features/">tiered pricing and customer groups</a>, the same complexity your reps already manage manually.</p>
 
