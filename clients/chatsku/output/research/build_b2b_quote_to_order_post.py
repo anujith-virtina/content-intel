@@ -216,30 +216,44 @@ INTRO_HTML = """
 
 COST_HTML = """
 <p>Here's what makes this gap so dangerous: it doesn't look like a failure. No alarm goes off. The quote just sits there, technically "in progress," while the actual deal rots.</p>
-<p>The data backs this up hard. Companies that respond to leads within one hour are <strong>7 times more likely to qualify them</strong>. Wait 24 hours or more, and qualification odds drop <strong>60 times lower</strong>, according to a <a href="https://www.workato.com/the-connector/lead-response-time-study/" target="_blank" rel="noopener noreferrer">114-company study from Workato</a>. That's not a small gap. That's the difference between a live deal and a dead one.</p>
-<p>Speed compounds the problem. Best-in-class quote response under five minutes achieves a 32% close rate. Under one hour, it drops to 24%. Under 24 hours, 15%. Past 24 hours, just 12%.</p>
+<p>Companies that respond to leads within one hour are <strong>7 times more likely to qualify them</strong>. Wait 24 hours or more, and qualification odds drop <strong>60 times lower</strong>, according to a <a href="https://www.workato.com/the-connector/lead-response-time-study/" target="_blank" rel="noopener noreferrer">114-company study from Workato</a>.</p>
+<p>That's the difference between a live deal and a dead one.</p>
+<p>Speed compounds the problem. Response time tracks almost exactly with close rate:</p>
+<ul>
+<li>Under 5 minutes: <strong>32% close rate</strong></li>
+<li>Under 1 hour: <strong>24%</strong></li>
+<li>Under 24 hours: <strong>15%</strong></li>
+<li>Past 24 hours: <strong>12%</strong></li>
+</ul>
 <p>Despite knowing this, the average B2B lead response time sits at 42 hours. Over a third of companies take longer than a full day to respond at all.</p>
-<p>None of this happens because reps don't care. It happens because they're buried. Eighty percent of B2B deals need five or more follow-ups to close. Ninety-two percent of reps stop after four attempts or fewer. Read that twice. Most reps quit right before the deal would have converted, not because the deal was unwinnable but because nobody told them to keep going.</p>
-<p>Your catalog can't help here if it's just sitting there. <a href="https://chatsku.com/passive-catalog/">A catalog that can't answer back</a> is no different from the quote sitting in the inbox, both wait for a human who's already three deals behind. Most teams already know about <a href="https://chatsku.com/response-gap/">the 48-hour response gap</a> on the front end. Fewer realize the same gap reopens the moment a quote goes out.</p>
+<p>None of this happens because reps don't care. It happens because they're buried.</p>
+<p>Eighty percent of B2B deals need five or more follow-ups to close. Ninety-two percent of reps stop after four attempts or fewer. Most quit right before the deal would have converted.</p>
+<p>Your catalog can't help here if it's just sitting there. <a href="https://chatsku.com/passive-catalog/">A catalog that can't answer back</a> waits for a human just like the quote in the inbox does. Most teams already know about <a href="https://chatsku.com/response-gap/">the 48-hour response gap</a> on the front end, but the same gap reopens the moment a quote goes out.</p>
 """
 
 WHY_FAIL_HTML = """
 <p>Most teams try to solve this with more process. A CRM reminder. A drip sequence. A note to "follow up Thursday." None of it touches the actual problem.</p>
-<p>CRM reminders only fire if the data triggering them is clean and current. B2B contact data degrades 2-3% a month, roughly 22% a year. A stale field means a reminder that never fires, or fires at the wrong moment, and the rep is back to relying on memory.</p>
-<p>Drip emails are worse in a quieter way. A "just checking in" email carries zero new information. It doesn't answer the buyer's question about MOQ or tiered pricing. It just nudges, and buyers can tell the difference between a nudge and an answer.</p>
-<p>Meanwhile, reps are drowning. Non-value-adding work, including quotation and order management, eats roughly two-thirds of a sales team's time, and McKinsey estimates more than 30% of those tasks are at least partially automatable. When a third of the week disappears into admin, individual follow-up quality drops. Not because reps are bad at their jobs. Because there's too much in the queue.</p>
-<p>This isn't a CPQ problem either, and it's worth being precise here. CPQ tools solve quote generation speed, a real and separate issue. They get the document out faster. But they stop the moment the quote is sent. <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">Manual RFQ-to-quote workflows</a> hand off a finished PDF and walk away from everything that follows.</p>
-<p>And the PDF itself is a dead end. If a buyer wants to change quantity, term, or configuration, someone has to manually regenerate the document. That restarts the approval clock from zero, on a deal that was already running out of patience.</p>
-<p>The common thread: every current fix treats this as a timing or volume problem. None of them treat it as what it actually is, an information problem. The buyer doesn't need a faster reminder. They need an answer, and you've likely got <a href="https://chatsku.com/human-bottleneck/">reps buried across dozens of open quotes</a> who can't be everywhere a question shows up.</p>
+<p>CRM reminders only fire if the data triggering them is clean and current. B2B contact data degrades 2-3% a month, roughly 22% a year.</p>
+<p>A stale field means the reminder never fires, or fires too late. The rep is back to relying on memory.</p>
+<p>Drip emails are worse in a quieter way. A "just checking in" email carries zero new information, and buyers can tell the difference between a nudge and an answer.</p>
+<p>Meanwhile, reps are drowning. Non-value-adding work, including quotation and order management, eats roughly two-thirds of a sales team's time. McKinsey estimates more than 30% of those tasks are at least partially automatable.</p>
+<p>When a third of the week disappears into admin, follow-up quality drops. Not because reps are bad at their jobs. There's just too much in the queue.</p>
+<p>This isn't a CPQ problem either. CPQ tools solve quote generation speed, a real but separate issue: they get the document out faster, but stop the moment it's sent.</p>
+<p>Even tools built to <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">automate the RFQ-to-quote step</a> hand off a finished PDF and walk away from everything that follows.</p>
+<p>And the PDF itself is a dead end. If a buyer wants to change quantity, term, or configuration, someone has to manually regenerate the document. That restarts the approval clock on a deal that's already running out of patience.</p>
+<p>Every current fix treats this as a timing problem. It's actually an information problem: the buyer doesn't need a faster reminder, they need an answer. And you've likely got <a href="https://chatsku.com/human-bottleneck/">reps buried across dozens of open quotes</a> who can't be everywhere a question shows up.</p>
 """
 
 WORKING_FIX_HTML = """
-<p>A working solution has three parts, and none of them work alone.</p>
-<p>First: real-time, self-serve answers. Buyers don't sit around waiting for permission to keep shopping. Seventy-five percent of B2B buyers prefer a rep-free buying experience when one's available. Buyers spend only 17% of their decision-making time actually engaging suppliers directly, and that number drops to 5-6% once they're comparing multiple vendors. The other 27% goes to independent research. Translation: while your quote sits silent, your buyer isn't waiting around. They're elsewhere, probably looking at a competitor's catalog right now.</p>
+<p>A working fix has three parts, and none of them work alone.</p>
+<p>First: real-time, self-serve answers. Buyers don't wait around for permission to keep shopping.</p>
+<p>Seventy-five percent of B2B buyers prefer a rep-free buying experience when one's available. They spend only 17% of their decision time actually engaging suppliers directly, dropping to 5-6% once they're comparing vendors.</p>
+<p>While your quote sits silent, your buyer isn't waiting. They're elsewhere, probably looking at a competitor's catalog right now.</p>
 <p>This is exactly where <a href="https://chatsku.com/b2b-catalog-conversion-rate/">buyers who can't confirm pricing mid-decision</a> give up on the supplier in front of them and move to whoever answers first.</p>
-<p>Second: persistence that's actually persistent, and across more than one channel. Campaigns using three or more channels see a 287% higher purchase rate than single-channel follow-up. One email thread isn't a follow-up strategy. It's a coin flip.</p>
-<p>Third: a near-instant path from "approved" to "ordered." When a buyer can convert an approved quote directly into an order instead of re-entering everything by hand, order placement time drops from 20-30 minutes to under five. Friction at the finish line kills deals just as often as hesitation does, maybe more, because it's a problem you can actually fix.</p>
-<p>Put these three together and the gap closes. <a href="https://chatsku.com/ai-sales-assistant-b2b-ecommerce/">A real-time B2B sales assistant</a> that can answer the pricing question, keep nudging across channels, and shorten the last step from a half hour to five minutes does more for your close rate than any single CRM trick.</p>
+<p>Second: persistence that's actually persistent, across more than one channel. Campaigns using three or more channels see a 287% higher purchase rate than single-channel follow-up. One email thread isn't a follow-up strategy, it's a coin flip.</p>
+<p>Third: a near-instant path from "approved" to "ordered." When a buyer can convert an approved quote directly into an order instead of re-entering everything by hand, that step stops being a separate task a rep has to find time for.</p>
+<p>Friction at the finish line kills deals just as often as hesitation does, and it's the easier of the two to fix.</p>
+<p>Put these three together and the gap closes. <a href="https://chatsku.com/ai-sales-assistant-b2b-ecommerce/">A real-time B2B sales assistant</a> that answers the pricing question, keeps nudging across channels, and removes the manual re-entry step does more for your close rate than any single CRM trick.</p>
 """
 
 INFOGRAPHIC_HTML = """<div style="background:#1a1a2e;border-radius:12px;padding:28px 24px;margin:24px 0;">
@@ -257,24 +271,30 @@ INFOGRAPHIC_HTML = """<div style="background:#1a1a2e;border-radius:12px;padding:
       <div style="font-size:13px;color:#94a3b8;margin-top:6px;">Deals needing 5+ follow-ups vs. reps who stop at 4</div>
     </div>
     <div style="flex:1;min-width:140px;background:#0f172a;border-radius:10px;padding:16px;text-align:center;">
-      <div style="font-size:30px;font-weight:700;color:#00C9B1;">20-30 min &rarr; &lt;5 min</div>
-      <div style="font-size:13px;color:#94a3b8;margin-top:6px;">Approved quote to placed order, manual vs. self-serve</div>
+      <div style="font-size:30px;font-weight:700;color:#00C9B1;">287%</div>
+      <div style="font-size:13px;color:#94a3b8;margin-top:6px;">Higher purchase rate: 3+ follow-up channels vs. one email thread</div>
     </div>
   </div>
 </div>"""
 
 CLOSES_GAP_HTML = """
 <p>We spend our days at ChatSKU looking at where B2B quotes stall, and it's almost always in this exact window: quote sent, buyer has a question, nobody's there.</p>
-<p>ChatSKU sits on top of your existing catalog, the one you already have, PDF, Excel, ERP export, whatever it is. When a buyer asks "can you hold this price at 500 units" or "what's the lead time on this SKU" at 9pm on day three of silence, ChatSKU answers immediately, pulled straight from your live catalog and pricing-tier data. Not a guess. Not a generic chatbot response. The actual answer, because the assistant knows <a href="https://chatsku.com/features/">tiered pricing and customer groups</a>, the same complexity your reps already manage manually.</p>
-<p>While that's happening, ChatSKU's follow-up keeps running in the background, multi-channel, persistent, the kind of follow-up that doesn't quietly stop after attempt two because the rep moved on to the next fire.</p>
-<p>To be clear about what this is and isn't: ChatSKU doesn't replace your sales team, and it never will. It augments the moments your team can't physically cover, nights, weekends, the gap between question and answer that currently has nobody standing in it. Your reps get visibility into exactly what the buyer asked and when, so the human follow-up that does happen is informed instead of blind.</p>
-<p>The team behind ChatSKU built it on 14 years and 2,000+ B2B and B2C ecommerce implementations at Virtina, so the pricing logic isn't theoretical. It's <a href="https://chatsku.com/pdf-catalog-chatbot/">a catalog assistant built for existing PDFs</a>, Excel sheets, and ERP exports, the same complexity manufacturers and distributors deal with every day, just answered in real time instead of during business hours only.</p>
+<p>ChatSKU sits on top of your existing catalog, the one you already have: PDF, Excel, ERP export, whatever it is.</p>
+<p>When a buyer asks "can you hold this price at 500 units" or "what's the lead time on this SKU" at 9pm on day three of silence, ChatSKU answers immediately, pulled straight from your live catalog and pricing-tier data.</p>
+<p>Not a guess. Not a generic chatbot response. It connects directly to <a href="https://chatsku.com/features/">the same catalog and pricing data your team already works from</a>, including tiered pricing and customer groups.</p>
+<p>While that's happening, ChatSKU's follow-up keeps running in the background: multi-channel, persistent, the kind that doesn't quietly stop after attempt two because the rep moved on to the next fire.</p>
+<p>To be clear: ChatSKU doesn't replace your sales team, and it never will. It covers the moments your team can't physically be there, nights, weekends, the gap between a question and an answer. Your reps see exactly what the buyer asked and when, so their follow-up is informed instead of blind.</p>
+<p>ChatSKU is built on 14 years and 2,000+ B2B and B2C ecommerce implementations at Virtina, so the pricing logic isn't theoretical.</p>
+<p>It's <a href="https://chatsku.com/pdf-catalog-chatbot/">a catalog assistant built for existing PDFs</a>, Excel sheets, and ERP exports. Same complexity your team deals with every day, just answered around the clock instead of during business hours only.</p>
 """
 
 SCENARIO_HTML = """
 <p>Let's go back to that $42,000 quote. This is an illustrative scenario, not a real client, but the math holds for any deal in this size range.</p>
-<p>Without a real-time answer layer: quote sent Tuesday. Buyer asks Friday whether the price holds at double the volume. Nobody responds until the following Wednesday, six days of silence. The buyer places the order with whoever answered within the hour. Deal gone, and your team never even logs it as a loss, they just see a quote that quietly expired.</p>
-<p>With the fix in place: same quote, same question, asked Friday afternoon. The buyer gets an accurate, tiered-pricing answer in under a minute. No rep had to drop what they were doing. The buyer converts the approved quote into a placed order the same day, no manual re-entry, no six-day gap for the deal to die in.</p>
+<p>Without a real-time answer layer: quote sent Tuesday, buyer asks Friday whether the price holds at double the volume.</p>
+<p>Nobody responds until the following Wednesday, six days of silence. The buyer places the order with whoever answered within the hour.</p>
+<p>Deal gone, and your team never logs it as a loss. They just see a quote that quietly expired.</p>
+<p>With the fix in place: same quote, same question, asked Friday afternoon. The buyer gets an accurate, tiered-pricing answer in under a minute.</p>
+<p>No rep had to drop what they were doing. The buyer converts the approved quote into a placed order the same day, no six-day gap for the deal to die in.</p>
 <table style="border-collapse:collapse;width:100%;font-size:15px;">
   <thead>
     <tr>
@@ -306,8 +326,8 @@ SCENARIO_HTML = """
     </tr>
     <tr style="background:#f0f4ff;">
       <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Approved quote to placed order</td>
-      <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Re-entered manually, 20-30 minutes</td>
-      <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Near-instant, buyer-initiated</td>
+      <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Re-entered manually by a rep, whenever they get to it</td>
+      <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Buyer-initiated, no rep required</td>
     </tr>
     <tr style="background:#ffffff;">
       <td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;">Coverage hours</td>
@@ -316,7 +336,7 @@ SCENARIO_HTML = """
     </tr>
   </tbody>
 </table>
-<p>The numbers in the scenario are illustrative. The stats underneath them, the close-rate tiers, the qualification multiplier, the order-placement time, are not. Those are sourced and real. The scenario just shows you what they look like applied to one deal.</p>
+<p>The numbers in the scenario are illustrative. The stats underneath them, the close-rate tiers and the qualification multiplier, are not. Those are sourced and real. The scenario just shows you what they look like applied to one deal.</p>
 """
 
 CHECKLIST_HTML = """
@@ -382,7 +402,7 @@ FAQ_ITEMS = [
 ]
 
 CONCLUSION_HTML = """
-<p>It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing. They're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
+<p>No. It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing, they're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
 <p>The fix isn't "follow up more" as a vague resolution. It's giving buyers a way to get answers the moment they ask, while the follow-up keeps running underneath it. That's the whole gap, closed.</p>
 <p>Start a free trial. No credit card, live in hours. Your quotes should be working even when your team's asleep.</p>
 """
@@ -492,28 +512,28 @@ def build_elementor(body1_img, body2_img):
     sections.append(make_section([make_heading("Introduction"), make_text(INTRO_HTML)], bg="#ffffff"))
 
     sections.append(make_section(
-        [make_heading("The cost of the silence"), make_text(COST_HTML), make_image_widget(body1_img)],
+        [make_heading("What does quote silence actually cost you?"), make_text(COST_HTML), make_image_widget(body1_img)],
         bg="#f0f4ff"))
 
     sections.append(make_section(
-        [make_heading("Why the usual fixes don't work"), make_text(WHY_FAIL_HTML)], bg="#ffffff"))
+        [make_heading("Why don't CRM reminders and drip emails fix this?"), make_text(WHY_FAIL_HTML)], bg="#ffffff"))
 
     sections.append(make_section(
-        [make_heading("What an actual fix looks like"), make_text(WORKING_FIX_HTML + INFOGRAPHIC_HTML)],
+        [make_heading("What does it actually take to close this gap?"), make_text(WORKING_FIX_HTML + INFOGRAPHIC_HTML)],
         bg="#f9f9fb"))
 
     sections.append(make_section(
-        [make_heading("How ChatSKU closes the gap"), make_text(CLOSES_GAP_HTML), make_image_widget(body2_img)],
+        [make_heading("How does ChatSKU close the quote-to-order gap?"), make_text(CLOSES_GAP_HTML), make_image_widget(body2_img)],
         bg="#ffffff"))
 
     sections.append(make_section(
-        [make_heading("Same scenario, different outcome"), make_text(SCENARIO_HTML)], bg="#f0f4ff"))
+        [make_heading("What changes when buyers get answers in real time?"), make_text(SCENARIO_HTML)], bg="#f0f4ff"))
 
     sections.append(make_section(
-        [make_heading("Is this costing you deals right now"), make_text(CHECKLIST_HTML)], bg="#ffffff"))
+        [make_heading("Is this costing you deals right now?"), make_text(CHECKLIST_HTML)], bg="#ffffff"))
 
     sections.append(make_section(
-        [make_heading("How to close the gap (without a rebuild)"), make_text(GET_STARTED_HTML)], bg="#f9f9fb"))
+        [make_heading("How do you close the gap without a rebuild?"), make_text(GET_STARTED_HTML)], bg="#f9f9fb"))
 
     faq_widgets = [make_heading("Frequently asked questions")]
     for q, a in FAQ_ITEMS:
@@ -522,7 +542,7 @@ def build_elementor(body1_img, body2_img):
     sections.append(make_section(faq_widgets, bg="#f9f9fb"))
 
     sections.append(make_section([
-        make_heading("The deal in the opening scenario wasn't a fluke", color="#ffffff", align="center"),
+        make_heading("Was that deal really a fluke?", color="#ffffff", align="center"),
         make_text(CONCLUSION_HTML, dark_section=True),
         make_button("Start a free trial", "https://chatsku.com/signup/"),
     ], bg="#1a1a2e", is_conclusion=True))
@@ -739,8 +759,11 @@ payload = {
 payload_bytes = json.dumps(payload).encode("utf-8")
 print(f"Payload: {len(payload_bytes):,} bytes")
 
+UPDATE_POST_ID = os.environ.get("UPDATE_POST_ID", "")
+push_url = f"{WP_BASE}/posts/{UPDATE_POST_ID}" if UPDATE_POST_ID else f"{WP_BASE}/posts"
+print(f"{'Updating existing post ' + UPDATE_POST_ID if UPDATE_POST_ID else 'Creating new post'}: {push_url}")
 req_push = urllib.request.Request(
-    f"{WP_BASE}/posts", data=payload_bytes, headers=HEADERS, method="POST"
+    push_url, data=payload_bytes, headers=HEADERS, method="POST"
 )
 try:
     with urllib.request.urlopen(req_push, timeout=120, context=_ssl_ctx) as r:
