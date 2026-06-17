@@ -422,11 +422,6 @@ def build_elementor(body1_img, body2_img, infographic_img):
 
     chunks = [c.strip() for c in re.split(r'(?=<h2[^>]*>)', html) if c.strip()]
 
-    # First chunk before any H2 = intro (no heading widget, per Format C "no H2 hook")
-    if chunks and not re.match(r'^\s*<h2', chunks[0]):
-        intro_html = chunks.pop(0).strip()
-        elementor_sections.append(make_section([make_text(intro_html)], bg="#ffffff"))
-
     for chunk in chunks:
         hm = re.match(r'<h2[^>]*>(.*?)</h2>(.*)', chunk, re.DOTALL)
         if not hm:
@@ -434,6 +429,16 @@ def build_elementor(body1_img, body2_img, infographic_img):
         h2_text   = hm.group(1).strip()
         body_html = hm.group(2).strip()
         label     = h2_text.lower()
+
+        if "executive summary" in label:
+            widgets = [make_heading(h2_text), make_text(body_html)]
+            elementor_sections.append(make_section(widgets, bg="#f9f9fb"))
+            continue
+
+        if label.strip() == "introduction":
+            widgets = [make_heading(h2_text), make_text(body_html)]
+            elementor_sections.append(make_section(widgets, bg="#ffffff"))
+            continue
 
         if "conclusion" in label:
             widgets = [
