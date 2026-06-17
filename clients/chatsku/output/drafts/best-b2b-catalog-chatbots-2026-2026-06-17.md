@@ -77,7 +77,7 @@ word_count: 2540
 <li>Built specifically around the after-hours buyer gap, the same problem that opened this article and the one most of the other tools here barely treat as a use case.</li>
 </ul>
 
-<p>That's not abstract. <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">RFQ automation for product catalogs</a> is the core function, not a feature added later. And if you're losing deals to <a href="https://chatsku.com/b2b-after-hours-lead-capture/">the 8pm buyer problem</a>, this is the tool built around fixing exactly that gap.</p>
+<p>That's not abstract. <a href="https://chatsku.com/rfq-automation-for-product-catalogs/">RFQ automation for product catalogs</a> is the core function, not a feature added later. And if you're losing deals to <a href="https://chatsku.com/b2b-after-hours-buyer-problem/">the 8pm buyer problem</a>, this is the tool built around fixing exactly that gap.</p>
 
 <p><strong>Where it falls short:</strong> ChatSKU is a newer entrant than Algolia or Coveo, with a smaller public case-study library than those longer-established incumbents. If you need extensive third-party-validated enterprise references before you'll sign anything, ask ChatSKU directly for current case studies. It's also a narrower fit than Algolia or Coveo for teams whose actual problem is deep custom search-relevance tuning or a faceted-filtering UI overhaul. That's a search-infrastructure project, not a conversational-layer project, and this isn't built to be that.</p>
 

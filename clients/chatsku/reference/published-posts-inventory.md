@@ -33,10 +33,11 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Link**: https://chatsku.com/b2b-ecommerce-chatbot-dallas/
 - **Excerpt**: Distributors, manufacturers, and wholesalers across Dallas Fort Worth are losing leads in ways that are easy to miss. Explains how after-hours buyer behavior and slow response cycles cost revenue without the company realizing it.
 
-### Why the 8pm Buyer Is Your Most Valuable Lead (And How to Stop Losing Them)
-- **ID**: 186  **Slug**: `b2b-after-hours-lead-capture`  **Date**: 2026-05-29  **Format**: Format A
-- **Link**: https://chatsku.com/b2b-after-hours-lead-capture/ (draft — pending publish)
+### Your buyers don't wait until morning: the after-hours B2B lead problem
+- **ID**: 186  **Slug**: `b2b-after-hours-buyer-problem`  **Date**: 2026-05-29  **Format**: Format A
+- **Link**: https://chatsku.com/b2b-after-hours-buyer-problem/ (published, verified live 2026-06-17)
 - **Excerpt**: B2B buyers research products at night and on weekends, when your sales team is offline. Covers the "8pm buyer" ROI math and how a catalog-aware AI assistant captures after-hours leads.
+- **Note**: Originally drafted under slug `b2b-after-hours-lead-capture`; WordPress published it under `b2b-after-hours-buyer-problem` instead. This entry was previously duplicated under "Catalog problems" with the correct slug but no ID — duplicate removed 2026-06-17 after a broken link in post 294 traced back to this stale slug.
 
 ---
 
@@ -82,7 +83,7 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 
 ---
 
-## Catalog problems / cost of inaction (3 posts — discovered from live site 2026-06-12)
+## Catalog problems / cost of inaction (2 posts — discovered from live site 2026-06-12)
 
 ### How to convert a PDF catalog into a searchable website (without rebuilding it)
 - **Slug**: `convert-pdf-catalog-to-website`
@@ -93,11 +94,6 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Slug**: `b2b-catalog-issues-costing-sales`
 - **Link**: https://chatsku.com/b2b-catalog-issues-costing-sales/
 - **Excerpt**: Only 49% of industrial companies have functional search; 61% of B2B buyers prefer rep-free experiences; 35-50% of deals go to the fastest responder. Quantifies the revenue cost of a passive catalog.
-
-### Your buyers don't wait until morning: the after-hours B2B lead problem
-- **Slug**: `b2b-after-hours-buyer-problem`
-- **Link**: https://chatsku.com/b2b-after-hours-buyer-problem/
-- **Excerpt**: Addresses how B2B purchasing occurs outside business hours and what it costs distributors who have no after-hours self-serve path.
 
 ---
 
