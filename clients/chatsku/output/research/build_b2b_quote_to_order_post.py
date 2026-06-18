@@ -556,20 +556,31 @@ print("=" * 65)
 print("BUILD: b2b-quote-to-order-automation  (2026-06-17)")
 print("=" * 65)
 
-FEAT_ALT = ("Business plan document on office desk with pen, representing a B2B "
-            "quote sitting unanswered while awaiting buyer follow-up")
-BODY1_ALT = ("Overwhelmed B2B sales rep with hand on forehead staring at a laptop, "
-             "buried in too many open quotes to follow up in time")
-BODY2_ALT = ("B2B sales professional focused on a laptop, answering a buyer's "
-             "pricing question on an open quote in real time")
+FEAT_ALT = ("B2B sales quote document on a desk with an unread buyer message asking "
+            "to hold pricing at 1,000 units, sent six days ago")
+BODY1_ALT = ("Illustration of a black hole pipeline showing B2B quotes disappearing "
+             "from unanswered questions, delayed follow-up, and quote silence")
+BODY2_ALT = ("ChatSKU assistant chat widget instantly answering a buyer's pricing "
+             "and lead time question on an open B2B quote")
 
-REUSE_MEDIA = os.environ.get("REUSE_MEDIA", "")  # e.g. "295,296,297" to skip re-upload on rerun
+def fetch_media(media_id, alt_text):
+    """Fetch real media URL by ID instead of guessing a filename - REUSE_MEDIA must
+    reflect whatever is actually uploaded, including images the client uploaded manually."""
+    req = urllib.request.Request(f"{WP_BASE}/media/{media_id}", headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=20, context=_ssl_ctx) as r:
+        m = json.loads(r.read())
+    return {"id": media_id, "url": m["source_url"], "alt": alt_text}
+
+REUSE_MEDIA = os.environ.get("REUSE_MEDIA", "")  # e.g. "304,303,302" to skip re-upload on rerun
 if REUSE_MEDIA:
     fid, b1id, b2id = [int(x) for x in REUSE_MEDIA.split(",")]
-    feat_media = {"id": fid, "url": f"https://chatsku.com/wp-content/uploads/2026/06/chatsku-quote-to-order-featured.jpg", "alt": FEAT_ALT}
-    body1_media = {"id": b1id, "url": f"https://chatsku.com/wp-content/uploads/2026/06/chatsku-quote-to-order-body1.jpg", "alt": BODY1_ALT}
-    body2_media = {"id": b2id, "url": f"https://chatsku.com/wp-content/uploads/2026/06/chatsku-quote-to-order-body2.jpg", "alt": BODY2_ALT}
+    feat_media = fetch_media(fid, FEAT_ALT)
+    body1_media = fetch_media(b1id, BODY1_ALT)
+    body2_media = fetch_media(b2id, BODY2_ALT)
     print(f"\nReusing existing media IDs: {fid}, {b1id}, {b2id} (REUSE_MEDIA set)")
+    print(f"  Featured: {feat_media['url']}")
+    print(f"  Body1:    {body1_media['url']}")
+    print(f"  Body2:    {body2_media['url']}")
 else:
     print("\n[IMAGE 1/3] Featured: business document on desk (visually verified)")
     _, feat_bytes = source_preselected_or_search(
@@ -743,10 +754,10 @@ META_DESC = ("B2B quotes go cold while buyers wait for answers. See why real-tim
 print(f"Meta title ({len(META_TITLE)} chars): {META_TITLE}")
 print(f"Meta description ({len(META_DESC)} chars): {META_DESC}")
 
+UPDATE_POST_ID_EARLY = os.environ.get("UPDATE_POST_ID", "")
 payload = {
     "title": TITLE,
     "slug": SLUG,
-    "status": "draft",
     "content": wp_content,
     "featured_media": feat_media["id"],
     "meta": {
@@ -755,6 +766,20 @@ payload = {
         "_elementor_data": elementor_json
     }
 }
+if UPDATE_POST_ID_EARLY:
+    # Never blindly overwrite status on an update - whatever is live (draft, publish,
+    # manually changed by the client) stays as-is unless FORCE_STATUS is explicitly set.
+    forced_status = os.environ.get("FORCE_STATUS", "")
+    if forced_status:
+        payload["status"] = forced_status
+        print(f"FORCE_STATUS set: pushing status={forced_status!r}")
+    else:
+        req_check = urllib.request.Request(f"{WP_BASE}/posts/{UPDATE_POST_ID_EARLY}?context=edit", headers=HEADERS)
+        with urllib.request.urlopen(req_check, timeout=20, context=_ssl_ctx) as r:
+            current = json.loads(r.read())
+        print(f"Preserving current live status: {current.get('status')!r} (not overwriting)")
+else:
+    payload["status"] = "draft"
 
 payload_bytes = json.dumps(payload).encode("utf-8")
 print(f"Payload: {len(payload_bytes):,} bytes")
