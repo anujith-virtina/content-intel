@@ -204,9 +204,9 @@ revision_notes:
 <h3>How fast can ChatSKU's quote follow-up be live?</h3>
 <p>Connecting your existing catalog and adding the script tag typically takes hours, not weeks. There's no website rebuild and no data migration. You can have automated follow-up and real-time buyer answers running on open quotes by the end of the day you start.</p>
 
-<h2>Was that deal really a fluke?</h2>
+<h2>Conclusion</h2>
 
-<p>No. It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing, they're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
+<p>That deal wasn't a fluke. It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing, they're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
 
 <p>The fix isn't "follow up more" as a vague resolution. It's giving buyers a way to get answers the moment they ask, while the follow-up keeps running underneath it. That's the whole gap, closed.</p>
 

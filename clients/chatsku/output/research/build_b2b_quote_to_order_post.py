@@ -402,7 +402,7 @@ FAQ_ITEMS = [
 ]
 
 CONCLUSION_HTML = """
-<p>No. It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing, they're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
+<p>That deal wasn't a fluke. It's the default outcome of silence. Every day a quote sits unanswered, the buyer isn't pausing, they're researching, comparing, and eventually signing with whoever showed up first with a real answer.</p>
 <p>The fix isn't "follow up more" as a vague resolution. It's giving buyers a way to get answers the moment they ask, while the follow-up keeps running underneath it. That's the whole gap, closed.</p>
 <p>Start a free trial. No credit card, live in hours. Your quotes should be working even when your team's asleep.</p>
 """
@@ -542,7 +542,7 @@ def build_elementor(body1_img, body2_img):
     sections.append(make_section(faq_widgets, bg="#f9f9fb"))
 
     sections.append(make_section([
-        make_heading("Was that deal really a fluke?", color="#ffffff", align="center"),
+        make_heading("Conclusion", color="#ffffff", align="center"),
         make_text(CONCLUSION_HTML, dark_section=True),
         make_button("Start a free trial", "https://chatsku.com/signup/"),
     ], bg="#1a1a2e", is_conclusion=True))
