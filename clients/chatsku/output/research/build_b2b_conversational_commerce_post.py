@@ -87,6 +87,33 @@ print(f"Parsed {len(sections)} sections.")
 sections["What is B2B conversational commerce?"] = \
     sections["What is B2B conversational commerce?"].replace("SKU 4471-B", "SKU 7730-S")
 
+# style the comparison table to match the gold-standard post 299 (navy header band,
+# alternating row backgrounds, padded cells, bottom borders) + mobile scroll wrapper.
+def style_table(html):
+    html = html.replace(
+        '<table>',
+        '<div style="overflow-x:auto;margin:8px 0;"><table style="border-collapse:collapse;width:100%;font-size:15px;">')
+    html = html.replace('</table>', '</table></div>')
+    html = html.replace(
+        '<th>',
+        '<th style="background:#1a1a2e;color:#ffffff;padding:11px 14px;text-align:left;font-weight:600;border:1px solid #1a1a2e;">')
+    html = html.replace(
+        '<td>',
+        '<td style="padding:11px 14px;border-bottom:1px solid #e6e8ef;vertical-align:top;">')
+    def alt(m):
+        rows = m.group(1).split('<tr>')
+        out = rows[0]
+        for i, r in enumerate(rows[1:]):
+            bg = '#f0f4ff' if i % 2 == 0 else '#ffffff'
+            out += f'<tr style="background:{bg};">' + r
+        return '<tbody>' + out + '</tbody>'
+    return re.sub(r'<tbody>(.*?)</tbody>', alt, html, flags=re.S)
+
+_TBL_SEC = "How is conversational commerce different from chatbots and AI search?"
+if "<table>" in sections[_TBL_SEC]:
+    sections[_TBL_SEC] = style_table(sections[_TBL_SEC])
+    print("Comparison table: styled (navy header, alt rows, scroll wrapper)")
+
 ALL_TEXT = "\n".join(sections.values())
 
 # -- em dash + banned scan -----------------------------------------------------
