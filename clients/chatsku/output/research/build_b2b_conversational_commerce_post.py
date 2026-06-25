@@ -171,6 +171,30 @@ def make_section(widgets, bg, is_conclusion=False):
             "elements": [{"id": gid(), "elType": "column", "isInner": False,
                           "settings": {"_column_size": 100, "width": "100", "padding": col_pad}, "elements": widgets}]}
 
+FAQ_CSS = (
+    "<style>\n"
+    ".csku-faq details{border:1px solid #e6e8ef;border-radius:8px;margin:0 0 12px;background:#fff;overflow:hidden;}\n"
+    ".csku-faq summary{cursor:pointer;list-style:none;padding:16px 20px;font-weight:600;font-size:17px;"
+    "color:#1a1a2e;display:flex;justify-content:space-between;align-items:center;gap:16px;}\n"
+    ".csku-faq summary::-webkit-details-marker{display:none;}\n"
+    ".csku-faq .csku-ic{color:#00C9B1;font-size:24px;line-height:1;flex-shrink:0;transition:transform .15s ease;}\n"
+    ".csku-faq details[open] summary .csku-ic{transform:rotate(45deg);}\n"
+    ".csku-faq details[open] summary{border-bottom:1px solid #eef0f5;}\n"
+    ".csku-faq .csku-a{padding:14px 20px 18px;color:#444;font-size:16px;line-height:1.6;}\n"
+    ".csku-faq .csku-a p{margin:0;}\n"
+    "</style>"
+)
+
+def build_faq_accordion(faq_html):
+    """Render FAQ Q&As as collapsible native <details> toggles (user-requested accordion)."""
+    pairs = re.findall(r'<h3>(.*?)</h3>\s*(<p>.*?</p>)', faq_html, flags=re.S)
+    items = []
+    for q, a in pairs:
+        items.append(
+            f'<details><summary><span>{q.strip()}</span><span class="csku-ic">+</span></summary>'
+            f'<div class="csku-a">{a.strip()}</div></details>')
+    return FAQ_CSS + '\n<div class="csku-faq">\n' + "\n".join(items) + '\n</div>', len(pairs)
+
 def split_widgets(html):
     """Split section HTML into ordered widgets: <h3> -> heading widget, other HTML -> text-editor."""
     parts = re.split(r'(<h3>.*?</h3>)', html, flags=re.S)
@@ -328,6 +352,11 @@ for head, html in sections.items():
             make_button("Book a demo", "https://chatsku.com/demo/"),
         ], bg="#1a1a2e", is_conclusion=True))
         continue
+    if head == "Frequently asked questions":
+        faq_acc_html, n_faq = build_faq_accordion(html)
+        elementor.append(make_section([make_heading(head, "h2"), make_html_widget(faq_acc_html)], bg=BG[head]))
+        print(f"FAQ: rendered {n_faq} collapsible <details> toggles")
+        continue
     widgets = [make_heading(head, "h2")] + split_widgets(html)
     if head in IMG_AFTER:
         widgets.append(make_image_widget(IMG_AFTER[head]))
@@ -408,6 +437,10 @@ img_order = all(not ("image" in (t := [w.get("widgetType") for w in s["elements"
 checks["Image after text"] = img_order
 checks["Has comparison table"] = "<table" in ALL_TEXT
 checks["Has HowTo ol"] = "<ol>" in ALL_TEXT
+faq_section_json = json.dumps([s for s in elementor if any(
+    w.get("widgetType") == "html" and "csku-faq" in w["settings"].get("html", "")
+    for w in s["elements"][0]["elements"])])
+checks["FAQ accordion built"] = ALL_TEXT.count("<h3>") and "csku-faq" in faq_section_json and faq_section_json.count("<details>") >= 6
 checks["Definition first sentence"] = sections["What is B2B conversational commerce?"].lstrip().startswith("<p>B2B conversational commerce is ")
 
 plain = re.sub(r'<[^>]+>', ' ', ALL_TEXT); wc = len(plain.split())
