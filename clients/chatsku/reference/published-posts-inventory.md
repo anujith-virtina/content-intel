@@ -1,14 +1,14 @@
 ---
 title: ChatSKU Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 10
-last_updated: 2026-06-17
+total_posts: 12
+last_updated: 2026-06-25
 update_frequency: After every published post; full refresh monthly
 ---
 
 # ChatSKU Published Posts Inventory
 
-Total indexed: **10 posts** as of 2026-06-17.
+Total indexed: **12 posts** as of 2026-06-25.
 
 ## How to use this file
 
@@ -125,6 +125,28 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Featured Media ID**: 304 (client-uploaded "Quote-document-on-a-desk")  **Body Image IDs**: 303 "The-Black-Hole-Pipeline" (cost of silence section), 302 "Modern-B2B-sales-office-at" / ChatSKU chat widget screenshot (ChatSKU fix section) — these replaced my original stock photos (295/296/297) after the client uploaded their own custom visuals
 - **Excerpt**: Covers the dead zone between "quote sent" and "order placed" as a buyer-experience silence problem, not a backend CPQ/ERP speed problem (the angle every competitor article uses). Stats: response-time close-rate tiers (32% under 5 min vs 12% past 24 hrs), 7x vs 60x qualification odds (1 hr vs 24+ hr response), 80% of deals need 5+ follow-ups vs 92% of reps stop after 4, 287% higher purchase rate with 3+ follow-up channels. Includes a $42K illustrative before/after scenario, manual-vs-ChatSKU comparison table, 6-item qualification checklist, inline stats infographic, and 8-Q FAQ. Body H2s phrased as questions (except Executive summary/Introduction/FAQ/Conclusion, which stay as structural labels). Primary keyword: quote to order automation software.
 - **Note**: Yoast meta must be set manually in WP dashboard (Title: "Quote to Order Automation Software | ChatSKU", Desc: "B2B quotes go cold while buyers wait for answers. See why real-time quote-to-order automation beats CRM reminders and closes more deals than email follow-up."). Build script: `clients/chatsku/output/research/build_b2b_quote_to_order_post.py` (supports `UPDATE_POST_ID` to push edits in place; `REUSE_MEDIA` now fetches real media by ID instead of guessing a filename; never forces status on update unless `FORCE_STATUS` is explicitly set — preserves whatever is live). Distinct from post 151 (quote generation) and post 251 (RFQ form conversion) — this covers what happens after the quote is sent. **Incident 2026-06-18**: an earlier version of this script hardcoded media IDs/URLs and forced status:"draft" on every update, which silently overwrote client-uploaded images and reverted a manual publish action back to draft. Fixed; see [[feedback-wp-update-in-place]] in memory.
+
+---
+
+## Category definition / top-of-funnel education (1 post)
+
+### What is a B2B catalog chatbot? (Complete 2026 guide)
+- **ID**: 353  **Slug**: `what-is-a-b2b-catalog-chatbot`  **Date**: 2026-06-22  **Format**: Format B (Conversational Q&A)
+- **Link**: https://chatsku.com/?p=353 (draft)
+- **Featured Media ID**: 350  **Body Image IDs**: 351 (how it works section), 352 (different from generic chatbot section)
+- **Excerpt**: Strictly definitional/educational, top-of-funnel guide for a buyer who does not yet know the B2B catalog chatbot category exists. Defines the category, explains why B2B catalog complexity (50k-500k SKUs, contract/tiered pricing, trade-language search, after-hours buyers) demands a specialized tool rather than general AI adoption, how it works (plain-language RAG: reads your catalog not the internet), who it is for, what to look for (buyer-education framing, not a scorecard), how it differs from a generic chatbot (buyer-experience framing), PAA (4), FAQ (6 category-newcomer Qs). ~2,780-word draft; rendered ~3,500 words with FAQ. Primary keyword: "what is a B2B catalog chatbot".
+- **Note**: Designed as the definitional COMPANION to post 294 (`best-b2b-catalog-chatbots-2026`), which owns commercial/comparison intent. Deliberately does NOT duplicate post 294's vendor list, its 5 comparison criteria, its FAQ questions, or its "part 4471-B" framing. Links to 294 with compliant anchor "best B2B catalog chatbots 2026". Includes Article + FAQPage + BreadcrumbList JSON-LD schema. Images sourced via Openverse/Stocksnap fallback (no PEXELS_API_KEY in .env). Yoast meta must be set manually: Title "What Is a B2B Catalog Chatbot? | ChatSKU", Desc "A B2B catalog chatbot reads your product catalog and answers buyer questions on specs, pricing, and availability 24/7. Here is what it is and why it exists." Build script: `clients/chatsku/output/research/build_what_is_b2b_catalog_chatbot_post.py`.
+
+---
+
+## Category definition / conversational commerce (1 post)
+
+### B2B conversational commerce: definition, use cases, and ROI
+- **ID**: 380  **Slug**: `b2b-conversational-commerce`  **Date**: 2026-06-25  **Format**: Format B (Conversational Q&A)
+- **Link**: https://chatsku.com/?p=380 (draft)
+- **Featured Media ID**: 377  **Body Image IDs**: 378 (use cases section), 379 (ROI infographic, generated 860×452)
+- **Excerpt**: Defines B2B conversational commerce as a B2B operations layer (not a B2C retail chat widget), owning the gap that every ranking "conversational commerce" article ignores: RFQ workflows, contract-tier pricing at point of inquiry, large-SKU trade-language search, and after-hours capture with full deal context. 8 question-style H2s. Includes a 3-column comparison table (traditional chatbot vs AI search vs B2B conversational commerce, 8 criteria), an illustrative $8M-distributor before/after case ($27K/mo recovered), 7 use cases, ROI section (67% rep-free Gartner 2026; >50% of $1M+ deals digital Forrester; 12.3% vs 3.1% chat conversion; 42-hr response / 21x qualification), a 5-step deploy HowTo, and a who-should/should-not fit assessment. Primary keyword: "B2B conversational commerce".
+- **Note**: Yoast meta must be set manually in WP dashboard (Title: "B2B Conversational Commerce: Uses & ROI | ChatSKU", Desc: "B2B conversational commerce lets buyers price, quote, and order through chat tied to your catalog. See the definition, 7 use cases, and ROI for distributors."). Schema: Article + FAQPage + BreadcrumbList + HowTo JSON-LD. Build script: `clients/chatsku/output/research/build_b2b_conversational_commerce_post.py` (parses the approved draft directly; supports DRY_RUN, REUSE_MEDIA, UPDATE_POST_ID, FORCE_STATUS). Infographic generator: `make_conv_commerce_infographic.py`. Images sourced via Openverse/Stocksnap (no PEXELS_API_KEY). Built at ChatSKU locked 860×452 (NOT the request's Virtina 670×352/1309×500 dims). Distinct from post 353 (`what-is-a-b2b-catalog-chatbot`, defines the *tool*) and post 266 (`b2b-catalog-conversion-rate`, owns the AI-search-vs-chat conversion table) — this post defines the *category/strategy* with use cases + ROI.
 
 ---
 
