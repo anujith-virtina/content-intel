@@ -73,6 +73,17 @@ if missing:
     print("FATAL missing sections:", missing); sys.exit(1)
 print(f"Parsed {len(sections)} sections.")
 
+# ChatSKU standard order: Conclusion BEFORE FAQ (match published blogs)
+if list(sections).index("Conclusion") > list(sections).index("Frequently asked questions"):
+    conc = sections.pop("Conclusion")
+    reordered = OrderedDict()
+    for k, v in sections.items():
+        if k == "Frequently asked questions":
+            reordered["Conclusion"] = conc
+        reordered[k] = v
+    sections = reordered
+    print("Reordered: Conclusion now before FAQ")
+
 # ---- table styling (post 299 gold standard) ----
 def style_table(html):
     html = html.replace('<table>',
@@ -301,10 +312,6 @@ for head, html in sections.items():
             make_text(html, dark_section=True),
             make_button("Book a demo", "https://chatsku.com/demo/"),
         ], bg="#1a1a2e", is_conclusion=True)); continue
-    if head == "Frequently asked questions":
-        faq_acc_html, n_faq = build_faq_accordion(html)
-        elementor.append(make_section([make_heading(head, "h2"), make_html_widget(faq_acc_html)], bg=BG[head]))
-        print(f"FAQ: rendered {n_faq} collapsible <details> toggles"); continue
     widgets = [make_heading(head, "h2")] + split_widgets(html)
     if head in IMG_AFTER:
         widgets.append(make_image_widget(IMG_AFTER[head]))
@@ -376,11 +383,15 @@ checks["No bare img in content"] = "<img" not in wp_content
 img_order = all(not ("image" in (t := [w.get("widgetType") for w in s["elements"][0]["elements"]]) and
                      "text-editor" in t and t.index("image") < t.index("text-editor")) for s in elementor)
 checks["Image after text"] = img_order
-faq_json = json.dumps([s for s in elementor if any(
-    w.get("widgetType") == "html" and "csku-faq" in w["settings"].get("html", "")
-    for w in s["elements"][0]["elements"])])
-checks["FAQ accordion built"] = "csku-faq" in faq_json and faq_json.count("<details>") >= 6
+def _sec_title(s):
+    ws = s["elements"][0]["elements"]
+    return ws[0]["settings"].get("title", "") if ws else ""
+order_titles = [_sec_title(s) for s in elementor]
+checks["Conclusion before FAQ"] = ("Conclusion" in order_titles and "Frequently asked questions" in order_titles
+    and order_titles.index("Conclusion") < order_titles.index("Frequently asked questions"))
+checks["FAQ plain (no accordion)"] = "csku-faq" not in ALL_TEXT and "csku-faq" not in json.dumps(elementor)
 checks["Has 2 tables styled"] = ALL_TEXT.count('border-collapse') >= 2
+checks["No colspan in tables"] = "colspan" not in ALL_TEXT
 checks["Has HowTo ol"] = "<ol>" in ALL_TEXT
 checks["Has checklist"] = "A 7-point check" in "".join(sections.keys())
 checks["Definition first sentence"] = sections["What is a passive catalog?"].lstrip().startswith("<p>A passive catalog is ")

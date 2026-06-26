@@ -103,9 +103,8 @@ format: Format B (Conversational Q&A) with story hook
   </thead>
   <tbody>
     <tr><td>Conversion rate</td><td>1.4%</td><td>3.2%</td></tr>
-    <tr><td>Monthly revenue</td><td>$14,280</td><td>$32,640</td></tr>
-    <tr><td>Monthly difference</td><td colspan="2">$18,360</td></tr>
-    <tr><td>Annual difference</td><td colspan="2">$220,320</td></tr>
+    <tr><td>Monthly revenue (1,200 visitors)</td><td>$14,280</td><td>$32,640</td></tr>
+    <tr><td>Annual revenue</td><td>$171,360</td><td>$391,680</td></tr>
   </tbody>
 </table>
 
