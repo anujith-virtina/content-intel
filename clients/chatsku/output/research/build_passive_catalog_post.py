@@ -89,10 +89,11 @@ def style_table(html):
     html = html.replace('<table>',
         '<div style="overflow-x:auto;margin:8px 0;"><table style="border-collapse:collapse;width:100%;font-size:15px;">')
     html = html.replace('</table>', '</table></div>')
+    # match live post 299 EXACTLY: th navy no border, td border-bottom #e0e0e0, no vertical-align
     html = re.sub(r'<th([^>]*)>',
-        lambda m: f'<th style="background:#1a1a2e;color:#ffffff;padding:11px 14px;text-align:left;font-weight:600;border:1px solid #1a1a2e;"{m.group(1)}>', html)
+        lambda m: f'<th style="background:#1a1a2e;color:#ffffff;padding:10px 14px;text-align:left;"{m.group(1)}>', html)
     html = re.sub(r'<td([^>]*)>',
-        lambda m: f'<td style="padding:11px 14px;border-bottom:1px solid #e6e8ef;vertical-align:top;"{m.group(1)}>', html)
+        lambda m: f'<td style="padding:10px 14px;border-bottom:1px solid #e0e0e0;"{m.group(1)}>', html)
     def alt(m):
         rows = m.group(1).split('<tr>')
         out = rows[0]
@@ -172,6 +173,19 @@ def build_faq_accordion(faq_html):
     items = [f'<details><summary><span>{q.strip()}</span><span class="csku-ic">+</span></summary>'
              f'<div class="csku-a">{a.strip()}</div></details>' for q, a in pairs]
     return FAQ_CSS + '\n<div class="csku-faq">\n' + "\n".join(items) + '\n</div>', len(pairs)
+
+def make_accordion(faq_html):
+    """Elementor native accordion widget (accordion.default) — matches live ChatSKU blogs (post 299)."""
+    pairs = re.findall(r'<h3>(.*?)</h3>\s*(<p>.*?</p>)', faq_html, flags=re.S)
+    tabs = []
+    for q, a in pairs:
+        content = re.sub(r'^\s*<p>(.*)</p>\s*$', r'\1', a.strip(), flags=re.S).strip()
+        tabs.append({"tab_title": strip_tags_inline(q).strip(), "tab_content": content, "_id": secrets.token_hex(4)[:7]})
+    return {"id": gid(), "elType": "widget", "widgetType": "accordion", "elements": [],
+            "settings": {"tabs": tabs, "title_html_tag": "h3"}}, len(tabs)
+
+def strip_tags_inline(s):
+    return re.sub(r'<[^>]+>', '', s)
 
 def split_widgets(html):
     parts = re.split(r'(<h3>.*?</h3>)', html, flags=re.S)
@@ -312,6 +326,11 @@ for head, html in sections.items():
             make_text(html, dark_section=True),
             make_button("Book a demo", "https://chatsku.com/demo/"),
         ], bg="#1a1a2e", is_conclusion=True)); continue
+    if head == "Frequently asked questions":
+        acc_widget, n_acc = make_accordion(html)
+        elementor.append(make_section([make_heading(head, "h2"), acc_widget], bg=BG[head]))
+        print(f"FAQ: Elementor native accordion widget with {n_acc} tabs (matches post 299)")
+        continue
     widgets = [make_heading(head, "h2")] + split_widgets(html)
     if head in IMG_AFTER:
         widgets.append(make_image_widget(IMG_AFTER[head]))
@@ -332,6 +351,9 @@ def sec_to_content(s):
             lv = w["settings"].get("header_size", "h2"); out.append(f"<{lv}>{w['settings']['title']}</{lv}>")
         elif wt == "text-editor": out.append(w["settings"]["editor"])
         elif wt == "button": out.append(f'<p><a href="{w["settings"]["link"]["url"]}">{w["settings"]["text"]}</a></p>')
+        elif wt == "accordion":
+            for t in w["settings"]["tabs"]:
+                out.append(f'<h3>{t["tab_title"]}</h3>\n<p>{t["tab_content"]}</p>')
         elif wt == "html": out.append(w["settings"]["html"])
     return "\n".join(out)
 wp_content = re.sub(r'<img[^>]*>', '', "\n\n".join(sec_to_content(s) for s in elementor))
@@ -389,9 +411,11 @@ def _sec_title(s):
 order_titles = [_sec_title(s) for s in elementor]
 checks["Conclusion before FAQ"] = ("Conclusion" in order_titles and "Frequently asked questions" in order_titles
     and order_titles.index("Conclusion") < order_titles.index("Frequently asked questions"))
-checks["FAQ plain (no accordion)"] = "csku-faq" not in ALL_TEXT and "csku-faq" not in json.dumps(elementor)
+acc_widgets = [w for s in elementor for w in s["elements"][0]["elements"] if w.get("widgetType") == "accordion"]
+checks["FAQ Elementor accordion"] = len(acc_widgets) == 1 and 6 <= len(acc_widgets[0]["settings"]["tabs"]) <= 8
 checks["Has 2 tables styled"] = ALL_TEXT.count('border-collapse') >= 2
 checks["No colspan in tables"] = "colspan" not in ALL_TEXT
+checks["No vertical-align in tables"] = "vertical-align" not in ALL_TEXT
 checks["Has HowTo ol"] = "<ol>" in ALL_TEXT
 checks["Has checklist"] = "A 7-point check" in "".join(sections.keys())
 checks["Definition first sentence"] = sections["What is a passive catalog?"].lstrip().startswith("<p>A passive catalog is ")
@@ -463,6 +487,9 @@ def sec_pub(s):
         elif wt == "image":
             im = w["settings"]["image"]; out.append(f'<img src="{im["url"]}" alt="{im["alt"]}" width="860" height="452">')
         elif wt == "button": out.append(f'<p><a href="{w["settings"]["link"]["url"]}">{w["settings"]["text"]}</a></p>')
+        elif wt == "accordion":
+            for t in w["settings"]["tabs"]:
+                out.append(f'<h3>{t["tab_title"]}</h3>\n<p>{t["tab_content"]}</p>')
         elif wt == "html": out.append(w["settings"]["html"])
     return "\n".join(out)
 pub = (f'<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">\n<title>{META_TITLE}</title>'
