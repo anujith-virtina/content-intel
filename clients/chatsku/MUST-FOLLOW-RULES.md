@@ -206,8 +206,43 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
 
 - External (non-chatsku.com): `target="_blank" rel="noopener noreferrer"`
 - Internal chatsku.com: no `target` attribute, same tab
-- Every article: 3–5 internal ChatSKU links (fewer pages than Virtina — don't force more than exist)
-- Internal pages available: `/`, `/demo/`, `/signup/`, `/features/`, `/pricing/`, `/blog/`
+- Every article: **minimum 3 internal links to pages + at least 2 internal links to existing blog posts** (interlink the blog as it grows)
+- For pillar posts (2,000+ words): up to 9–10 total internal links is appropriate
+- **Internal pages (link where relevant — do NOT use all, pick contextually appropriate ones):**
+  - `/demo/` — book a demo
+  - `/signup/` — start free trial
+  - `/features/` — catalog integration / what ChatSKU connects to
+  - `/pricing/` — see pricing
+  - `/revenue-calculator` — model the ROI / revenue impact calculator
+  - `/faq/` — FAQ page
+  - `/for-b2b-manufacturers-distributors-and-wholesalers/` — solution page for distributors/manufacturers
+  - `/ai-sales-assistant-b2b-ecommerce/` — B2B AI sales assistant solution page
+  - `/pdf-catalog-chatbot/` — PDF catalog chatbot solution
+  - `/rfq-automation-for-product-catalogs/` — RFQ automation solution page (also a blog post)
+  - `/passive-catalog/` — the "passive catalog" problem (catalog shows products but can't close)
+  - `/response-gap/` — the "response gap" problem (48-hour sales-rep delay)
+  - `/human-bottleneck/` — human bottleneck problem
+  - `/black-hole-pipeline/` — black hole pipeline problem
+  - `/complex-configuration/` — complex configuration problem
+  - `/headcount-ceiling/` — headcount ceiling problem
+- **Internal blog posts (interlink where contextually relevant):**
+  - `/pdf-catalog-sales-liability/` — Why your PDF catalog is your biggest sales liability
+  - `/ai-chatbot-for-manufacturers-dallas/` — 5 questions before buying an AI chatbot
+  - `/b2b-ecommerce-chatbot-dallas/` — How DFW distributors lose leads without a chatbot
+  - `/rfq-automation-manufacturers/` — What is RFQ automation and why manufacturers need it
+  - `/rfq-form-conversion-rate/` — Why your RFQ form has a 1.8% conversion rate (Blog #2)
+  - `/convert-pdf-catalog-to-website/` — How to convert a PDF catalog to a searchable website
+  - `/b2b-catalog-issues-costing-sales/` — Your B2B catalog is costing you money, here's how much
+  - `/b2b-after-hours-buyer-problem/` — Your buyers don't wait until morning (after-hours lead problem)
+  - `/b2b-catalog-conversion-rate/` — Why your B2B catalog conversion rate is stuck (Blog #3)
+  - `/lost-b2b-revenue-calculator/` — How to calculate lost B2B revenue from after-hours buyers and slow quote response (Blog #4)
+  - `/best-b2b-catalog-chatbots-2026/` — Best B2B catalog chatbots in 2026 (vendor roundup, post 294 — commercial/comparison intent)
+  - `/what-is-a-b2b-catalog-chatbot/` — What is a B2B catalog chatbot? Complete 2026 guide (post 353 — definitional/top-of-funnel companion to 294)
+  - `/b2b-conversational-commerce/` — B2B conversational commerce: definition, use cases, and ROI (post 380)
+  - `/what-is-a-passive-catalog/` — What is a passive catalog? (post 397 — companion to the /passive-catalog/ problem page)
+  - `/b2b-chatbot-for-woocommerce/` — How to add a B2B chatbot to your WooCommerce store (post 685 — first platform-specific post; WooCommerce how-to)
+  - Add new posts to this list immediately after publishing
+- **RULE: Before writing any new post, fetch https://chatsku.com/blog/ to check for posts published after this file was last updated. Never rely solely on this file.**
 - **Maximum 2 external (non-chatsku.com) links per article** — no exceptions
 - **Never link to competitor tools** (Drift, Intercom, Tidio, BigCommerce B2B, etc.)
 - Anchor text varied, never "click here"

@@ -1,14 +1,14 @@
 ---
 title: ChatSKU Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 13
-last_updated: 2026-06-26
+total_posts: 14
+last_updated: 2026-06-29
 update_frequency: After every published post; full refresh monthly
 ---
 
 # ChatSKU Published Posts Inventory
 
-Total indexed: **13 posts** as of 2026-06-26.
+Total indexed: **14 posts** as of 2026-06-29.
 
 ## How to use this file
 
@@ -158,6 +158,17 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Featured Media ID**: 393  **Body Image IDs**: 394 (what-is section), 396 (active-catalog section)  **Infographic Media ID**: 395 (passive vs active revenue bar chart)
 - **Excerpt**: Definitional/educational companion to the live `/passive-catalog/` problem page. Mirrors ChatSKU's exact framing ("Your catalog works 9 to 5. Your buyers don't.", "catalog infrastructure problem", "night-shift sales rep", "one line of code, one day", "the catalog cannot respond. Buyer leaves."). Defines passive catalog (static listing where the buyer does all the work), passive-vs-active comparison table (7 rows), why catalogs stay passive in 2026 (legacy/ecommerce-isn't-enough/browse-myth), 5 hidden costs (after-hours drop-off, discovery failure, RFQ stall, hidden pricing, rep overload), illustrative worked ROI (8,000-SKU distributor, 1,200 after-hours visitors, 1.4%→3.2% = $18,360/mo / $220,320/yr gap), revenue-gap infographic, 3-step deploy HowTo, 7-point "is your catalog passive?" checklist, 7-Q FAQ accordion. Primary keyword: "passive catalog".
 - **Note**: Slug is `what-is-a-passive-catalog` (NOT `passive-catalog`, which is the existing problem page). Links to `/passive-catalog/` TWICE with different anchors ("the passive catalog trap", "see how ChatSKU fixes this") per request. 10 internal links (3 existing blogs: b2b-after-hours-buyer-problem, b2b-catalog-conversion-rate, b2b-conversational-commerce). 2 external (Gartner 67% rep-free 2026; HBR "Short Life of Online Sales Leads" 2011 for response time). 5-min/21x stat attributed to MIT/InsideSales lead-response study (not HBR). Brand-safe: zero competitor names. FAQ rendered as collapsible accordion + tables inline-styled per [[feedback-chatsku-faq-accordion]] / [[feedback-chatsku-table-styling]]. Schema: Article + FAQPage + BreadcrumbList + HowTo. Yoast manual: Title "What Is a Passive Catalog? | ChatSKU", Desc "A passive catalog is a static listing that can't answer buyers, quote prices, or capture leads. See what a passive catalog costs you and how to fix it fast." Build script: `clients/chatsku/output/research/build_passive_catalog_post.py`. Infographic: `make_passive_catalog_infographic.py`. Images via Openverse/Stocksnap, 860×452.
+
+---
+
+## Platform-specific how-to / WooCommerce (1 post)
+
+### How to add a B2B chatbot to your WooCommerce store
+- **ID**: 685  **Slug**: `b2b-chatbot-for-woocommerce`  **Date**: 2026-06-29  **Format**: Format B (Conversational Q&A) + How-To
+- **Link**: https://chatsku.com/?p=685 (draft)
+- **Featured Media ID**: 680  **Body Image IDs**: 681 (why-B2B section), 682 (how-to section), 683 (capabilities section)  **Infographic Media ID**: 684 (before/after after-hours conversion bar chart)
+- **Excerpt**: First platform-specific ChatSKU blog. Fills the WooCommerce gap (no `/woocommerce-b2b-chatbot/` Solutions page exists; Magento and BigCommerce pages do). Defines a B2B chatbot for WooCommerce as the conversational layer ABOVE B2B plugins (B2BKing, Wholesale Suite, B2B for WooCommerce), not a replacement. Covers why B2B WooCommerce needs it more than B2C, 6 capabilities, a 7-step HowTo deploy guide, plugin landscape, deploy time (under a day vs 2-4 wk custom), cost tiers ($50-500 generic / $200-2000 B2B-aware / $20K-100K custom), worked ROI (4,200-SKU distributor, $750 AOV, 980 after-hours visitors, 1.6%→3.4% = $13,230/mo / $158,760/yr), 7-point readiness checklist, 7-Q FAQ accordion. Generic-vs-B2B-aware comparison table (7 rows) + before/after ROI table. Primary keyword: "B2B chatbot for WooCommerce".
+- **Note**: Built at ChatSKU locked 860×452 (NOT the request's Virtina 670×352/1309×500 dims). 12 internal links (3 existing blogs: what-is-a-b2b-catalog-chatbot, b2b-after-hours-buyer-problem, b2b-conversational-commerce; cross-links to Magento + BigCommerce solution pages as platform comparison). 2 external (Gartner 67% rep-free 2026; WooCommerce product CSV importer/exporter docs). Brand-safe: zero competitor chatbot names; B2B plugins named as complementary. FAQ = Elementor native accordion; tables inline-styled per gold-standard post 299. Schema: Article + HowTo + FAQPage + BreadcrumbList. Yoast manual: Title "B2B Chatbot for WooCommerce | ChatSKU", Desc "Add a B2B chatbot for WooCommerce that reads your catalog, shows tiered pricing, and builds quotes in chat. See the 7 steps, real costs, and ROI for B2B stores." Build script: `clients/chatsku/output/research/build_woocommerce_b2b_chatbot_post.py`. Infographic: `make_woocommerce_b2b_infographic.py`. Images via Openverse/Stocksnap (no PEXELS_API_KEY).
 
 ---
 
