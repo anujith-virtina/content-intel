@@ -241,6 +241,7 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/b2b-conversational-commerce/` — B2B conversational commerce: definition, use cases, and ROI (post 380)
   - `/what-is-a-passive-catalog/` — What is a passive catalog? (post 397 — companion to the /passive-catalog/ problem page)
   - `/b2b-chatbot-for-woocommerce/` — How to add a B2B chatbot to your WooCommerce store (post 685 — first platform-specific post; WooCommerce how-to)
+  - `/magento-b2b-chatbot-integration/` — ChatSKU + Magento B2B: the full integration guide (post 1056 — how-to companion to the /magento-b2b-chatbot/ Solutions page)
   - Add new posts to this list immediately after publishing
 - **RULE: Before writing any new post, fetch https://chatsku.com/blog/ to check for posts published after this file was last updated. Never rely solely on this file.**
 - **Maximum 2 external (non-chatsku.com) links per article** — no exceptions

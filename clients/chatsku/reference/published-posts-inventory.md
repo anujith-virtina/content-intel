@@ -1,14 +1,14 @@
 ---
 title: ChatSKU Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 14
-last_updated: 2026-06-29
+total_posts: 15
+last_updated: 2026-07-06
 update_frequency: After every published post; full refresh monthly
 ---
 
 # ChatSKU Published Posts Inventory
 
-Total indexed: **14 posts** as of 2026-06-29.
+Total indexed: **15 posts** as of 2026-07-06. (Note: the live `/blog/` now also shows client-added posts not yet indexed here, e.g. `funnel-inversion-answer-first`, `b2b-customers-leave-for-faster-competitors` — always fetch `/blog/` for the current live list.)
 
 ## How to use this file
 
@@ -169,6 +169,17 @@ Original 4 posts are Format A (standard explanatory). Posts 5-7 vary formats per
 - **Featured Media ID**: 680  **Body Image IDs**: 681 (why-B2B section), 682 (how-to section), 683 (capabilities section)  **Infographic Media ID**: 684 (before/after after-hours conversion bar chart)
 - **Excerpt**: First platform-specific ChatSKU blog. Fills the WooCommerce gap (no `/woocommerce-b2b-chatbot/` Solutions page exists; Magento and BigCommerce pages do). Defines a B2B chatbot for WooCommerce as the conversational layer ABOVE B2B plugins (B2BKing, Wholesale Suite, B2B for WooCommerce), not a replacement. Covers why B2B WooCommerce needs it more than B2C, 6 capabilities, a 7-step HowTo deploy guide, plugin landscape, deploy time (under a day vs 2-4 wk custom), cost tiers ($50-500 generic / $200-2000 B2B-aware / $20K-100K custom), worked ROI (4,200-SKU distributor, $750 AOV, 980 after-hours visitors, 1.6%→3.4% = $13,230/mo / $158,760/yr), 7-point readiness checklist, 7-Q FAQ accordion. Generic-vs-B2B-aware comparison table (7 rows) + before/after ROI table. Primary keyword: "B2B chatbot for WooCommerce".
 - **Note**: Built at ChatSKU locked 860×452 (NOT the request's Virtina 670×352/1309×500 dims). 12 internal links (3 existing blogs: what-is-a-b2b-catalog-chatbot, b2b-after-hours-buyer-problem, b2b-conversational-commerce; cross-links to Magento + BigCommerce solution pages as platform comparison). 2 external (Gartner 67% rep-free 2026; WooCommerce product CSV importer/exporter docs). Brand-safe: zero competitor chatbot names; B2B plugins named as complementary. FAQ = Elementor native accordion; tables inline-styled per gold-standard post 299. Schema: Article + HowTo + FAQPage + BreadcrumbList. Yoast manual: Title "B2B Chatbot for WooCommerce | ChatSKU", Desc "Add a B2B chatbot for WooCommerce that reads your catalog, shows tiered pricing, and builds quotes in chat. See the 7 steps, real costs, and ROI for B2B stores." Build script: `clients/chatsku/output/research/build_woocommerce_b2b_chatbot_post.py`. Infographic: `make_woocommerce_b2b_infographic.py`. Images via Openverse/Stocksnap (no PEXELS_API_KEY).
+
+---
+
+## Platform-specific how-to / Magento (1 post)
+
+### ChatSKU + Magento B2B: the full integration guide
+- **ID**: 1056  **Slug**: `magento-b2b-chatbot-integration`  **Date**: 2026-07-06  **Format**: Format B (Conversational Q&A) + How-To
+- **Link**: https://chatsku.com/?p=1056 (draft)
+- **Featured Media ID**: 1051  **Body Image IDs**: 1052 (why section, buyer), 1054 (data section, team), 1053 (how-to section, API/integration)  **Infographic Media ID**: 1055 (before/after after-hours conversion bar chart)
+- **Excerpt**: Second platform-specific ChatSKU blog and educational companion to the commercial `/magento-b2b-chatbot/` Solutions page (which owns "Magento B2B chatbot"). This blog owns how-to/integration intent. Primary keyword "Magento B2B chatbot integration". Positions ChatSKU as the conversational layer ABOVE Adobe Commerce native B2B features (company accounts, shared catalogs, negotiable quotes, requisition lists), connected via REST/GraphQL API. Covers what the integration is, why Magento B2B needs it, what data ChatSKU reads (5 items), 7-step API HowTo, whether it replaces native B2B (no), deploy time (hours vs weeks), cost tiers, worked ROI (18,000-SKU Adobe Commerce distributor, $1,800 AOV, 1,500 after-hours sessions, 1.8%→3.6% = $48,600/mo / $583,200/yr), 7-point readiness checklist, 7-Q FAQ (Open Source vs Adobe Commerce, REST/GraphQL, Hyva/headless, multi-store). Generic-vs-Magento-integrated comparison table (7 rows) + before/after ROI table.
+- **Note**: Built at ChatSKU locked 860×452. 11 internal links (3 existing blogs: what-is-a-b2b-catalog-chatbot, b2b-after-hours-buyer-problem, b2b-chatbot-for-woocommerce; `/magento-b2b-chatbot/` linked TWICE with different anchors "ChatSKU for Magento" + "Magento B2B chatbot"; cross-links WooCommerce + BigCommerce as platform siblings). 2 external (Gartner 67% rep-free 2026; Adobe Commerce B2B official docs). Brand-safe: zero competitor chatbot names; Adobe Commerce/Magento are the platform, not competitors. FAQ = Elementor native accordion; tables inline-styled per post 299. Schema: Article + HowTo + FAQPage + BreadcrumbList. Yoast manual: Title "Magento B2B Chatbot Integration | ChatSKU", Desc "A Magento B2B chatbot integration connects ChatSKU to your Adobe Commerce catalog, shared-catalog pricing, and quotes. See the 7 steps, cost, and ROI." Build script: `clients/chatsku/output/research/build_magento_b2b_chatbot_post.py` (sibling of the WooCommerce build script). Infographic: `make_magento_b2b_infographic.py`. Distinct scenario + ROI numbers from post 685 to avoid duplication.
 
 ---
 
