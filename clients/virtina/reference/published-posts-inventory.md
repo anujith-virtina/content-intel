@@ -1,14 +1,51 @@
 ---
 title: Virtina Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
-total_posts: 304
-last_updated: 2026-05-20
+total_posts: 309
+last_updated: 2026-07-24
 update_frequency: After every published post; full refresh monthly
 ---
 
 # Virtina Published Posts Inventory
 
-Total indexed: **304 posts** as of 2026-05-20.
+Total indexed: **306 posts** as of 2026-06-18. Note: file was 29 days stale before this update; a live WP REST API refresh is still recommended to catch any other posts published between 2026-05-20 and 2026-06-18 beyond the two added below.
+
+## AI / AIO / GEO / AEO (2 new posts, 2026-06-18)
+
+### How to Optimize Your eCommerce Store for AIO, GEO, and AEO: A Practical Implementation Guide (2026)
+- **ID**: 42391  **Slug**: `ecommerce-ai-search-implementation-checklist`  **Date**: 2026-06-18  **Format**: Format A
+- **Link**: https://virtina.com/?p=42391 (draft)
+- **Excerpt**: Implementation checklist for AI citability: Organization schema and Wikidata entry, product/category page restructuring, content types that earn citations, schema-by-page-type checklist, external corroboration (Clutch/G2, partner directories, press, Wikipedia), platform-specific notes (WooCommerce/Shopify/Magento/BigCommerce), and a 90-day rollout. Includes Article/FAQPage/HowTo JSON-LD schema.
+- **Note**: No featured/body images (file-only draft, user explicitly opted out of imagery for this push). `tve_updated_post` Thrive meta is empty, so live rendering may show plain content until edited once in Thrive Architect.
+
+### WooCommerce B2B Configuration: A Step-by-Step Guide to Pricing Rules, Customer Groups, and Catalog Access
+- **ID**: 42393  **Slug**: `woocommerce-b2b-pricing-and-access-setup`  **Date**: 2026-06-18  **Format**: Format A
+- **Link**: https://virtina.com/?p=42393 (draft)
+- **Excerpt**: Configuration-mechanics angle (deliberately distinct from the customer-portal/self-service angle in ID 42202 and the net-terms angle in ID 42297): customer groups and role-based pricing, tiered/quantity pricing, MOQ, quote request workflows, tax exemption certificates, and catalog visibility rules. Names B2BKing, Wholesale Suite, and WooCommerce.com's native B2B Pricing extension with a comparison table. Built with AI-citability structure (direct-answer H2s, FAQPage-ready Q&A).
+- **Note**: Same image/Thrive-meta caveats as above. Cross-links to ID 42202, 42297, 42074, 26936, 42108, and the live `ecommerce-store-agent-ready` post.
+
+## Platform risk / deplatforming / high-risk migration (1 new post, 2026-07-15)
+
+### Why Vape Retailers Lost Their Shopify Stores (And What to Do Now)
+- **ID**: 42428  **Slug**: `shopify-vape-ban-merchant-deplatforming`  **Date**: 2026-07-15  **Format**: Format E (Contrarian thesis)
+- **Link**: https://virtina.com/?p=42428 (draft)
+- **Featured Media ID**: 42424 (1309×500)  **Body Image IDs**: 42425 (compliance/document review), 42426 (team migration planning), 42427 (payment gateway config) — all 670×352
+- **Categories**: WooCommerce (79), Shopify (99). **Yoast set via REST** (title + metadesc), verified.
+- **Excerpt**: News-anchored contrarian thesis on Shopify's June 2026 ENDS/vape ban. Thesis: it is NOT a vape-industry story, it is proof any SaaS ecommerce platform can deplatform any regulated merchant on short notice, and self-hosted WooCommerce is the only structural fix (you own the storefront + data). Covers: what happened (ban, ~2-week notice, Nov 2025 letter from 25 state AGs + DC/PR/NYC), why SaaS platforms are structurally risky, why WooCommerce removes platform-level risk, why payment gateways are a SEPARATE hurdle (high-risk merchant accounts; Stripe/PayPal/Square all ban ENDS), and a 7-step migration HowTo. GEO/AEO built in: TL;DR box, direct-answer H2s, "what this means for you" callout, 3-Q PAA, 9-Q FAQ accordion, FAQPage + HowTo JSON-LD. ~1,790 words.
+- **FACT DISCIPLINE (critical — user's original brief had errors, corrected via research):** It is the **PACT Act**, NEVER "NDS Act" (the brief's "NDS Act" was wrong). **No retailer count** used (the brief's "2,700 retailers" was unverifiable; estimates ranged 181–7,363). **No "overnight"** (notice was ~2 weeks: notices ~June 24, deadline July 7-8 2026). Ban verified via Reuters June 23 2026 + AG press releases. Research files: `shopify-vape-ban-facts-2026-07-15.md`, `uniqueness-audit-2026-07-15.md`, `competitor-analysis-2026-07-15.md`.
+- **Note**: 10 internal links (incl. the 3 requested payment/migration pages: high-risk-ecommerce-migration-payment-gateway-integration, payment-gateway-service-providers, payment-gateways-for-ecommerce-websites; + shopify-vs-woocommerce, saas-ecommerce-platforms-for-online-stores, woocommerce-migration-guide, volusion-to-woocommerce-migration, firearm + CBD solution pages, woocommerce-development-services). 2 external (CA DOJ press release, ATF PACT Act page), both `target=_blank rel=noopener noreferrer`. Explicitly differentiated from post 42177 (`volusion-to-woocommerce-migration`): that = a platform's business collapse; this = a healthy platform's deliberate policy enforcement. Uniqueness: all 5 checks PASS; full-corpus 8-gram check = 0 real overlap (only shared TOC section labels). **Thrive caveat:** `_tve_updated_post` not REST-writable, so live rendering shows the semantic HTML fallback until the post is opened+saved once in Thrive Architect (same as posts 42391/42393). Build script: `clients/virtina/output/research/publish_shopify_vape_ban.py`. Images via Openverse cc0 + visual QA (no PEXELS_API_KEY).
+
+### Why smart business owners are leaving Shopify (even without a ban)
+- **ID**: 42441  **Slug**: `leaving-shopify-ownership-risk`  **Date**: 2026-07-24  **Format**: Format B (Conversational Q&A, LLM-style)
+- **Link**: https://virtina.com/?p=42441 (draft)
+- **Featured Media ID**: 42436 (1309×500). **Body Image IDs**: 42437 (owner in shop/ownership), 42438 (owner reviewing costs), 42439 (relaxed owner after move), 42440 (renting-vs-owning infographic) — all 670×352.
+- **Categories**: WooCommerce (79), Shopify (99).
+- **Primary keyword**: leaving Shopify for WooCommerce. **Slug note**: primary keyword kept in title/H1/meta/first-100-words; slug set to `leaving-shopify-ownership-risk` because the natural slug `leaving-shopify-for-woocommerce` failed uniqueness Check 2 (2-word overlap with `shopify-vs-woocommerce`).
+- **Excerpt**: Non-technical, business-owner companion piece to the vape-ban post (42428). Broadens the deplatforming warning from vape to ALL Shopify merchants (candles, jewelry, food, small makers), framed as renting vs owning your store. Plain language, zero tech/compliance jargon. Candle-brand story open, 9 Q&A body H2s, renting-vs-owning comparison table, 3-year cost table, 8-item self-diagnostic checklist, 3-Q PAA, 8-Q FAQ. Article+FAQPage+BreadcrumbList JSON-LD. Links the vape post twice ("Shopify's vape ban", "vape merchants on Shopify"). ~2,000-word core prose.
+- **Uniqueness**: all 5 checks PASS (audit: `uniqueness-audit-2026-07-24.md`). Distinct from 42428 (vape-specific, technical, news-anchored), 36721 (neutral comparison), 39362 (niche-fit; did NOT reuse its "total ownership and control" phrasing), 29601 (technical how-to). Competitor file: `competitor-analysis-2026-07-24.md`; facts: `leaving-shopify-facts-2026-07-24.md`.
+- **Links**: 10 internal (vape post ×2, woocommerce-niche-ecommerce-2025, shopify-vs-woocommerce, woocommerce-migration-guide, migrate-to-woocommerce, shopify-migration-services, woocommerce-development-services, fruitful-grind case study, get-in-touch), 1 external (CA DOJ .gov press release, `target=_blank rel=noopener`). All verified HTTP 200 before publish.
+- **Note (Yoast)**: Yoast title/metadesc are NOT REST-writable on this install (verified: values return None after POST). **MANUAL WP dashboard entry required** — Title: `Why Owners Are Leaving Shopify for WooCommerce | Virtina` (56 chars); Meta desc (155 chars): `Worried Shopify could pause your store overnight? See why smart business owners are leaving Shopify for WooCommerce to own their store, data and customers.`
+- **Note (Thrive)**: `_tve_updated_post` not REST-writable, so live rendering shows the semantic HTML fallback until the post is opened+saved once in Thrive Architect (same caveat as 42428/42391/42393). Build script: `clients/virtina/output/published/build_leaving_shopify.py`. Images via Openverse cc0 (rawpixel/stocksnap providers) + visual QA (no PEXELS_API_KEY).
 
 ## How to use this file
 
@@ -512,7 +549,13 @@ Before writing any new Virtina blog:
 - **ID**: 10700  **Slug**: `volusion-integration`  **Date**: 2015-09-07
 - **Excerpt**: Over the last 14 years, Volusion has grown into a leading eCommerce store Software As A Service (SaaS) provide with over 40,000 online stores. One of the major reasons for Volusion’s growth is that their system makes 80% of the tasks involved in sett
 
-## Migration (3 posts)
+## Migration (4 posts)
+
+### BigCommerce to Magento migration: 2026 guide
+- **ID**: 42413  **Slug**: `bigcommerce-to-magento-migration`  **Date**: 2026-07-07  **Format**: Format D
+- **Link**: https://virtina.com/?p=42413 (draft)
+- **Excerpt**: Honest decision-and-execution guide anchored to BigCommerce's June 2026 Open Payment Provider Fee (0.6–2% now applied to B2B purchase orders). Covers when NOT to migrate (under ~$500K GMV), the 7 migration phases, the 4 non-automatable failure points (customer passwords, URL structure, product variants, B2B account data), SEO/redirect preservation plus the 2026 AI-citation-preservation KPI, and cost/timeline by store size. Notes the Magento Data Migration Tool is M1→M2 only. CTA to /magento-migration-services/.
+- **Note**: Pushed as draft via REST 2026-07-07. Text-only (no featured/body images yet — placeholders stripped for draft). Yoast title/desc still need manual WP dashboard entry. Thrive `_tve_updated_post` not written by REST — open once in Thrive Architect for styled rendering before publishing.
 
 ### From Volusion to WooCommerce: The Migration Story Every Frustrated Store Owner Needs to Read
 - **ID**: 42177  **Slug**: `volusion-to-woocommerce-migration`  **Date**: 2026-05-14
