@@ -242,7 +242,11 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/what-is-a-passive-catalog/` — What is a passive catalog? (post 397 — companion to the /passive-catalog/ problem page)
   - `/b2b-chatbot-for-woocommerce/` — How to add a B2B chatbot to your WooCommerce store (post 685 — first platform-specific post; WooCommerce how-to)
   - `/magento-b2b-chatbot-integration/` — ChatSKU + Magento B2B: the full integration guide (post 1056 — how-to companion to the /magento-b2b-chatbot/ Solutions page)
+  - `/what-is-the-response-gap/` — What is the response gap? (And how to close it overnight) (post 1300 — definitional companion to the /response-gap/ problem page)
+  - `/woocommerce-b2b-chatbot-integration/` — ChatSKU + WooCommerce B2B: the full integration guide (post 1455 — technical-integration companion to how-to post 685; owns REST-API/plugin-data-architecture intent)
+  - `/agentic-commerce-glossary/` — Agentic commerce glossary: what manufacturers actually need to know (post 2129 — definitional reference; owns protocol-definition intent: ACP/AP2/MCP/A2A, shipped-vs-announced status labels)
   - Add new posts to this list immediately after publishing
+  - **Note: `/product-information-management-software/` (post 1538) 404s while post 1538 stays in WP draft status. Do not link to it until it is published.**
 - **RULE: Before writing any new post, fetch https://chatsku.com/blog/ to check for posts published after this file was last updated. Never rely solely on this file.**
 - **Maximum 2 external (non-chatsku.com) links per article** — no exceptions
 - **Never link to competitor tools** (Drift, Intercom, Tidio, BigCommerce B2B, etc.)
@@ -281,7 +285,7 @@ Required:
 - `featured_media` set with a real media ID, never 0
 - Yoast meta title: 60 chars max, format `{Title} | ChatSKU`
 - Yoast meta description: 150–160 chars
-- **Yoast meta CANNOT be set via REST API** — `_yoast_wpseo_title` and `_yoast_wpseo_metadesc` are not registered with `show_in_rest` on chatsku.com. Must be entered manually: WP Admin → Posts → Edit → Yoast SEO panel → SEO tab.
+- **Yoast meta IS now REST-writable** — `_yoast_wpseo_title` and `_yoast_wpseo_metadesc` accept a POST to `/wp-json/wp/v2/posts/{id}` with a `meta` object, and persist. Confirmed on post 2044 (2026-08-03) and post 2129 (2026-08-06). Always re-read with `context=edit` afterwards to verify they persisted, and fall back to manual entry (WP Admin → Posts → Edit → Yoast SEO panel) only if they did not.
 
 **REQUIRED: Elementor data — every post MUST include in the `meta` field:**
 ```json
