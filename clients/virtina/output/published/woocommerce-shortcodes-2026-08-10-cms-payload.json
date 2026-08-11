@@ -1,0 +1,35 @@
+{
+  "_note": "NOT PUSHED. This session's toolset (Read/Write/Edit/Glob/Grep/WebFetch) has no HTTP POST or code-execution capability, so the actual WP REST API calls (media upload, post creation) could not be executed. This file is the payload ready to submit once a Bash/PowerShell-capable session with $env:WP_USERNAME / $env:WP_APP_PASSWORD is available. See publisher report for full detail.",
+  "endpoint": "https://virtina.com/wp-json/wp/v2/posts",
+  "method": "POST",
+  "auth": "Basic Auth using $env:WP_USERNAME / $env:WP_APP_PASSWORD (Virtina credentials only)",
+  "status": "draft",
+  "slug": "woocommerce-shortcodes",
+  "title": "Are WooCommerce shortcodes deprecated? No, and here's what's actually happening in 2026",
+  "content_source_file": "clients/virtina/output/published/woocommerce-shortcodes-2026-08-10.html",
+  "content_placeholders_pending": [
+    "{{MEDIA_ID_1}} / {{IMAGE_URL_1}} - body image 1, 670x352, concept: developer typing a WooCommerce products shortcode with attributes into the WordPress code editor",
+    "{{MEDIA_ID_2}} / {{IMAGE_URL_2}} - body image 2, 670x352, concept: two coworkers reviewing a shortcode vs block comparison on a laptop in an office setting",
+    "{{MEDIA_ID_3}} / {{IMAGE_URL_3}} - body image 3, 670x352, concept: developer debugging a WooCommerce shortcode error in a browser console"
+  ],
+  "featured_media": "PENDING - no image sourced/uploaded this session; must not be left as 0 per rules, do not push until a real media ID exists",
+  "featured_image_concept": "1309x500, WordPress admin/block editor screen with a WooCommerce shortcode entered into a page editor, business owner or developer at a desk on a laptop",
+  "categories": [79],
+  "categories_note": "79 = WooCommerce, per published-posts-inventory.md (confirmed used on posts 42428, 42441). Verify live before push.",
+  "tags": [],
+  "meta": {
+    "_yoast_wpseo_title": "Are WooCommerce Shortcodes Deprecated in 2026? | Virtina",
+    "_yoast_wpseo_metadesc": "WooCommerce shortcodes aren't deprecated in 2026. Get the full attribute reference, honest shortcode vs block guidance, and fixes for all 8 failure modes.",
+    "_yoast_wpseo_focuskw": "woocommerce shortcodes deprecated",
+    "note": "Prior Virtina posts (e.g. leaving-shopify-ownership-risk) show Yoast title/metadesc are NOT REST-writable on this install; verify with a GET context=edit after POST, and be ready to enter manually in WP dashboard if they return None."
+  },
+  "post_push_steps_required": [
+    "1. Source 3 body images (670x352) + 1 featured image (1309x500) via Pexels API (PEXELS_API_KEY) or Openverse (license=cc0, general query + provider ranking, NOT source=stocksnap which returns 0), visually QA each for topical relevance (WordPress admin/code editor/office scenes, no generic stock).",
+    "2. Resize each to exact target dimensions via Pillow (scale-to-cover + center-crop), JPEG q82, under 200KB.",
+    "3. Upload each via POST /wp-json/wp/v2/media, capture the returned media ID and source_url (must begin https://virtina.com/wp-content/uploads/), then set alt_text via a follow-up POST to /wp-json/wp/v2/media/{id}.",
+    "4. Replace the three {{MEDIA_ID_n}}/{{IMAGE_URL_n}} placeholders in the html content file with real values.",
+    "5. POST the post with status=draft, featured_media=<real ID>, categories=[79], meta block above.",
+    "6. GET the post back with context=edit and diff content.rendered against what was posted; also compare against the live page HTML if the post is later opened in Thrive.",
+    "7. Per known account history (posts 42391/42393/42428/42441), _tve_updated_post (the field Thrive actually renders from) is not REST-writable. Expect the live page to show the semantic HTML fallback, not the Thrive visual layer, until a human opens the post in the Thrive Architect editor and saves it once. Report this plainly rather than claiming the post renders correctly."
+  ]
+}
