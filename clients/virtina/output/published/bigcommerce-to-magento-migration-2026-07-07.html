@@ -1,0 +1,329 @@
+---
+title: "BigCommerce to Magento migration: 2026 guide"
+client: virtina
+date: 2026-07-07
+slug: bigcommerce-to-magento-migration
+stage: published
+format: "Format D: Decision-tree / Playbook"
+canonical_url: ""
+wp_post_id: 42413
+wp_status: draft
+wp_pushed: 2026-07-07
+channels:
+  - file
+  - cms
+yoast_title: "BigCommerce to Magento migration guide 2026 | Virtina"
+yoast_metadesc: "BigCommerce's 2026 fee changes now tax B2B purchase orders. Honest decision framework, 7 migration phases, and SEO protection plan for moving to Magento."
+featured_media: 0
+status: draft
+categories: ["Magento", "Migration", "B2B"]
+focus_keyword: "bigcommerce to magento migration"
+---
+<!--
+=================================================================
+VIRTINA — THRIVE ARCHITECT HTML
+Post: BigCommerce to Magento migration: 2026 guide
+Format: D (Decision-tree / Playbook)
+Date: 2026-07-07
+=================================================================
+BEFORE PUBLISHING — complete all items:
+
+1. FEATURED IMAGE (1309x500 px):
+   Upload to WP media library, then set featured_media = attachment ID.
+   Depict: B2B professional at a modern office desk reviewing an
+   analytics or platform migration dashboard on a laptop.
+
+2. BODY IMAGE 1 (670x352 px) — replace PLACEHOLDER_IMG_1:
+   Depict: Two or three B2B professionals collaborating at desks with
+   monitors showing catalog and customer data, representing replatforming
+   strategy work. Replace src, data-id, and alt text.
+
+3. BODY IMAGE 2 (670x352 px) — replace PLACEHOLDER_IMG_2:
+   Depict: Close-up of a professional at a laptop displaying data tables
+   with product SKUs and customer records, representing B2B catalog and
+   account data reconstruction. Replace src, data-id, and alt text.
+
+4. BODY IMAGE 3 (670x352 px) — replace PLACEHOLDER_IMG_3:
+   Depict: Monitor displaying an analytics dashboard with traffic trend
+   lines and a crawl error report panel, representing post-migration SEO
+   monitoring. Replace src, data-id, and alt text.
+
+5. YOAST META — must be set manually in WP Dashboard > Yoast SEO box
+   (REST API cannot write Yoast meta for this site):
+   Title:  BigCommerce to Magento migration guide 2026 | Virtina
+   Desc:   BigCommerce's 2026 fee changes now tax B2B purchase orders.
+           Honest decision framework, 7 migration phases, and SEO
+           protection plan for moving to Magento.
+
+6. THRIVE ARCHITECT: After REST API push, open post in Thrive Architect
+   editor and save once — REST API cannot write _tve_updated_post private
+   meta, so live rendering stays plain until Thrive activates it.
+
+7. BYLINE: Replace [BYLINE: insert real author name] with a real name
+   or remove that paragraph entirely.
+
+8. CASE STUDY: Replace the [CASE STUDY] placeholder in Section 7 with
+   real BigCommerce-to-Magento client data, or remove the placeholder.
+=================================================================
+-->
+
+<p dir="ltr" style="font-size:16px;line-height:1.75;">eCommerce migration | Updated July 2026</p>
+
+<!-- ==================== SUMMARY ==================== -->
+<div style="background:linear-gradient(rgba(0,213,192,0.28),rgba(0,213,192,0.28));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 dir="ltr" style="color:#43627f;font-size:30px;">Summary</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;color:#2d3e50;">BigCommerce's June 2026 Open Payment Provider Fee now charges B2B merchants 0.6% to 2% on every order outside its embedded payment list, including purchase orders. Migration to Magento Open Source is worth it above roughly $500K GMV, or when customization and ERP needs exceed BigCommerce's ceiling. Below that, Magento's Year 1 cost of $30,000 to $60,000 makes the math negative.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;color:#2d3e50;">The migration runs through 7 phases, from pre-migration audit to post-launch monitoring. Four data types never move automatically: customer passwords, URL structure, product variants, and B2B account data. The biggest risk is SEO, since incomplete redirect mapping causes 15-30% organic traffic loss in the 90 days after launch.</p>
+</div>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<div style="background:linear-gradient(rgba(241,243,250,0.5),rgba(241,243,250,0.5));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 style="color:#43627f;font-size:30px;">Introduction</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">BigCommerce rewrote its pricing on June 1, 2026. Every merchant processing orders outside the embedded payment list now pays a fee per transaction: 2% on Core, 1% on Growth, 0.6% on Scale. For B2B stores running purchase order-based workflows, that fee applies to every PO. It did not exist before June 2026.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">That change is driving a real migration evaluation across B2B manufacturers, distributors, and wholesalers. But migration to Magento is not the right answer for every store. This guide draws that line honestly.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">If your GMV is under $500K and your B2B workflows are standard, this guide will tell you to stay put. If you're above that threshold and hitting customization or API limits, it walks you through the 7 migration phases and the specific failure points that trip up most projects.</p>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<h3>Table of Contents</h3>
+<ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#why-b2b-merchants-leaving-bigcommerce" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Why are B2B merchants leaving BigCommerce in 2026?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#should-you-migrate-to-magento" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Should you migrate to Magento: the honest decision framework</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-bigcommerce-magento-migration-involves" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What does a BigCommerce to Magento migration actually involve?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-data-wont-migrate-automatically" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What data won't migrate automatically, and why it matters</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#how-to-protect-seo-through-migration" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">How do you protect your SEO through the migration?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-does-migration-cost" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What does migration cost and how long does it take?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#how-virtina-runs-bigcommerce-magento-migration" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">How does Virtina run a BigCommerce to Magento migration?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#people-also-ask" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">People also ask</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Frequently Asked Questions</a></li>
+</ul>
+
+<!-- ==================== SECTION 1 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="why-b2b-merchants-leaving-bigcommerce" style="color:#43627f;font-size:30px;">Why are B2B merchants leaving BigCommerce in 2026?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The main reason is BigCommerce's June 2026 Open Payment Provider Fee, which charges B2B merchants between 0.6% and 2% on every order processed outside BigCommerce's embedded payment list, including purchase orders.</p>
+
+<h3 style="color:#43627f;font-size:22px;">The Open Payment Provider Fee and what it costs B2B stores</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The fee applies by plan tier: Core at 2%, Growth at 1%, and Scale at 0.6%. This is new as of June 1, 2026. Before that date, BigCommerce did not charge transaction fees on PO-based orders or offline payment methods.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The cost compounds quickly. A B2B merchant doing $500K GMV on the Scale plan now pays $3,000 per year in transaction fees, plus a $3,588 annual plan subscription. That is $6,588 in pure platform fees before extensions or development.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The plan restructuring also tightened GMV thresholds. A merchant at $150K annual GMV who was on the Plus plan at $79 per month moves to Scale at $299 per month. That is a 278% platform cost increase before transaction fees apply.</p>
+
+<h3 style="color:#43627f;font-size:22px;">The platform scale decline: what the numbers say</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">BigCommerce had approximately 47,000 live stores at its peak in 2022-2023. As of Q2 2026, that number stands at 36,855, an 11% year-over-year decline, per Storeleads Q2 2026 data.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">In the most recent tracked 90-day period, 474 stores left BigCommerce while only 260 arrived, for a net loss of 214 merchants. The platform has reported three consecutive quarters of net customer losses at the enterprise tier.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">This matters for one specific reason. A shrinking merchant base affects the breadth of available apps and extensions over time. Fewer merchants means fewer developers maintaining BigCommerce-specific integrations.</p>
+
+<h3 style="color:#43627f;font-size:22px;">When the API and customization ceiling becomes the issue</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Beyond fees, some B2B stores hit a technical ceiling. Limits reported by third-party sources document Core and Growth plans at 20,000 API calls per hour, and Scale at 60,000. Stores running real-time ERP synchronization across large catalogs can saturate these limits during peak hours.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">BigCommerce also caps product variants at 600. Merchants with configurable products, such as industrial equipment with spec variations or medical devices with model variants, hit this wall regardless of plan tier.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Magento Open Source has no platform-imposed API rate limits or variant ceilings. Its only constraints are server capacity, which you control.</p>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="should-you-migrate-to-magento" style="color:#43627f;font-size:30px;">Should you migrate to Magento: the honest decision framework</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Migration to Magento Open Source makes financial and operational sense above roughly $500K GMV. The case strengthens further when customization requirements exceed BigCommerce's configuration ceiling or when your ERP integration needs direct database access.</p>
+
+<h3 style="color:#43627f;font-size:22px;">When the migration math works in your favor</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The clearest signal is GMV above $1M. At that scale, BigCommerce transaction fees compound year over year while Magento's self-hosted infrastructure eliminates them permanently. For a fuller analysis of why Magento pays off at this scale, see Virtina's coverage of <a href="https://virtina.com/future-proof-ecommerce-magento-2025/" style="outline: none;">Magento for long-term growth</a>.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customization is the second trigger. If your store needs multi-level approval chains, buyer-specific catalogs with 5,000+ SKUs, company account hierarchies, or ERP integrations requiring direct database access, migration is the right call.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Multi-store infrastructure is the third factor. Magento's multi-store setup with a shared backend handles different catalogs and buyer segments more cleanly than BigCommerce's multi-storefront offering at this scale. Score yourself against these criteria:</p>
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;">GMV over $500K with PO-based ordering and growing transaction fee exposure</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;">Customization requirements beyond what BigCommerce's app stack can configure</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;">ERP integration needing direct database access or a custom API architecture</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;">Multi-store or multi-buyer-segment catalog requirements</span></li>
+</ul>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">If you check two or more of these, migration warrants a serious evaluation. For context on where Magento sits relative to other platforms, Virtina's <a href="https://virtina.com/ecommerce-platforms-comparison/" style="outline: none;">eCommerce platform comparison</a> covers the full four-way breakdown.</p>
+
+<h3 style="color:#43627f;font-size:22px;">When to stay on BigCommerce</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">If your GMV is under $500K and your B2B workflows are standard, migrating to Magento this year will cost more than it saves. That's the direct answer, not a caveat.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Magento Open Source Year 1 total cost of ownership typically runs $30,000-$60,000 for a small-to-mid store. At $500K GMV, the payback calculation comes out negative in Year 1. Stay on BigCommerce, tighten your app stack, and revisit when transaction fee exposure justifies the switch.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">BigCommerce B2B Edition handles company accounts, custom pricing, quote management, net terms, and PO ordering natively. If those features cover your workflows, you don't need Magento's flexibility. Review Virtina's guide to <a href="https://virtina.com/bigcommerce-b2b-edition-setup-quick-wins/" style="outline: none;">BigCommerce B2B Edition setup</a> before making any replatforming decision.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Stores that need fast time-to-market should also stay put. A mid-market migration runs 12-24 agency weeks minimum. That timeline matters.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Magento Open Source vs Adobe Commerce: which tier?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Magento Open Source is free to download. Adobe Commerce carries a license cost of $22,000-$125,000+ per year depending on GMV tier. The question is whether the Commerce B2B module, with 15+ natively built workflows, is worth that license over building a comparable stack on Open Source.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For stores migrating primarily for customization and TCO, Open Source is the right starting point at under $5M GMV. Adobe Commerce is worth evaluating at $5M+ GMV when the native B2B module replaces a paid app stack you're already running on BigCommerce. See Virtina's breakdown of <a href="https://virtina.com/adobe-commerce-b2b-features/" style="outline: none;">Adobe Commerce B2B features</a> for a full list of what ships natively.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For B2B operations specifically, the Adobe Commerce B2B module at scale can replace several paid BigCommerce apps at once. The economics depend on your current app spend. Virtina's <a href="https://virtina.com/magento-for-b2b-ecommerce/" style="outline: none;">Magento for B2B</a> guide covers those native capabilities in detail.</p>
+
+<!-- IMAGE PLACEHOLDER 1 — replace before publishing (670x352 px) -->
+<!-- Depict: B2B professionals collaborating at desks with monitors showing catalog and customer data -->
+<span style="display:block;margin:20px 0;"><img alt="[REPLACE: B2B eCommerce team planning platform migration at office workstations with monitors displaying product catalog data, representing replatforming strategy for BigCommerce to Magento migration — 80-150 chars alt text required]" width="670" height="352" loading="lazy" src="PLACEHOLDER_IMG_1_670x352" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="what-bigcommerce-magento-migration-involves" style="color:#43627f;font-size:30px;">What does a BigCommerce to Magento migration actually involve?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A BigCommerce to Magento migration runs through 7 phases: pre-migration audit, theme build, catalog migration, integration rebuild, B2B data configuration, staging QA, DNS cutover, and post-launch monitoring.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">One important clarification before the phases: Adobe's Magento Data Migration Tool is designed exclusively for Magento 1 to Magento 2 migrations. It requires a source Magento 1 database and cannot connect to BigCommerce. If you've seen it suggested as an option for this route, that information is incorrect.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For BigCommerce to Magento, you have three approaches: third-party migration tools such as LitExtension or Cart2Cart, manual CSV export and data transformation, or a custom API-based migration scripted by a development agency. Your catalog size and B2B complexity determine which approach fits.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A structured <a href="https://virtina.com/ecommerce-website-migration-checklist/" style="outline: none;">eCommerce migration checklist</a> should be your starting document for any replatforming project. It covers pre-launch QA, redirect verification, and post-launch monitoring requirements. Virtina's <a href="https://virtina.com/ecommerce-platform-migration/" style="outline: none;">platform migration planning</a> guide covers the broader strategic framework for replatforming decisions.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Phases 1 and 2: audit, catalog, and theme</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Phase 1 is a 2-week audit. Document every page URL and map it to a Magento equivalent. Build your redirect map before writing a single line of code. Map your BigCommerce app stack to Magento extension equivalents. Missing an app replacement on launch day is one of the most common sources of post-launch chaos.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Phase 2 runs in parallel and takes 4-8 weeks. Build the Magento theme and migrate the catalog. Hyva is the recommended theme framework for performance: it generates leaner frontend output than Luma, which translates directly to better Core Web Vitals scores. Alongside the theme build, migrate catalog data via tool or API scripts, and transform variant data from BigCommerce's single-row format to Magento's configurable product and child simple SKU pairs.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Set up your hosting environment before build work begins. Magento 2.4.9, current as of May 2026, supports PHP 8.3, 8.4, and 8.5. It requires OpenSearch 2.x, Valkey 8, and Varnish 7.6 for a production-grade environment.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For stores under 5,000 SKUs with standard product data, tools like LitExtension are a viable option. LitExtension starts at $79, supports 140+ source platforms, and includes 60-day post-migration support. Cart2Cart supports 85+ platforms and suits smaller stores. For stores above 5,000 SKUs, complex B2B structures, or custom extension requirements, an agency API-based migration is the right approach. Tools move data. They don't rebuild integrations or configure B2B architecture.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Phases 3-7: integrations, QA, and go-live</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Phase 3 takes 2-4 weeks. Reconnect your ERP, CRM, payment gateways, and email platform. Each integration needs to be rebuilt to Magento's API architecture, not merely reconnected. An ERP integration that ran on a BigCommerce app must be rebuilt as a Magento extension or via a middleware connector.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Rebuild your B2B configuration in parallel: customer groups, tier pricing, company accounts, and approval workflows. This step does not exist in a tool migration. It requires manual setup in the Magento B2B module.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Phase 4 is the launch sequence. Switch DNS, deploy 301 redirects at the server or CDN layer, and submit your new XML sitemap to Google Search Console immediately. Set up daily crawl error monitoring for the first two weeks. Virtina's <a href="https://virtina.com/ecommerce-replatform/" style="outline: none;">eCommerce replatforming</a> service covers the specific QA stages this phase requires.</p>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="what-data-wont-migrate-automatically" style="color:#43627f;font-size:30px;">What data won't migrate automatically, and why it matters</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Four data types cannot be migrated automatically: customer passwords, URL structure, product variants, and B2B-specific data. Each requires a different manual reconstruction strategy.</p>
+
+<h3 style="color:#43627f;font-size:22px;">The 4 non-automatable failure points</h3>
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Customer passwords.</strong> BigCommerce and Magento use incompatible hashing algorithms. Passwords cannot be transferred. Every customer must reset their password on first login. Plan a proactive reset email campaign for launch day to minimize support volume and buyer friction.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>URL structure.</strong> BigCommerce defaults to <code>/products/product-name/</code> paths. Magento defaults to <code>/product-name.html</code>. Every URL must be individually mapped and 301-redirected. Any URL you miss loses its search ranking and link equity.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Product variants.</strong> BigCommerce stores variants as a single row. Magento requires a configurable product paired with child simple SKUs. Each row must be expanded and re-mapped. This is what makes large catalogs labor-intensive and why tools struggle above 5,000 SKUs.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Historical orders.</strong> Import as read-only records only. No functional transaction replay is possible.</span></li>
+</ul>
+
+<h3 style="color:#43627f;font-size:22px;">Rebuilding B2B data: the most underestimated work</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customer groups and tier pricing must be manually rebuilt in Magento's Customer Groups and tier pricing configuration. There is no automated transfer path from BigCommerce.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Company accounts, shared catalogs, and negotiable quote histories from BigCommerce B2B Edition are not transferred by automated tools. They require full manual setup in the Magento B2B module. Budget 20-30% of total migration time for this work if your store has active B2B account structures.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">This is where agency expertise pays for itself. A tool can move your product records. It cannot reconstruct your buyer hierarchy, approval rules, or customer-specific catalog visibility.</p>
+
+<!-- IMAGE PLACEHOLDER 2 — replace before publishing (670x352 px) -->
+<!-- Depict: Professional at laptop with data tables showing product SKUs and customer records -->
+<span style="display:block;margin:20px 0;"><img alt="[REPLACE: Business professional reviewing B2B data migration on laptop with screen showing product SKU tables and customer account records, representing catalog and account data reconstruction for Magento migration — 80-150 chars alt text required]" width="670" height="352" loading="lazy" src="PLACEHOLDER_IMG_2_670x352" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="how-to-protect-seo-through-migration" style="color:#43627f;font-size:30px;">How do you protect your SEO through the migration?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">You protect your SEO by building a complete URL redirect map before migration starts, deploying server-side 301 redirects on launch day, and monitoring Google Search Console daily for two weeks after cutover.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Building the URL redirect map: before day one</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A poorly managed migration causes 15-30% organic traffic loss in the 90 days post-launch. That range is documented across migrations where redirect mapping was incomplete or delayed. The fix is not complicated: it is work that cannot be skipped or deferred.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The map must cover every BigCommerce URL: products, categories, static pages, and blog posts. Use 301 redirects only. A 302 does not pass link equity. Never chain redirects: map A directly to C, not A to B to C. Chains slow crawling and dilute equity with each hop.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Watch for structured data loss. Magento requires separate schema configuration for rich snippets. Product schema, breadcrumb schema, and review markup from BigCommerce do not carry over automatically. Missing this step costs you rich snippet visibility. Virtina's <a href="https://virtina.com/ecommerce-seo/" style="outline: none;">eCommerce SEO</a> team handles schema as part of migration scope.</p>
+
+<h3 style="color:#43627f;font-size:22px;">AI citation preservation: the 2026 migration KPI</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A new performance indicator has emerged alongside organic traffic for 2026 migrations: AI citation preservation. If your BigCommerce pages are currently cited by AI Overviews, Perplexity, or similar tools, those citations are tied to specific URLs.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Migration without complete redirect coverage breaks those citations. Unlike Google rankings, AI citations do not auto-recover on a predictable timeline. Target 95% or more of pre-migration AI citations retained within 60 days of launch.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Track this by monitoring AI search outputs for your brand and product terms before migration, then again at 30 and 60 days post-launch. Add it to your monitoring checklist alongside Search Console crawl errors.</p>
+
+<!-- IMAGE PLACEHOLDER 3 — replace before publishing (670x352 px) -->
+<!-- Depict: Monitor showing analytics dashboard with traffic trend lines and crawl error report panel -->
+<span style="display:block;margin:20px 0;"><img alt="[REPLACE: eCommerce SEO analytics dashboard on desktop monitor showing organic traffic trend lines and a crawl error report panel, representing post-migration SEO monitoring for BigCommerce to Magento migration — 80-150 chars alt text required]" width="670" height="352" loading="lazy" src="PLACEHOLDER_IMG_3_670x352" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="what-does-migration-cost" style="color:#43627f;font-size:30px;">What does migration cost and how long does it take?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Agency-led migration costs $5,000-$15,000 for small stores, $20,000-$50,000 for mid-market stores, and $75,000-$250,000+ for enterprise stores with complex B2B and ERP requirements.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Timeline and investment by store size</h3>
+<table data-rows="3" data-cols="4" data-v="middle" style="width:100%;border-collapse:collapse;margin:16px 0;">
+<thead>
+<tr>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Store size</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>DIY with tools</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Agency timeline</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;" colspan="1" rowspan="1"><p style="font-size:16px;line-height:1.75;"><strong>Agency Year 1 cost</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-th="Store size" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Small (under 500 SKUs, no custom B2B)</p></td>
+<td data-th="DIY with tools" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">2-4 weeks</p></td>
+<td data-th="Agency timeline" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">8-12 weeks</p></td>
+<td data-th="Agency Year 1 cost" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;" colspan="1" rowspan="1"><p style="font-size:16px;line-height:1.75;">$5,000-$15,000</p></td>
+</tr>
+<tr>
+<td data-th="Store size" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Mid-market (500-5,000 SKUs)</p></td>
+<td data-th="DIY with tools" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">4-8 weeks</p></td>
+<td data-th="Agency timeline" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">12-24 weeks</p></td>
+<td data-th="Agency Year 1 cost" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;" colspan="1" rowspan="1"><p style="font-size:16px;line-height:1.75;">$20,000-$50,000</p></td>
+</tr>
+<tr>
+<td data-th="Store size" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Enterprise (5,000+ SKUs, complex B2B/ERP)</p></td>
+<td data-th="DIY with tools" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Not recommended</p></td>
+<td data-th="Agency timeline" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">24-52+ weeks</p></td>
+<td data-th="Agency Year 1 cost" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;" colspan="1" rowspan="1"><p style="font-size:16px;line-height:1.75;">$75,000-$250,000+</p></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr" style="font-size:14px;line-height:1.6;color:#6e6e6e;margin:4px 0 16px 0;">Agency cost ranges based on 2026 market data. Final project cost depends on catalog size, B2B complexity, and integration requirements.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The honest comparison: a BigCommerce merchant at $500K GMV on Scale pays $6,588 per year in pure platform fees before extensions or development. Magento Year 1 total cost of ownership for a small-to-mid store typically runs $30,000-$60,000. Break-even generally occurs in Year 2 for stores above $500K GMV that execute the migration correctly.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">From Year 2 onward, Magento ongoing costs drop to 20-40% of Year 1. Hosting, extension renewals, and security patches replace the compounding SaaS fees. The self-hosted model eliminates transaction fees permanently.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Budget the post-launch phase</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Allocate 20-30% of your migration project cost for the first 6 months post-launch. A migrated store is not a finished store on launch day.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">That budget covers performance tuning, extension configuration, B2B workflow refinement, and the edge-case bugs that surface only under real traffic. Planning for this phase is accurate project scoping, not pessimism.</p>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="how-virtina-runs-bigcommerce-magento-migration" style="color:#43627f;font-size:30px;">How does Virtina run a BigCommerce to Magento migration?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Virtina is a Magento Certified partner with 1,000+ client engagements across B2B and B2C eCommerce. When you work with Virtina on a BigCommerce migration, the project starts with a full pre-migration audit. Every URL is catalogued, every app replacement mapped, and every B2B data structure documented before build work begins.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The build phase addresses the 4 failure points proactively. Password reset campaigns are prepared for launch day. The URL redirect map is built from the audit, not reconstructed after cutover.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Variant data is transformed through scripted re-mapping, not manual entry. B2B account structures, customer groups, and tier pricing are rebuilt in the Magento B2B module during staging, not patched in after launch.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Post-launch support covers the critical 6-month window. Virtina handles Search Console monitoring, performance tuning, and B2B workflow refinement as your team adapts to Magento. To discuss your specific store, contact Virtina's <a href="https://virtina.com/magento-migration-services/" style="outline: none;">Magento migration services</a> team.</p>
+</div>
+
+<!-- ==================== PEOPLE ALSO ASK ==================== -->
+<div style="background:linear-gradient(rgba(241,243,250,0.5),rgba(241,243,250,0.5));border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="people-also-ask" style="color:#43627f;font-size:30px;">People also ask</h2>
+
+<h3 style="color:#43627f;font-size:22px;">How long does a BigCommerce to Magento migration take?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Agency-led migration takes 8-12 weeks for a small store (under 500 SKUs), 12-24 weeks for a mid-market store (500-5,000 SKUs), and 24-52+ weeks for an enterprise store with complex B2B and ERP requirements.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">DIY tools are faster but not recommended for stores above 5,000 SKUs or with custom B2B configurations. Timeline depends on catalog size, integration complexity, and B2B data volume.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Will I lose my SEO rankings when I migrate from BigCommerce to Magento?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">You can protect your rankings with a complete URL redirect map built before launch. Deploy server-side 301 redirects on cutover day.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Poorly managed migrations cause 15-30% organic traffic loss in 90 days, but that outcome is avoidable with proper redirect planning and immediate Search Console monitoring after go-live.</p>
+
+<h3 style="color:#43627f;font-size:22px;">Can I use the Magento Data Migration Tool for BigCommerce?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">No. Adobe's Magento Data Migration Tool is designed exclusively for Magento 1 to Magento 2 migrations. It requires a source Magento 1 database and cannot connect to BigCommerce.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For BigCommerce migrations, use LitExtension, Cart2Cart, manual CSV transformation, or a custom agency API-based migration script.</p>
+
+<h3 style="color:#43627f;font-size:22px;">How much does a BigCommerce to Magento migration cost?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Agency costs range from $5,000-$15,000 for small stores to $20,000-$50,000 for mid-market stores and $75,000-$250,000+ for enterprise stores with complex B2B and ERP setups.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Magento Open Source Year 1 total cost of ownership, including hosting, development, and extensions, typically runs $30,000-$60,000 for a small-to-mid store.</p>
+
+<h3 style="color:#43627f;font-size:22px;">What B2B data can't be migrated automatically from BigCommerce?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customer passwords cannot be migrated due to incompatible hashing algorithms between BigCommerce and Magento.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">B2B-specific data, including customer groups, tier pricing, company account hierarchies, and shared catalogs, requires full manual rebuild in the Magento B2B module. Automated migration tools do not handle this work.</p>
+</div>
+
+<!-- ==================== CONCLUSION ==================== -->
+<div style="background:#00d5c0;border-radius:20px;padding:30px;margin:0 0 28px 0;">
+<h2 id="conclusion" style="color:#ffffff;font-size:30px;">Conclusion</h2>
+<p style="color:#ffffff;font-size:16px;line-height:1.75;">If your GMV is above $500K and you're processing PO-based orders, the June 2026 fee changes matter to you. BigCommerce transaction fees now add $3,000 or more to annual platform costs at that GMV level. At that scale, migration to Magento Open Source is worth a serious evaluation. Add deep B2B customization needs or an API ceiling to that picture and the case strengthens further.</p>
+<p style="color:#ffffff;font-size:16px;line-height:1.75;">Migration is not simple. The 4 failure points, passwords, URLs, variants, and B2B data, trip up most projects that move too fast. A phased approach with proper pre-audit work, staging QA, and a planned post-launch support window makes the difference. A rushed cutover typically means a 90-day recovery instead of a clean go-live.</p>
+</div>
+
+<!-- ==================== FAQ ==================== -->
+<style>
+details.vfaq>summary{list-style:none;}
+details.vfaq>summary::-webkit-details-marker{display:none;}
+details.vfaq[open]>summary{background:linear-gradient(#00d5c0,#00d5c0)!important;}
+details.vfaq .vfaq-answer p{font-size:15px!important;color:#6e6e6e!important;line-height:1.75!important;}
+</style>
+<h2 id="faq" style="color:#43627f;font-size:30px;">Frequently Asked Questions</h2>
+<div>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Does migrating to Magento affect my existing customer accounts?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Yes, in one specific way: customer passwords cannot be migrated. BigCommerce and Magento use incompatible hashing algorithms, so every customer must reset their password on first login. Send a proactive reset email on launch day to reduce support friction. All other account data, including order history, billing addresses, and company assignments, transfers through the standard migration process.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">What happens to my BigCommerce integrations (ERP, payment, shipping)?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Your integrations need to be rebuilt for Magento's API architecture, not just reconnected. Magento uses its own extension framework, REST API, and GraphQL layer. An ERP integration that ran on a BigCommerce app must be rebuilt as a Magento extension or via a middleware connector. Plan for 2-4 weeks of integration rebuild work in Phase 3.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Should I choose Magento Open Source or Adobe Commerce?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Open Source is the right starting point for stores migrating primarily for customization and TCO control at under $5M GMV. Adobe Commerce is worth evaluating at $5M+ GMV when the native B2B module, which includes RFQ, negotiable quotes, multi-level approvals, requisition lists, and company account hierarchies, replaces a paid app stack you're already running on BigCommerce. Compare your current app spend against the Adobe Commerce license cost ($22,000-$125,000+ per year) before deciding.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Is Magento harder to manage than BigCommerce day-to-day?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Yes, operationally. BigCommerce is a managed SaaS platform: security patches, infrastructure updates, and uptime are handled by BigCommerce. Magento Open Source requires your team or a managed hosting partner to handle those tasks. You own the server, which gives you full control, but also full responsibility. Factor in a managed Magento hosting partner at $1,200-$12,000+ per year as part of your ongoing operational plan.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">What is the Hyva theme and why is it recommended?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Hyva is a Magento frontend theme framework that replaces the default Luma stack with a leaner build using Alpine.js and Tailwind CSS. It generates significantly less JavaScript than Luma, which improves Core Web Vitals scores and reduces Time to First Byte directly. For a B2B store where catalog page load affects buyer workflows, Hyva is the performance-first choice over the standard Magento theme.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Can I migrate product reviews and customer wishlists?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Product reviews can typically be migrated as read-only records using migration tools or custom scripts. Customer wishlists are more variable: migration depends on whether your BigCommerce setup stored wishlist data in a recoverable format. In most agency-led migrations, wishlists are migrated where data is clean and skipped where it isn't. Historical orders are imported as read-only records with no functional transaction replay.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">How do I handle the B2B pricing structures I've built in BigCommerce?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">BigCommerce customer group pricing and tier pricing must be manually rebuilt in Magento's Customer Groups and tier pricing configuration. There is no automated transfer. Shared catalogs from BigCommerce B2B Edition require full manual reconstruction in the Magento B2B module. Budget 20-30% of total migration time for this work on any store with active B2B pricing structures.</p></div></details>
+
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">When should I NOT migrate from BigCommerce to Magento?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Don't migrate if your GMV is under $500K and your B2B workflows are standard: company accounts, custom pricing, quote management, net terms, and PO ordering. The Year 1 Magento TCO makes the payback math negative at that scale.</p><p dir="ltr" style="font-size:16px;line-height:1.75;">Also don't migrate if you need fast time-to-market, since a mid-market migration takes 12-24 agency weeks minimum. And don't migrate if the June 2026 fee change is your only reason at lower GMV levels: the fee increase may cost less than the migration itself.</p></div></details>
+</div>

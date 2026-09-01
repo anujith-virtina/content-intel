@@ -4,7 +4,8 @@ This file is the source of truth for ImpelHub content. Every agent (researcher, 
 
 ## Reference posts (gold standards)
 
-- Post 12356: https://impelhub.com/blog/fractional-leadership-b2b-startups-cto-cmo-cfo/ — best-structured post (TL;DR, TOC, H2/H3 hierarchy, images, Related Reading, Conclusion, FAQ accordion)
+- Post 12356: https://impelhub.com/blog/fractional-leadership-b2b-startups-cto-cmo-cfo/ — best-structured post (TL;DR, TOC, H2/H3 hierarchy, images, Related Reading, Conclusion). NOTE: 12356 uses old `elementor-widget-accordion` — use post 12433 as the FAQ accordion reference instead.
+- Post 12433: https://impelhub.com/blog/product-market-fit-signals-b2b-saas/ — use for FAQ accordion reference (`elementor-widget-n-accordion`, `nested-accordion.default`)
 
 Local cached copy: `clients/impelhub/reference/post-12356-working.html`
 
@@ -98,7 +99,7 @@ ImpelHub's default article structure (from reference post 12356):
 4. Section images — Elementor image widget, placed after content-heavy sections
 5. "Related Reading" callout box (dark background container with 2–4 arrow links)
 6. Conclusion (H2 id="conclusion")
-7. FAQ accordion (Elementor accordion widget, 5–7 Q&As)
+7. FAQ accordion — MUST use `elementor-widget-n-accordion` (`data-widget_type="nested-accordion.default"`) with `<details>/<summary>` structure. Do NOT use the old `elementor-widget-accordion` (`accordion.default`). Confirmed from live posts 12433 and newer. 5–7 Q&As.
 
 ---
 
@@ -187,7 +188,7 @@ Applied to every ImpelHub blog post.
 **Every ImpelHub blog must:**
 - Open with a TL;DR section (H2, 4-7 arrow bullets)
 - Include a Table of Contents
-- End with a Conclusion section and FAQ accordion (5-7 Q&As)
+- End with a Conclusion section and FAQ (n-accordion, 5-7 Q&As)
 - Close with one ImpelHub CTA (from cms.md CTA list)
 - Use at least 2 internal ImpelHub links in body prose, colored #5736fd
 
@@ -332,7 +333,7 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] Sentences: no sentence exceeds 20 words — spot check 5 random sentences per section
 - [ ] Direct answers: first sentence of every H2 body section directly answers the H2 question
 - [ ] Semantic coverage: 10-15 related terms present naturally (researcher confirms in research file)
-- [ ] ImpelHub required elements: TL;DR, TOC, Conclusion, FAQ accordion, CTA, 2+ internal links
+- [ ] ImpelHub required elements: TL;DR, TOC, Conclusion, FAQ n-accordion (`nested-accordion.default`), CTA, 2+ internal links
 
 **Competitor research (section 4c):**
 - [ ] web_search run for primary keyword (and at least 1 variant) before writing

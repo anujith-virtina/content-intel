@@ -241,68 +241,92 @@ word_count_target: 2000-2300
 		<div class="elementor-element elementor-element-faq02 blog-title-h2 elementor-widget elementor-widget-heading" data-id="faq02" data-element_type="widget" data-e-type="widget" id="faq" data-widget_type="heading.default">
 			<h2 class="elementor-heading-title elementor-size-default">FAQ</h2>
 		</div>
-		<div class="elementor-element elementor-element-faq03 elementor-widget elementor-widget-accordion" data-id="faq03" data-element_type="widget" data-e-type="widget" data-widget_type="accordion.default">
-			<div class="elementor-accordion">
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2601" class="elementor-tab-title" data-tab="1" role="button" aria-controls="elementor-tab-content-2601" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+		<div class="elementor-element elementor-element-faq03 elementor-widget elementor-widget-n-accordion" data-id="faq03" data-element_type="widget" data-e-type="widget" data-settings="{&quot;default_state&quot;:&quot;expanded&quot;,&quot;max_items_expended&quot;:&quot;one&quot;,&quot;n_accordion_animation_duration&quot;:{&quot;unit&quot;:&quot;ms&quot;,&quot;size&quot;:400,&quot;sizes&quot;:[]}}" data-widget_type="nested-accordion.default">
+			<div class="e-n-accordion" aria-label="Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys">
+				<details id="e-n-accordion-item-6501" class="e-n-accordion-item" open>
+					<summary class="e-n-accordion-item-title" data-accordion-index="1" tabindex="0" aria-expanded="true" aria-controls="e-n-accordion-item-6501">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">What is a good B2B SaaS churn rate for an early-stage company?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">What is a good B2B SaaS churn rate for an early-stage company?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6501" class="elementor-element elementor-element-faqc01 e-con-full e-flex e-con e-parent" data-id="faqc01" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt01 elementor-widget elementor-widget-text-editor" data-id="faqt01" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>The average monthly churn benchmark for B2B SaaS is around 3.5%. Top performers stay below 2% monthly. At seed stage, monthly churn above 5% is a diagnostic signal, not just a retention problem to fix. It usually points to ICP mismatch rather than anything a retention campaign can solve. Run the root cause diagnostic before investing in any retention tactic.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2601" class="elementor-tab-content elementor-clearfix" data-tab="1" role="region" aria-labelledby="elementor-tab-title-2601">The average monthly churn benchmark for B2B SaaS is around 3.5%. Top performers stay below 2% monthly. At seed stage, monthly churn above 5% is a diagnostic signal, not just a retention problem to fix. It usually points to ICP mismatch rather than anything a retention campaign can solve. Run the root cause diagnostic before investing in any retention tactic.</div>
-				</div>
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2602" class="elementor-tab-title" data-tab="2" role="button" aria-controls="elementor-tab-content-2602" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+				</details>
+				<details id="e-n-accordion-item-6502" class="e-n-accordion-item">
+					<summary class="e-n-accordion-item-title" data-accordion-index="2" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-6502">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">How do I know if my churn is a product problem or a fit problem?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">How do I know if my churn is a product problem or a fit problem?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6502" class="elementor-element elementor-element-faqc02 e-con-full e-flex e-con e-parent" data-id="faqc02" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt02 elementor-widget elementor-widget-text-editor" data-id="faqt02" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>The timing and engagement depth tell you. If churned customers were in-ICP, completed onboarding, reached the activation event, and still left after month three, it is a product gap. If they churned within 60 days without activating, it is a fit or onboarding problem. Wrong-fit customers churn early and shallow. Product-gap customers churn late and deep, after real usage.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2602" class="elementor-tab-content elementor-clearfix" data-tab="2" role="region" aria-labelledby="elementor-tab-title-2602">The timing and engagement depth tell you. If churned customers were in-ICP, completed onboarding, reached the activation event, and still left after month three, it is a product gap. If they churned within 60 days without activating, it is a fit or onboarding problem. Wrong-fit customers churn early and shallow. Product-gap customers churn late and deep, after real usage.</div>
-				</div>
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2603" class="elementor-tab-title" data-tab="3" role="button" aria-controls="elementor-tab-content-2603" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+				</details>
+				<details id="e-n-accordion-item-6503" class="e-n-accordion-item">
+					<summary class="e-n-accordion-item-title" data-accordion-index="3" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-6503">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">Should I hire a customer success manager to reduce churn?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">Should I hire a customer success manager to reduce churn?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6503" class="elementor-element elementor-element-faqc03 e-con-full e-flex e-con e-parent" data-id="faqc03" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt03 elementor-widget elementor-widget-text-editor" data-id="faqt03" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>Not until you have run the three-question CS hire test and confirmed that your root cause is onboarding failure or a product gap, not ICP mismatch. A CS hire does not fix a fit problem. Most early-stage founders make this hire before the root cause is confirmed and then wonder why churn does not improve. Diagnose first. Hire second.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2603" class="elementor-tab-content elementor-clearfix" data-tab="3" role="region" aria-labelledby="elementor-tab-title-2603">Not until you have run the three-question CS hire test and confirmed that your root cause is onboarding failure or a product gap, not ICP mismatch. A CS hire does not fix a fit problem. Most early-stage founders make this hire before the root cause is confirmed and then wonder why churn does not improve. Diagnose first. Hire second.</div>
-				</div>
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2604" class="elementor-tab-title" data-tab="4" role="button" aria-controls="elementor-tab-content-2604" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+				</details>
+				<details id="e-n-accordion-item-6504" class="e-n-accordion-item">
+					<summary class="e-n-accordion-item-title" data-accordion-index="4" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-6504">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">What is involuntary churn and how do I fix it?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">What is involuntary churn and how do I fix it?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6504" class="elementor-element elementor-element-faqc04 e-con-full e-flex e-con e-parent" data-id="faqc04" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt04 elementor-widget elementor-widget-text-editor" data-id="faqt04" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>Involuntary churn is failed payment churn: expired cards, insufficient funds, bank declines. It is not dissatisfaction churn. It accounts for 20-40% of total churn in most SaaS businesses and is the fastest, cheapest fix available. Set up a dunning email sequence (3-4 automated emails triggered by a failed charge) and enable a card updater through your payment processor. This takes one afternoon and can recover a significant portion of churned revenue with no product work required.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2604" class="elementor-tab-content elementor-clearfix" data-tab="4" role="region" aria-labelledby="elementor-tab-title-2604">Involuntary churn is failed payment churn: expired cards, insufficient funds, bank declines. It is not dissatisfaction churn. It accounts for 20-40% of total churn in most SaaS businesses and is the fastest, cheapest fix available. Set up a dunning email sequence (3-4 automated emails triggered by a failed charge) and enable a card updater through your payment processor. This takes one afternoon and can recover a significant portion of churned revenue with no product work required.</div>
-				</div>
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2605" class="elementor-tab-title" data-tab="5" role="button" aria-controls="elementor-tab-content-2605" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+				</details>
+				<details id="e-n-accordion-item-6505" class="e-n-accordion-item">
+					<summary class="e-n-accordion-item-title" data-accordion-index="5" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-6505">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">How do I calculate time-to-value (TTV) for my product?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">How do I calculate time-to-value (TTV) for my product?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6505" class="elementor-element elementor-element-faqc05 e-con-full e-flex e-con e-parent" data-id="faqc05" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt05 elementor-widget elementor-widget-text-editor" data-id="faqt05" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>TTV is the time between a customer's first login and the activation event: the single action most strongly correlated with 90-day retention. Find your activation event first: segment retained versus churned customers on individual actions and identify which action most cleanly separates the two groups. Then measure how many days it takes a new customer to reach that action. That gap is your TTV. Reducing it is the fastest structural fix for onboarding-driven churn.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2605" class="elementor-tab-content elementor-clearfix" data-tab="5" role="region" aria-labelledby="elementor-tab-title-2605">TTV is the time between a customer's first login and the activation event: the single action most strongly correlated with 90-day retention. Find your activation event first: segment retained versus churned customers on individual actions and identify which action most cleanly separates the two groups. Then measure how many days it takes a new customer to reach that action. That gap is your TTV. Reducing it is the fastest structural fix for onboarding-driven churn.</div>
-				</div>
-				<div class="elementor-accordion-item">
-					<div id="elementor-tab-title-2606" class="elementor-tab-title" data-tab="6" role="button" aria-controls="elementor-tab-content-2606" aria-expanded="false">
-						<span class="elementor-accordion-icon elementor-accordion-icon-left" aria-hidden="true">
-							<span class="elementor-accordion-icon-closed"><svg class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
-							<span class="elementor-accordion-icon-opened"><svg class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+				</details>
+				<details id="e-n-accordion-item-6506" class="e-n-accordion-item">
+					<summary class="e-n-accordion-item-title" data-accordion-index="6" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-6506">
+						<span class='e-n-accordion-item-title-header'><h4 class="e-n-accordion-item-title-text">When should I start worrying about net revenue retention (NRR)?</h4></span>
+						<span class='e-n-accordion-item-title-icon'>
+							<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+							<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
 						</span>
-						<a class="elementor-accordion-title" tabindex="0">When should I start worrying about net revenue retention (NRR)?</a>
+					</summary>
+					<div role="region" aria-labelledby="e-n-accordion-item-6506" class="elementor-element elementor-element-faqc06 e-con-full e-flex e-con e-parent" data-id="faqc06" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-faqt06 elementor-widget elementor-widget-text-editor" data-id="faqt06" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+							<p>NRR becomes your primary metric once you have 20 or more customers and some expansion revenue to track. Pre-$1M ARR, focus on gross logo retention first. Getting retention right on the logos you have is the foundation. NRR matters when expansion revenue from existing customers is large enough to offset churned logos: that is the metric that signals your growth model is working. Until then, churn rate and 90-day cohort retention are the numbers that matter most.</p>
+						</div>
 					</div>
-					<div id="elementor-tab-content-2606" class="elementor-tab-content elementor-clearfix" data-tab="6" role="region" aria-labelledby="elementor-tab-title-2606">NRR becomes your primary metric once you have 20 or more customers and some expansion revenue to track. Pre-$1M ARR, focus on gross logo retention first. Getting retention right on the logos you have is the foundation. NRR matters when expansion revenue from existing customers is large enough to offset churned logos: that is the metric that signals your growth model is working. Until then, churn rate and 90-day cohort retention are the numbers that matter most.</div>
-				</div>
+				</details>
 			</div>
 		</div>
 	</div>

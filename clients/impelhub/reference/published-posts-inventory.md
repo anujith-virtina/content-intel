@@ -1,7 +1,7 @@
 ---
 client: impelhub
-last_updated: 2026-06-10
-total_posts: 50
+last_updated: 2026-06-11
+total_posts: 51
 source: https://impelhub.com/wp-json/wp/v2/posts?per_page=100&_fields=id,slug,title,categories,tags,date,excerpt,link
 ---
 
@@ -38,10 +38,11 @@ Use this file for uniqueness checks before writing any new ImpelHub blog. Check 
 
 ---
 
-## Cluster 3 — B2B SaaS Founder Decisions (2 posts)
+## Cluster 3 — B2B SaaS Founder Decisions (3 posts)
 
 | ID | Date | Title | Slug | Excerpt |
 |---|---|---|---|---|
+| TBD | 2026-06-11 | What's actually causing your B2B SaaS churn: and what to fix first | reduce-churn-b2b-saas-early-stage | Most early-stage B2B SaaS founders fix the wrong churn problem. Diagnose root cause first: ICP fit, onboarding failure, or product gap. Then fix in sequence. |
 | 12433 | 2026-04-22 | Product-Market Fit Signals: 10 Markers B2B SaaS Founders Should Pass Before Scaling | product-market-fit-signals-b2b-saas | TL;DR Most founders believe they have product-market fit long before the data agrees. Real PMF shows up as a repeatable pattern. |
 | 12330 | 2026-04-10 | When to Hire Your First Sales Rep in B2B SaaS: A Founder's Readiness Playbook | when-to-hire-first-sales-rep-b2b-saas | (no excerpt available) |
 
@@ -136,14 +137,14 @@ Note: Feature Optimization (11813) and Tightening the Feedback Cycle (11573) are
 |---|---|
 | GTM / Growth Strategy | 11 |
 | Fractional Leadership | 2 |
-| B2B SaaS Founder Decisions | 2 |
+| B2B SaaS Founder Decisions | 3 |
 | AI & Business Intelligence | 13 |
 | ICP / Customer / Market Analysis | 8 |
 | Competitive Strategy / BattleBoard | 1 |
 | Positioning / Messaging / Brand | 6 |
 | SMB / Manufacturing / Vertical | 4 |
 | ImpelHub Platform / Methodology | 3 |
-| **TOTAL** | **50** |
+| **TOTAL** | **51** |
 
 ---
 

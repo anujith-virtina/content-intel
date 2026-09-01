@@ -135,11 +135,13 @@ Note: "Executive Summary" replaces Virtina's "Summary" label. "Introduction" sta
 ## 3. IMAGES
 
 ### Sourcing
-API priority: Pexels API (PEXELS_API_KEY — shared with Virtina) > Openverse (source=stocksnap, short queries) > Wikimedia Commons.
+API priority: Pexels API (PEXELS_API_KEY — shared with Virtina; **no key present in .env as of 2026-08-17**, so Openverse is the practical primary) > Openverse > Wikimedia Commons.
 
 Never: source.unsplash.com (deprecated), placehold.co, text-on-color cards.
 
-For Openverse: use short 3–4 word queries matching stock photo naming conventions. Filter with `source=stocksnap`. Long academic queries return irrelevant results.
+For Openverse: use short 3–4 word queries matching stock photo naming conventions. Long academic queries return irrelevant results. **The `source=stocksnap` filter is DEAD — it returns 0 results. Use `license=cc0,pdm` with a general query and rank providers in code instead (stocksnap/flickr/rawpixel score above wikimedia/museum scans). StockSnap images still surface this way; the filter parameter is what broke, not the provider.**
+
+**Visual QA is mandatory, not optional.** Auto-pickers that accept the first image which downloads and resizes cleanly are exactly how generic mismatched stock gets shipped. Source 6+ candidates per slot, resize them to 860×452, and actually look at every one before selecting. Build scripts should support a `QA_DIR` env var holding pre-approved `final_{slot}.jpg` files so the auto-picker can be bypassed entirely. Also verify the alt text still describes the image you actually chose — placeholder alt text written at draft stage usually describes a different scene.
 
 ### Required dimensions (from post 151 — verified ChatSKU standard)
 - **Featured image**: 860 × 452 px
@@ -217,8 +219,9 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/faq/` — FAQ page
   - `/for-b2b-manufacturers-distributors-and-wholesalers/` — solution page for distributors/manufacturers
   - `/ai-sales-assistant-b2b-ecommerce/` — B2B AI sales assistant solution page
+  - `/ai-product-search-for-b2b/` — AI product search solution page (~3,200 words, live; money page for the "AI product search" keyword cluster. Blog `/how-ai-product-search-works/` is its informational companion — link blog → page, never duplicate the page's table, hinge example, or five-step sequence)
   - `/pdf-catalog-chatbot/` — PDF catalog chatbot solution
-  - `/rfq-automation-for-product-catalogs/` — RFQ automation solution page (also a blog post)
+  - ~~`/rfq-automation-for-product-catalogs/`~~ — **DO NOT USE. Verified 2026-08-18: this URL serves homepage content, not an RFQ page.** Use the blog post `/rfq-automation-manufacturers/` for RFQ links instead.
   - `/passive-catalog/` — the "passive catalog" problem (catalog shows products but can't close)
   - `/response-gap/` — the "response gap" problem (48-hour sales-rep delay)
   - `/human-bottleneck/` — human bottleneck problem
@@ -239,12 +242,15 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/best-b2b-catalog-chatbots-2026/` — Best B2B catalog chatbots in 2026 (vendor roundup, post 294 — commercial/comparison intent)
   - `/what-is-a-b2b-catalog-chatbot/` — What is a B2B catalog chatbot? Complete 2026 guide (post 353 — definitional/top-of-funnel companion to 294)
   - `/b2b-conversational-commerce/` — B2B conversational commerce: definition, use cases, and ROI (post 380)
-  - `/what-is-a-passive-catalog/` — What is a passive catalog? (post 397 — companion to the /passive-catalog/ problem page)
+  - ~~`/what-is-a-passive-catalog/`~~ — **DO NOT USE. Verified 404 on 2026-08-31.** Post 397's live URL is `/passive-catalog-costing-you-sales/` (verified 200) — use that instead.
   - `/b2b-chatbot-for-woocommerce/` — How to add a B2B chatbot to your WooCommerce store (post 685 — first platform-specific post; WooCommerce how-to)
   - `/magento-b2b-chatbot-integration/` — ChatSKU + Magento B2B: the full integration guide (post 1056 — how-to companion to the /magento-b2b-chatbot/ Solutions page)
   - `/what-is-the-response-gap/` — What is the response gap? (And how to close it overnight) (post 1300 — definitional companion to the /response-gap/ problem page)
   - `/woocommerce-b2b-chatbot-integration/` — ChatSKU + WooCommerce B2B: the full integration guide (post 1455 — technical-integration companion to how-to post 685; owns REST-API/plugin-data-architecture intent)
   - `/agentic-commerce-glossary/` — Agentic commerce glossary: what manufacturers actually need to know (post 2129 — definitional reference; owns protocol-definition intent: ACP/AP2/MCP/A2A, shipped-vs-announced status labels)
+  - `/ai-ready-b2b-catalog-autonomous-buying/` — AI-ready catalogs for autonomous buying (untracked live post; owns the persuasive "why your catalog must be machine-readable" business case. Verified 200. Note: it carries the unsourced "$15T/90% by 2028" figure — link to it, never quote that stat)
+  - `/erp-export-ai-agent-ready/` — Is your ERP export AI-agent-friendly? A 10-minute self-check (post **2684** — hands-on technical audit for IT/ops managers; owns ERP-export field-level QA intent: GTIN integrity, duplicate SKUs, UNSPSC vs ETIM, UOM, EDI 832/846/850, tier pricing. **Currently WP draft status — do not link until published, or it will 404 like 1538.** Was post 2422; that post and its 3 media were deleted from WordPress and it was rebuilt as 2684 on 2026-08-31.)
+  - `/how-ai-product-search-works/` — How AI product search actually works for B2B catalogs (post 2468 — informational companion to the `/ai-product-search-for-b2b/` money page; owns retrieval-mechanism intent: embeddings, BM25/hybrid retrieval + Reciprocal Rank Fusion, spec-to-filter extraction, RAG grounding and refusal behaviour. Deliberately upstream of post 266, which owns conversion. **Now published. Verified live 200 on 2026-08-31 — safe to link.**)
   - Add new posts to this list immediately after publishing
   - **Note: `/product-information-management-software/` (post 1538) 404s while post 1538 stays in WP draft status. Do not link to it until it is published.**
 - **RULE: Before writing any new post, fetch https://chatsku.com/blog/ to check for posts published after this file was last updated. Never rely solely on this file.**
@@ -369,7 +375,7 @@ Run before any PUT call. Fix all failures before publishing.
 - [ ] Elementor cache cleared after push: `DELETE /wp-json/elementor/v1/cache`
 - [ ] WP `content` field has no bare `<img>` tags (strip them before pushing)
 - [ ] Image widgets are ordered AFTER text-editor widgets in every section
-- [ ] Yoast meta title and description set manually in WP dashboard (cannot be set via REST API)
+- [ ] Yoast meta title and description sent via REST in the `meta` object, then verified persisted with a `context=edit` GET (they ARE REST-writable — confirmed on posts 2044, 2129, 2422). Fall back to manual WP dashboard entry ONLY if verification shows they did not persist.
 
 ---
 
