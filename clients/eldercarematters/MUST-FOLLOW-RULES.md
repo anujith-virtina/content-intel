@@ -69,6 +69,42 @@ audience is adult children in their 50s and 60s, often reading on a phone.
 **When something looks wrong on screen but the markup is correct, fetch the theme CSS and check for an
 `!important` override before changing your own values again.**
 
+### CRITICAL: some ECM URLs return 200 but redirect to the homepage
+
+Discovered 2026-09-03 while building the adult day care post. A plain status check is **not** enough on
+this site. These paths all answer HTTP 200 and then silently redirect to `https://eldercarematters.com/`:
+
+- `/adult-day-care/`
+- `/adult-day-care-services-for-seniors/`
+- `/adult-day-care-centers/`
+- `/adult-day-services/`
+- `/home-health-care/`
+- `/senior-centers/`
+
+Two more resolve, but to a single blog post rather than a directory page, so the anchor text will lie:
+
+- `/veterans-benefits/` -> `/what-medical-and-pension-benefits-are-available-to-veterans/`
+- `/geriatric-care-managers/` -> `/geriatric-care-managers-helping-hands-.../`
+
+**Rule:** verify links by comparing the **final URL** against the requested URL, not by status code alone.
+If the response lands on the homepage, the page does not exist. The push script carries a `DEAD_LINKS`
+blocklist for the known cases.
+
+**Directory category pages confirmed real (2026-09-03):** `/assisted-living/`, `/home-care-providers/`,
+`/memory-care/`, `/nursing-homes/`, `/elder-law-attorneys/`. There is **no adult day care directory page**,
+so adult day content must route the reader to the Eldercare Locator instead.
+
+### Wordfence rate-limits link checking
+
+A 17-URL burst returned HTTP 429 on 15 of them. Space link verification at least 5 seconds apart.
+
+### "the elderly" blocks the official PACE name
+
+The banned-substring check catches "the Elderly", which appears in the federal program name
+"Program of All-Inclusive Care for the Elderly". Do **not** add an exception. Define PACE functionally
+instead: a combined Medicare and Medicaid program for older adults who qualify for nursing home level care
+but want to stay home.
+
 **ECM brand colors**, sampled from the live site 2026-09-01: `#660000` primary maroon, `#008937` green,
 `#1f333d` dark slate, `#2b2b2b` body text, `#d5d8dc` accordion border, `#f5f5f5` light grey.
 
@@ -182,7 +218,9 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
 - [ ] Every src on `https://eldercarematters.com/wp-content/uploads/`
 
 **Links:**
-- [ ] 5 to 8 internal, all 200
+- [ ] 5 to 8 internal, all 200 **and landing on the requested URL, not redirected to the homepage**
+- [ ] No link from the DEAD_LINKS list (see section 1)
+- [ ] At least 3 links point at real directory category pages
 - [ ] 2 or fewer external, all 200, both with target and rel
 - [ ] No competitor domains
 
