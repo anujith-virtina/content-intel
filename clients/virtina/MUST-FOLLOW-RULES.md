@@ -272,6 +272,19 @@ body_ul_re = re.compile(r'<ul\s+style="(?![^"]*!important)[^"]*"[^>]*>.*?</ul>',
 
 Pre-publish: count external hrefs. If more than 2, convert excess to plain text. Strip all competitor-domain links entirely.
 
+### Verified-dead paths, never link (checked 2026-09-07, browser UA, redirects NOT followed)
+
+These are plausible-looking service URLs that do **not** exist. They are the kind of path an agent
+invents from a slug pattern, which is exactly the 404 failure the user has flagged repeatedly.
+
+- `/ecommerce-migration-services/` — **404**. Use `/ecommerce-cart-migration/` (200, "Shopping Cart Migration Service").
+- `/ecommerce-development-services/` — **404**. Use the platform-specific page instead, e.g. `/woocommerce-development-services/`.
+- `/ecommerce-seo-services/` — **404**.
+- `/contact/` — **301** to `/get-in-touch/`. Always use the canonical `/get-in-touch/`.
+
+**Rule:** never link a Virtina URL that has not been fetched and confirmed 200 in the same run, with
+redirects NOT followed. A redirect-following check reports 200 and hides a 301.
+
 ---
 
 ## 7. VOICE AND STYLE
