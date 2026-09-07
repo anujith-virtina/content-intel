@@ -75,6 +75,7 @@ Discovered 2026-09-03 while building the adult day care post. A plain status che
 this site. These paths all answer HTTP 200 and then silently redirect to `https://eldercarematters.com/`:
 
 - `/adult-day-care/`
+- `/skilled-nursing/`  (added 2026-09-07)
 - `/adult-day-care-services-for-seniors/`
 - `/adult-day-care-centers/`
 - `/adult-day-services/`
@@ -90,9 +91,25 @@ Two more resolve, but to a single blog post rather than a directory page, so the
 If the response lands on the homepage, the page does not exist. The push script carries a `DEAD_LINKS`
 blocklist for the known cases.
 
-**Directory category pages confirmed real (2026-09-03):** `/assisted-living/`, `/home-care-providers/`,
-`/memory-care/`, `/nursing-homes/`, `/elder-law-attorneys/`. There is **no adult day care directory page**,
-so adult day content must route the reader to the Eldercare Locator instead.
+**Directory category pages confirmed real (re-verified 2026-09-07 by final-URL and page-title check):**
+`/assisted-living/`, `/home-care-providers/`, `/memory-care/`, `/elder-law-attorneys/`, `/care-management/`.
+`/care-management/` is new to this list and was verified 2026-09-07.
+
+**CORRECTION 2026-09-07 — `/nursing-homes/` is NOT a directory page.** It was wrongly listed here as one.
+It returns 200 and does not redirect, so every status check and every final-URL check passes, but the page
+is an article titled "Protecting Your Rights and Holding Nursing Homes Accountable" about abuse and legal
+rights. Linking it with a directory-style anchor such as "nursing homes" or "find a nursing home" tells
+the reader a lie. Post 283684 currently does exactly that and should be corrected. **There is no nursing
+home directory page on ECM**, just as there is no adult day care directory page. Route nursing-home
+readers to the Eldercare Locator, or link `/nursing-homes/` only with an anchor about residents' rights.
+
+**`/skilled-nursing/` is DEAD (verified 2026-09-07):** 200, then redirects to the homepage. Add to DEAD_LINKS.
+
+There is **no adult day care directory page**, so adult day content must route the reader to the Eldercare
+Locator instead.
+
+**Anchor-text rule that follows from this:** a link check must confirm the destination is the *kind of page*
+the anchor claims, not merely that the URL resolves. Check the page title, not just the status and final URL.
 
 ### Wordfence rate-limits link checking
 
@@ -169,7 +186,7 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
 
 ## 6. LINKS
 
-- 5 to 8 internal links, pointing mainly at **directory category pages** (`/assisted-living/`, `/memory-care/`, `/home-care-providers/`, `/nursing-homes/`, `/elder-law-attorneys/`, `/veterans-benefits/`). That is the house pattern and it matches the business model.
+- 5 to 8 internal links, pointing mainly at **directory category pages** (`/assisted-living/`, `/memory-care/`, `/home-care-providers/`, `/elder-law-attorneys/`, `/care-management/`). **Not `/nursing-homes/`** with a directory anchor, and **not** `/veterans-benefits/`, which resolves to a single blog post. See the corrections in section 1. That is the house pattern and it matches the business model.
 - Link relevant existing blog posts too, but send the reader into the directory to act.
 - **Maximum 2 external links.** Both need `target="_blank" rel="noopener noreferrer"`.
 - Never link competitors: A Place for Mom, Caring.com, SeniorAdvisor, AgingCare, Care.com, SeniorLiving.com, Assisted Living Locators.
