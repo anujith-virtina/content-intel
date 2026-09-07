@@ -240,11 +240,21 @@ def main():
         return
 
     H = headers()
+
+    # Thrive's own editor endpoint. The core REST meta route accepts
+    # tve_updated_post and silently discards it; this one actually writes it.
+    # Field name verified on a throwaway draft: {"tve_content": <html>}.
+    tcb = urllib.request.urlopen(urllib.request.Request(
+        f"https://virtina.com/wp-json/tcb/v1/posts/{POST_ID}/content",
+        data=json.dumps({"tve_content": out}).encode("utf-8"),
+        headers=H, method="POST"), timeout=300)
+    print("THRIVE content push:", tcb.status, tcb.read()[:80].decode("utf-8", "ignore"))
+
+    # title, post_content (kept in sync) and Yoast go through the core route.
     payload = json.dumps({
         "title": NEW_TITLE,
         "content": out,
         "meta": {
-            "tve_updated_post": out,
             "_yoast_wpseo_title": YOAST_TITLE,
             "_yoast_wpseo_metadesc": YOAST_DESC,
             "_yoast_wpseo_focuskw": YOAST_FOCUS,
@@ -253,14 +263,16 @@ def main():
     r = urllib.request.urlopen(urllib.request.Request(
         f"https://virtina.com/wp-json/wp/v2/posts/{POST_ID}",
         data=payload, headers=H, method="POST"), timeout=300)
-    print("\nPUSH status:", r.status)
+    print("CORE push status:", r.status)
 
     back = json.load(urllib.request.urlopen(urllib.request.Request(
         f"https://virtina.com/wp-json/wp/v2/posts/{POST_ID}?context=edit",
         headers=H), timeout=300))
     live = back["meta"]["tve_updated_post"]
-    print("  tve sha match:",
-          hashlib.sha256(live.encode()).hexdigest() == hashlib.sha256(out.encode()).hexdigest())
+    match = hashlib.sha256(live.encode()).hexdigest() == hashlib.sha256(out.encode()).hexdigest()
+    print("  tve sha match:", match, f"(stored {len(live)} chars)")
+    if not match:
+        print("  !! Thrive meta did NOT take. Do not leave the title changed; restore.")
     print("  status  :", back["status"], "(must be publish)")
     print("  title   :", back["title"]["raw"][:78])
     print("  yoast   :", back["meta"].get("_yoast_wpseo_title"))
