@@ -109,13 +109,9 @@ ALT_CONFIRMED = os.environ.get("ALT_CONFIRMED") == "1"
 # scene." The publish flow refuses to run unless ALT_CONFIRMED=1.
 # 80-150 chars each, unique, 1-2 article keywords.
 # ---------------------------------------------------------------------------
-FEATURED_ALT = ("Inside sales desk at a B2B distributor in daylight, where an agentic commerce "
-                "inquiry can arrive and leave unnoticed")
-BODY1_ALT = ("B2B sales rep taking a call at his desk, the person a buyer turns to when checking "
-             "what an AI assistant told them")
-BODY2_ALT = ("Two colleagues in a warehouse office reviewing product and stock data on screen, the "
-             "facts an AI buying agent tries to read")
-
+FEATURED_ALT = ("Two B2B colleagues lean toward a laptop in a daylit office, one pointing at the screen, reviewing what a supplier site actually shows a buyer.")
+BODY1_ALT = ("A B2B sales rep in a suit takes a buyer call on his mobile outside the office, the person a buyer rings to check what agentic software told them.")
+BODY2_ALT = None  # single body image on this post; rules s3 allows 1-2
 # Source URLs of images already used on other ChatSKU posts. Candidates matching
 # these are dropped so nothing gets reused (rules s3 "fresh images").
 USED_SOURCES_PATH = os.path.join(BASE, "chatsku_used_image_sources.json")
@@ -422,8 +418,9 @@ if re.search(r'^\[[A-Z ]', raw, flags=re.M):
 
 content_html = "\n".join(l.rstrip() for l in raw.split("\n") if l.strip())
 
-if content_html.count("@@BODYIMG@@") != 2:
-    print(f"BLOCKING: expected 2 body-image markers, found {content_html.count('@@BODYIMG@@')}.")
+N_BODY = content_html.count("@@BODYIMG@@")
+if N_BODY not in (1, 2):
+    print(f"BLOCKING: expected 1-2 body-image markers, found {N_BODY}.")
     raise SystemExit(1)
 
 
@@ -607,14 +604,17 @@ if not (150 <= len(YOAST_DESC) <= 160):
 print(f"  Yoast title {len(YOAST_TITLE)} chars, desc {len(YOAST_DESC)} chars OK")
 
 # 4j. alt text shape (content checked by the human, see ALT_CONFIRMED gate)
-for name, alt in (("FEATURED_ALT", FEATURED_ALT), ("BODY1_ALT", BODY1_ALT), ("BODY2_ALT", BODY2_ALT)):
+_alts = [("FEATURED_ALT", FEATURED_ALT), ("BODY1_ALT", BODY1_ALT)]
+if BODY2_ALT is not None:
+    _alts.append(("BODY2_ALT", BODY2_ALT))
+for name, alt in _alts:
     if not (80 <= len(alt) <= 150):
         print(f"BLOCKING: {name} length {len(alt)} outside 80-150.")
         raise SystemExit(1)
-if len({FEATURED_ALT, BODY1_ALT, BODY2_ALT}) != 3:
+if len({a for _, a in _alts}) != len(_alts):
     print("BLOCKING: alt texts are not unique.")
     raise SystemExit(1)
-print("  alt text: 3 unique, all 80-150 chars OK")
+print(f"  alt text: {len(_alts)} unique, all 80-150 chars OK")
 
 # 4k. slug / existing post
 sr = requests.get(f"{WP}/posts", params={"slug": SLUG, "status": "any", "context": "edit"},
@@ -842,6 +842,9 @@ elif not DRY_RUN:
             ("featured", "featured_media", FEATURED_ALT, "chatsku-what-is-agentic-commerce-featured.jpg", "FEATURED"),
             ("body1", "body1_media", BODY1_ALT, "chatsku-what-is-agentic-commerce-body1.jpg", "BODY1"),
             ("body2", "body2_media", BODY2_ALT, "chatsku-what-is-agentic-commerce-body2.jpg", "BODY2")):
+        if alt is None:
+            print(f"  {slot}: skipped (not used on this post)")
+            continue
         if REUSE_MEDIA and st.get(key):
             m = fetch_media(st[key], alt)
             print(f"  reusing media {m['id']} for {slot}")
@@ -851,7 +854,7 @@ elif not DRY_RUN:
         else:
             m = upload_media(read_qa_image(slot), fn, alt, key)
         globals()[var] = m
-    for m in (FEATURED, BODY1, BODY2):
+    for m in [x for x in (FEATURED, BODY1, BODY2) if x]:
         if not m["url"].startswith("https://chatsku.com/wp-content/uploads/"):
             print("BLOCKING: media src not on chatsku uploads:", m["url"])
             raise SystemExit(1)
@@ -911,7 +914,7 @@ if concl_widgets != ["heading", "text-editor", "button"]:
     raise SystemExit(1)
 print("  Conclusion: 3 widgets (heading/text-editor/button) OK")
 
-if not DRY_RUN and not NO_IMAGES and img_widget_count != 2:
+if not DRY_RUN and not NO_IMAGES and img_widget_count != N_BODY:
     print(f"BLOCKING: expected 2 body image widgets, built {img_widget_count}.")
     raise SystemExit(1)
 

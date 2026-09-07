@@ -91,8 +91,6 @@ headlines:
 
 <p>What the research does establish is direction. Everywhere it has been measured, buyers are ahead of sellers.</p>
 
-[BODY IMAGE 2 — 860x452 | slot: end of "Are your customers actually doing this yet?" | concept: two colleagues in a warehouse or plant office reviewing product and stock data on a screen, physical racking or inventory visible behind them.]
-
 <h2>If software only sees your price, what happens to your margin?</h2>
 
 <p>You lose on price, because price is the only thing you gave it to compare.</p>

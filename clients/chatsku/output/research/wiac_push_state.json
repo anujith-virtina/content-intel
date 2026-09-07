@@ -8,12 +8,14 @@
   "yoast_title_persisted": true,
   "yoast_desc_persisted": true,
   "elementor_sections": 10,
-  "image_widgets": 0,
+  "image_widgets": 1,
   "order_violations": 0,
-  "featured_media_live": 0,
+  "featured_media_live": 2832,
   "categories": [
     29
   ],
   "live_status": "draft",
-  "verified": true
+  "verified": true,
+  "featured_media": 2832,
+  "body1_media": 2833
 }
