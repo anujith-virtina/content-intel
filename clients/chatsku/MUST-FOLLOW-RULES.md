@@ -214,8 +214,8 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/demo/` — book a demo
   - `/signup/` — start free trial
   - `/features/` — catalog integration / what ChatSKU connects to
-  - `/pricing/` — see pricing
-  - `/revenue-calculator` — model the ROI / revenue impact calculator
+  - ~~`/pricing/`~~ — **DO NOT USE. Verified 2026-09-07: 301-redirects to `/ROI-Calculator`. There is no standalone pricing page.**
+  - `/roi-calculator/` — model the ROI / revenue impact (verified 200, 2026-09-07). **`/revenue-calculator` is stale: it 301-redirects here. Always use the canonical `/roi-calculator/`.**
   - `/faq/` — FAQ page
   - `/for-b2b-manufacturers-distributors-and-wholesalers/` — solution page for distributors/manufacturers
   - `/ai-sales-assistant-b2b-ecommerce/` — B2B AI sales assistant solution page
@@ -231,14 +231,14 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
 - **Internal blog posts (interlink where contextually relevant):**
   - `/pdf-catalog-sales-liability/` — Why your PDF catalog is your biggest sales liability
   - `/ai-chatbot-for-manufacturers-dallas/` — 5 questions before buying an AI chatbot
-  - `/b2b-ecommerce-chatbot-dallas/` — How DFW distributors lose leads without a chatbot
+  - `/b2b-ecommerce-chatbot-dallas/` — Dallas **landing page** (verified 200, 2026-09-07). Note: this is NOT post 96. Post 96's real URL is `/how-dfw-distributors-manufacturers-wholesalers-lose-leads-without-b2b-ecommerce-chatbot/` (verified 200) — use that when you mean the blog post.
   - `/rfq-automation-manufacturers/` — What is RFQ automation and why manufacturers need it
   - `/rfq-form-conversion-rate/` — Why your RFQ form has a 1.8% conversion rate (Blog #2)
   - `/convert-pdf-catalog-to-website/` — How to convert a PDF catalog to a searchable website
   - `/b2b-catalog-issues-costing-sales/` — Your B2B catalog is costing you money, here's how much
   - `/b2b-after-hours-buyer-problem/` — Your buyers don't wait until morning (after-hours lead problem)
   - `/b2b-catalog-conversion-rate/` — Why your B2B catalog conversion rate is stuck (Blog #3)
-  - `/lost-b2b-revenue-calculator/` — How to calculate lost B2B revenue from after-hours buyers and slow quote response (Blog #4)
+  - ~~`/lost-b2b-revenue-calculator/`~~ — **DO NOT USE. Verified 404 on 2026-09-07** (not among the 32 live posts). The revenue-leakage content lives at `/b2b-catalog-issues-costing-sales/` (post 277, verified 200); for the tool itself link `/roi-calculator/`.
   - `/best-b2b-catalog-chatbots-2026/` — Best B2B catalog chatbots in 2026 (vendor roundup, post 294 — commercial/comparison intent)
   - `/what-is-a-b2b-catalog-chatbot/` — What is a B2B catalog chatbot? Complete 2026 guide (post 353 — definitional/top-of-funnel companion to 294)
   - `/b2b-conversational-commerce/` — B2B conversational commerce: definition, use cases, and ROI (post 380)
@@ -246,11 +246,14 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/b2b-chatbot-for-woocommerce/` — How to add a B2B chatbot to your WooCommerce store (post 685 — first platform-specific post; WooCommerce how-to)
   - `/magento-b2b-chatbot-integration/` — ChatSKU + Magento B2B: the full integration guide (post 1056 — how-to companion to the /magento-b2b-chatbot/ Solutions page)
   - `/what-is-the-response-gap/` — What is the response gap? (And how to close it overnight) (post 1300 — definitional companion to the /response-gap/ problem page)
+  - `/reduce-b2b-quote-response-time/` — The response gap is costing you deals: 3 steps to quote in under 1 hour (post 1855). **Its old slug `/the-response-gap-is-costing-you-deals-3-steps-to-quote-in-under-1-hour/` now 301-redirects here. Always use the canonical slug; a redirect-following check reports 200 and hides this.**
+  - `/response-gap-by-industry/` — Response gap by industry: hardware vs electronics vs industrial supply (post 2783 — segments the gap by distributor type; owns the breadth/availability/downtime clock framing). **Now published. Verified live 200 on 2026-09-07 — safe to link.**
   - `/woocommerce-b2b-chatbot-integration/` — ChatSKU + WooCommerce B2B: the full integration guide (post 1455 — technical-integration companion to how-to post 685; owns REST-API/plugin-data-architecture intent)
   - `/agentic-commerce-glossary/` — Agentic commerce glossary: what manufacturers actually need to know (post 2129 — definitional reference; owns protocol-definition intent: ACP/AP2/MCP/A2A, shipped-vs-announced status labels)
   - `/ai-ready-b2b-catalog-autonomous-buying/` — AI-ready catalogs for autonomous buying (untracked live post; owns the persuasive "why your catalog must be machine-readable" business case. Verified 200. Note: it carries the unsourced "$15T/90% by 2028" figure — link to it, never quote that stat)
-  - `/erp-export-ai-agent-ready/` — Is your ERP export AI-agent-friendly? A 10-minute self-check (post **2684** — hands-on technical audit for IT/ops managers; owns ERP-export field-level QA intent: GTIN integrity, duplicate SKUs, UNSPSC vs ETIM, UOM, EDI 832/846/850, tier pricing. **Currently WP draft status — do not link until published, or it will 404 like 1538.** Was post 2422; that post and its 3 media were deleted from WordPress and it was rebuilt as 2684 on 2026-08-31.)
+  - `/erp-export-ai-agent-ready/` — Is your ERP export AI-agent-friendly? A 10-minute self-check (post **2684** — hands-on technical audit for IT/ops managers; owns ERP-export field-level QA intent: GTIN integrity, duplicate SKUs, UNSPSC vs ETIM, UOM, EDI 832/846/850, tier pricing. **Now published. Verified live 200 on 2026-09-07 — safe to link.** Was post 2422; that post and its 3 media were deleted from WordPress and it was rebuilt as 2684 on 2026-08-31.)
   - `/how-ai-product-search-works/` — How AI product search actually works for B2B catalogs (post 2468 — informational companion to the `/ai-product-search-for-b2b/` money page; owns retrieval-mechanism intent: embeddings, BM25/hybrid retrieval + Reciprocal Rank Fusion, spec-to-filter extraction, RAG grounding and refusal behaviour. Deliberately upstream of post 266, which owns conversion. **Now published. Verified live 200 on 2026-08-31 — safe to link.**)
+  - `/what-is-agentic-commerce/` — What is agentic commerce? A plain-English guide for B2B owners (post 2831 — non-technical top-of-funnel companion to the glossary post 2129; owns the plain-language definition, the "selling to software since 1979" reframe, and the reps/margin/developer anxieties. **Zero acronyms by design.** Post 2129 keeps protocol-definition intent.) **Currently WP draft status — do not link until published, or it will 404 like 1538.**
   - Add new posts to this list immediately after publishing
   - **Note: `/product-information-management-software/` (post 1538) 404s while post 1538 stays in WP draft status. Do not link to it until it is published.**
 - **RULE: Before writing any new post, fetch https://chatsku.com/blog/ to check for posts published after this file was last updated. Never rely solely on this file.**
