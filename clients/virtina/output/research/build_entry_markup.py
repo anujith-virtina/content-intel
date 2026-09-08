@@ -24,6 +24,15 @@ BOX = 'tve-u-190e3829613'      # outer entry content box
 BOXBG = 'tve-u-1946a463c95'    # its background
 SUBBOX = 'tve-u-194dbb8d41e'   # one q/a sub-box
 SUBWRAP = 'tve-u-19200614771'  # text wrapper inside the sub-box
+# Typography tokens. Thrive styles by data-css, so an element WITHOUT its token
+# renders at unstyled browser defaults: oversized black text. Omitting these on
+# 2026-09-08 is exactly what made the five new entries look broken on the page.
+# All of these are verified present in post-38972-tve_custom_css.
+H4 = 'tve-u-197cbe31d5a'       # the "⇨ question" heading
+H4_ARROW = 'tve-u-197cbe31d5d'  # the arrow glyph span
+H4_OUTER = 'tve-u-197cbe31d5f'  # normal-weight wrapper span
+H4_INNER = 'tve-u-197cbe31d61'  # the question text span
+PARA = 'tve-u-197cbe3d440'      # body paragraph
 
 
 def _esc(t):
@@ -39,11 +48,13 @@ def build_entry(number, name, qas):
             f'tve-elem-default-pad" data-css="{SUBBOX}" style="">\n'
             f'\t<div class="tve-content-box-background"></div>\n'
             f'\t<div class="tve-cb"><div class="thrv_wrapper thrv_text_element" '
-            f'data-css="{SUBWRAP}"><h4 class="" style="">'
-            f'<strong><span style="">\u21e8&nbsp;</span></strong>'
-            f'<span style="font-weight: normal;"><span style="">{_esc(q)}</span></span>'
+            f'data-css="{SUBWRAP}"><h4 class="" style="" data-css="{H4}">'
+            f'<strong><span data-css="{H4_ARROW}" style="">\u21e8&nbsp;</span></strong>'
+            f'<span style="font-weight: normal;" data-css="{H4_OUTER}">'
+            f'<span data-css="{H4_INNER}" style="">{_esc(q)}</span></span>'
             f'</h4></div>'
-            f'<div class="thrv_wrapper thrv_text_element"><p>{_esc(a)}</p></div></div>\n'
+            f'<div class="thrv_wrapper thrv_text_element">'
+            f'<p data-css="{PARA}">{_esc(a)}</p></div></div>\n'
             f'</div>')
     return (
         f'<div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box '
@@ -104,7 +115,7 @@ def build_pricing_section(heading, paras, rows, checked="8 September 2026"):
           '<th>Price, checked ' + checked + '</th></tr>')
     body = "".join(f'<tr><td>{_esc(p)}</td><td>{_esc(v)}</td></tr>' for p, v in rows)
     table = '<table><thead>' + th + '</thead><tbody>' + body + '</tbody></table>'
-    ps = "".join(f'<p>{_esc(x)}</p>' for x in paras)
+    ps = "".join(f'<p data-css="{PARA}">{_esc(x)}</p>' for x in paras)
     return (
         f'<div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box '
         f'tve-elem-default-pad" data-css="{BOX}" style="" id="dropship-plugin-pricing">\n'
