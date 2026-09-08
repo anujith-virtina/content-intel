@@ -1,0 +1,365 @@
+{
+ "grainger.com": {
+  "host": "grainger.com",
+  "robots_url": "https://www.grainger.com/robots.txt",
+  "bytes": 18267,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, no wildcard",
+   "OAI-SearchBot": "not named, no wildcard",
+   "ChatGPT-User": "not named, no wildcard",
+   "ClaudeBot": "not named, no wildcard",
+   "Claude-User": "not named, no wildcard",
+   "PerplexityBot": "not named, no wildcard",
+   "Perplexity-User": "not named, no wildcard",
+   "Google-Extended": "not named, no wildcard",
+   "CCBot": "not named, no wildcard",
+   "Amazonbot": "not named, no wildcard",
+   "Bytespider": "not named, no wildcard",
+   "meta-externalagent": "not named, no wildcard"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "mcmaster.com": {
+  "host": "mcmaster.com",
+  "robots_url": "https://www.mcmaster.com/robots.txt",
+  "bytes": 1354,
+  "named_agents": [
+   "googlebot-image"
+  ],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "fastenal.com": {
+  "host": "fastenal.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "status": "unreachable"
+ },
+ "mscdirect.com": {
+  "host": "mscdirect.com",
+  "robots_url": "https://www.mscdirect.com/robots.txt",
+  "bytes": 1538,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "motionindustries.com": {
+  "host": "motionindustries.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "status": "unreachable"
+ },
+ "applied.com": {
+  "host": "applied.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "status": "unreachable"
+ },
+ "zoro.com": {
+  "host": "zoro.com",
+  "robots_url": "https://www.zoro.com/robots.txt",
+  "bytes": 1245,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "globalindustrial.com": {
+  "host": "globalindustrial.com",
+  "robots_url": "https://www.globalindustrial.com/robots.txt",
+  "bytes": 866,
+  "named_agents": [
+   "baiduspider",
+   "companybook crawler",
+   "companybook-crawler"
+  ],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "digikey.com": {
+  "host": "digikey.com",
+  "robots_url": "https://www.digikey.com/robots.txt",
+  "bytes": 1361,
+  "named_agents": [
+   "adidxbot",
+   "adsbot-google",
+   "adsbot-google-mobile",
+   "ahrefsbot",
+   "chatgpt-user",
+   "claude-searchbot",
+   "claude-user",
+   "claudebot",
+   "dotbot",
+   "gemini-deep-research",
+   "google-extended",
+   "gptbot",
+   "mj12bot",
+   "oai-searchbot",
+   "perplexity-user",
+   "perplexitybot",
+   "petalbot",
+   "yandex"
+  ],
+  "verdicts": {
+   "GPTBot": "allowed (empty group)",
+   "OAI-SearchBot": "allowed with path limits",
+   "ChatGPT-User": "allowed (empty group)",
+   "ClaudeBot": "allowed (empty group)",
+   "Claude-User": "allowed (empty group)",
+   "PerplexityBot": "allowed (empty group)",
+   "Perplexity-User": "allowed with path limits",
+   "Google-Extended": "allowed (empty group)",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "mouser.com": {
+  "host": "mouser.com",
+  "robots_url": "https://www.mouser.com/robots.txt",
+  "bytes": 13895,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, no wildcard",
+   "OAI-SearchBot": "not named, no wildcard",
+   "ChatGPT-User": "not named, no wildcard",
+   "ClaudeBot": "not named, no wildcard",
+   "Claude-User": "not named, no wildcard",
+   "PerplexityBot": "not named, no wildcard",
+   "Perplexity-User": "not named, no wildcard",
+   "Google-Extended": "not named, no wildcard",
+   "CCBot": "not named, no wildcard",
+   "Amazonbot": "not named, no wildcard",
+   "Bytespider": "not named, no wildcard",
+   "meta-externalagent": "not named, no wildcard"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "newark.com": {
+  "host": "newark.com",
+  "robots_url": "https://www.newark.com/robots.txt",
+  "bytes": 5520,
+  "named_agents": [
+   "adidxbot",
+   "adsbot-google",
+   "adsbot-google-mobile",
+   "baidu",
+   "chatglm-spider/1.0",
+   "googleother",
+   "seplinkbot",
+   "yandex"
+  ],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "alliedelec.com": {
+  "host": "alliedelec.com",
+  "error": "URLError(TimeoutError(10060, 'A connection attempt failed because the connected ",
+  "status": "unreachable"
+ },
+ "ferguson.com": {
+  "host": "ferguson.com",
+  "robots_url": "https://www.ferguson.com/robots.txt",
+  "bytes": 1637,
+  "named_agents": [
+   "adsbot-google"
+  ],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "wesco.com": {
+  "host": "wesco.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "status": "unreachable"
+ },
+ "borderstates.com": {
+  "host": "borderstates.com",
+  "robots_url": "https://www.borderstates.com/robots.txt",
+  "bytes": 578,
+  "named_agents": [
+   "cazoodlebot",
+   "dotbot/1.0",
+   "gigabot",
+   "mj12bot"
+  ],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "rexelusa.com": {
+  "host": "rexelusa.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "robots_url": "https://rexelusa.com/robots.txt",
+  "bytes": 9545,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, no wildcard",
+   "OAI-SearchBot": "not named, no wildcard",
+   "ChatGPT-User": "not named, no wildcard",
+   "ClaudeBot": "not named, no wildcard",
+   "Claude-User": "not named, no wildcard",
+   "PerplexityBot": "not named, no wildcard",
+   "Perplexity-User": "not named, no wildcard",
+   "Google-Extended": "not named, no wildcard",
+   "CCBot": "not named, no wildcard",
+   "Amazonbot": "not named, no wildcard",
+   "Bytespider": "not named, no wildcard",
+   "meta-externalagent": "not named, no wildcard"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "hisco.com": {
+  "host": "hisco.com",
+  "error": "<HTTPError 403: 'Forbidden'>",
+  "status": "unreachable"
+ },
+ "kaman.com": {
+  "host": "kaman.com",
+  "robots_url": "https://www.kaman.com/robots.txt",
+  "bytes": 191,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ },
+ "genuineparts.com": {
+  "host": "genuineparts.com",
+  "error": "URLError(TimeoutError(10060, 'A connection attempt failed because the connected ",
+  "status": "unreachable"
+ },
+ "sonepar.com": {
+  "host": "sonepar.com",
+  "robots_url": "https://www.sonepar.com/robots.txt",
+  "bytes": 263,
+  "named_agents": [],
+  "verdicts": {
+   "GPTBot": "not named, wildcard applies",
+   "OAI-SearchBot": "not named, wildcard applies",
+   "ChatGPT-User": "not named, wildcard applies",
+   "ClaudeBot": "not named, wildcard applies",
+   "Claude-User": "not named, wildcard applies",
+   "PerplexityBot": "not named, wildcard applies",
+   "Perplexity-User": "not named, wildcard applies",
+   "Google-Extended": "not named, wildcard applies",
+   "CCBot": "not named, wildcard applies",
+   "Amazonbot": "not named, wildcard applies",
+   "Bytespider": "not named, wildcard applies",
+   "meta-externalagent": "not named, wildcard applies"
+  },
+  "blocked_count": 0,
+  "blocked": []
+ }
+}

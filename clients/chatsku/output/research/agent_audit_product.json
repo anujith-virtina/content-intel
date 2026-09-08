@@ -1,0 +1,136 @@
+{
+ "grainger.com": {
+  "host": "grainger.com",
+  "status": "no product URL found via sitemap"
+ },
+ "mcmaster.com": {
+  "host": "mcmaster.com",
+  "product_url": "https://www.mcmaster.com/products/laboratory-freezers/",
+  "http": 200,
+  "html_bytes": 151914,
+  "visible_words": 115,
+  "jsonld_blocks": 0,
+  "schema_types": [],
+  "has_Product_schema": false,
+  "price_in_structured_data": false,
+  "availability_in_structured_data": false,
+  "mpn_or_gtin_in_structured_data": false,
+  "microdata_itemprop": false,
+  "price_text_anywhere": false,
+  "stock_words": false,
+  "login_or_quote_wall": false,
+  "spec_table_rows": 0,
+  "pdf_links": 0
+ },
+ "mscdirect.com": {
+  "host": "mscdirect.com",
+  "product_url": "https://www.mscdirect.com/products/locate-position",
+  "http": 200,
+  "html_bytes": 8224,
+  "visible_words": 75,
+  "jsonld_blocks": 0,
+  "schema_types": [],
+  "has_Product_schema": false,
+  "price_in_structured_data": false,
+  "availability_in_structured_data": false,
+  "mpn_or_gtin_in_structured_data": false,
+  "microdata_itemprop": false,
+  "price_text_anywhere": false,
+  "stock_words": false,
+  "login_or_quote_wall": false,
+  "spec_table_rows": 0,
+  "pdf_links": 0
+ },
+ "zoro.com": {
+  "host": "zoro.com",
+  "product_url": "https://www.zoro.com/shop-vac-cartridge-filter-6-12-in-h-hepa-9034033/i/G402635586/",
+  "http": 200,
+  "html_bytes": 331021,
+  "visible_words": 689,
+  "jsonld_blocks": 1,
+  "schema_types": [
+   "Product"
+  ],
+  "has_Product_schema": true,
+  "price_in_structured_data": true,
+  "availability_in_structured_data": true,
+  "mpn_or_gtin_in_structured_data": true,
+  "microdata_itemprop": true,
+  "price_text_anywhere": true,
+  "stock_words": false,
+  "login_or_quote_wall": false,
+  "spec_table_rows": 0,
+  "pdf_links": 0
+ },
+ "globalindustrial.com": {
+  "host": "globalindustrial.com",
+  "product_url": "https://www.globalindustrial.com/p/30-tpi-fan-head-non-oscillating-3",
+  "http": 200,
+  "html_bytes": 667870,
+  "visible_words": 784,
+  "jsonld_blocks": 3,
+  "schema_types": [
+   "BreadcrumbList",
+   "Organization"
+  ],
+  "has_Product_schema": false,
+  "price_in_structured_data": true,
+  "availability_in_structured_data": true,
+  "mpn_or_gtin_in_structured_data": true,
+  "microdata_itemprop": false,
+  "price_text_anywhere": true,
+  "stock_words": true,
+  "login_or_quote_wall": false,
+  "spec_table_rows": 18,
+  "pdf_links": 0
+ },
+ "digikey.com": {
+  "host": "digikey.com",
+  "status": "no product URL found via sitemap"
+ },
+ "mouser.com": {
+  "host": "mouser.com",
+  "status": "no product URL found via sitemap"
+ },
+ "newark.com": {
+  "host": "newark.com",
+  "status": "no product URL found via sitemap"
+ },
+ "ferguson.com": {
+  "host": "ferguson.com",
+  "product_url": "https://www.ferguson.com/product/gastite-3-in.-quarter-striker-plate-ttfm204/280493.html",
+  "http": 403,
+  "status": "blocked"
+ },
+ "borderstates.com": {
+  "host": "borderstates.com",
+  "status": "no product URL found via sitemap"
+ },
+ "rexelusa.com": {
+  "host": "rexelusa.com",
+  "status": "no product URL found via sitemap"
+ },
+ "kaman.com": {
+  "host": "kaman.com",
+  "product_url": "https://kaman.com/products/displacement-sensors/",
+  "http": 200,
+  "html_bytes": 274896,
+  "visible_words": 1721,
+  "jsonld_blocks": 1,
+  "schema_types": [],
+  "has_Product_schema": false,
+  "price_in_structured_data": false,
+  "availability_in_structured_data": false,
+  "mpn_or_gtin_in_structured_data": false,
+  "microdata_itemprop": true,
+  "price_text_anywhere": false,
+  "stock_words": false,
+  "login_or_quote_wall": false,
+  "spec_table_rows": 25,
+  "pdf_links": 0
+ },
+ "sonepar.com": {
+  "host": "sonepar.com",
+  "status": "no product URL found via sitemap"
+ }
+}
