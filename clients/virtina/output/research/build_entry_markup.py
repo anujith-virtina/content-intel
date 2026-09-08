@@ -91,13 +91,19 @@ def parse_pricing_intro(path):
 
 
 def build_pricing_section(heading, paras, rows, checked="8 September 2026"):
-    """rows: list of (plugin, price). Table is stored HTML-ESCAPED in this meta."""
-    th = ('&lt;tr&gt;&lt;th&gt;Dropship plugin&lt;/th&gt;'
-          '&lt;th&gt;Price, checked ' + checked + '&lt;/th&gt;&lt;/tr&gt;')
-    body = "".join(f'&lt;tr&gt;&lt;td&gt;{_esc(p)}&lt;/td&gt;&lt;td&gt;{_esc(v)}&lt;/td&gt;&lt;/tr&gt;'
-                   for p, v in rows)
-    table = ('&lt;table&gt;&lt;thead&gt;' + th + '&lt;/thead&gt;&lt;tbody&gt;'
-             + body + '&lt;/tbody&gt;&lt;/table&gt;')
+    """rows: list of (plugin, price).
+
+    IMPORTANT, learned the hard way on 2026-09-08: write the table as LITERAL
+    HTML here, not escaped entities. The page's original comparison table is
+    stored escaped and renders fine because it lives in a widget that decodes
+    entities on output. A plain thrv_text_element does NOT decode, so an escaped
+    table published into one renders as visible "&lt;table&gt;&lt;tr&gt;" text to
+    every reader. Match the container, not the neighbouring markup.
+    """
+    th = ('<tr><th>Dropship plugin</th>'
+          '<th>Price, checked ' + checked + '</th></tr>')
+    body = "".join(f'<tr><td>{_esc(p)}</td><td>{_esc(v)}</td></tr>' for p, v in rows)
+    table = '<table><thead>' + th + '</thead><tbody>' + body + '</tbody></table>'
     ps = "".join(f'<p>{_esc(x)}</p>' for x in paras)
     return (
         f'<div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box '
