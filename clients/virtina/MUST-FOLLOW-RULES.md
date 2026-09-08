@@ -278,7 +278,8 @@ These are plausible-looking service URLs that do **not** exist. They are the kin
 invents from a slug pattern, which is exactly the 404 failure the user has flagged repeatedly.
 
 - `/ecommerce-migration-services/` — **404**. Use `/ecommerce-cart-migration/` (200, "Shopping Cart Migration Service").
-- `/ecommerce-development-services/` — **404**. Use the platform-specific page instead, e.g. `/woocommerce-development-services/`.
+- `/ecommerce-development-services/` — **404**. Use the platform-specific page instead.
+- `/woocommerce-development-services/` — **301** to `/platforms/woocommerce-development-services/` (verified 2026-09-08). Always use the `/platforms/` form.
 - `/ecommerce-seo-services/` — **404**.
 - `/contact/` — **301** to `/get-in-touch/`. Always use the canonical `/get-in-touch/`.
 

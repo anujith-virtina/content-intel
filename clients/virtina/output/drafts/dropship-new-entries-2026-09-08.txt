@@ -1,0 +1,62 @@
+TASK A + TASK B copy for post 38972 refresh
+client: virtina
+date: 2026-09-08
+target keyword: woocommerce dropship plugin
+source: clients/virtina/output/research/woocommerce-dropshipping-plugins-refresh-2026-09-08.md
+stage: draft (plain text only, no markup)
+
+===PLUGIN===
+name: Dropshipping for WooCommerce (OPMC)
+q: What is Dropshipping for WooCommerce, and who is it for?
+a: This is the dropshipping extension sold on the official WooCommerce.com marketplace, published by OPMC. Version 5.2.7 reports 3,000+ active installs, a modest base for the only first-party option in this category. It suits store owners who prefer to buy, license, and update an extension inside the WooCommerce account they already have. That single-vendor convenience is the main reason to consider it.
+q: How does it compare with the paid alternatives?
+a: Bluntly, it is the weakest-reviewed tool on this page. The marketplace listing shows a rating of 2.7 out of 5 across 38 reviews, below every other option covered here. Official does not mean best, and this is the clearest example of that on the list. If you want a well-reviewed dropship plugin, read the alternatives first and come back to this one.
+q: What should you check before installing it?
+a: Check your stack against the requirements: WordPress 6.5 or later, WooCommerce 5.0 or later, and PHP 7.4 or later. Then read the recent reviews yourself, because the rating is the story with this product. On pricing, the product page served us Indian rupee figures on 8 September 2026, ₹7,575 per year or ₹12,120 for two years, and we could not confirm a US dollar price at source. If it almost fits your workflow but not quite, a custom build is often the cheaper long-term answer. [link: /woocommerce-plugin-development/]
+===END===
+
+===PLUGIN===
+name: ALD - Dropshipping and Fulfillment for AliExpress and WooCommerce (VillaTheme)
+q: Why does ALD have the biggest install base of any AliExpress dropship plugin?
+a: Because it is free, actively maintained, and it does one job well. The wordpress.org listing, slug woo-alidropship, reports 9,000+ active installs. That is the largest install base of any pure AliExpress dropshipping plugin in the repository. Version 2.2.4 was updated on 20 August 2026 and is tested to WordPress 7.1.
+q: Is ALD the same product as AliDropship?
+a: No, and the name collision trips up buyers constantly. AliDropship is the separate commercial product from alidropship.com listed elsewhere on this page at $89 one time. ALD is VillaTheme's free repository plugin, and its slug is woo-alidropship, which makes the confusion worse. Check the author name on the listing before you install, not just the title in your search results.
+q: What should you check before installing it?
+a: Confirm the version and last-updated date on the wordpress.org page yourself, since a plugin with this reach attracts imitators. Then run your first import on a staging site, because AliExpress feeds change shape without warning. If the import maps badly onto your existing catalogue structure, that is a data problem, not a plugin problem. [link: /platforms/woocommerce-development-services/]
+===END===
+
+===PLUGIN===
+name: TMDS - Dropshipping for TEMU and Woo (VillaTheme)
+q: What is TMDS, and why does it appear on this list now?
+a: TMDS connects Temu sourcing to WooCommerce, and it is the one genuinely new category on this page. Temu sourcing did not meaningfully exist when this article was first written. VillaTheme publishes it on wordpress.org under the slug tmds-dropshipping-for-temu-and-woo. Version 1.0.15 was updated on 20 August 2026 and is tested to WordPress 7.1.
+q: Is a 400-install plugin safe to build a store on?
+a: Treat it as early rather than unsafe. With 400+ active installs it has far less field testing than ALD's 9,000+, so expect fewer public bug reports and less community documentation. The reassuring part is the maintenance record: same vendor, same release date as its sibling plugins, and current WordPress compatibility. Run it alongside a second supplier source instead of making it your only channel.
+q: Who should try it first?
+a: Stores selling in categories where Temu pricing is genuinely competitive, and operators willing to test a young plugin properly before it touches live orders. If Temu is not already part of your sourcing plan, skip it this quarter. Check the install count again in six months, because that number will tell you whether the category stuck. [link: /how-to-set-up-woocommerce-for-dropshipping/]
+===END===
+
+===PLUGIN===
+name: DropshipMe
+q: What is DropshipMe, and what do you actually get?
+a: DropshipMe gives you a curated AliExpress catalogue instead of raw marketplace search. The vendor advertises 50,000+ pre-edited listings, with product titles and images already cleaned up for retail. There is a 14-day free trial, and the site is live and carrying a 2026 copyright, so the product is current. The pitch is editorial work you would otherwise do yourself, one listing at a time.
+q: What does DropshipMe cost?
+a: We could not verify a price, and we are not going to guess one. As of 8 September 2026 the only figure published on the vendor site is the 14-day free trial, with no paid tier pricing shown anywhere. Ask the vendor directly for current rates before you commit budget to it. Treat any price quoted for DropshipMe on another site as secondhand until the vendor confirms it.
+q: What should you check before installing it?
+a: DropshipMe is not listed on wordpress.org, so you cannot check active installs, version number, or last-updated date the usual way. That is not automatically a red flag, but it removes the fastest maintenance signal available to you. Ask the vendor when the plugin was last updated and which WordPress version it is tested against, and get the answer in writing.
+===END===
+
+===PLUGIN===
+name: EPROLO-Dropshipping
+q: What is EPROLO, and who is it for?
+a: EPROLO is a free supplier network for WooCommerce with branding and print-on-demand options. It fits stores that want a no-fee sourcing channel while margins are still thin and volume is unproven. The wordpress.org plugin, slug eprolo-dropshipping, reports 1,000+ active installs. Free access to a supplier network is a reasonable way to test a category before you pay for one.
+q: How current is the plugin?
+a: Version 2.4.2 was released on 11 December 2025 and is tested to WordPress 6.9.7. That is ageing next to the plugins refreshed in August 2026, though it stays inside a defensible maintenance window. Open the listing before you install and check whether a newer release has landed since this page was updated.
+q: What should you check before installing it?
+a: Place a real sample order through the print-on-demand path before you advertise those products, because branding options vary by supplier and by item. Confirm the plugin behaves on your current WordPress version, since its tested-up-to value trails the latest release. If it conflicts with your existing checkout or shipping extensions, fix that on staging, not on a live store. [link: /woocommerce-dropshipping-guide/]
+===END===
+
+===PRICING-INTRO===
+heading: What does each WooCommerce dropship plugin actually cost?
+a: Every price in the table below was read from the vendor's own pricing page on 8 September 2026. We publish that date on purpose, because a dated price ages honestly while an undated one rots silently. Check the vendor's page before you buy, since plans and tiers move without notice.
+a: Four tools on this page sit outside the table because their prices could not be verified on that date. AutoDS renders its plan tiers in JavaScript, CJdropshipping publishes no pricing at all, DropshipMe shows only its free trial, and spreadr.co does not resolve. Naming the gap is more useful to you than a figure we would have to guess. [link: /woocommerce-guide/]
+===END===
