@@ -204,6 +204,42 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
 
 ---
 
+### CRITICAL: Wordfence 403s any POST body containing literal REST API paths
+
+Discovered 2026-09-09 pushing the respite funding post. A `POST /wp/v2/posts` returned **HTTP 403
+Forbidden** while an identical push with shorter content returned 201. It is **not** size (a 40 KB
+filler body posts fine), **not** credentials, and **not** the `<style>` or `<details>` markup.
+
+Binary search isolated the trigger to an HTML comment block the creator had left in the draft
+containing the strings `/wp/v2/categories`, `context=edit` and `PUT`. Wordfence treats a POST body
+carrying REST API paths as an attack payload and blocks it.
+
+**Rule:** strip every HTML comment from `post_content` before pushing. Comments are working notes,
+never body copy, and they must not ship anyway. The push script does this and prints the before and
+after character count.
+
+```python
+content = re.sub(r'<!--.*?-->', '', content, flags=re.S).strip()
+```
+
+If a push 403s, do not retry it and do not assume rate limiting. Bisect the body to find the
+offending region, exactly as was done here.
+
+### Wordfence rate limiting also affects the push itself
+
+Verifying 9 links at 6 second spacing left the host throttled enough that the following POST returned
+403, and a plain GET returned 429. Space link checks at least 5 seconds apart, then **either wait
+before pushing or pass `--skip-links`** when the links were verified moments earlier. The push script
+retries 429, 403 and 503 with exponential backoff, but backoff alone does not clear a content block.
+
+### Image sourcing: Openverse anonymous access is not viable
+
+The anonymous Openverse tier allows only a handful of requests before returning 401 then 429, and the
+quota does not reset quickly. A broad CC0 query set does return roughly 96 usable candidates for elder
+care subjects, so the pool is fine, but **an API key is required to actually harvest them**.
+Wikimedia Commons is not a substitute: it returns architecture, 19th century paintings and archival
+portraits for these queries. Set `PEXELS_API_KEY` in `.env` before attempting image work.
+
 ## 8. PRE-PUBLISH CHECKLIST
 
 **Required sections:**
@@ -242,6 +278,7 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
 - [ ] No competitor domains
 
 **WordPress:**
+- [ ] All HTML comments stripped from post_content before the push
 - [ ] Status draft
 - [ ] Real category ID
 - [ ] Yoast attempted, verified, and reported for manual entry if it did not persist
