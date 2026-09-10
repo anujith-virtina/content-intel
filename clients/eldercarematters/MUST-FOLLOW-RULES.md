@@ -186,6 +186,15 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
 
 ## 6. LINKS
 
+- **Every post must link to earlier ECM blog posts, not only to directory pages.** Locked 2026-09-10 by
+  user instruction. Aim for a mix: at least 3 directory category pages, and at least 2 earlier articles on
+  adjacent topics. Interlinking previous posts builds topical depth and keeps readers moving between
+  related articles.
+  **The orchestrator resolves permalinks before drafting.** The creator cannot turn a post ID into a URL
+  and must never guess a slug. Query `/wp/v2/posts?search=<term>&_fields=id,link,title,status`, confirm
+  each is published, verify the live URL, then hand the creator complete `https://` URLs with suggested
+  2 to 5 word anchors. On the medical alert post the creator correctly refused to guess and dropped four
+  blog links, costing a revision round.
 - 5 to 8 internal links, pointing mainly at **directory category pages** (`/assisted-living/`, `/memory-care/`, `/home-care-providers/`, `/elder-law-attorneys/`, `/care-management/`). **Not `/nursing-homes/`** with a directory anchor, and **not** `/veterans-benefits/`, which resolves to a single blog post. See the corrections in section 1. That is the house pattern and it matches the business model.
 - Link relevant existing blog posts too, but send the reader into the directory to act.
 - **Maximum 2 external links.** Both need `target="_blank" rel="noopener noreferrer"`.
@@ -274,6 +283,7 @@ portraits for these queries. Set `PEXELS_API_KEY` in `.env` before attempting im
 - [ ] 5 to 8 internal, all 200 **and landing on the requested URL, not redirected to the homepage**
 - [ ] No link from the DEAD_LINKS list (see section 1)
 - [ ] At least 3 links point at real directory category pages
+- [ ] At least 2 links point at earlier ECM blog posts
 - [ ] 2 or fewer external, all 200, both with target and rel
 - [ ] No competitor domains
 

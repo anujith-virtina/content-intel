@@ -85,6 +85,8 @@ nl+=[u for u,_ in links if 'acl.gov' in u and ACL_OK not in u]
 (O if not nl else F)(f"forbidden domains linked: {nl}")
 dircount=sum(1 for u,_ in internal if any(x in u for x in DIRS))
 (O if dircount>=3 else F)(f"directory-category links = {dircount} (need >=3)")
+blogct=sum(1 for u,_ in internal if 'eldercarematters.com' in u and not any(x in u for x in DIRS))
+(O if blogct>=2 else F)("earlier-blog-post links = "+str(blogct)+" (need >=2)")
 for u,a in external:
     tag=[m for m in re.findall(r'<a\s[^>]*>',body,re.I) if u in m]
     ok=all('target="_blank"' in t and 'noopener' in t for t in tag) if tag else False
