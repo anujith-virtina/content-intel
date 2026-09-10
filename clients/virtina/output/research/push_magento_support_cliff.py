@@ -25,6 +25,8 @@ YOAST_DESC = ("Adobe ended support for Magento 2.4.6 and 2.4.5 in August 2026. "
               "Here is what that exposes, and how to choose between upgrading and replatforming.")
 
 # Posts whose phrasing we must not duplicate (the Magento + migration cluster).
+CATS = [85, 405]  # Magento, eCommerce - pulled from /wp/v2/categories, never guessed
+
 RELATED = [29601, 42413, 37552, 39502, 34921, 18791, 37776, 42177]
 
 env = {}
@@ -153,7 +155,7 @@ if bad:
 # ---------- 4. CREATE OR UPDATE ----------
 st = state()
 pid = st.get('post_id')
-payload = {"title": TITLE, "slug": SLUG, "content": content, "status": "draft",
+payload = {"title": TITLE, "slug": SLUG, "content": content, "status": "draft", "categories": CATS,
            "meta": {"_yoast_wpseo_title": YOAST_TITLE, "_yoast_wpseo_metadesc": YOAST_DESC}}
 if st.get('featured_media'):
     payload["featured_media"] = st['featured_media']
