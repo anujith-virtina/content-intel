@@ -13,14 +13,16 @@ body = re.sub(r'<style.*?</style>', '', h, flags=re.S | re.I)
 body = re.sub(r'<!--.*?-->', '', body, flags=re.S)
 txt = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', body)))
 wc = len(txt.split())
-O("word count %d" % wc)
+(O if 1500 <= wc <= 2500 else F)("word count %d (need 1500-2500 standard)" % wc)
 
 # ---------- headings ----------
 h2 = [html.unescape(re.sub('<[^>]+>', '', m)).strip()
       for m in re.findall(r'<h2[^>]*>(.*?)</h2>', body, re.S | re.I)]
 h3 = [html.unescape(re.sub('<[^>]+>', '', m)).strip()
       for m in re.findall(r'<h3[^>]*>(.*?)</h3>', body, re.S | re.I)]
-(O if len(h3) >= 6 else F)("H3 count %d (need >=6)" % len(h3))
+# the rule counts H3 *subheadings inside H2 sections*; the TOC's own H3 is not one
+h3body = [x for x in h3 if x.lower().strip(' :') != 'table of contents']
+(O if len(h3body) >= 6 else F)("body H3 count %d (need >=6, TOC H3 excluded)" % len(h3body))
 
 BADH3 = {'overview', 'background', 'introduction', 'summary'}
 bad = [x for x in h3 if x.lower().strip(' :?') in BADH3]
@@ -41,11 +43,13 @@ pbody = re.sub(r'<(h[1-6])[^>]*>.*?</\1>', ' ', body, flags=re.S | re.I)
 def _is_toc(frag):
     return len(re.findall(r'href=.#', frag)) >= 3
 pbody = ''.join('' if _is_toc(seg) else seg for seg in
-                re.split(r'(<p[^>]*>.*?</p>|<div[^>]*>.*?</div>)', pbody, flags=re.S | re.I))
+                re.split(r'(<p[^>]*>.*?</p>|<div[^>]*>.*?</div>|<ul[^>]*>.*?</ul>|<ol[^>]*>.*?</ol>)', pbody, flags=re.S | re.I))
 paras = re.findall(r'<p[^>]*>(.*?)</p>', pbody, re.S | re.I)
 badp = 0; longs = []
 for pr in paras:
     t = html.unescape(re.sub('<[^>]+>', '', pr)).strip()
+    # a sentence can end .  ."  .'  .)  .”  so allow one closing mark after the stop
+    t = re.sub(r'([.!?])["’”\')\]]+(\s)', r'\1\2', t)
     s = [x for x in re.split(r'(?<=[.!?])\s+', t) if len(x.split()) >= 4]
     if len(s) >= 4:
         badp += 1
