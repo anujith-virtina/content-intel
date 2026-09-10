@@ -24,6 +24,22 @@ Local cached copies in `clients/virtina/reference/`. Refresh every 30 days or af
 
 Before writing any new Virtina blog, the researcher must run all 5 checks below and save a uniqueness audit file to `clients/virtina/output/research/uniqueness-audit-{YYYY-MM-DD}.md`. A topic is REJECTED if it fails ANY single check. This is non-negotiable.
 
+### Pre-check 0: PAGES are part of the corpus, not just posts
+
+`published-posts-inventory.md` indexes **posts only**. Virtina also runs long-form `page` objects that
+own keywords outright. A uniqueness audit run against the inventory alone returns **false PASSES**.
+
+Every audit must additionally sweep:
+- `GET https://virtina.com/wp-json/wp/v2/pages?per_page=100&status=publish` (paginate)
+- `GET https://virtina.com/wp-json/wp/v2/search?search={primary keyword}&per_page=50`
+
+**Never trust the WP `title` field alone.** At least one Virtina page (36749) stores a title that has
+nothing to do with its actual H1 or content, so a title grep misses it entirely. Match on **slug and
+fetched H1**, not the stored title.
+
+Discovered 2026-09-09: page 36749 (`high-risk-payment-processing-ecommerce-businesses`, ~4,500 words)
+was missed by a posts-only audit and would have caused a direct-cannibalisation publish.
+
 ### Pre-check: Refresh the inventory if stale
 - Check `last_updated` field in `published-posts-inventory.md`
 - If older than 7 days, refresh via WP REST API: `GET https://virtina.com/wp-json/wp/v2/posts?per_page=100&page=N&status=publish&orderby=date&order=desc`

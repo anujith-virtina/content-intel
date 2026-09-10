@@ -2,11 +2,28 @@
 title: Virtina Published Posts Inventory
 purpose: Uniqueness checks — every new post must be cross-referenced against this list
 total_posts: 310
-last_updated: 2026-08-31
+last_updated: 2026-09-09
 update_frequency: After every published post; full refresh monthly
 ---
 
 # Virtina Published Posts Inventory
+
+> ⚠ **This file indexes POSTS only. Virtina also has long-form PAGE objects that own keywords.**
+> A uniqueness check against posts alone returns FALSE PASSES. See "Indexed PAGE objects" below and
+> always run a `/wp-json/wp/v2/pages` + `/wp-json/wp/v2/search` sweep as well. Added 2026-09-09 after
+> page 36749 (~4,500 words, high-risk payments) was missed by a posts-only audit.
+
+## Indexed PAGE objects (uniqueness-relevant, not posts)
+
+| ID | Slug | H1 / real topic | Words | Note |
+|---|---|---|---|---|
+| 36749 | `high-risk-payment-processing-ecommerce-businesses` | High-Risk Payment Processing for eCommerce Businesses | ~4,500 | 2024-09-12. Covers high-risk definitions, application process, fees, volume caps, rolling/capped/upfront reserves, MATCH mention, processor-selection framework. **WP `title` field is WRONG** ("Ecommerce Warranty Services: A Comprehensive Guide...") which is why search misses it. Client-side data bug. |
+| 42417 | `high-risk-ecommerce-migration-payment-gateway-integration` | High-Risk eCommerce Migration & Payment Gateway Integration | — | Commercial service LP. Migration + NMI/Authorize.Net/USAePay integration. Does NOT cover approval, underwriting, VAMP, MATCH, reserves, or compliance. Use as CTA target for payments content. |
+| 37458 | `payment-gateway-service-providers` | Gateway provider guide | — | Payments cluster. |
+
+**Payments cluster is SATURATED at 9 properties.** New payments content is justified only on a
+demonstrably unclaimed sub-niche, documented in the audit file.
+
 
 Total indexed: **306 posts** as of 2026-06-18. Note: file was 29 days stale before this update; a live WP REST API refresh is still recommended to catch any other posts published between 2026-05-20 and 2026-06-18 beyond the two added below.
 

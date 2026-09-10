@@ -1,0 +1,87 @@
+{
+  "_README": {
+    "status": "NOT PUSHED. This session had no shell, no HTTP-write tool. Only Read/Write/Edit/Glob/Grep/WebFetch were available, so no POST/PUT to https://virtina.com/wp-json/wp/v2/posts could be executed.",
+    "content_source": "clients/virtina/output/drafts/merchant-account-underwriting-2026-2026-09-09.md",
+    "content_rule": "post_content = that file with the leading YAML frontmatter block (lines 1-21, delimited by ---) removed. Everything after the frontmatter is final, QA-passed HTML. Do not reformat, do not re-wrap, do not add Gutenberg block comments.",
+    "word_count": "3490 prose words, derived not measured. Orchestrator's scripted baseline was 3576; publisher removed a net 86 words of internal duplication from sections 2 and 7. Re-count with a script before push. Band is 2500-3500.",
+    "content_invariants_to_reverify_after_push": [
+      "zero occurrences of <!--",
+      "zero occurrences of the em dash character U+2014, &mdash;, &#8212;, &#x2014;",
+      "zero occurrences of << or >>",
+      "10 <a href=\"https://virtina.com/...\"> links, each with style=\"outline: none;\" and no target attribute",
+      "2 external <a> links, each with target=\"_blank\" rel=\"noopener noreferrer\"",
+      "3 <ul> total: 1 TOC (contains !important) and 2 body Template F lists (background-color:#43627f circles)",
+      "10 <h2 id=...> values matching the 10 TOC href=#... values",
+      "21 <h3 style=\"color:#43627f;font-size:22px;\"> tags",
+      "1 <style> block immediately after <h2 id=\"faq\">"
+    ]
+  },
+  "endpoint": "https://virtina.com/wp-json/wp/v2/posts",
+  "method": "POST",
+  "auth": "HTTP Basic, base64(WP_USERNAME:WP_APP_PASSWORD) from .env at project root",
+  "payload": {
+    "title": "What underwriters actually check before they approve a regulated ecommerce store",
+    "slug": "merchant-account-underwriting-2026",
+    "content": "<<INSERT content_source FILE BODY, FRONTMATTER STRIPPED>>",
+    "status": "draft",
+    "author": 9,
+    "categories": [405, 79, 84],
+    "tags": [37, 126, 53, 19],
+    "featured_media": 0,
+    "meta": {
+      "_yoast_wpseo_title": "High-risk merchant account approval in 2026 | Virtina",
+      "_yoast_wpseo_metadesc": "Underwriters approve regulated stores on evidence, not optimism. See the 2026 VAMP and MATCH thresholds, and the checkout data that keeps your account approved.",
+      "_yoast_wpseo_focuskw": "high risk merchant account approval"
+    }
+  },
+  "taxonomy_resolution": {
+    "categories": {
+      "405": "eCommerce",
+      "79": "WooCommerce",
+      "84": "B2B eCommerce"
+    },
+    "tags": {
+      "37": "eCommerce payment gateway",
+      "126": "payment gateway integration",
+      "53": "B2B eCommerce",
+      "19": "eCommerce"
+    },
+    "verified": "GET /wp-json/wp/v2/categories and /wp-json/wp/v2/tags, 2026-09-09. All IDs exist on the live install."
+  },
+  "blocking_before_this_can_be_marked_done": [
+    "featured_media is 0. No image source available (no PEXELS_API_KEY, Openverse anonymous tier unusable). 1 featured 1309x500 + 3 body 670x352 must be uploaded manually. Alt text is in image_slots below.",
+    "Yoast REST writability on this install is unconfirmed for this session. After push, GET the post with context=edit and check yoast_head_json.description. If it did not persist, enter the title and description manually in the WP dashboard.",
+    "Thrive Architect: _tve_updated_post is not REST-writable. The post renders the semantic HTML fallback until someone opens it in Thrive Architect and saves once."
+  ],
+  "image_slots": [
+    {
+      "slot": "featured",
+      "size": "1309x500",
+      "position": "featured_media field, not inline",
+      "depicts": "Small finance or ops team at a desk reviewing printed statements and a laptop in a real office. Application-review scene, not a handshake.",
+      "alt_text": "Ecommerce finance team reviewing merchant account underwriting documents before submitting a high-risk payment application."
+    },
+    {
+      "slot": "body 1",
+      "size": "670x352",
+      "position": "section id=document-pack, immediately after the first paragraph (the paragraph ending 'contradictions between them do.')",
+      "depicts": "Desk close-up: printed bank and processing statements, folders, an open laptop showing a spreadsheet. Documents, not people.",
+      "alt_text": "Printed processing statements and bank records assembled for a high-risk merchant account application review."
+    },
+    {
+      "slot": "body 2",
+      "size": "670x352",
+      "position": "section id=card-network-thresholds, immediately after the first paragraph (the paragraph ending 'It was 220.'), before the comparison table",
+      "depicts": "Analyst at a monitor reading a dashboard with charts and numbers. Data-review scene.",
+      "alt_text": "Payments analyst tracking a monthly chargeback ratio and dispute counts against 2026 card network thresholds."
+    },
+    {
+      "slot": "body 3",
+      "size": "670x352",
+      "position": "section id=woocommerce-magento-requirements, immediately after the first paragraph (the paragraph ending 'a scope you can defend.')",
+      "depicts": "Two developers at computers reviewing code or a checkout configuration screen.",
+      "alt_text": "Developers configuring WooCommerce checkout fields and gateway routing for a regulated ecommerce merchant account."
+    }
+  ],
+  "body_image_markup_template": "<span style=\"display:block;margin:20px 0;\"><img alt=\"{{ALT_TEXT}}\" data-id=\"{{MEDIA_ID}}\" width=\"670\" data-init-width=\"670\" height=\"352\" data-init-height=\"352\" title=\"\" loading=\"lazy\" src=\"{{UPLOADS_URL}}\" data-width=\"670\" data-height=\"352\" style=\"aspect-ratio: auto 670 / 352;max-width:100%;\"></span>"
+}
