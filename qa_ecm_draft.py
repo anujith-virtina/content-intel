@@ -47,7 +47,7 @@ ems=h.count('—')+h.count('&mdash;')+h.count('&#8212;')
 
 low=txt.lower()
 for b in BANNED_SUBSTR:
-    n=low.count(b)
+    n=len(re.findall(r''+b+r'',low)) if b=='placement' else low.count(b)
     (O if n==0 else F)(f"banned '{b}' x{n}")
 for b in BLOCKED:
     (O if b.lower() not in low else F)(f"blocked claim '{b}'")
