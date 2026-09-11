@@ -147,6 +147,14 @@ if '<li' in body.lower():
 (O if not re.search(r'(^|>)\s*(<<|>>)\s*(<|$)', body) else F)("orphan << or >> fragments")
 
 bar = '=' * 66
+
+# ---- promotional interlink framing (banned 2026-09-11) ----
+PROMO=['our guide','our explainer','our comparison','our breakdown','our directory','our care management','check out our','read our','see our','visit our','our full guide','our post','our article','our roundup']
+_promo=[x for x in PROMO if x in low]
+(O if not _promo else F)('promotional link framing: '+str(_promo))
+_oa=re.findall(r'<a[^>]*>\s*[Oo]ur\b[^<]*</a>',body)
+(O if not _oa else F)('anchor contains our: '+str(_oa[:3]))
+
 print("\n%s\nVIRTINA QA  %s\n%s" % (bar, os.path.basename(p), bar))
 for m in oks: print("  PASS  " + m)
 for m in warns: print("  WARN  " + m)

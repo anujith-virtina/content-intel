@@ -1,1 +1,16 @@
-16px (estimated — Elementor global CSS not publicly accessible; verify via browser dev tools on any impelhub.com blog post)
+16px
+
+VERIFIED 2026-09-10 via Chrome getComputedStyle on live posts 12433 and 12356
+(previously "16px estimated - verify via dev tools").
+
+Full body spec:
+  font-family : Inter, sans-serif
+  font-size   : 16px
+  font-weight : 400
+  line-height : 22.72px  (= 1.42)
+  color       : #333333
+  margin-bottom per <p> : 20px
+  text-align  : start (left)
+
+Container width: 860px
+See clients/impelhub/reference/BLOG-DESIGN-SYSTEM.md for the full verified system.

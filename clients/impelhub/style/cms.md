@@ -44,9 +44,16 @@ ImpelHub posts use Elementor containers with this structure:
 - Links: `style="color:#5736fd;"` and optionally `style="color:#5736fd;font-weight:500;"`
 - TOC links: `style="color:#5736fd;text-decoration:none;"`
 
-## ImpelHub brand colors
-- Primary accent: #5736fd (purple/violet) — confirmed from inline styles in reference post 12356
-- Secondary: not confirmed from CSS; verify via browser dev tools on live site
+## ImpelHub brand colors (VERIFIED 2026-09-10 via computed styles)
+- Primary accent: **#5736fd** (purple) — every link, TOC arrow, inline accent. `text-decoration:none`, weight 400.
+- Body text: **#333333**
+- Heading ink: **#0d0b1e** (current, post 12433) — older posts 12356 use #1a1a2e / #3d3d5c
+- H1: **#000000**
+- Accordion FAQ question: **#fd9ed0** (pink) — this is the "secondary" that was previously unconfirmed
+- Fonts: **Red Hat Display** headings, **Inter** body. Theme-loaded; never declare inline.
+- Container width: **860px**. Featured image **1300×600**, body images **860×452**.
+
+Full detail: `clients/impelhub/reference/BLOG-DESIGN-SYSTEM.md`
 
 ## Image sourcing
 Pexels API primary (PEXELS_API_KEY env var, shared across clients).

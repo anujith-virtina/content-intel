@@ -197,6 +197,15 @@ Approved sources: Medicare.gov, Medicaid.gov, CMS, National Institute on Aging, 
   blog links, costing a revision round.
 - 5 to 8 internal links, pointing mainly at **directory category pages** (`/assisted-living/`, `/memory-care/`, `/home-care-providers/`, `/elder-law-attorneys/`, `/care-management/`). **Not `/nursing-homes/`** with a directory anchor, and **not** `/veterans-benefits/`, which resolves to a single blog post. See the corrections in section 1. That is the house pattern and it matches the business model.
 - Link relevant existing blog posts too, but send the reader into the directory to act.
+- **Interlinks must never read as self-promotion.** Locked 2026-09-11 by user instruction.
+  Banned framings: "our guide to", "our explainer on", "our comparison of", "our breakdown of",
+  "our directory", "check out our", "read our", "see our", "visit our". An anchor must never contain
+  "our" either. State the fact and let the link carry the reference.
+  Bad: `Our guide to <a>caregiver burnout</a> explains the warning signs.`
+  Good: `The warning signs of <a>caregiver burnout</a> are worth knowing before you reach that point.`
+  Bad: `Start with <a>our care management directory</a>.`  Good: `Start with a <a>care management directory</a>.`
+  Possessive framing makes the blog read like a brochure and adds nothing for readers or answer engines.
+  The publisher greps for these before any push. Applies to body prose, conclusions and summary blocks.
 - **Maximum 2 external links.** Both need `target="_blank" rel="noopener noreferrer"`.
 - Never link competitors: A Place for Mom, Caring.com, SeniorAdvisor, AgingCare, Care.com, SeniorLiving.com, Assisted Living Locators.
 - Every link verified HTTP 200 before push.
@@ -284,6 +293,7 @@ portraits for these queries. Set `PEXELS_API_KEY` in `.env` before attempting im
 - [ ] No link from the DEAD_LINKS list (see section 1)
 - [ ] At least 3 links point at real directory category pages
 - [ ] At least 2 links point at earlier ECM blog posts
+- [ ] No promotional link framing ("our guide", "our directory", "check out our")
 - [ ] 2 or fewer external, all 200, both with target and rel
 - [ ] No competitor domains
 

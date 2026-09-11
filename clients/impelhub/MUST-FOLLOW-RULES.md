@@ -14,7 +14,8 @@ Refresh every 30 days or after manual updates.
 ## Authoritative sub-files
 
 - `clients/impelhub/brand-primary.txt` — confirmed brand color (#5736fd, ImpelHub purple)
-- `clients/impelhub/body-font-size.txt` — body font-size (16px estimated; verify via dev tools)
+- `clients/impelhub/body-font-size.txt` — body font-size (16px, VERIFIED 2026-09-10)
+- `clients/impelhub/reference/BLOG-DESIGN-SYSTEM.md` — **the verified visual system** (widths, fonts, colours, alignment, image sizes) extracted from live computed styles. Where any other file disagrees, this one wins.
 - `clients/impelhub/reference/published-posts-inventory.md` — all 50 existing posts for uniqueness checks
 - `clients/impelhub/style/voice.md`, `audience.md`, `brand.md` — content voice and style rules
 - `clients/impelhub/style/cms.md` — Elementor HTML patterns, CTA conventions, image keywords
@@ -122,8 +123,8 @@ Never:
 - Competition: 'competitive analysis business', 'market research desk', 'business intelligence screens'
 
 ### Required count and dimensions
-- 1 featured image — standard WordPress featured image (dimensions: verify from reference post; 1200×628 is common for ImpelHub)
-- 2–3 body images placed after heavy content sections (Elementor image widget)
+- 1 featured image at exactly **1300×600** (VERIFIED 2026-09-10: unanimous across the 10 most recent posts. The old "1200×628 is common" note was wrong; zero posts use it.)
+- 2–3 body images at exactly **860×452** (VERIFIED 2026-09-10: 30 occurrences across recent posts; matches the 860px content container exactly, so no upscaling). Elementor `image.default` widget, placed after heavy content sections.
 - All body images same aspect ratio (horizontal/landscape orientation)
 - File size: under 300 KB per image preferred
 
@@ -143,12 +144,24 @@ ImpelHub TOC pattern confirmed from reference post 12356:
 
 - H3 "Table of Contents" heading (not H2)
 - Container uses `data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"` (styled background box)
-- Each TOC item: `<p><span style="color:#5736fd;">→</span> <a href="#anchor" style="color:#5736fd;text-decoration:none;">Section Title</a></p>`
+- Each TOC item: `<li><a href="#anchor">Section Title</a></li>` inside the lavender `<ol>` box above. NOT an arrow paragraph.
 - Unicode → arrow (NOT SVG, NOT Font Awesome — ImpelHub uses Unicode, unlike Virtina)
 - Every body H2 must have `id` attribute matching the TOC anchor href
 - Place TOC after TL;DR block, before first body H2 section
 
-CRITICAL — ImpelHub uses Unicode → arrows colored in #5736fd. Virtina uses SVG arrows. Never mix these patterns across clients.
+**CORRECTED 2026-09-10 — THE ARROW TOC RULE WAS WRONG.**
+
+Reference post 12433 contains **ZERO Unicode arrows** and uses `<ol>`, never `<ul>`. The live TOC is a
+lavender box with a numbered list, not arrow paragraphs:
+
+```html
+<div style="background:#FBE9FF;border-radius:8px;padding:18px 24px;"><div style="font-weight:700;color:#0d0b1e;font-size:18px;margin-bottom:8px;">Table of Contents</div><ol style="margin:0;padding-left:20px;color:#0d0b1e;font-size:16px;line-height:1.8;"><li><a href="#anchor">Section title</a></li></ol></div>
+```
+
+It is a single `text-editor` widget. There is NO separate H3 "Table of Contents" heading widget.
+Links inherit `#5736fd` from the theme, so no inline link colour is needed.
+
+Still true: never use Virtina's inline-SVG arrow pattern.
 
 ---
 
@@ -310,6 +323,23 @@ Hype banned: revolutionary, game-changing, cutting-edge, "transform your..."
 - `featured_media` set with a real uploaded media ID, never 0
 - Yoast meta_title: 60 chars max, format `{Title} | ImpelHub`
 - Yoast meta_description: 150–160 chars, conversational and decision-filter framed
+
+### Yoast is NOT REST-writable on this install (VERIFIED 2026-09-10)
+
+`_yoast_wpseo_title` and `_yoast_wpseo_metadesc` are **not registered with `show_in_rest`** on impelhub.com. Sending them in `meta` on a POST returns HTTP 201 with no error, and WordPress silently discards them.
+
+Verified by `GET /wp-json/wp/v2/posts/{id}?context=edit` on both a freshly pushed post (12478) and the live reference post (12433). The registered meta keys are only:
+`_acf_changed`, `footnotes`, `_elementor_edit_mode`, `_elementor_template_type`, `_elementor_data`, `_elementor_page_settings`, `_elementor_conditions`.
+
+Yoast itself is active (`yoast_head_json` is present, `yoast/v1` namespace exists), but that namespace does not write per-post title or description.
+
+**Rule:** still send the fields, still verify with a `context=edit` GET, and then **always report Yoast title and description as an outstanding manual dashboard step.** Never report Yoast as set. Re-test on each run in case the install changes.
+
+### The Elementor heading limitation, now evidenced
+
+`GET ?context=edit` on 12433 shows `_elementor_data` carrying the heading typography directly, for example `"title_color":"#0d0b1e"`, `"typography_font_size":{"unit":"px","size":26}`, `"typography_font_weight":"700"`.
+
+A REST-pushed post has `_elementor_data: ""` and `_elementor_edit_mode: ""`. It therefore renders from `post_content` with theme-default headings. This is the confirmed mechanism behind the H2/H3 rule in `BLOG-DESIGN-SYSTEM.md` section 2. Always report it as an outstanding manual step.
 - DO NOT use Virtina credentials (`WP_USERNAME`/`WP_APP_PASSWORD`) — separate installation
 - DO NOT use ChatSKU credentials — separate installation
 
@@ -346,7 +376,9 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] Every body H2 has `id` attribute matching TOC anchor href
 - [ ] H3 subheadings present inside every H2 section that exceeds 200 words
 - [ ] Minimum 6 H3 subheadings across the full article
-- [ ] TOC uses Unicode → arrows in #5736fd, NOT SVG (ImpelHub pattern, not Virtina)
+- [ ] TOC is the lavender `#FBE9FF` box with a numbered `<ol>`, in ONE text-editor widget, no separate H3 heading, no arrows
+- [ ] Every H2 heading widget carries `_css_classes: "blog-title-h2"` (draws the 76x3px #5736fd bar)
+- [ ] Anchors set via `css_id` on the heading widget, NOT `_element_id`; every TOC href resolves
 
 **Images:**
 - [ ] Featured image set (real media ID, not 0)
@@ -376,8 +408,12 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 - [ ] Status: `draft`
 - [ ] `featured_media` is a real media ID, not 0
 - [ ] Credentials: IMPELHUB_WP_USERNAME + IMPELHUB_WP_APP_PASSWORD (not Virtina or ChatSKU)
-- [ ] Yoast meta title (60 chars max, ends `| ImpelHub`) set
-- [ ] Yoast meta description (150–160 chars) set
+- [ ] Yoast meta title (60 chars max, ends `| ImpelHub`) sent
+- [ ] Yoast meta description (150–160 chars) sent, length actually counted (not eyeballed)
+- [ ] Yoast persistence checked via `context=edit` GET and reported truthfully (expected: NOT persisted, manual step)
+- [ ] Saved `content.raw` compared byte-for-byte against what was sent (hash or exact equality), not just spot-checked
+- [ ] Every internal link re-verified with browser-like headers. A bare curl gets a blanket 403 from this host, which is bot filtering and NOT a 404
+- [ ] H2/H3 pushed with no inline typography, and the Elementor manual step reported
 
 ---
 

@@ -123,6 +123,14 @@ _d=re.findall(r'\$[0-9][0-9,]*',txt)
 for dm in ['ncoa.org','medicare.gov','cms.gov']:
     (O if not [u for u in allhref if dm in u.lower()] else F)('forbidden domain LINKED: '+dm)
 
+
+# ---- promotional interlink framing (banned 2026-09-11) ----
+PROMO=['our guide','our explainer','our comparison','our breakdown','our directory','our care management','check out our','read our','see our','visit our','our full guide','our post','our article','our roundup']
+_promo=[x for x in PROMO if x in low]
+(O if not _promo else F)('promotional link framing: '+str(_promo))
+_oa=re.findall(r'<a[^>]*>\s*[Oo]ur\b[^<]*</a>',body)
+(O if not _oa else F)('anchor contains our: '+str(_oa[:3]))
+
 print(f"\n{'='*66}\nECM QA  {os.path.basename(p)}\n{'='*66}")
 for m in oks: print("  PASS  "+m)
 for m in warns: print("  WARN  "+m)
