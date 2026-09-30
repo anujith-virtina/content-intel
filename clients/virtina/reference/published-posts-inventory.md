@@ -1352,3 +1352,17 @@ Before writing any new Virtina blog:
 ### 3 Reasons Why Volusion a Beloved eCommerce Platform?
 - **ID**: 10699  **Slug**: `volusion-ecommerce`  **Date**: 2015-10-13
 - **Excerpt**: Volusion is one of the most loved eCommerce platforms in the world. More than 40000 thousand vendors across the globe are using Volusion for their eCommerce businesses. According to Volusion’s official source, the total business is more than $18 bill
+
+### Why eCommerce Sites Lose Rankings After a Redesign (And How to Prevent It)
+- **ID**: 43029  **Slug**: `redesign-without-losing-rankings`  **Date**: 2026-09-30  **Format**: Format A
+- **Link**: https://virtina.com/redesign-without-losing-rankings/ (DRAFT, not yet published)
+- **Media**: featured 43025, body 43026/43027/43028. Categories 123 (eCommerce SEO), 338 (eCommerce Solution).
+- **Excerpt**: Supporting article for the `/ecommerce-website-redesign/` money page (42707). Owns the MECHANISMS of
+  ranking loss in a redesign: redirect maps and chains, content loss, template-rewritten titles and H1s,
+  navigation orphaning deep pages, structured data dropped in a theme swap, Core Web Vitals regressions,
+  and the staging noindex left on at launch. Deliberately distinct from post 40727, which covers redesign
+  benefits, features and AI trends and touches SEO in one PAA line, and from 34921, which is a platform
+  MIGRATION checklist. Verified 0 shared 8-word sequences against 8 related posts and the money page.
+- **Note**: Thrive caveat applies. Renders the semantic HTML fallback until opened and saved once in
+  Thrive Architect. Yoast title and description persisted over REST (True/True), contrary to the stale
+  post 42441 note.

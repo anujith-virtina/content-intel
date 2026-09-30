@@ -149,7 +149,11 @@ if '<li' in body.lower():
 bar = '=' * 66
 
 # ---- promotional interlink framing (banned 2026-09-11) ----
-PROMO=['our guide','our explainer','our comparison','our breakdown','our directory','our care management','check out our','read our','see our','visit our','our full guide','our post','our article','our roundup']
+# `low` was never defined here: this block was copied from the ECM QA script, which
+# lowercases into `low`, while this script uses `txt`. The check raised NameError and
+# crashed the whole gate instead of running. Defined locally so it actually executes.
+low = txt.lower()
+PROMO=['our guide','our explainer','our comparison','our breakdown','our directory','check out our','read our','see our','visit our','our full guide','our post','our article','our roundup']
 _promo=[x for x in PROMO if x in low]
 (O if not _promo else F)('promotional link framing: '+str(_promo))
 _oa=re.findall(r'<a[^>]*>\s*[Oo]ur\b[^<]*</a>',body)
