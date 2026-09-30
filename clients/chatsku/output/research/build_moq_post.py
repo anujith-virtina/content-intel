@@ -86,22 +86,22 @@ AUTH = base64.b64encode(f"{U}:{A}".encode()).decode()
 H = {"Authorization": f"Basic {AUTH}", "User-Agent": UA, "Content-Type": "application/json"}
 HG = {"User-Agent": UA}                      # Cloudflare 403s without a browser UA
 
-TITLE = "Six questions your buyers ask that your catalog can't answer"
-SLUG = "questions-your-catalog-cant-answer"
+TITLE = "Your buyer wants 3. Your minimum order is 12. Now what?"
+SLUG = "minimum-order-quantity-b2b"
 PERMALINK = f"https://chatsku.com/{SLUG}/"
-DRAFT = r"C:\content-intel\clients\chatsku\output\drafts\questions-your-catalog-cant-answer-2026-09-30.md"
+DRAFT = r"C:\content-intel\clients\chatsku\output\drafts\minimum-order-quantity-b2b-2026-09-30.md"
 # Reset BOTH Yoast strings when cloning a build script. Leaving the previous
 # post's values shipped twice before, because the checks only measure length.
-YOAST_TITLE = "6 Questions Your Catalog Can't Answer | ChatSKU"   # 47 chars
-YOAST_DESC = 'Buyers ask about cross-references, applications, and specs in their own words. See why catalog search misses them, and what it takes to actually answer.'   # 152 chars
+YOAST_TITLE = 'Minimum Order Quantity in B2B: Answer It Fast | ChatSKU'   # 55 chars
+YOAST_DESC = 'Minimum order quantity rules trip up B2B buyers at checkout, not before. See why MOQs and pack sizes need an answer in the moment, not an email to a rep.'   # 153 chars
 PUBLISH_DATE = "2026-09-30"
 CATEGORIES = [22, 24]   # B2B Commerce / Catalog Optimization (verified live 2026-09-30). NEVER 25 (DFW Local).
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-STATE_PATH = os.path.join(BASE, "questions_catalog_push_state.json")
+STATE_PATH = os.path.join(BASE, "moq_push_state.json")
 SCRATCH = os.environ.get("SCRATCH_DIR", BASE)
 QA_DIR = os.environ.get("QA_DIR", "")
-CANDIDATE_DIR = os.environ.get("CANDIDATE_DIR", os.path.join(SCRATCH, "site_search_logs_candidates"))
+CANDIDATE_DIR = os.environ.get("CANDIDATE_DIR", os.path.join(SCRATCH, "moq_candidates"))
 MODE = os.environ.get("MODE", "").lower()
 NO_IMAGES = os.environ.get("NO_IMAGES") == "1"
 REUSE_MEDIA = os.environ.get("REUSE_MEDIA") == "1"
@@ -116,9 +116,9 @@ ALT_CONFIRMED = os.environ.get("ALT_CONFIRMED") == "1"
 # scene." The publish flow refuses to run unless ALT_CONFIRMED=1.
 # 80-150 chars each, unique, 1-2 article keywords.
 # ---------------------------------------------------------------------------
-FEATURED_ALT = ('A B2B ecommerce manager works alone at a laptop on a wooden desk in a bright office, checking a product catalog.')
-BODY1_ALT = ('A laptop on a desk shows a web analytics dashboard with bar charts, a pie chart and session metrics for a B2B catalog.')
-BODY2_ALT = ('Two colleagues review B2B catalog figures together at an office table with a laptop, a tablet and a notepad.')
+FEATURED_ALT = ('Two colleagues review a B2B order together at a white office table with a laptop, a tablet and a notepad.')
+BODY1_ALT = ('A B2B buyer checks a product catalog alone on a laptop at a wooden desk in a bright modern office.')
+BODY2_ALT = ('Two people work through order quantities at a desk, with a laptop open beside handwritten notes and figures.')
 # Source URLs of images already used on other ChatSKU posts. Candidates matching
 # these are dropped so nothing gets reused (rules s3 "fresh images").
 USED_SOURCES_PATH = os.path.join(BASE, "chatsku_used_image_sources.json")
@@ -568,11 +568,12 @@ print(f"  money page linked {len(_money)}x with distinct anchors {sorted(_money_
 # DIAGNOSTIC on the reader's own data; 2665 owns why keyword search breaks and 2468
 # owns the retrieval mechanism. Both must be linked so the intent is handed off
 # rather than re-explained here.
-for _slug, _owns in [("/traditional-b2b-product-search-fails/", "why keyword search breaks")]:
+for _slug, _owns in [("/one-catalog-a-thousand-prices-making-tiered-b2b-pricing-work-online/", "price visibility by customer group"),
+                     ("/b2b-catalog-conversion-rate/", "the find-to-buy gap")]:
     if _slug not in content_html:
         print(f"BLOCKING: {_slug} must be linked so {_owns} is handed off, not duplicated.")
         raise SystemExit(1)
-print("  dedup hand-off link present (2665): OK")
+print("  dedup hand-off links present (3039 + 266): OK")
 
 # 4e. internal links -- BOTH absolute chatsku.com AND relative "/path/" hrefs.
 #     An absolute-only regex passes VACUOUSLY on a relative-link draft. That bug
