@@ -86,19 +86,19 @@ AUTH = base64.b64encode(f"{U}:{A}".encode()).decode()
 H = {"Authorization": f"Basic {AUTH}", "User-Agent": UA, "Content-Type": "application/json"}
 HG = {"User-Agent": UA}                      # Cloudflare 403s without a browser UA
 
-TITLE = "Your site search box is keeping a list of everything buyers couldn't find"
-SLUG = "site-search-logs"
+TITLE = "Six questions your buyers ask that your catalog can't answer"
+SLUG = "questions-your-catalog-cant-answer"
 PERMALINK = f"https://chatsku.com/{SLUG}/"
-DRAFT = r"C:\content-intel\clients\chatsku\output\drafts\site-search-logs-2026-09-30.md"
+DRAFT = r"C:\content-intel\clients\chatsku\output\drafts\questions-your-catalog-cant-answer-2026-09-30.md"
 # Reset BOTH Yoast strings when cloning a build script. Leaving the previous
 # post's values shipped twice before, because the checks only measure length.
-YOAST_TITLE = 'What Your Site Search Logs Reveal | ChatSKU'   # 43 chars
-YOAST_DESC = 'Site search logs already show exactly which buyer queries return zero results in your B2B catalog search, and how to read them before buying new tools.'   # 151 chars
+YOAST_TITLE = "6 Questions Your Catalog Can't Answer | ChatSKU"   # 47 chars
+YOAST_DESC = 'Buyers ask about cross-references, applications, and specs in their own words. See why catalog search misses them, and what it takes to actually answer.'   # 152 chars
 PUBLISH_DATE = "2026-09-30"
 CATEGORIES = [22, 24]   # B2B Commerce / Catalog Optimization (verified live 2026-09-30). NEVER 25 (DFW Local).
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-STATE_PATH = os.path.join(BASE, "site_search_logs_push_state.json")
+STATE_PATH = os.path.join(BASE, "questions_catalog_push_state.json")
 SCRATCH = os.environ.get("SCRATCH_DIR", BASE)
 QA_DIR = os.environ.get("QA_DIR", "")
 CANDIDATE_DIR = os.environ.get("CANDIDATE_DIR", os.path.join(SCRATCH, "site_search_logs_candidates"))
@@ -116,9 +116,9 @@ ALT_CONFIRMED = os.environ.get("ALT_CONFIRMED") == "1"
 # scene." The publish flow refuses to run unless ALT_CONFIRMED=1.
 # 80-150 chars each, unique, 1-2 article keywords.
 # ---------------------------------------------------------------------------
-FEATURED_ALT = ('A laptop on a desk shows a web analytics dashboard with bar charts, a pie chart and session metrics for a B2B catalog site.')
-BODY1_ALT = ('A B2B ecommerce manager works alone at a laptop on a wooden desk in a bright office, reading a site search report.')
-BODY2_ALT = ('Two colleagues review site search figures together at an office table with a laptop, a tablet and a notepad.')
+FEATURED_ALT = ('A B2B ecommerce manager works alone at a laptop on a wooden desk in a bright office, checking a product catalog.')
+BODY1_ALT = ('A laptop on a desk shows a web analytics dashboard with bar charts, a pie chart and session metrics for a B2B catalog.')
+BODY2_ALT = ('Two colleagues review B2B catalog figures together at an office table with a laptop, a tablet and a notepad.')
 # Source URLs of images already used on other ChatSKU posts. Candidates matching
 # these are dropped so nothing gets reused (rules s3 "fresh images").
 USED_SOURCES_PATH = os.path.join(BASE, "chatsku_used_image_sources.json")
@@ -552,11 +552,11 @@ print("  no competitor names in prose: OK")
 
 # This post exists to support the money page, so that link is the one it cannot ship
 # without. Post 1056 precedent: link it twice with DIFFERENT anchors.
-_money = re.findall(r'<a[^>]+href="(?:https://chatsku\.com)?/ai-product-search-for-b2b/"[^>]*>(.*?)</a>',
+_money = re.findall(r'<a[^>]+href="(?:https://chatsku\.com)?/ai-sales-assistant-b2b-ecommerce/"[^>]*>(.*?)</a>',
                     content_html, re.I | re.S)
 _money_anchors = {re.sub(r'<[^>]+>', '', a).strip().lower() for a in _money}
 if len(_money) < 2:
-    print(f"BLOCKING: /ai-product-search-for-b2b/ is linked {len(_money)} time(s); this post")
+    print(f"BLOCKING: /ai-sales-assistant-b2b-ecommerce/ is linked {len(_money)} time(s); this post")
     print("          to support it and must link it at least twice.")
     raise SystemExit(1)
 if len(_money_anchors) < len(_money):
@@ -568,12 +568,11 @@ print(f"  money page linked {len(_money)}x with distinct anchors {sorted(_money_
 # DIAGNOSTIC on the reader's own data; 2665 owns why keyword search breaks and 2468
 # owns the retrieval mechanism. Both must be linked so the intent is handed off
 # rather than re-explained here.
-for _slug, _owns in [("/traditional-b2b-product-search-fails/", "why keyword search breaks"),
-                     ("/how-ai-product-search-works/", "retrieval mechanics")]:
+for _slug, _owns in [("/traditional-b2b-product-search-fails/", "why keyword search breaks")]:
     if _slug not in content_html:
         print(f"BLOCKING: {_slug} must be linked so {_owns} is handed off, not duplicated.")
         raise SystemExit(1)
-print("  dedup hand-off links present (2665 + 2468): OK")
+print("  dedup hand-off link present (2665): OK")
 
 # 4e. internal links -- BOTH absolute chatsku.com AND relative "/path/" hrefs.
 #     An absolute-only regex passes VACUOUSLY on a relative-link draft. That bug
