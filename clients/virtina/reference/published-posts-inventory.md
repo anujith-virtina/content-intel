@@ -1366,3 +1366,20 @@ Before writing any new Virtina blog:
 - **Note**: Thrive caveat applies. Renders the semantic HTML fallback until opened and saved once in
   Thrive Architect. Yoast title and description persisted over REST (True/True), contrary to the stale
   post 42441 note.
+
+### How an Outdated Ecommerce Website Hurts Conversions
+- **ID**: 43036  **Slug**: `outdated-store-hurts-conversions`  **Date**: 2026-10-01  **Format**: Format A
+- **Link**: https://virtina.com/outdated-store-hurts-conversions/ (DRAFT, not yet published)
+- **Media**: featured 43032, body 43033/43034/43035. Categories 128 (Conversion Optimization), 404 (eCommerce Web Design).
+- **Excerpt**: Second supporting article for the `/ecommerce-website-redesign/` money page (42707). Owns the
+  OPTIMISE-VERSUS-REBUILD decision: when an outdated store's problems are local and fixable in place, and
+  when the build itself is the constraint. Also owns technical debt as a conversion cost (plugin bloat,
+  theme hacks, every change needing a developer), which nothing else in the corpus covers.
+- **Deliberate de-duplication**: the money page already owns the symptom catalogue under its H2 "Is Your
+  Store Design Costing You Sales?", so symptoms appear here only as three short diagnostic buckets, each
+  handed off by link to the post that owns it (speed 23056, mobile 34086, site search 41808, cart
+  abandonment 10902). Do NOT expand them into sections in any future post.
+- **Fenced against post 43029**: that post owns redirects, indexation, title tags and Core Web Vitals after
+  a redesign. This one mentions none of them. Verified 0 shared 8-word sequences against 43029 and 9 other
+  conversion-cluster posts.
+- **Note**: Thrive caveat applies. Yoast persisted over REST.
