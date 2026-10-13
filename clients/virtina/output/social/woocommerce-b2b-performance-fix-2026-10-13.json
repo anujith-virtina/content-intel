@@ -1,0 +1,28 @@
+{
+  "client": "virtina",
+  "slug": "woocommerce-b2b-performance-fix",
+  "date": "2026-10-13",
+  "wp_post_id": 42074,
+  "canonical_url": "https://virtina.com/woocommerce-b2b-performance-fix/",
+  "title": "Why Is Your WooCommerce B2B Store Slow? A 60-Second Diagnostic and Fix Guide",
+  "approved": false,
+  "linkedin": {
+    "post": "Your lead buyer waits six seconds for the catalog to load, and you're holding a $150K replatforming quote.\n\nBefore you sign, run a diagnostic. In many cases like this, the culprit is a Redis configuration that takes an afternoon to fix.\n\nGeneric WooCommerce speed advice is written for B2C stores. It assumes anonymous visitors and safe full-page caching. B2B buyers break both assumptions.\n\nLogged-in buyers bypass the page cache. Every page is built fresh because pricing is tiered per customer.\n\nHere is where the slowness usually hides:\n\n- Server defaults that were never tuned, like the InnoDB buffer pool and PHP-FPM\n- Redis object caching that is missing or not scoped per user\n- Slow admin order lookups that need HPOS enabled\n- ERP sync firing on WordPress hooks during page loads\n\nThe article starts with a 60-second self-audit. Match your symptom to a bottleneck, then go straight to that fix.\n\nIt also covers when a replatform is the right call. That is a capability gap, such as multi-company approval workflows or native quote management. It is not a speed problem.\n\nFull breakdown in the first comment.",
+    "hashtags": ["woocommerce", "b2bcommerce", "ecommerce", "pagespeed"],
+    "first_comment": "The full diagnostic and fix guide: https://virtina.com/woocommerce-b2b-performance-fix/"
+  },
+  "instagram": {
+    "caption": "Slow B2B store? Check the config before you buy a new platform.\n\nYour logged-in buyers skip the page cache. Pricing is tiered per customer, so every page is built fresh.\n\nThat is why generic WooCommerce speed tips fall flat for B2B. The fix usually sits in caching, the database, the server, or your ERP sync.\n\nSwipe for the five checks, plus the one reason that does justify replatforming.\n\nLink in bio for the full diagnostic.",
+    "hashtags": ["woocommerce", "b2becommerce", "ecommerce", "pagespeed", "wordpress", "redis", "erpintegration", "ecommercetips"]
+  },
+  "slides": [
+    {"type": "cover", "kicker": "WooCommerce B2B speed", "headline": "Your slow store may not need a new platform", "sub": "Run a 60-second diagnostic before you sign a $150K replatform quote.", "alt": "Cover slide: a slow WooCommerce B2B store may not need a new platform"},
+    {"type": "point", "number": 1, "headline": "B2B buyers bypass the page cache", "body": "Logged-in buyers get pages built fresh because pricing is tiered per customer. Full-page caching gives them nothing.", "alt": "Point 1: logged-in B2B buyers bypass full-page caching"},
+    {"type": "point", "number": 2, "headline": "Use Redis object caching, scoped per user", "body": "Cache expensive queries like pricing and visibility checks, not whole pages. Scope pricing per user so it never bleeds across sessions.", "alt": "Point 2: Redis object caching scoped per user fixes B2B caching"},
+    {"type": "point", "number": 3, "headline": "Enable HPOS for slow admin orders", "body": "Order lookups taking 10-30 seconds point to HPOS or Action Scheduler bloat. Test the migration on staging first.", "alt": "Point 3: slow admin order lookups point to HPOS and Action Scheduler"},
+    {"type": "point", "number": 4, "headline": "Tune the server defaults", "body": "The InnoDB buffer pool default is 128MB. Left alone, MySQL reads from disk on most queries of a large store.", "alt": "Point 4: untuned MySQL and PHP defaults slow every page"},
+    {"type": "point", "number": 5, "headline": "Move ERP sync off page loads", "body": "Sync on WordPress hooks adds ERP calls to customer requests. Switch to scheduled batch sync every 5-15 minutes.", "alt": "Point 5: batch ERP sync removes latency from customer pages"},
+    {"type": "point", "number": 6, "headline": "Replatform for gaps, not speed", "body": "Multi-company approval workflows or native quotes are real reasons. Slowness alone is not.", "alt": "Point 6: replatform only for capability gaps, not for speed"},
+    {"type": "cta", "headline": "Start with the 60-second audit", "body": "The full article matches your symptoms to the right fix and shows when a replatform makes sense.", "alt": "Closing slide: the full article matches symptoms to the right fix"}
+  ]
+}

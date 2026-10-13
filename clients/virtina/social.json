@@ -1,0 +1,58 @@
+{
+  "wordmark": "VIRTINA",
+  "cta_label": "Full guide on virtina.com",
+  "auto_approve": false,
+  "colors": {
+    "primary": "#43627f",
+    "primary_dark": "#1f3346",
+    "link": "#00a0e2",
+    "accent": "#00d5c0",
+    "text": "#2d3e50",
+    "light": "#f5f7f9"
+  },
+  "fonts": {
+    "regular": "Metropolis-Regular.otf",
+    "semibold": "Metropolis-SemiBold.otf",
+    "bold": "Metropolis-Bold.otf",
+    "extrabold": "Metropolis-ExtraBold.otf"
+  },
+  "wp": {
+    "site": "https://virtina.com",
+    "username_env": "WP_USERNAME",
+    "password_env": "WP_APP_PASSWORD"
+  },
+  "linkedin": {
+    "enabled": true,
+    "api_version": "202609",
+    "env": {
+      "token": "VIRTINA_LINKEDIN_ACCESS_TOKEN",
+      "org_id": "VIRTINA_LINKEDIN_ORG_ID"
+    }
+  },
+  "instagram": {
+    "enabled": true,
+    "graph_host": "https://graph.instagram.com",
+    "api_version": "v25.0",
+    "env": {
+      "token": "VIRTINA_IG_ACCESS_TOKEN",
+      "user_id": "VIRTINA_IG_USER_ID"
+    }
+  },
+  "rules": {
+    "linkedin_chars": [900, 2000],
+    "linkedin_hook_chars": 210,
+    "linkedin_hashtags": [3, 5],
+    "instagram_hook_chars": 125,
+    "instagram_hashtags": [5, 10],
+    "slides": [5, 9],
+    "banned": [
+      "revolutionary", "game-changing", "best-in-class", "cutting-edge", "world-class", "industry-leading",
+      "transform your", "unlock value", "synergize", "synergy", "delve", "leverage", "realm", "landscape",
+      "ecosystem", "in today's fast-paced world", "it's important to note", "in conclusion", "to summarize",
+      "in the world of", "reach out", "innovative solutions", "cheap", "low cost", "we're the best", "vendor",
+      "our guide", "check out our", "read our", "see our",
+      "absolute web", "coalition technologies", "blue stout", "tako agency", "shero commerce", "born group",
+      "vl omni", "fuel made", "electric eye", "underwaterpistol"
+    ]
+  }
+}

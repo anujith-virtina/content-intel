@@ -117,6 +117,15 @@ The orchestrator must:
 
 These per-client rules override generic best practices in this CLAUDE.md and in agent files. They exist because they were established through real QA cycles and represent the user's exact preferences.
 
+### Virtina social pack (LinkedIn + Instagram) — last step of every Virtina post
+
+After every Virtina WordPress push, run the `/social {post-id}` steps (`.claude/commands/social.md`) without being asked. It turns the post into a LinkedIn post, an Instagram caption and a shared 1080×1350 carousel.
+
+- Rules for the copy: `clients/virtina/style/social.md`. Machine settings: `clients/virtina/social.json`.
+- Tool: `social/social_pipeline.py` (`fetch`, `render`, `qa`, `approve`, `publish`, `sweep`, `check`). The orchestrator runs it; `creator` only writes the pack JSON.
+- A pack never posts while its article is a WP draft, and never posts unapproved unless `auto_approve` is `true` in `social.json`. A held pack is the normal end state for a fresh draft; `sweep` posts it after the article goes live.
+- This replaces the old `publisher` social variants for Virtina. Other clients are unchanged.
+
 ## Active clients
 
 | Slug | Site | CMS / Builder | WP Credentials |
