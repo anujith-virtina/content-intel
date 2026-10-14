@@ -1,9 +1,12 @@
 # Social — Virtina (LinkedIn + Instagram)
 
-Every Virtina blog post becomes one **social pack**: a LinkedIn post, an Instagram caption, and one
-carousel that both platforms share. The copywriter writes a JSON pack. `social/social_pipeline.py`
-renders the slides, gates the copy, and posts it. Limits below are enforced by the `qa` command, so a
-pack that breaks them cannot be published.
+Every Virtina blog post becomes one **social pack**: a LinkedIn caption, an Instagram caption, and one
+square poster image both platforms share. The copywriter writes a JSON pack.
+`social/social_pipeline.py` renders the image, gates the copy, and posts it. Limits below are enforced by
+the `qa` command, so a pack that breaks them cannot be published.
+
+The format copies Virtina's existing feed (reference: instagram.com/virtinapro, post "Your Customers Are
+Leaving. Do You Know Why?", Oct 2026). Match it. Do not invent a different format.
 
 ## Source of truth
 
@@ -13,52 +16,62 @@ Write only from `clients/virtina/output/social/_source/{wp_post_id}.json` (the f
 - Never add a claim, example, client name, or statistic the article does not contain.
 - Do not quote more than 15 consecutive words from the article. Rephrase.
 
-## Voice
+## Caption (same structure on both platforms)
 
-Same voice as the blog (`voice.md`, `brand.md`), tightened for a feed:
+This is the house pattern. Keep the order and the emoji markers exactly:
 
+```
+🚨 {hook question or blunt statement, one line}
+
+{one or two short sentences that set up the problem}
+
+Here are {N} {things} {that ...}:
+
+1️⃣ {Point name}
+{One sentence, 20 words or fewer.}
+
+2️⃣ {Point name}
+{One sentence.}
+
+... (3 to 5 points, matching the cards on the image)
+
+💡 {The good news / the takeaway, one or two sentences}
+
+👉 Read the full article {to learn / for ...}:
+{canonical_url}
+```
+
+- Emoji: only 🚨, 1️⃣ to 5️⃣, 💡 and 👉, each used as shown. No other emoji.
+- The article URL goes in the caption body, on its own line, on both platforms.
+- No em dashes, no exclamation marks, no semicolons.
 - Second person, active voice, contractions fine. Sentences of 20 words or fewer.
-- Open with a concrete situation or a specific claim from the article, never a question like "Did you know".
-- One idea per paragraph, blank line between paragraphs.
-- No em dashes, no exclamation marks, no semicolons, no emoji.
 - No hype or filler words (full banned list in `clients/virtina/social.json`), no "vendor", no "reach out".
-- Never promotional: no "our guide", "check out our", "read our". Say what the article covers.
-- Never name a competitor agency.
+- Never promotional: no "our guide", "check out our", "read our". Never name a competitor agency.
 
-## LinkedIn post
+LinkedIn: 600 to 2,200 characters including hashtags, first line 210 or fewer, 3 to 8 hashtags.
+Instagram: 2,200 characters or fewer, first line 125 or fewer, 5 to 10 hashtags.
+The two captions may be near-identical. Vary the hook line and the hashtag mix.
+Hashtags: lowercase, letters and digits only, in the `hashtags` array, not typed into the caption.
 
-- 900 to 2,000 characters including hashtags. Aim for 1,200 to 1,800.
-- First line is the hook and must be 210 characters or fewer (it is all that shows before "see more").
-- No link and no domain name in the post body. The link goes in `first_comment`.
-- End on a soft line that points to the first comment, for example "Full breakdown in the first comment."
-- `first_comment`: one plain sentence plus the article URL.
-- 3 to 5 hashtags, lowercase, letters and digits only.
-- A short list of parallel items is fine. Use a hyphen and a space, never a bullet character.
+## Images (1080 x 1080)
 
-## Instagram caption
+Slide 1 is always type `poster`. A carousel adds 2 to 6 `point` slides after it (`headline` 44 chars,
+`body` 170 chars, `alt` unique per slide), one per numbered caption point. Use a single poster by default
+and a carousel when each point needs a full sentence. Text on images is plain text: no emoji, no URL.
 
-- First line 125 characters or fewer (all that shows before "more").
-- 3 to 6 short paragraphs. The carousel carries the detail, the caption frames it.
-- No URL (captions are not clickable). Must include the words "link in bio".
-- 5 to 10 hashtags, lowercase, letters and digits only. Mix broad (`ecommerce`, `b2becommerce`) and
-  specific (`woocommerce`, `magento`, `checkoutoptimization`).
-
-## Carousel slides (1080 x 1350, shared by both platforms)
-
-5 to 9 slides: one `cover`, three to seven `point`, one `cta`.
-
-| Type | Fields | Limits |
+| Field | What it is | Limit |
 |---|---|---|
-| `cover` | `kicker`, `headline`, `sub` (optional), `alt` | kicker 30 chars, headline 70, sub 110 |
-| `point` | `number`, `headline`, `body`, `alt` | headline 60 chars, body 200 |
-| `cta` | `headline`, `body`, `alt`, `label` (optional) | headline 60 chars, body 140 |
+| `headline_top` | white line above the main headline; sets up the tension | 34 chars |
+| `headline_main` | big yellow line; the punch | 26 chars |
+| `sub` | one white line under the headline, e.g. "5 checks to run before Black Friday" | 58 chars |
+| `cards` | 3 to 5 callout cards, same points and order as the caption's numbered list | |
+| `cards[].label` | card title | 20 chars |
+| `cards[].detail` | card subtitle | 34 chars |
+| `alt` | describes the image for screen readers | 20 to 120 chars |
 
-- Sentence case everywhere. The renderer uppercases the kicker itself.
-- Each point slide must stand alone: someone who sees only that slide still learns one thing.
-- Point `number` runs 1, 2, 3 in order.
-- The `cta` slide states what the full article adds. It must work on both platforms, so do not write
-  "link in bio" or "first comment" on a slide.
-- `alt`: 20 to 120 characters, describes what the slide says, unique per slide.
+- `headline_top` + `headline_main` read as one thought. Reference: "Your Customers Are Leaving." /
+  "Do You Know Why?"
+- Headlines are Title Case on the image (this is the one place Title Case is used). Cards are sentence case.
 - If the renderer reports "text does not fit", shorten the text. Never ask for a smaller font.
 
 ## Pack file
@@ -68,35 +81,48 @@ Save to `clients/virtina/output/social/{slug}-{YYYY-MM-DD}.json`.
 ```json
 {
   "client": "virtina",
-  "slug": "customer-payment-declined-guide",
-  "date": "2026-10-06",
-  "wp_post_id": 43089,
-  "canonical_url": "https://virtina.com/customer-payment-declined-guide/",
-  "title": "Why did my customer's payment get declined?",
+  "slug": "ecommerce-ux-problems",
+  "date": "2026-10-07",
+  "wp_post_id": 43123,
+  "canonical_url": "https://virtina.com/ecommerce-ux-problems/",
+  "title": "Ecommerce UX Problems That Drive Customers Away",
   "approved": false,
   "linkedin": {
-    "post": "Hook line.\n\nParagraph.\n\nFull breakdown in the first comment.",
-    "hashtags": ["woocommerce", "ecommerce", "onlinepayments"],
-    "first_comment": "The full guide: https://virtina.com/customer-payment-declined-guide/"
+    "post": "🚨 Getting traffic but not enough sales?\n\n...\n\n👉 Read the full article to learn what could be hurting your store:\nhttps://virtina.com/ecommerce-ux-problems/",
+    "hashtags": ["ecommerce", "ecommerceux", "conversionrate"]
   },
   "instagram": {
-    "caption": "Hook line.\n\nParagraph.\n\nLink in bio for the full guide.",
-    "hashtags": ["woocommerce", "ecommerce", "onlinepayments", "smallbusiness", "checkout"]
+    "caption": "🚨 ...",
+    "hashtags": ["ecommerce", "ecommerceux", "uxdesign", "webdesign", "ecommercetips"]
   },
   "slides": [
-    {"type": "cover", "kicker": "WooCommerce payments", "headline": "...", "sub": "...", "alt": "..."},
-    {"type": "point", "number": 1, "headline": "...", "body": "...", "alt": "..."},
-    {"type": "cta", "headline": "...", "body": "...", "alt": "..."}
+    {
+      "type": "poster",
+      "headline_top": "Your Customers Are Leaving.",
+      "headline_main": "Do You Know Why?",
+      "sub": "5 ecommerce UX problems that quietly cost you sales",
+      "cards": [
+        {"label": "Search", "detail": "No results"},
+        {"label": "Product page", "detail": "Missing details"}
+      ],
+      "alt": "..."
+    }
   ]
 }
 ```
 
 `slug`, `wp_post_id`, `canonical_url`, and `title` are copied exactly from the source file.
-Always write `"approved": false`. Never write a `state` key, the pipeline owns it.
+Never write a `state` key, the pipeline owns it.
+
+## What the rendered poster is, and is not
+
+The renderer draws the brand frame: blue background, white and yellow headline, numbered callout cards,
+the Virtina logo and www.virtina.com. It cannot draw the illustrated scene (person, screens, props) that
+Virtina's hand-made posts have. If a scene image is supplied at
+`clients/virtina/output/social/slides/{pack name}/scene.png`, the renderer places it behind the cards.
 
 ## Publishing rules
 
 - A pack is only posted once its article is live. While the WordPress post is a draft the pack is held.
-- A pack is only posted once approved (`approve` command), unless `auto_approve` is `true` in `social.json`.
+- `auto_approve` is `true`: once the article is live and QA passes, the pack is posted with no approval step.
 - Each channel is posted at most once per pack. The result is recorded in the pack's `state`.
-- Instagram needs a public image URL, so slides are uploaded to the virtina.com media library at post time.

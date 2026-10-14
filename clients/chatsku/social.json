@@ -1,0 +1,111 @@
+{
+  "name": "ChatSKU",
+  "instagram_handle": "chatsku",
+  "site_label": null,
+  "logo": "brand/chatsku-logo.png",
+  "logo_white": false,
+  "logo_width": 300,
+  "auto_approve": true,
+  "colors": {
+    "bg_top": "#0b2046",
+    "bg_bottom": "#061127",
+    "glow": "#12356b",
+    "glow_at": "middle",
+    "headline": "#ffffff",
+    "accent": "#f5c12e",
+    "sub": "#a9bdd9",
+    "text_shadow": null,
+    "card": "#0d2550",
+    "card_outline": "#4eddcc",
+    "card_shadow": null,
+    "card_title": "#ffffff",
+    "card_text": "#a9bdd9",
+    "badge": "#0d2550",
+    "badge_outline": "#4eddcc",
+    "badge_text": "#4eddcc"
+  },
+  "fonts": {
+    "regular": "Poppins-Regular.ttf",
+    "medium": "Poppins-Medium.ttf",
+    "semibold": "Poppins-SemiBold.ttf",
+    "extrabold": "Poppins-ExtraBold.ttf"
+  },
+  "wp": {
+    "site": "https://chatsku.com",
+    "username_env": "CHATSKU_WP_USERNAME",
+    "password_env": "CHATSKU_WP_APP_PASSWORD"
+  },
+  "linkedin": {
+    "enabled": true,
+    "api_version": "202609",
+    "env": {
+      "token": "CHATSKU_LINKEDIN_ACCESS_TOKEN",
+      "org_id": "CHATSKU_LINKEDIN_ORG_ID"
+    }
+  },
+  "instagram": {
+    "enabled": true,
+    "graph_host": "https://graph.instagram.com",
+    "api_version": "v25.0",
+    "env": {
+      "token": "CHATSKU_IG_ACCESS_TOKEN",
+      "user_id": "CHATSKU_IG_USER_ID"
+    }
+  },
+  "rules": {
+    "caption_emoji": false,
+    "hashtag_pattern": "[A-Za-z0-9]+",
+    "linkedin_chars": [
+      300,
+      1500
+    ],
+    "linkedin_hook_chars": 210,
+    "linkedin_hashtags": [
+      3,
+      5
+    ],
+    "instagram_hook_chars": 125,
+    "instagram_hashtags": [
+      3,
+      5
+    ],
+    "cards": [
+      3,
+      5
+    ],
+    "max_slides": 7,
+    "banned": [
+      "revolutionary",
+      "game-changing",
+      "best-in-class",
+      "cutting-edge",
+      "world-class",
+      "industry-leading",
+      "transform your",
+      "delve",
+      "leverage",
+      "realm",
+      "landscape",
+      "ecosystem",
+      "in today's fast-paced world",
+      "it's important to note",
+      "in conclusion",
+      "innovative solutions",
+      "innovative platform",
+      "solutions",
+      "ai-powered",
+      "just a chatbot",
+      "replaces your sales team",
+      "schedule a demo",
+      "our guide",
+      "check out our",
+      "read our",
+      "see our",
+      "drift",
+      "intercom",
+      "tidio",
+      "livechat",
+      "zendesk"
+    ]
+  }
+}
