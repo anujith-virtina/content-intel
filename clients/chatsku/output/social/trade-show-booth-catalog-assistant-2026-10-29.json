@@ -1,0 +1,33 @@
+{
+  "client": "chatsku",
+  "slug": "trade-show-booth-catalog-assistant",
+  "date": "2026-10-29",
+  "wp_post_id": 3846,
+  "canonical_url": "https://chatsku.com/trade-show-booth-catalog-assistant/",
+  "title": "Your trade show booth closes at 5 pm. Your catalog can keep working.",
+  "approved": true,
+  "linkedin": {
+    "post": "Your booth closes at 5 pm. The buyer's question at 4:40 pm does not wait for the morning.",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "TradeShows",
+      "B2BSales"
+    ]
+  },
+  "slides": [
+    {
+      "type": "image",
+      "alt": "A trade show booth counter at the end of the day with a tablet showing a product spec page, an open catalog and a QR code sign facing the aisle."
+    }
+  ],
+  "image_source": "ChatGPT generated, 1080x1080 with ChatSKU logo lockup",
+  "state": {
+    "linkedin": {
+      "post_urn": "urn:li:share:7521479587998994432",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7521479587998994432/",
+      "posted_via": "browser (ChatSKU page admin)"
+    }
+  }
+}

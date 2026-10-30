@@ -68,6 +68,8 @@ product screens, a buyer's search failing, a catalog under a magnifying glass. S
 | `split` | `headline`, `accent`, `left` / `right`: `{title (24), big (8, e.g. a price), text (120)}`, `footer` (110) |
 | `form` | `headline`, `accent`, `title` (24), `fields`: list of `{label, value (40)}`, `button` (28), `note` (40) |
 | `statement` | `kicker` (30), `line1` (32, white), `line2` (32, amber), `sub` (58) |
+| `search` | `headline`, `accent`, `query` (40), `results`: list of `{site (30), title (60), snippet (110), tag (26), good}` |
+| `phone` | `headline`, `accent`, `screen`, `rows`: list of `{kind: wallet \| divider \| field \| info \| total \| button, label, value}`, `notes`: list of `{text (40), good}` beside the phone |
 
 Reference pack: `chatgpt-vs-catalog-chatbot-2026-10-14.json`. The older `poster` / `point` types below
 are still valid when they really fit, but not twice in a row.

@@ -1,0 +1,128 @@
+<h2>Executive Summary</h2>
+<p>A part number cross reference is not a list of pairs. It is a record, and most distributors never designed it. Your table holds two numbers, but the buyer needs a decision.</p>
+<p>This article separates four relationships that people mix up: cross-reference, supersession, interchange, and substitute. Every row needs six fields: match type, what differs, direction, last verified date, stock, and next step. You also get a rule for who owns the table and what to say when nothing matches.</p>
+<p>Design the record first. Then decide who or what delivers it.</p>
+<h2>Introduction</h2>
+<p>Say a maintenance buyer is holding a worn part. The only clue is a number stamped by another maker. Her line is down, and she needs a replacement today.</p>
+<p>She types the number into your site. Nothing comes back, or a bare part number comes back with no context.</p>
+<p>Is the aftermarket equivalent you stock a drop-in replacement for that OEM part number? Is it only close? The page does not say.</p>
+<p>At your parts counter, a good rep asks which machine it is for and what has to match. Your table asks neither.</p>
+<p>Your cross-reference table stores two numbers in a row and nothing more. The buyer needs far more than that. This piece covers the record, its owner, and what to say on no match.</p>
+<p>A cross-reference table is a record nobody designed. It holds two numbers because that is all anyone needed when the first row was typed.</p>
+<h2>What does a buyer holding another maker's number need?</h2>
+<p>A buyer holding another maker's number needs a decision, not a lookup. Finding a matching number is only step one. The buyer still has to trust it enough to order.</p>
+<p>In practice, the buyer is doing four jobs at once. Each job needs a different part of the record.</p>
+<ul>
+<li><strong>Find an equivalent.</strong> The buyer holds a competitor's number and wants your matching part.</li>
+<li><strong>Check fit.</strong> Is the alternate part a drop-in or only a spec match, and what differs?</li>
+<li><strong>Check supersession.</strong> The number may be obsolete, with a newer number in its place.</li>
+<li><strong>Check stock and next step.</strong> Do you have it, and how does the buyer order?</li>
+</ul>
+<p>Most OEM cross reference lookup tools and equivalent part finders stop at the first job. That leaves fitment, supersession, and stock for the buyer to work out alone.</p>
+<p>How search reads your data is a separate topic, covered under <a href="https://chatsku.com/how-ai-product-search-works/">retrieval mechanics</a>. Where keyword search breaks is covered under <a href="https://chatsku.com/traditional-b2b-product-search-fails/">keyword search failures</a>. This article starts with the data.</p>
+[[IMG1]]
+<h2>Is a cross-reference the same as a supersession?</h2>
+<p>No, they are different relationships, and the difference decides what you tell the buyer. People use these words loosely. The table below shows how most parts counters use them, as general definitions and not an OEM standard.</p>
+<table>
+<thead>
+<tr><th>Term</th><th>Whose number</th><th>Direction</th><th>What the buyer is told</th></tr>
+</thead>
+<tbody>
+<tr><td>Cross-reference</td><td>Another maker's number</td><td>Either way, so state it</td><td>This is an equivalent from a different maker</td></tr>
+<tr><td>Supersession</td><td>Same maker, new number replaces old</td><td>Often one way</td><td>The old number was replaced by this one</td></tr>
+<tr><td>Interchange</td><td>Either maker</td><td>Usually two way</td><td>These parts can be used in place of each other</td></tr>
+<tr><td>Substitute</td><td>Your suggestion</td><td>One way, from you</td><td>This part is close, and here is what differs</td></tr>
+</tbody>
+</table>
+<p>Pick one meaning for each word and use it everywhere. Mixed vocabulary is how a one-way supersession gets shown as an interchange.</p>
+<h3>Why direction changes the answer</h3>
+<p>Direction decides whether the old part still works. In a one-way supersession, the new part replaces the old one. The old one may not work where the new design is required.</p>
+<p>A two-way relationship means the parts are fully interchangeable. Now picture two buyers, as a hypothetical.</p>
+<p>The first holds the old number, so you can offer the new part. The second holds the new number and asks for the old one. Your answer may be no.</p>
+<p>If the old part is discontinued, say so. A buyer should never find that out after the order ships.</p>
+<h3>Why one competitor number can map to several of your parts</h3>
+<p>One-to-many is normal. One competitor number can point to several of your parts, each with a different finish, length, or rating.</p>
+<p>Each candidate needs its own list of differences. Show them as separate rows, not as one merged guess. The buyer then picks the functional equivalent that fits the job.</p>
+<h2>What should one part number cross reference record hold?</h2>
+<p>One record should hold six fields beyond the two numbers. They are match type, what differs, direction, last verified date, stock, and next step.</p>
+<h3>The six fields</h3>
+<p>Each field exists because a buyer asks the question it answers.</p>
+<ul>
+<li><strong>Match type.</strong> Say if it is a direct replacement, a functional equivalent, or an application match.</li>
+<li><strong>What differs.</strong> List the variance, such as thread, finish, or rating.</li>
+<li><strong>Direction.</strong> State whether the match works one way or both ways.</li>
+<li><strong>Last verified date.</strong> Show when a person last checked the row.</li>
+<li><strong>Stock.</strong> Say whether you have the part now.</li>
+<li><strong>Next step.</strong> Offer a quote, a hold, or a person.</li>
+</ul>
+<p>This is a way of describing matches, not an industry standard. Add the MPN and GTIN so the buyer can confirm the part. The numbers must also be readable text, which the <a href="https://chatsku.com/b2b-catalog-ai-agent-readability-audit/">catalog readability audit</a> covers.</p>
+<h3>What the buyer sees</h3>
+<p>Here is a hypothetical example record. Every name and number in it is invented.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>What it says</th></tr>
+</thead>
+<tbody>
+<tr><td>Buyer's number</td><td>Maker A model 4410</td></tr>
+<tr><td>Your part</td><td>Your SKU 77-210</td></tr>
+<tr><td>Match type</td><td>Functional equivalent</td></tr>
+<tr><td>What differs</td><td>Mounting holes are slightly wider, same rating</td></tr>
+<tr><td>Direction</td><td>Two way</td></tr>
+<tr><td>Last verified</td><td>A dated entry, with the name of who checked it</td></tr>
+<tr><td>Stock</td><td>In stock at the main warehouse</td></tr>
+<tr><td>Next step</td><td>Offer a quote, and a person confirms fit</td></tr>
+</tbody>
+</table>
+<p>That record becomes a two-sentence answer for the buyer.</p>
+<p>"Your SKU 77-210 is a functional equivalent of Maker A model 4410, with wider mounting holes. It is in stock, and I can start a quote now."</p>
+<p>That answer is a candidate, not an approval. A person signs off on certified assemblies.</p>
+<h3>Where the next step leads</h3>
+<p>The next step often hits a limit. The buyer wants a few, and the part ships only by the case. Those <a href="https://chatsku.com/minimum-order-quantity-b2b/">minimum order rules</a> belong in the record or in the next answer.</p>
+<h2>Who keeps the table right?</h2>
+<p>A named role must own the table, or it goes stale. Without an owner, every row ages at its own pace. Nobody knows which ones still hold.</p>
+<h3>Where the table lives today</h3>
+<p>Many ERP part records hold a linked number and a free-text note. Some have no field for match type or direction.</p>
+<p>So the rest lives in a rep's memory. That is a single point of failure. The rep retires, moves territories, or takes a week off, and the knowledge leaves too.</p>
+<h3>What an owner actually does</h3>
+<p>Name one role as owner, such as the product data lead. Stamp a date on every row. Review a row when a trigger fires.</p>
+<p>Triggers include a supplier change notice, a returned part, a buyer complaint, or a catalog update.</p>
+<p>Some manufacturers publish a disclaimer that specs between makers can differ. They add that they may not hear when an OEM changes one. If they cannot promise a match, a table nobody reviews cannot either.</p>
+<p>Export the table with its fields intact, and run an <a href="https://chatsku.com/erp-export-ai-agent-ready/">ERP export check</a> before you upload it anywhere.</p>
+<p>ChatSKU answers from the table as you upload it. If the table is wrong, the answer is wrong. The data fix comes first.</p>
+[[IMG2]]
+<h2>What should the answer say when there is no match?</h2>
+<p>It should say there is no confirmed match, say what happens next, and never guess a close part. Say a buyer types a number at 8pm, and it is not in your table. A bad answer guesses a near-match and hopes.</p>
+<p>A good answer says there is no confirmed match and starts the next step. The bad answer sounds helpful, which is the danger. The buyer orders a guess, and your team inherits the return.</p>
+<h3>What a good no-match answer contains</h3>
+<p>A good answer does four things. It states the gap plainly. It asks for the specs or a photo.</p>
+<p>It captures contact details and quantity. It tells the buyer when a person will follow up.</p>
+<p>If you upload the table with the catalog, ChatSKU, an AI catalog assistant, answers from the rows it has. No row, no invented part. It then hands the buyer to a person or captures the quote request, at any hour.</p>
+<p>Files can be PDF, Excel, ERP exports, or CSV, as listed under <a href="https://chatsku.com/features/">supported catalog files</a>.</p>
+<p>That is what <a href="https://chatsku.com/ai-product-search-for-b2b/">AI product search</a> should feel like: an answer from your data, or an honest no.</p>
+<h3>How to hand the buyer to a person</h3>
+<p>Route the buyer to a rep and pass everything along. Include the buyer's number, any specs, and the quantity so nobody asks twice. A handoff that repeats questions feels like a second dead end.</p>
+<p>If you are weighing who this suits, read about <a href="https://chatsku.com/who-b2b-catalog-assistant-is-built-for/">catalog assistant fit</a>.</p>
+<h2>People Also Ask</h2>
+<h3>What is a part number cross reference?</h3>
+<p>A part number cross reference links one part number to another that does the same job. It usually maps another maker's number to yours, and it can run one way or both. A useful record also states the match type, what differs, and when someone last verified it.</p>
+<h3>How do you find the equivalent of a competitor part number?</h3>
+<p>Start with the cross-reference table from the maker or distributor you buy from. Search the competitor part number, then compare the listed differences against your need. If no row exists, send the number and specs to a person who can confirm a match before you order.</p>
+<h3>Can a cross-reference be one-way?</h3>
+<p>Yes, some relationships work in one direction only, such as a supersession. The new part may replace the old one, but the old part may not fit the new design. Make direction its own field, and check it before you order the reverse.</p>
+<h3>Is an aftermarket equivalent the same as an OEM part?</h3>
+<p>No, an aftermarket equivalent comes from a different maker and is built to do the same job. It may match the OEM part on fit and function, or differ in small ways. Check the listed variances, and get a person to sign off on certified assemblies.</p>
+<h2>Conclusion</h2>
+<p>Design the record first, then decide who or what delivers it. Every row needs six fields: match type, what differs, direction, last verified date, stock, and next step. Add an owner and a review trigger, and the table stops going stale.</p>
+<p>Add a clear no-match answer, and the buyer never meets a dead end. Start with the numbers buyers ask about most.</p>
+<p>See the ChatSKU live demo to watch an assistant answer from a table you upload.</p>
+<h2>Frequently asked questions</h2>
+<h3>Who should own the cross-reference table?</h3>
+<p>Give it to one named role, usually product data or the parts desk lead. That person schedules reviews and approves changes. Reps can suggest edits, but one owner signs them off.</p>
+<h3>How often should a row be re-verified?</h3>
+<p>Re-verify on a trigger and on a calendar review. Triggers include a supplier change notice, a returned part, or a buyer complaint. Set the calendar cadence to match how fast your suppliers change parts.</p>
+<h3>Can an assistant approve a substitute for a certified assembly?</h3>
+<p>No, it can only present a candidate with the differences listed. A person signs off on certified assemblies. Treat every answer as a candidate, not an approval.</p>
+<h3>What file format should I use to upload a cross-reference table?</h3>
+<p>CSV or Excel works well, with one row per pair. That shape keeps each match type and difference on its own row. An AI catalog assistant reads PDF, Excel, ERP exports, and CSV, but tidy the table first.</p>
+<h3>What if I have no cross-reference table yet?</h3>
+<p>Start with the competitor part numbers buyers ask about most. Record those first, with every field above. Then grow the table from the questions your reps answer by hand.</p>

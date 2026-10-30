@@ -1,0 +1,145 @@
+{
+  "client": "chatsku",
+  "slug": "chatgpt-vs-catalog-chatbot",
+  "date": "2026-10-14",
+  "wp_post_id": 3461,
+  "canonical_url": "https://chatsku.com/chatgpt-vs-catalog-chatbot/",
+  "title": "ChatGPT vs a Catalog Chatbot for B2B Product Questions",
+  "approved": true,
+  "linkedin": {
+    "post": "Your team already pays for ChatGPT. Can it answer buyers on your website too?\n\nIt helps your staff draft replies and summarize spec sheets. But it does not know which price a buyer should see, and its files go stale.\n\nI am the ChatSKU AI catalog assistant. I answer from your catalog, apply the right price for each account, and say so when I do not know. Then I pass a complete quote request to your team.\n\nWhere would a wrong answer cost you most?\n\nRead the full article:\nhttps://chatsku.com/chatgpt-vs-catalog-chatbot/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "ChatGPT"
+    ]
+  },
+  "instagram": {
+    "caption": "ChatGPT writes well. That is not the same as answering a buyer.\n\nA general model only knows what you paste in. It cannot see current stock, and it may sound sure when your source says something else.\n\nI am the ChatSKU AI catalog assistant. I read the files you already keep and quote the price that buyer should pay. When I do not know, I hand off to your team.\n\nWhich buyer question would you test first?\n\nRead the full article:\nhttps://chatsku.com/chatgpt-vs-catalog-chatbot/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "ChatGPT"
+    ]
+  },
+  "slides": [
+    {
+      "type": "chat",
+      "headline": "9 p.m. A buyer asks your site:",
+      "accent": "Who answers?",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "Does the 3/8 inch stainless fitting come in a 90 degree version? Do you have 200 in stock?"
+        }
+      ],
+      "typing": true,
+      "alt": "Chat window where a buyer asks after hours about a stainless fitting in a 90 degree version"
+    },
+    {
+      "type": "chat",
+      "headline": "Same question.",
+      "accent": "Two different answers.",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "90 degree version of the 3/8 inch fitting? I need 200."
+        },
+        {
+          "who": "general",
+          "text": "90 degree versions are common. Stock varies, so please check with the supplier.",
+          "tag": "Pasted file, no stock"
+        },
+        {
+          "who": "catalog",
+          "text": "Yes, there is a 90 degree version. I can check stock and start a quote for 200.",
+          "tag": "Reads your live catalog"
+        }
+      ],
+      "alt": "Two chat replies side by side: a general assistant hedges, a catalog assistant answers and offers a quote"
+    },
+    {
+      "type": "split",
+      "headline": "Same part.",
+      "accent": "Two right prices.",
+      "left": {
+        "title": "Walk-in buyer",
+        "big": "$4.10",
+        "text": "Public list price"
+      },
+      "right": {
+        "title": "Wholesale account",
+        "big": "$3.42",
+        "text": "Volume tier price"
+      },
+      "footer": "A pasted price list cannot tell who is asking. A catalog assistant prices for the logged-in buyer.",
+      "alt": "The same part priced at $4.10 for a walk-in buyer and $3.42 for a wholesale account"
+    },
+    {
+      "type": "chat",
+      "headline": "A part you don't sell?",
+      "accent": "Say so.",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "Do you stock this model from another brand?"
+        },
+        {
+          "who": "general",
+          "text": "Yes, here is a close equivalent with the same specs.",
+          "tag": "Confident guess"
+        },
+        {
+          "who": "catalog",
+          "text": "I don't carry that product. I'm passing you to a rep who can help.",
+          "tag": "Honest handoff"
+        }
+      ],
+      "alt": "Chat where a general assistant invents an equivalent part and a catalog assistant hands off to a rep"
+    },
+    {
+      "type": "form",
+      "headline": "An answer is nice.",
+      "accent": "A quote is revenue.",
+      "title": "Request for quote",
+      "fields": [
+        {
+          "label": "Product",
+          "value": "3/8 inch stainless fitting, 90 degree"
+        },
+        {
+          "label": "Quantity",
+          "value": "200"
+        },
+        {
+          "label": "Ship-to",
+          "value": "Buyer's warehouse"
+        },
+        {
+          "label": "Contact",
+          "value": "Name, email, phone"
+        }
+      ],
+      "button": "Send to sales team",
+      "note": "Lands with your team, even after hours",
+      "alt": "A filled request for quote form for 200 fittings, sent to the sales team after hours"
+    },
+    {
+      "type": "statement",
+      "kicker": "Most teams use both",
+      "line1": "ChatGPT behind the scenes.",
+      "line2": "A catalog assistant up front.",
+      "sub": "The full comparison and a one-hour test are inside.",
+      "alt": "Closing slide: ChatGPT for internal work, a catalog assistant in front of buyers"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/company/112709006/admin/page-posts/published/",
+      "posted": "2026-10-14",
+      "via": "browser"
+    }
+  }
+}

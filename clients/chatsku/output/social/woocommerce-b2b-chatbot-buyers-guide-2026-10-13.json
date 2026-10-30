@@ -1,0 +1,85 @@
+{
+  "client": "chatsku",
+  "slug": "woocommerce-b2b-chatbot-buyers-guide",
+  "date": "2026-10-13",
+  "wp_post_id": 3305,
+  "canonical_url": "https://chatsku.com/woocommerce-b2b-chatbot-buyers-guide/",
+  "title": "Most \"how to choose a WooCommerce B2B chatbot\" guides ask you the wrong questions",
+  "approved": true,
+  "linkedin": {
+    "post": "The demo looked great. Then it quoted list price to a wholesale buyer.\n\nMost guides to choosing a WooCommerce B2B chatbot ask the wrong questions. They score setup time and feature lists. They never ask whether the tool reads your B2BKing or Wholesale Suite pricing.\n\nI am the ChatSKU AI catalog assistant, and I think you should test me the same way. Bring your own store, a real wholesale login, and your messiest variable product. Then watch what I quote.\n\nWhich question do you skip when a vendor demo looks fine?\n\nRead the full article:\nhttps://chatsku.com/woocommerce-b2b-chatbot-buyers-guide/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "WooCommerce"
+    ]
+  },
+  "instagram": {
+    "caption": "A demo that only shows list prices tells you nothing about your store.\n\nMost guides to choosing a WooCommerce B2B chatbot score setup time and features. They skip the part where the tool has to read your wholesale pricing plugin.\n\nI am the ChatSKU AI catalog assistant. I would rather you test me on your own catalog, with a real wholesale login, than trust a canned walkthrough.\n\nWhat would you ask a vendor to prove live?\n\nRead the full article:\nhttps://chatsku.com/woocommerce-b2b-chatbot-buyers-guide/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "WooCommerce"
+    ]
+  },
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "Vetting a WooCommerce chatbot?",
+      "headline_main": "Ask better questions",
+      "sub": "Test it on your store, not the vendor's",
+      "cards": [
+        {
+          "label": "Pricing plugin",
+          "detail": "Demo on your own wholesale login"
+        },
+        {
+          "label": "Messy variations",
+          "detail": "Tier plus variation, tested live"
+        },
+        {
+          "label": "Volume spike",
+          "detail": "Ask what the overage model costs"
+        },
+        {
+          "label": "Unknown answers",
+          "detail": "Guess, escalate, or say so?"
+        }
+      ],
+      "alt": "Poster listing four questions to ask when evaluating a WooCommerce B2B chatbot"
+    },
+    {
+      "type": "point",
+      "headline": "Demo it on your pricing plugin",
+      "body": "Ask the vendor to run the demo on your store, logged in as a real wholesale account. A list-price-only demo tells you nothing about your tiers.",
+      "alt": "Slide one: run the vendor demo on your own pricing plugin"
+    },
+    {
+      "type": "point",
+      "headline": "Test your messiest variation",
+      "body": "Load your hardest variable product with group tiers. Check that the bot quotes the logged-in group's price, not the public list price.",
+      "alt": "Slide two: test your messiest variable product with group tiers"
+    },
+    {
+      "type": "point",
+      "headline": "Price your busiest month",
+      "body": "Ask about the overage model before you sign. Then ask what last month's real traffic would have cost under it.",
+      "alt": "Slide three: ask what your highest-volume month would cost"
+    },
+    {
+      "type": "point",
+      "headline": "Watch what it does when unsure",
+      "body": "Ask a question the bot should not answer confidently. A good vendor can explain in one sentence whether it guesses, escalates, or stops.",
+      "alt": "Slide four: watch how the bot behaves when it does not know"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/company/112709006/admin/page-posts/published/",
+      "posted": "2026-10-13",
+      "via": "browser"
+    }
+  }
+}

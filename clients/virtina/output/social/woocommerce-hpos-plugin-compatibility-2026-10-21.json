@@ -1,0 +1,70 @@
+{
+  "client": "virtina",
+  "slug": "woocommerce-hpos-plugin-compatibility",
+  "date": "2026-10-21",
+  "wp_post_id": 43361,
+  "canonical_url": "https://virtina.com/woocommerce-hpos-plugin-compatibility/",
+  "title": "WooCommerce HPOS Plugin Compatibility: How to Check What Will Break Before You Switch",
+  "approved": false,
+  "linkedin": {
+    "post": "Someone told you to switch your store to faster order storage. What if an old plugin breaks your orders?\n\nWooCommerce says the new order storage can create orders up to 5x faster. It says lookups can be up to 40x faster. It also says only plugins that declare support can use it.\n\nThe catch is an old plugin you forgot you had. Here are 4 things to check before you switch:\n\n1️⃣ Let your store flag the obvious ones\nWooCommerce keeps a list of plugins whose developers have not declared support. You can find it in under a minute. While one of them is active, the switch stays greyed out, so you can't do it by accident. Your store keeps running as it does today.\n\n2️⃣ Look past a clean list\nThe list only covers plugins that declare support. It can't see your custom code snippets, your accounting connector or a shipping tracker. These can fail quietly, with no error message at all.\n\n3️⃣ Test on a copy, never the live store\nAsk your host or developer for a staging copy with your real orders. Place a test order with every payment method you offer. Refund one order in full and another in part. Run your usual sales report. Then repeat it all with the order sync switched off.\n\n4️⃣ Know what a quiet failure looks like\nRecent orders go missing from your orders screen. Reports come back empty. Order statuses flip back after you change them. Custom fields go blank in customer emails. Any one of these means stop and fix it first.\n\nYou are not forced to switch. If a payment, shipping or subscription plugin you rely on isn't ready, staying on the old storage is a sound choice until it is.\n\nDo you know which tools in your store still read orders the old way?\n\nRead the full article to see how to test before you switch:\nhttps://virtina.com/woocommerce-hpos-plugin-compatibility/",
+    "hashtags": [
+      "woocommerce",
+      "ecommerce",
+      "wordpress",
+      "ecommercetips",
+      "storeowners"
+    ]
+  },
+  "instagram": {
+    "caption": "🚨 Is an old plugin about to break your store's orders?\n\nFaster order storage sounds great. But one forgotten plugin can quietly stop orders from showing up.\n\nHere are 4 things to check before you switch:\n\n1️⃣ Use the built-in list\nYour store flags plugins that don't support the new storage.\n\n2️⃣ Look past a clean list\nCustom code, accounting and shipping tools can still fail quietly.\n\n3️⃣ Test on a copy first\nPlace test orders and refund them before you touch the live store.\n\n4️⃣ Watch for quiet failures\nMissing orders, empty reports and blank custom fields are warning signs.\n\n💡 You don't have to switch. If a plugin you rely on isn't ready, waiting is a sound choice.\n\n👉 Read the full article to see how to test before you switch:\nhttps://virtina.com/woocommerce-hpos-plugin-compatibility/",
+    "hashtags": [
+      "woocommerce",
+      "ecommerce",
+      "woocommercetips",
+      "wordpress",
+      "onlinestore",
+      "ecommercebusiness",
+      "storeowner"
+    ]
+  },
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "Old Plugins Can Break Orders.",
+      "headline_main": "Check Before You Switch",
+      "sub": "4 checks before you change order storage",
+      "cards": [
+        {
+          "label": "Built-in list",
+          "detail": "Flags old plugins"
+        },
+        {
+          "label": "Hidden tools",
+          "detail": "Code, accounting, shipping"
+        },
+        {
+          "label": "Test copy first",
+          "detail": "Checkout and refunds"
+        },
+        {
+          "label": "Quiet failures",
+          "detail": "Lost orders, empty reports"
+        }
+      ],
+      "alt": "Poster listing 4 checks to run before switching a WooCommerce store to new order storage"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7518663116767842305/",
+      "via": "browser",
+      "replaced": true
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/virtinapro/p/DewgowyCTkQ/",
+      "via": "browser",
+      "replaced": true
+    }
+  }
+}

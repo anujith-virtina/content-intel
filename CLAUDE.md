@@ -117,14 +117,17 @@ The orchestrator must:
 
 These per-client rules override generic best practices in this CLAUDE.md and in agent files. They exist because they were established through real QA cycles and represent the user's exact preferences.
 
-### Virtina social pack (LinkedIn + Instagram) — last step of every Virtina post
+### Social auto-posting (LinkedIn + Instagram) — Virtina and ChatSKU
 
-After every Virtina WordPress push, run the `/social {post-id}` steps (`.claude/commands/social.md`) without being asked. It turns the post into a LinkedIn post, an Instagram caption and a shared 1080×1350 carousel.
+Standing instruction from the user (2026-10-13): **every blog post that is published gets posted to LinkedIn and Instagram automatically. Do not ask for approval.** Applies to clients that have `clients/{client}/social.json` (currently `virtina`, `chatsku`).
 
-- Rules for the copy: `clients/virtina/style/social.md`. Machine settings: `clients/virtina/social.json`.
-- Tool: `social/social_pipeline.py` (`fetch`, `render`, `qa`, `approve`, `publish`, `sweep`, `check`). The orchestrator runs it; `creator` only writes the pack JSON.
-- A pack never posts while its article is a WP draft, and never posts unapproved unless `auto_approve` is `true` in `social.json`. A held pack is the normal end state for a fresh draft; `sweep` posts it after the article goes live.
-- This replaces the old `publisher` social variants for Virtina. Other clients are unchanged.
+- After every WordPress push for these clients, run the `/social {client} {post-id}` steps (`.claude/commands/social.md`) without being asked.
+- Copy rules: `clients/{client}/style/social.md`. They mirror each brand's live feed; do not invent a different look. Machine settings: `clients/{client}/social.json`.
+- Tool: `social/social_pipeline.py` (`fetch`, `render`, `qa`, `preview`, `publish`, `sweep`, `check`). The orchestrator runs it; `creator` only writes the pack JSON.
+- Images are a single square poster or a carousel (poster + point slides). Either is allowed.
+- A pack never posts while its article is still a WP draft (the link would 404). It is held and posted once the article is live. At the start of any session for these clients, run `sweep --dry-run` and post anything whose article has gone live.
+- Posting route: API if the client's tokens are in `.env`; otherwise through the user's signed-in Chrome profile "Personal Chrome" (steps in the command file). After a browser post, record it in the pack's `state` so it is never posted twice.
+- This replaces the old `publisher` social variants for these clients.
 
 ## Active clients
 
@@ -135,7 +138,9 @@ After every Virtina WordPress push, run the `/social {post-id}` steps (`.claude/
 | `impelhub` | https://impelhub.com | WordPress + Elementor | `IMPELHUB_WP_USERNAME`, `IMPELHUB_WP_APP_PASSWORD` |
 | `eldercarematters` | https://eldercarematters.com | WordPress, no page builder (plain HTML) | `ECM_WP_USERNAME`, `ECM_WP_APP_PASSWORD` |
 
-Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agents read those files before any task. Never mix credentials across clients — all three are separate WordPress installations.
+Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agents read those files before any task.
+
+**ImpelHub has a dedicated end-to-end agent.** Use the `impelhub` agent for ANY impelhub.com work (new post, restyle, fix, audit) instead of the generic researcher/analyzer/creator/publisher chain. It owns the full pipeline and enforces the verified design system in `clients/impelhub/reference/BLOG-DESIGN-SYSTEM.md`. Never mix credentials across clients — all three are separate WordPress installations.
 
 Key differences:
 - Virtina uses Thrive Architect (requires complex `!important` CSS, SVG arrow TOC, inline Thrive styles)

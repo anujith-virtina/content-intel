@@ -1,0 +1,26 @@
+{
+ "media": {
+  "featured": {
+   "id": 43071,
+   "url": "https://virtina.com/wp-content/uploads/2026/10/virtina-redesign-or-rebuild-featured.jpg"
+  },
+  "body1": {
+   "id": 43072,
+   "url": "https://virtina.com/wp-content/uploads/2026/10/virtina-redesign-or-rebuild-body1.jpg"
+  },
+  "body2": {
+   "id": 43073,
+   "url": "https://virtina.com/wp-content/uploads/2026/10/virtina-redesign-or-rebuild-body2.jpg"
+  },
+  "body3": {
+   "id": 43074,
+   "url": "https://virtina.com/wp-content/uploads/2026/10/virtina-redesign-or-rebuild-body3.jpg"
+  }
+ },
+ "post_id": 43075,
+ "status": "draft",
+ "slug": "redesign-or-rebuild",
+ "link": "https://virtina.com/?p=43075",
+ "yoast_title_persisted": true,
+ "yoast_desc_persisted": true
+}

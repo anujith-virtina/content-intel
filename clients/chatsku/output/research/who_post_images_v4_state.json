@@ -1,0 +1,27 @@
+{
+  "post_id": 3798,
+  "featured": {
+    "id": 3891,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-featured-ai-2.jpg",
+    "alt": "A quote request form, a tablet product page and a printed catalog laid out on a desk, the steps from buyer question to quote."
+  },
+  "body": {
+    "3889": {
+      "id": 3892,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body1-ai-2.jpg",
+      "alt": "Flat-lay of the files a product catalog is built from: a printed PDF price list, an Excel workbook, CSV printouts and an ERP report with barcode labels."
+    },
+    "3890": {
+      "id": 3893,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body2-ai-2.jpg",
+      "alt": "A buyer's desk at night with a laptop comparison table, a phone product page and a handwritten checklist of questions to ask."
+    }
+  },
+  "replaced_old_media": {
+    "featured": 3888,
+    "body": [
+      3889,
+      3890
+    ]
+  }
+}

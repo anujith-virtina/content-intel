@@ -500,7 +500,102 @@ def draw_search(cfg, slide, number, total):
     return img
 
 
-STORY = {'chat': draw_chat, 'split': draw_split, 'form': draw_form, 'statement': draw_statement, 'search': draw_search}
+def draw_phone(cfg, slide, number, total):
+    """A phone showing a checkout screen on the left, verdict notes on the right."""
+    c = cfg['colors']
+    img = background(cfg)
+    d = ImageDraw.Draw(img)
+    y = story_head(img, d, cfg, slide, number, total)
+    top, bottom = y + 34, 912
+    px0, px1 = 96, 456
+    sx0, sx1 = px0 + 16, px1 - 16
+    f_title, f_lab, f_val, f_btn, f_small = (font(cfg, 'extrabold', 26), font(cfg, 'semibold', 15), font(cfg, 'medium', 20),
+                                              font(cfg, 'semibold', 21), font(cfg, 'medium', 18))
+    rows = slide['rows']
+
+    def screen(dd, yy):
+        dd.text(((sx0 + sx1) / 2, yy), slide.get('screen', 'Checkout'), font=f_title, fill=UI['ink'], anchor='ma')
+        yy += 50
+        for r in rows:
+            kind, val = r.get('kind', 'field'), r.get('value', '')
+            if kind == 'wallet':
+                parts = [p.strip() for p in val.split('|')]
+                gap = 10
+                w = (sx1 - sx0 - 32 - gap * (len(parts) - 1)) / len(parts)
+                for j, p in enumerate(parts):
+                    bx = sx0 + 16 + j * (w + gap)
+                    if dd.textlength(p, font=f_btn) > w - 12:
+                        raise ValueError('phone wallet label does not fit, shorten it: %r' % p)
+                    dd.rounded_rectangle([bx, yy, bx + w, yy + 48], radius=12, fill='#000000')
+                    dd.text((bx + w / 2, yy + 24), p, font=f_btn, fill='#ffffff', anchor='mm')
+                yy += 64
+            elif kind == 'divider':
+                tw = dd.textlength(val, font=f_small)
+                mid = (sx0 + sx1) / 2
+                dd.line([(sx0 + 16, yy + 12), (mid - tw / 2 - 10, yy + 12)], fill=UI['line'], width=2)
+                dd.line([(mid + tw / 2 + 10, yy + 12), (sx1 - 16, yy + 12)], fill=UI['line'], width=2)
+                dd.text((mid, yy + 12), val, font=f_small, fill=UI['muted'], anchor='mm')
+                yy += 38
+            elif kind == 'info':
+                if dd.textlength(val, font=f_small) > sx1 - sx0 - 40:
+                    raise ValueError('phone info line does not fit, shorten it: %r' % val)
+                dd.rounded_rectangle([sx0 + 16, yy, sx1 - 16, yy + 40], radius=10, fill='#fff4d6')
+                dd.text((sx0 + 30, yy + 20), val, font=f_small, fill=UI['ink'], anchor='lm')
+                yy += 54
+            elif kind == 'total':
+                dd.line([(sx0 + 16, yy), (sx1 - 16, yy)], fill=UI['line'], width=2)
+                dd.text((sx0 + 18, yy + 26), r.get('label', 'Total'), font=f_val, fill=UI['muted'], anchor='lm')
+                dd.text((sx1 - 18, yy + 26), val, font=font(cfg, 'extrabold', 24), fill=UI['ink'], anchor='rm')
+                yy += 60
+            elif kind == 'button':
+                dd.rounded_rectangle([sx0 + 16, yy, sx1 - 16, yy + 56], radius=14, fill=UI['bad'])
+                dd.text(((sx0 + sx1) / 2, yy + 28), val, font=font(cfg, 'semibold', 23), fill='#ffffff', anchor='mm')
+                yy += 72
+            else:
+                if r.get('label'):
+                    dd.text((sx0 + 18, yy), r['label'].upper(), font=f_lab, fill=UI['muted'])
+                    yy += 22
+                if dd.textlength(val, font=f_val) > sx1 - sx0 - 60:
+                    raise ValueError('phone field does not fit, shorten it: %r' % val)
+                dd.rounded_rectangle([sx0 + 16, yy, sx1 - 16, yy + 44], radius=10, fill=UI['field'], outline=UI['line'], width=2)
+                dd.text((sx0 + 30, yy + 22), val, font=f_val, fill=UI['ink'] if val else UI['muted'], anchor='lm')
+                yy += 58
+        return yy
+
+    need = screen(ImageDraw.Draw(Image.new('RGB', (W, H))), 0) + 60
+    if need > bottom - top - 40:
+        raise ValueError('phone screen does not fit (%d px over), remove a row' % (need - (bottom - top - 40)))
+    d.rounded_rectangle([px0 + 10, top + 14, px1 + 10, bottom + 14], radius=58, fill='#030a17')
+    d.rounded_rectangle([px0, top, px1, bottom], radius=58, fill='#0b1220', outline='#2b3a55', width=3)
+    d.rounded_rectangle([sx0, top + 16, sx1, bottom - 16], radius=44, fill=UI['screen'])
+    d.rounded_rectangle([(px0 + px1) / 2 - 56, top + 28, (px0 + px1) / 2 + 56, top + 56], radius=14, fill='#0b1220')
+    d.rounded_rectangle([(px0 + px1) / 2 - 60, bottom - 36, (px0 + px1) / 2 + 60, bottom - 30], radius=3, fill='#c9d2de')
+    screen(d, top + 70 + (bottom - top - 40 - need) // 2)
+
+    notes = slide.get('notes', [])
+    nx0, nx1 = 520, W - 60
+    f_note = font(cfg, 'semibold', 32)
+    blocks = []
+    for n in notes:
+        lines = wrap(d, n['text'], f_note, nx1 - nx0 - 60)
+        if len(lines) > 3:
+            raise ValueError('note does not fit, shorten it: %r' % n['text'])
+        blocks.append((n, lines))
+    gap = 44
+    height = sum(len(l) * 42 for _, l in blocks) + gap * (len(blocks) - 1)
+    ny = top + (bottom - top - height) // 2
+    for n, lines in blocks:
+        mark(d, nx0 + 22, ny + 21, 22, n.get('good', True))
+        for l in lines:
+            d.text((nx0 + 60, ny), l, font=f_note, fill=c['headline'])
+            ny += 42
+        ny += gap
+    lockup(img, d, cfg)
+    return img
+
+
+STORY = {'chat': draw_chat, 'split': draw_split, 'form': draw_form, 'statement': draw_statement, 'search': draw_search,
+         'phone': draw_phone}
 
 
 def slide_paths(pack_path, pack):
@@ -635,6 +730,7 @@ def cmd_preview(a):
 # ---------------------------------------------------------------- qa
 
 EMOJI = re.compile('[\U0001F000-\U0001FAFF☀-➿⬀-⯿️⃣]')
+NUM_EMOJI = re.compile('[1-9]️⃣')
 HOUSE_EMOJI = re.compile('\U0001F6A8|[1-9]️⃣|\U0001F4A1|\U0001F449')  # the caption markers in social.md
 URL = re.compile(r'https?://\S+|www\.\S+', re.I)
 NUM = re.compile(r'\$?\d[\d,]*(?:\.\d+)?%?')
@@ -643,8 +739,9 @@ LIMITS = {'headline_top': 34, 'headline_main': 26, 'sub': 58, 'label': 20, 'deta
           'button': 28, 'note': 40, 'kicker': 30, 'line1': 32, 'line2': 32,
           'query': 40, 'site': 30, 'snippet': 110, 'result_title': 60}
 REQUIRED = {'poster': ('headline_top', 'headline_main', 'sub'), 'point': ('headline', 'body'), 'chat': ('headline',),
-            'split': ('headline',), 'search': ('headline', 'query'), 'form': ('headline', 'title', 'button'), 'statement': ('kicker', 'line1', 'line2')}
-NOT_DRAWN = ('type', 'alt', 'who', 'typing', 'good')
+            'split': ('headline',), 'search': ('headline', 'query'), 'form': ('headline', 'title', 'button'), 'statement': ('kicker', 'line1', 'line2'),
+            'phone': ('headline',)}
+NOT_DRAWN = ('type', 'alt', 'who', 'typing', 'good', 'kind')
 
 
 def slide_copy(pack):
@@ -684,7 +781,9 @@ def qa(pack, cfg, source):
     captions = [('linkedin.post', pack['linkedin']['post']), ('instagram.caption', pack['instagram']['caption'])]
     drawn = slide_copy(pack)
     for label, text in captions:
-        allowed = HOUSE_EMOJI.sub('', text) if r.get('caption_emoji') else text
+        # caption_emoji: {platform: "house" (all markers) | "numbers" (1-5 keycaps only)}; absent = no emoji
+        mode = (r.get('caption_emoji') or {}).get(label.split('.')[0])
+        allowed = HOUSE_EMOJI.sub('', text) if mode == 'house' else NUM_EMOJI.sub('', text) if mode == 'numbers' else text
         need(not EMOJI.search(allowed), '%s: emoji not allowed here' % label)
         need(pack['canonical_url'] in text, '%s: article URL missing' % label)
     for label, field, text in drawn:
@@ -867,6 +966,8 @@ def publish(pack_path, dry_run, only=None):
         blockers.append('slides not rendered')
     if not (pack.get('approved') or cfg['auto_approve']):
         blockers.append('not approved')
+    if pack.get('hold'):
+        blockers.append('held by request (pack "hold": true), not posted live')
     live = wp_post(cfg, env, pack['wp_post_id'])
     if live['status'] != 'publish':
         blockers.append('article is still "%s" in WordPress, its link would not resolve' % live['status'])

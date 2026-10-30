@@ -1,0 +1,27 @@
+{
+  "post_id": 3798,
+  "featured": {
+    "id": 3888,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-featured-ai-1.jpg",
+    "alt": "Three colleagues review a product catalog on a laptop at a meeting table, the team that answers buyer questions together."
+  },
+  "body": {
+    "3886": {
+      "id": 3889,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body1-ai-1.jpg",
+      "alt": "An operations manager checks a printed price list and product data sheets against a laptop, the source files a catalog assistant reads."
+    },
+    "3887": {
+      "id": 3890,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body2-ai-1.jpg",
+      "alt": "A purchasing manager types a product question on a laptop in the evening, lit by a desk lamp, the hours when buyers often ask."
+    }
+  },
+  "replaced_old_media": {
+    "featured": 3885,
+    "body": [
+      3886,
+      3887
+    ]
+  }
+}

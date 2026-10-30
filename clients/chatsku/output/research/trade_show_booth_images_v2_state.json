@@ -1,0 +1,32 @@
+{
+  "post_id": 3846,
+  "featured": {
+    "id": 3881,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/trade-show-booth-catalog-assistant-featured-ai.jpg",
+    "alt": "A trade fair exhibition hall where two buyers and a sales rep review a product part at a booth, the floor where buyer questions begin."
+  },
+  "body1": {
+    "id": 3882,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/trade-show-booth-catalog-assistant-body1-ai.jpg",
+    "alt": "A product page open on a tablet beside stacked spec sheets in a warehouse office, the product detail a buyer checks before asking for a quote."
+  },
+  "body2": {
+    "id": 3883,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/trade-show-booth-catalog-assistant-body2-ai.jpg",
+    "alt": "A manager at a desk at dusk reviewing a printed catalog beside a laptop with a product spreadsheet and handwritten notes."
+  },
+  "replaced_old_media": {
+    "3843": [
+      "featured.jpg",
+      "A trade fair exhibition hall where two buyers and a sales rep review a product part at a booth, the floor where buyer questions begin."
+    ],
+    "3844": [
+      "body2.jpg",
+      "A product page open on a tablet beside stacked spec sheets in a warehouse office, the product detail a buyer checks before asking for a quote."
+    ],
+    "3845": [
+      "body1.jpg",
+      "A manager at a desk at dusk reviewing a printed catalog beside a laptop with a product spreadsheet and handwritten notes."
+    ]
+  }
+}

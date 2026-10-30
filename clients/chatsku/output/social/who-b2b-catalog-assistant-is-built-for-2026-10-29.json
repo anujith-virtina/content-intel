@@ -1,0 +1,33 @@
+{
+  "client": "chatsku",
+  "slug": "who-b2b-catalog-assistant-is-built-for",
+  "date": "2026-10-29",
+  "wp_post_id": 3798,
+  "canonical_url": "https://chatsku.com/who-b2b-catalog-assistant-is-built-for/",
+  "title": "Who a B2B catalog assistant is built for (and who should skip it)",
+  "approved": true,
+  "linkedin": {
+    "post": "Not every B2B company needs a catalog assistant. Some should skip it, and the article says so.",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "TradeShows",
+      "B2BSales"
+    ]
+  },
+  "slides": [
+    {
+      "type": "image",
+      "alt": "A B2B sales desk at sunset with a fit-test checklist on a clipboard, a product catalog, a laptop showing a spec spreadsheet and a stainless fitting."
+    }
+  ],
+  "image_source": "ChatGPT generated, 1080x1080 with ChatSKU logo lockup",
+  "state": {
+    "linkedin": {
+      "post_urn": "urn:li:share:7521484279214788608",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7521484279214788608/",
+      "posted_via": "browser (ChatSKU page admin)"
+    }
+  }
+}

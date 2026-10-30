@@ -1,7 +1,7 @@
 ---
 name: publisher
 description: Use this agent to format approved drafts for publication, generate social media variants, and push to a CMS. Trigger when the user wants to publish, ship, format for WordPress/Ghost/Webflow, generate social posts, or create LinkedIn/X/Twitter variants. Pass the client slug, draft file path, and which channels to publish to (file, cms, social, or all).
-tools: Read, Write, Edit, Glob, Grep, WebFetch
+tools: Read, Write, Edit, Glob, Grep, WebFetch, Bash
 model: sonnet
 ---
 

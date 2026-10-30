@@ -1,0 +1,154 @@
+{
+  "client": "virtina",
+  "slug": "woocommerce-mobile-checkout-buy-now-pay-later",
+  "date": "2026-10-15",
+  "wp_post_id": 43266,
+  "canonical_url": "https://virtina.com/woocommerce-mobile-checkout-buy-now-pay-later/",
+  "title": "Mobile Checkout and Buy Now Pay Later for WooCommerce: 7 Fixes Before Black Friday",
+  "approved": true,
+  "linkedin": {
+    "post": "Your ads worked. People are adding to cart. But the orders don't match the clicks.\n\nPicture your shopper. They're on the sofa with one thumb free, ready to buy. Then checkout asks them to type a card number and make an account.\n\nThat's often where the sale slips away. The shopper already decided to buy, so there's nothing left to persuade. Adobe's 2026 forecast puts mobile at 57.4% of online holiday spend. Pay later is forecast at $21.3 billion, and 82% of it comes through mobile. Your busiest days get decided on a small screen.\n\nHere are 5 things that make paying on a phone easier:\n\n1️⃣ One-tap payment buttons at the top\nApple Pay, Google Pay and PayPal let people pay without typing a card number or address. Without them, your shopper types on glass and gives up. With them, paying takes seconds, not minutes.\n\n2️⃣ Pay later shown near the price\nSome shoppers see the price and quietly decide it's too much. A pay in four message beside it changes that moment. They see the real amount per payment and keep going.\n\n3️⃣ Fewer form fields\nEvery box is a small tax on patience, and typing on a phone is slow. Do you really need a company name to ship a parcel? Remove what you don't need and the form feels shorter.\n\n4️⃣ Checkout without making an account\nBeing asked to sign up right when they're ready to pay feels like a wall. Many shoppers just close the tab. Let them pay first and offer an account afterward.\n\n5️⃣ A real test order on a real phone\nBuy something from your own store on your own phone. Notice every spot where you hesitate. Your customers hesitate in the same places, and you'll see it before they do.\n\nMost of these are small changes, not a rebuild. You can fix several this week.\n\nWhen did you last buy from your own store on your phone?\n\nRead the full article to see all 7 fixes:\nhttps://virtina.com/woocommerce-mobile-checkout-buy-now-pay-later/",
+    "hashtags": [
+      "woocommerce",
+      "mobilecheckout",
+      "buynowpaylater",
+      "blackfriday",
+      "ecommerce"
+    ]
+  },
+  "instagram": {
+    "caption": "🚨 Can a shopper finish paying on a phone?\n\nMost holiday spend happens on mobile, and a checkout that feels fine on your desktop can lose people at every tap.\n\nHere are 5 fixes to make before Black Friday:\n\n1️⃣ Wallets at the top\nApple Pay and Google Pay skip the card number and the address.\n\n2️⃣ BNPL near the price\nShow the pay in four message on the product page and the cart.\n\n3️⃣ Fewer fields\nHide or make optional anything you do not need to ship the order.\n\n4️⃣ Guest checkout\nLet shoppers pay first and create an account after.\n\n5️⃣ Test orders on real phones\nUse Safari on an iPhone and Chrome on an Android.\n\n💡 The cheapest fix on the list is the one most stores skip: a real test order.\n\n👉 Read the full article for all 7 fixes:\nhttps://virtina.com/woocommerce-mobile-checkout-buy-now-pay-later/",
+    "hashtags": [
+      "woocommerce",
+      "mobilecheckout",
+      "buynowpaylater",
+      "blackfriday",
+      "ecommercetips",
+      "wordpress",
+      "checkoutoptimization"
+    ]
+  },
+  "slides": [
+    {
+      "type": "phone",
+      "headline": "Holiday Sales Are Won On A Phone",
+      "accent": "Is Your Checkout Ready?",
+      "screen": "Checkout",
+      "rows": [
+        {
+          "kind": "wallet",
+          "value": "Apple Pay | Google Pay"
+        },
+        {
+          "kind": "divider",
+          "value": "or pay by card"
+        },
+        {
+          "kind": "field",
+          "label": "Email",
+          "value": "you@example.com"
+        },
+        {
+          "kind": "field",
+          "label": "Phone",
+          "value": "Optional"
+        },
+        {
+          "kind": "info",
+          "value": "Pay in 4 with Klarna"
+        },
+        {
+          "kind": "button",
+          "value": "Place order"
+        }
+      ],
+      "notes": [
+        {
+          "text": "Wallets at the top",
+          "good": true
+        },
+        {
+          "text": "BNPL near the price",
+          "good": true
+        },
+        {
+          "text": "No account needed",
+          "good": true
+        }
+      ],
+      "alt": "Phone screen showing a mobile checkout with wallet buttons, short form and a pay in 4 option"
+    },
+    {
+      "type": "statement",
+      "kicker": "Holiday spend on mobile",
+      "line1": "57.4% Of Online Spend",
+      "line2": "82% Of BNPL Is Mobile",
+      "sub": "Adobe forecast: $21.3 billion of BNPL spend",
+      "alt": "Statement slide with Adobe forecast figures for mobile holiday spend and mobile buy now pay later"
+    },
+    {
+      "type": "form",
+      "headline": "Cut The Fields",
+      "accent": "Let Guests Pay",
+      "title": "Guest checkout",
+      "fields": [
+        {
+          "label": "Email",
+          "value": "Autofill on"
+        },
+        {
+          "label": "Company name",
+          "value": "Optional"
+        },
+        {
+          "label": "Phone number",
+          "value": "Optional"
+        },
+        {
+          "label": "Address line 2",
+          "value": "Collapsed behind a link"
+        }
+      ],
+      "button": "Place order",
+      "note": "No account needed to buy",
+      "alt": "Trimmed guest checkout form with optional company name and phone fields and a Place order button"
+    },
+    {
+      "type": "split",
+      "headline": "Typing Vs Tapping",
+      "accent": "On A Phone Screen",
+      "left": {
+        "title": "Typing a card",
+        "big": "Type",
+        "text": "Card number and address, typed on glass."
+      },
+      "right": {
+        "title": "A wallet button",
+        "big": "Tap",
+        "text": "Apple Pay, Google Pay or PayPal. No typing."
+      },
+      "footer": "Put wallet buttons on the cart, the product page and the top of checkout.",
+      "alt": "Split comparison of typing a card on a phone against tapping a wallet button to pay"
+    },
+    {
+      "type": "statement",
+      "kicker": "Before Black Friday",
+      "line1": "Place A Real Test Order",
+      "line2": "On A Real Phone",
+      "sub": "Safari on iPhone, Chrome on Android, before November 27",
+      "alt": "Closing statement urging a real test order on Safari on iPhone and Chrome on Android before Black Friday"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/company/10222493/admin/page-posts/published/",
+      "posted": "2026-10-15",
+      "via": "browser"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/virtinapro/",
+      "posted": "2026-10-15",
+      "via": "browser"
+    }
+  }
+}

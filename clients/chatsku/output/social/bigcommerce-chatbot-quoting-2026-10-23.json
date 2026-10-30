@@ -1,0 +1,128 @@
+{
+  "client": "chatsku",
+  "slug": "bigcommerce-chatbot-quoting",
+  "date": "2026-10-23",
+  "wp_post_id": 3767,
+  "canonical_url": "https://chatsku.com/bigcommerce-chatbot-quoting/",
+  "title": "Where should a BigCommerce B2B quote request start?",
+  "approved": true,
+  "linkedin": {
+    "post": "It's 8pm. A buyer on your BigCommerce store wants a mixed order: several SKUs, a few pack sizes, and one item they aren't sure you carry.\n\nWhat happens next depends on where they started.\n\nA quote form takes the details and queues them until someone opens the inbox the next morning. By then the buyer may have bought from a competitor who answered in minutes.\n\nLive chat sounds better, until you see the status line. It says offline. The buyer types a question into a box that nobody is watching.\n\nThe third option is an AI catalog assistant. It asks for the missing quantity, applies the company's own price list rather than the public list price, and flags the one item it can't confirm. Your rep then opens a priced draft to approve, instead of decoding a form at 9am.\n\nNo option is perfect. A form captures what the buyer typed but checks nothing. Chat depends on someone being online. An assistant is only as good as the catalog and pricing behind it, which is why setup matters as much as the tool.\n\nMost stores end up combining them: a form for custom jobs, and an assistant for the orders that arrive while the team is asleep.\n\nWhich of your 8pm requests would you most want answered before morning?\n\nFull breakdown: https://chatsku.com/bigcommerce-chatbot-quoting/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "BigCommerce",
+      "B2BQuoting"
+    ]
+  },
+  "instagram": {
+    "caption": "A quote request should end as something your rep can approve.\n\nAt 8pm, a form only captures what the buyer typed. Live chat is offline. The rep decodes the rest at 9am and reprices by hand.\n\nI am the ChatSKU AI catalog assistant. I read your catalog and the buyer's company price list. I ask what is missing and hand your team a complete quote draft to review.\n\nWhat does your rep open first each morning?\n\nRead the full article:\nhttps://chatsku.com/bigcommerce-chatbot-quoting/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "BigCommerce",
+      "B2BQuoting"
+    ]
+  },
+  "slides": [
+    {
+      "type": "chat",
+      "headline": "8pm. A buyer wants a mixed order.",
+      "accent": "Where does it start?",
+      "screen": "Your BigCommerce store",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "I need several SKUs in different pack sizes. Not sure you carry one of them."
+        }
+      ],
+      "typing": true,
+      "alt": "Chat window at 8pm where a buyer asks for a mixed order with several SKUs and one uncertain item"
+    },
+    {
+      "type": "form",
+      "headline": "A quote form captures.",
+      "accent": "It never answers.",
+      "title": "Request a quote",
+      "fields": [
+        {
+          "label": "Items",
+          "value": "Several SKUs, mixed pack sizes"
+        },
+        {
+          "label": "Unsure item",
+          "value": "Left as a free-text note"
+        },
+        {
+          "label": "Quantity",
+          "value": "One is missing"
+        },
+        {
+          "label": "Company price",
+          "value": "Not checked"
+        }
+      ],
+      "button": "Send and wait",
+      "note": "A rep opens it at 9am",
+      "alt": "A quote request form with a missing quantity and an unchecked company price, waiting for a rep"
+    },
+    {
+      "type": "split",
+      "headline": "Same 8pm order.",
+      "accent": "Two different mornings.",
+      "left": {
+        "title": "Live chat",
+        "big": "Offline",
+        "text": "The widget shows offline. The buyer emails or leaves."
+      },
+      "right": {
+        "title": "Catalog assistant",
+        "big": "Complete",
+        "text": "A priced draft and one flagged question."
+      },
+      "footer": "What matters is not speed alone. It is what the rep opens first.",
+      "alt": "Split comparison of an offline live chat widget against a catalog assistant that leaves a complete priced draft"
+    },
+    {
+      "type": "chat",
+      "headline": "The assistant finishes",
+      "accent": "the request.",
+      "screen": "ChatSKU on BigCommerce",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "Here is my mixed order, plus one item I'm not sure you carry."
+        },
+        {
+          "who": "catalog",
+          "text": "Matched the SKUs. What quantity do you need for the last one? I'll apply your company price list.",
+          "tag": "Asks the missing quantity"
+        },
+        {
+          "who": "catalog",
+          "text": "I've flagged the uncertain item for a rep to confirm.",
+          "tag": "A rep still approves"
+        }
+      ],
+      "alt": "Chat where a catalog assistant matches SKUs, asks for a missing quantity, and flags an uncertain item for a rep"
+    },
+    {
+      "type": "statement",
+      "kicker": "Where should it start?",
+      "line1": "A form for custom jobs.",
+      "line2": "An assistant for the 8pm order.",
+      "sub": "Live chat when someone is really online.",
+      "alt": "Closing slide: form for custom work, live chat when staffed, an AI catalog assistant for after-hours orders"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7519322220104687616/",
+      "posted": "2026-10-23",
+      "via": "browser",
+      "format": "document (carousel.pdf, 5 pages)"
+    }
+  }
+}

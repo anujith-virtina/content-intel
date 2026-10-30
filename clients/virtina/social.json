@@ -47,7 +47,7 @@
   },
   "rules": {
     "linkedin_chars": [
-      600,
+      1500,
       2200
     ],
     "linkedin_hook_chars": 210,
@@ -106,7 +106,7 @@
       3,
       5
     ],
-    "caption_emoji": true,
+    "caption_emoji": {"instagram": "house", "linkedin": "numbers"},
     "hashtag_pattern": "[a-z0-9]+",
     "max_slides": 7
   },

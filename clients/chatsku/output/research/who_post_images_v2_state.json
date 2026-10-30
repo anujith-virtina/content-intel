@@ -1,0 +1,27 @@
+{
+  "post_id": 3798,
+  "featured": {
+    "id": 3885,
+    "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-featured-ai.jpg",
+    "alt": "A sales manager points to product drawings on a wall screen while a colleague holds a tablet in a meeting room, the team that reviews catalog questions."
+  },
+  "body": {
+    "3822": {
+      "id": 3886,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body1-ai.jpg",
+      "alt": "A warehouse manager checks product data on a tablet between racks of labelled cases, the stock records a catalog assistant depends on."
+    },
+    "3823": {
+      "id": 3887,
+      "url": "https://chatsku.com/wp-content/uploads/2026/10/who-b2b-catalog-assistant-is-built-for-body2-ai.jpg",
+      "alt": "A buyer at a desk compares valve specifications and product tables on two monitors, the research a purchasing manager does before asking a question."
+    }
+  },
+  "replaced_old_media": {
+    "featured": 3821,
+    "body": [
+      3822,
+      3823
+    ]
+  }
+}

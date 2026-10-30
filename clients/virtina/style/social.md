@@ -41,14 +41,29 @@ Here are {N} {things} {that ...}:
 {canonical_url}
 ```
 
-- Emoji: only 🚨, 1️⃣ to 5️⃣, 💡 and 👉, each used as shown. No other emoji.
+- Emoji: Instagram only, and only 🚨, 1️⃣ to 5️⃣, 💡 and 👉, each used as shown. No other emoji.
+- **LinkedIn keeps only the 1️⃣ to 5️⃣ number markers** (user, 2026-10-15: "in linkedin try to avoid
+  unnecessary emojis", and their own edits to the live LinkedIn posts removed 🚨, 💡 and 👉 but kept the
+  numbers). So on LinkedIn the hook, takeaway and read lines have no marker. QA rejects any other emoji in
+  `linkedin.post`.
 - The article URL goes in the caption body, on its own line, on both platforms.
 - No em dashes, no exclamation marks, no semicolons.
 - Second person, active voice, contractions fine. Sentences of 20 words or fewer.
 - No hype or filler words (full banned list in `clients/virtina/social.json`), no "vendor", no "reach out".
 - Never promotional: no "our guide", "check out our", "read our". Never name a competitor agency.
 
-LinkedIn: 600 to 2,200 characters including hashtags, first line 210 or fewer, 3 to 8 hashtags.
+**Voice: tell the reader their own problem, simply** (user, 2026-10-15: "when a user sees the post they should
+feel like it's telling their problem.. without too technical, tell simply"). Write for the store owner, not a
+developer. Open with the situation they live through (sales that don't match the traffic, a shopper giving up
+at the last step). Explain each point from the shopper's side: what they feel, what goes wrong, what changes.
+No settings paths, plugin names, acronyms or setup steps in captions. Those stay in the article. End with a
+question that makes the reader check their own store.
+
+LinkedIn goes deeper than Instagram (user, 2026-10-15: the first version "seems short of words"). Aim for
+300 to 380 words: a 2 to 3 sentence setup with the article's key figure, then each point gets 2 to 3
+sentences in plain words (the shopper's experience, what goes wrong, what changes when fixed).
+Instagram stays short, one sentence per point.
+LinkedIn: 1,500 to 2,200 characters including hashtags, first line 210 or fewer, 3 to 8 hashtags.
 Instagram: 2,200 characters or fewer, first line 125 or fewer, 5 to 10 hashtags.
 The two captions may be near-identical. Vary the hook line and the hashtag mix.
 Hashtags: lowercase, letters and digits only, in the `hashtags` array, not typed into the caption.
