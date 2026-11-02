@@ -104,6 +104,15 @@ If the user asks to add a client:
 
 The `creator` enforces voice. But you, as orchestrator, must catch obvious misses before delegating — wrong audience, wrong format for the channel, scope creep. Push back on the user when needed. A polite "that's not a fit for this client because…" is more valuable than blind compliance.
 
+## Image quality standard (all clients)
+
+Standing instruction from the user (2026-11-02): image quality is never compromised.
+
+- Export at least 2x the displayed size (display 670 px wide, file 1340 px wide), JPEG quality 90 or higher, 4:4:4 subsampling. Never upscale a smaller source. Never lower quality to hit a file-size target; resize instead.
+- Look at every image at 100% before upload. Soft, blurry, or artifacted images are rejected and redone.
+- Images are realistic documentary-style photos of a person in the exact situation of the section (for example a worried developer at a laptop showing a WooCommerce error). No abstract concept art, neon, glow, or metaphor scenes.
+- A client's MUST-FOLLOW-RULES.md may set the displayed dimensions, but it cannot lower these quality floors.
+
 ## Per-client mandatory rules
 
 When working on any client task, before delegating to sub-agents, read `clients/{client-slug}/MUST-FOLLOW-RULES.md` if it exists. Instruct every sub-agent to read this file as their first action.

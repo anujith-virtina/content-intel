@@ -132,9 +132,9 @@ Openverse usage: use `source=stocksnap` filter and short 3-4 word queries matchi
 - Strategy / planning: `business meeting whiteboard`, `team strategy planning office`
 
 ### Required count and dimensions
-- 1 featured image at exactly 1309×500 px
-- 2–3 body images at exactly 670×352 px each (up to 5 for pillar guides over 2500 words)
-- File size under 200 KB per image (JPEG quality 82)
+- 1 featured image displayed at 1309×500 px (same 2.618:1 ratio). Upload the file at about 1895×724 or larger, never smaller than 1309×500
+- 2–3 body images displayed at 670×352 px each (up to 5 for pillar guides over 2500 words). Upload the file at 1340×704 (2x retina) with width=670 height=352 set in the HTML
+- Image quality is never traded for file size: JPEG quality 90 or higher, 4:4:4 subsampling, source at least as large as the uploaded file (no upscaling). Typical result is 250–450 KB. Keep under 600 KB; resize down before lowering quality. Visually check at 100% before upload. Photos must be realistic scenes of a person in the section's exact situation (see feedback in memory)
 - All body images same dimensions
 
 ### Required attributes
@@ -377,10 +377,10 @@ The publisher runs every item before any PUT call. If any item fails, fix and re
 
 **Images:**
 - [ ] Featured image set (real media ID, not 0)
-- [ ] Featured image exactly 1309×500
+- [ ] Featured image displayed 1309×500, file ≥1895×724, JPEG q≥90
 - [ ] Featured image alt 80–150 chars
 - [ ] Body image count: 2–3 (up to 5 for pillar guides)
-- [ ] All body images exactly 670×352
+- [ ] All body images displayed 670×352, files 1340×704, JPEG q≥90, no visible softness or compression artifacts
 - [ ] All body images have unique 80–150 char alt text
 - [ ] Every image `src` begins with `https://virtina.com/wp-content/uploads/`
 - [ ] Every image visually relevant to article topic (no nature on B2B articles)
