@@ -1,0 +1,907 @@
+{
+ "client": "virtina",
+ "geo": "US",
+ "timeframe": "today 12-m",
+ "date": "2026-11-05",
+ "seeds": [
+  {
+   "seed": "woocommerce",
+   "top": [
+    {
+     "query": "what is woocommerce",
+     "value": 100
+    },
+    {
+     "query": "shopify",
+     "value": 87
+    },
+    {
+     "query": "woocommerce wordpress",
+     "value": 81
+    },
+    {
+     "query": "wordpress",
+     "value": 80
+    },
+    {
+     "query": "woocommerce news",
+     "value": 63
+    },
+    {
+     "query": "woocommerce store",
+     "value": 58
+    },
+    {
+     "query": "woocommerce cost",
+     "value": 51
+    },
+    {
+     "query": "woocommerce shipping",
+     "value": 49
+    }
+   ],
+   "rising": [
+    {
+     "query": "shoplc",
+     "value": 9400
+    },
+    {
+     "query": "shop lc live",
+     "value": 6250
+    },
+    {
+     "query": "walmart near me",
+     "value": 5100
+    },
+    {
+     "query": "data science projects",
+     "value": 3650
+    },
+    {
+     "query": "top tourist attractions in paris",
+     "value": 2900
+    },
+    {
+     "query": "woocommerce news",
+     "value": 250
+    },
+    {
+     "query": "woocommerce pricing",
+     "value": 130
+    },
+    {
+     "query": "woocommerce cost",
+     "value": 130
+    }
+   ],
+   "momentum": {
+    "recent4w": 17.2,
+    "prior8w": 25.2,
+    "change_pct": -31.7
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce b2b",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 4.5,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce wholesale",
+   "top": [
+    {
+     "query": "woocommerce wholesale prices",
+     "value": 100
+    }
+   ],
+   "rising": [],
+   "momentum": {
+    "recent4w": 5.0,
+    "prior8w": 8.9,
+    "change_pct": -43.7
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce checkout",
+   "top": [
+    {
+     "query": "woocommerce checkout page",
+     "value": 100
+    },
+    {
+     "query": "woocommerce checkout plugin",
+     "value": 84
+    },
+    {
+     "query": "woocommerce one page checkout",
+     "value": 13
+    },
+    {
+     "query": "woocommerce checkout field editor",
+     "value": 13
+    },
+    {
+     "query": "woocommerce checkout shortcode",
+     "value": 11
+    },
+    {
+     "query": "woocommerce checkout field editor pro",
+     "value": 3
+    },
+    {
+     "query": "checkout field editor for woocommerce",
+     "value": 3
+    }
+   ],
+   "rising": [
+    {
+     "query": "woocommerce checkout field editor pro",
+     "value": 50
+    }
+   ],
+   "momentum": {
+    "recent4w": 6.5,
+    "prior8w": 6.2,
+    "change_pct": 4.0
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce subscription",
+   "top": [
+    {
+     "query": "woocommerce subscription plugin",
+     "value": 100
+    }
+   ],
+   "rising": [],
+   "momentum": {
+    "recent4w": 4.2,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce migration",
+   "top": [
+    {
+     "query": "magento to woocommerce migration",
+     "value": 100
+    }
+   ],
+   "rising": [],
+   "momentum": {
+    "recent4w": 6.0,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce speed",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 4.8,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce hpos",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 0.0,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce payment gateway",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 3.8,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "woocommerce quote",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 1.0,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "magento migration",
+   "top": [
+    {
+     "query": "magento migration services",
+     "value": 100
+    },
+    {
+     "query": "magento 1 to magento 2 migration",
+     "value": 72
+    },
+    {
+     "query": "magento to woocommerce migration",
+     "value": 52
+    }
+   ],
+   "rising": [
+    {
+     "query": "magento to woocommerce migration",
+     "value": 160
+    }
+   ],
+   "momentum": {
+    "recent4w": 17.8,
+    "prior8w": 15.8,
+    "change_pct": 12.7
+   },
+   "error": null
+  },
+  {
+   "seed": "magento 2",
+   "top": [
+    {
+     "query": "magento 2 support",
+     "value": 100
+    },
+    {
+     "query": "magento 2 github",
+     "value": 92
+    },
+    {
+     "query": "magento 2 development",
+     "value": 80
+    },
+    {
+     "query": "magento 2 training",
+     "value": 55
+    },
+    {
+     "query": "magento 2 migration",
+     "value": 38
+    },
+    {
+     "query": "seo magento 2",
+     "value": 38
+    },
+    {
+     "query": "magento 2 agency",
+     "value": 35
+    },
+    {
+     "query": "magento 1 vs magento 2",
+     "value": 25
+    }
+   ],
+   "rising": [
+    {
+     "query": "magento 2 northern ireland",
+     "value": 33150
+    },
+    {
+     "query": "magento 2 support",
+     "value": 250
+    },
+    {
+     "query": "magento 2 github",
+     "value": 250
+    },
+    {
+     "query": "magento 2 training",
+     "value": 200
+    },
+    {
+     "query": "magento 2 out of stock notification",
+     "value": 190
+    },
+    {
+     "query": "magento 1 vs magento 2",
+     "value": 190
+    },
+    {
+     "query": "magento 2 agency",
+     "value": 60
+    },
+    {
+     "query": "magento 2 extensions",
+     "value": 50
+    }
+   ],
+   "momentum": {
+    "recent4w": 10.5,
+    "prior8w": 16.0,
+    "change_pct": -34.4
+   },
+   "error": null
+  },
+  {
+   "seed": "adobe commerce",
+   "top": [
+    {
+     "query": "adobe commerce magento",
+     "value": 100
+    },
+    {
+     "query": "adobe commerce cloud",
+     "value": 57
+    },
+    {
+     "query": "adobe commerce pricing",
+     "value": 29
+    },
+    {
+     "query": "adobe commerce development",
+     "value": 26
+    },
+    {
+     "query": "adobe commerce agency",
+     "value": 15
+    },
+    {
+     "query": "adobe commerce marketplace",
+     "value": 11
+    },
+    {
+     "query": "adobe commerce partner",
+     "value": 10
+    },
+    {
+     "query": "adobe commerce partners",
+     "value": 7
+    }
+   ],
+   "rising": [
+    {
+     "query": "embody",
+     "value": 106700
+    },
+    {
+     "query": "quad ed",
+     "value": 87600
+    },
+    {
+     "query": "shoplc live",
+     "value": 26900
+    },
+    {
+     "query": "nordvpn discount code",
+     "value": 26300
+    },
+    {
+     "query": "how to disable adobe updater",
+     "value": 24600
+    },
+    {
+     "query": "new york times",
+     "value": 22600
+    },
+    {
+     "query": "adobe commerce magento",
+     "value": 90
+    },
+    {
+     "query": "adobe commerce pricing",
+     "value": 80
+    }
+   ],
+   "momentum": {
+    "recent4w": 16.5,
+    "prior8w": 44.6,
+    "change_pct": -63.0
+   },
+   "error": null
+  },
+  {
+   "seed": "bigcommerce",
+   "top": [
+    {
+     "query": "shopify",
+     "value": 100
+    },
+    {
+     "query": "woocommerce",
+     "value": 35
+    },
+    {
+     "query": "what is bigcommerce",
+     "value": 34
+    },
+    {
+     "query": "bigcommerce vs shopify",
+     "value": 32
+    },
+    {
+     "query": "bigcommerce login",
+     "value": 30
+    },
+    {
+     "query": "bigcommerce api",
+     "value": 25
+    },
+    {
+     "query": "bigcommerce pricing",
+     "value": 20
+    },
+    {
+     "query": "bigcommerce integration",
+     "value": 16
+    }
+   ],
+   "rising": [
+    {
+     "query": "bigcommerce website designer",
+     "value": 450
+    },
+    {
+     "query": "bigcommerce api documentation",
+     "value": 300
+    },
+    {
+     "query": "woocommerce",
+     "value": 300
+    },
+    {
+     "query": "shopify",
+     "value": 250
+    },
+    {
+     "query": "bigcommerce vs shopify",
+     "value": 200
+    },
+    {
+     "query": "bigcommerce pricing",
+     "value": 80
+    },
+    {
+     "query": "bigcommerce integrations",
+     "value": 50
+    },
+    {
+     "query": "bigcommerce careers",
+     "value": 50
+    }
+   ],
+   "momentum": {
+    "recent4w": 12.2,
+    "prior8w": 19.4,
+    "change_pct": -36.8
+   },
+   "error": null
+  },
+  {
+   "seed": "bigcommerce b2b",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 10.8,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "shopify plus",
+   "top": [
+    {
+     "query": "shopify plus pricing",
+     "value": 100
+    },
+    {
+     "query": "shopify pricing",
+     "value": 100
+    },
+    {
+     "query": "shopify plus cost",
+     "value": 97
+    },
+    {
+     "query": "shopify store",
+     "value": 86
+    },
+    {
+     "query": "shopify news",
+     "value": 80
+    },
+    {
+     "query": "shopify website",
+     "value": 74
+    },
+    {
+     "query": "shopify plus support",
+     "value": 60
+    },
+    {
+     "query": "shopify plus plan",
+     "value": 55
+    }
+   ],
+   "rising": [
+    {
+     "query": "embody",
+     "value": 204850
+    },
+    {
+     "query": "medvi reviews",
+     "value": 160250
+    },
+    {
+     "query": "medvi quad",
+     "value": 136750
+    },
+    {
+     "query": "embody reviews",
+     "value": 121500
+    },
+    {
+     "query": "shoplc",
+     "value": 97800
+    },
+    {
+     "query": "bitget",
+     "value": 83750
+    },
+    {
+     "query": "medvi quad reviews",
+     "value": 81950
+    },
+    {
+     "query": "shoplc com",
+     "value": 62150
+    }
+   ],
+   "momentum": {
+    "recent4w": 18.8,
+    "prior8w": 61.6,
+    "change_pct": -69.6
+   },
+   "error": null
+  },
+  {
+   "seed": "shopify migration",
+   "top": [
+    {
+     "query": "shopify news",
+     "value": 100
+    },
+    {
+     "query": "shopify migration services",
+     "value": 79
+    },
+    {
+     "query": "shopify migration service",
+     "value": 71
+    },
+    {
+     "query": "wordpress to shopify migration",
+     "value": 35
+    },
+    {
+     "query": "woocommerce to shopify migration",
+     "value": 27
+    },
+    {
+     "query": "walmart near me",
+     "value": 10
+    },
+    {
+     "query": "shopify migration experts",
+     "value": 8
+    },
+    {
+     "query": "squarespace to shopify migration",
+     "value": 6
+    }
+   ],
+   "rising": [
+    {
+     "query": "walmart near me",
+     "value": 100950
+    },
+    {
+     "query": "shopify news",
+     "value": 90
+    },
+    {
+     "query": "wordpress to shopify migration",
+     "value": 50
+    }
+   ],
+   "momentum": {
+    "recent4w": 6.8,
+    "prior8w": 6.4,
+    "change_pct": 5.9
+   },
+   "error": null
+  },
+  {
+   "seed": "ecommerce website redesign",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 25.0,
+    "prior8w": 0.0,
+    "change_pct": null
+   },
+   "error": null
+  },
+  {
+   "seed": "headless commerce",
+   "top": [
+    {
+     "query": "what is headless commerce",
+     "value": 100
+    },
+    {
+     "query": "headless commerce platform",
+     "value": 62
+    },
+    {
+     "query": "headless commerce platforms",
+     "value": 53
+    },
+    {
+     "query": "headless commerce architecture",
+     "value": 34
+    },
+    {
+     "query": "headless commerce definition",
+     "value": 33
+    },
+    {
+     "query": "enterprise headless commerce",
+     "value": 30
+    },
+    {
+     "query": "salesforce headless commerce",
+     "value": 28
+    },
+    {
+     "query": "benefits of headless commerce",
+     "value": 22
+    }
+   ],
+   "rising": [
+    {
+     "query": "quad ed",
+     "value": 146550
+    },
+    {
+     "query": "shoplc",
+     "value": 106650
+    },
+    {
+     "query": "medvi weight loss",
+     "value": 82500
+    },
+    {
+     "query": "shop lc live",
+     "value": 74700
+    },
+    {
+     "query": "loqbox",
+     "value": 57200
+    },
+    {
+     "query": "asos login",
+     "value": 49200
+    },
+    {
+     "query": "nordvpn discount code",
+     "value": 39100
+    },
+    {
+     "query": "glp 1 booster supplement",
+     "value": 38450
+    }
+   ],
+   "momentum": {
+    "recent4w": 15.5,
+    "prior8w": 53.0,
+    "change_pct": -70.8
+   },
+   "error": null
+  },
+  {
+   "seed": "b2b ecommerce platform",
+   "top": [
+    {
+     "query": "ecommerce platform for b2b",
+     "value": 100
+    },
+    {
+     "query": "best b2b ecommerce platform",
+     "value": 75
+    },
+    {
+     "query": "best ecommerce platform for b2b",
+     "value": 50
+    },
+    {
+     "query": "b2b ecommerce platform comparison",
+     "value": 13
+    },
+    {
+     "query": "embody",
+     "value": 12
+    },
+    {
+     "query": "shop lc",
+     "value": 8
+    },
+    {
+     "query": "quad ed",
+     "value": 8
+    },
+    {
+     "query": "embody reviews",
+     "value": 6
+    }
+   ],
+   "rising": [
+    {
+     "query": "embody",
+     "value": 456100
+    },
+    {
+     "query": "shop lc",
+     "value": 297200
+    },
+    {
+     "query": "quad ed",
+     "value": 295500
+    },
+    {
+     "query": "embody reviews",
+     "value": 241500
+    },
+    {
+     "query": "etsy discount",
+     "value": 195950
+    },
+    {
+     "query": "pu prime",
+     "value": 136450
+    },
+    {
+     "query": "betmgm bonus",
+     "value": 117500
+    },
+    {
+     "query": "lemlist",
+     "value": 79150
+    }
+   ],
+   "momentum": {
+    "recent4w": 8.2,
+    "prior8w": 58.8,
+    "change_pct": -86.0
+   },
+   "error": null
+  },
+  {
+   "seed": "ecommerce platform comparison",
+   "top": [
+    {
+     "query": "b2b ecommerce platform comparison",
+     "value": 100
+    }
+   ],
+   "rising": [],
+   "momentum": {
+    "recent4w": 1.5,
+    "prior8w": 58.5,
+    "change_pct": -97.4
+   },
+   "error": null
+  },
+  {
+   "seed": "ecommerce seo",
+   "top": [
+    {
+     "query": "seo for ecommerce",
+     "value": 100
+    },
+    {
+     "query": "best ecommerce seo",
+     "value": 73
+    },
+    {
+     "query": "seo in ecommerce",
+     "value": 52
+    },
+    {
+     "query": "ecommerce and seo",
+     "value": 51
+    },
+    {
+     "query": "best ecommerce for seo",
+     "value": 40
+    },
+    {
+     "query": "seo ecommerce services",
+     "value": 33
+    },
+    {
+     "query": "ecommerce seo company",
+     "value": 30
+    },
+    {
+     "query": "ecommerce website seo",
+     "value": 25
+    }
+   ],
+   "rising": [
+    {
+     "query": "best time to visit maldives",
+     "value": 11650
+    },
+    {
+     "query": "fishing",
+     "value": 400
+    },
+    {
+     "query": "ecommerce seo case study",
+     "value": 250
+    },
+    {
+     "query": "ecommerce seo best practices",
+     "value": 180
+    },
+    {
+     "query": "ecommerce news",
+     "value": 170
+    },
+    {
+     "query": "ecommerce seo guide",
+     "value": 120
+    },
+    {
+     "query": "ecommerce seo best practice",
+     "value": 120
+    },
+    {
+     "query": "ecommerce seo pricing",
+     "value": 100
+    }
+   ],
+   "momentum": {
+    "recent4w": 23.8,
+    "prior8w": 32.6,
+    "change_pct": -27.2
+   },
+   "error": null
+  },
+  {
+   "seed": "ecommerce website cost",
+   "top": [],
+   "rising": [],
+   "momentum": {
+    "recent4w": 5.5,
+    "prior8w": 27.5,
+    "change_pct": -80.0
+   },
+   "error": null
+  }
+ ]
+}

@@ -141,3 +141,16 @@ Virtina's hand-made posts have. If a scene image is supplied at
 - A pack is only posted once its article is live. While the WordPress post is a draft the pack is held.
 - `auto_approve` is `true`: once the article is live and QA passes, the pack is posted with no approval step.
 - Each channel is posted at most once per pack. The result is recorded in the pack's `state`.
+
+
+## LinkedIn style update (user, 2026-11-02, supersedes the caption pattern and length above for LinkedIn)
+
+- **No link in the post body.** Put the article URL in the pack field `linkedin.first_comment` and post it as the
+  first comment from the Virtina page (links in the body are bad LinkedIn practice). QA accepts the URL there.
+  Instagram keeps the URL line.
+- **Write a LinkedIn post, not an essay.** One short line per paragraph, white space, a two-line gut-punch hook,
+  specific and conversational, 100 to 250 words (600 to 2,200 characters). No "Here are the five things to
+  check" scaffolding and no setup paragraphs.
+- **Captions must add new value, never repeat the slide text.** The slides carry the points. The caption brings a
+  scene, 2 to 3 surprising facts from deeper in the article, a "try this today" test, and a closing question.
+- The first version of the 43764 pack is kept as `order-emails-not-sending-2026-11-02.v1-posted.json`.

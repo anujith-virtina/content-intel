@@ -1,0 +1,14 @@
+{
+  "client": "virtina",
+  "slug": "po-typed-twice",
+  "date": "2026-11-03",
+  "channel": "Gigi personal LinkedIn (manual post, not auto-published)",
+  "slides": [
+    {"type": "poster", "headline_top": "Your best buyer sent a PO.", "headline_main": "Someone retyped it.", "sub": "Now line 14 is the wrong part.", "alt": "Tired rep retyping a purchase order PDF on Friday at 4:58 pm."},
+    {"type": "point", "headline": "It lands at 4:58 on Friday", "body": "Forty lines. One tired rep. Two screens. A promise to ship Monday.", "alt": "Wall clock at 4:58 above a rep facing a long purchase order."},
+    {"type": "point", "headline": "Retyping adds a second author", "body": "Every digit gets typed again. One swapped digit and a different part is on the pallet.", "alt": "Two near identical part numbers with one digit swapped, glowing red."},
+    {"type": "point", "headline": "The buyer finds out last", "body": "The box opens Tuesday at their dock. The invoice is already out. Trust takes the hit.", "alt": "Buyer at a loading dock opening a box with the wrong part."},
+    {"type": "point", "headline": "A store should end this", "body": "When buyers key their own order, they own the typo. Nobody on your team inherits the blame.", "alt": "Buyer placing their own order on a laptop with a green confirmation glow."},
+    {"type": "point", "headline": "Count them this week", "body": "Tally every PO that arrives as a file. Each one is a chance to retype.", "alt": "Stack of printed purchase orders with a hand making tally marks."}
+  ]
+}

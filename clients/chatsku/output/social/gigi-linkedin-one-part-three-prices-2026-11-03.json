@@ -1,0 +1,15 @@
+{
+  "client": "chatsku",
+  "slug": "one-part-three-prices",
+  "date": "2026-11-03",
+  "channel": "Gigi personal LinkedIn (manual submit)",
+  "related_post": "https://chatsku.com/one-catalog-a-thousand-prices-making-tiered-b2b-pricing-work-online/",
+  "slides": [
+    {"type": "poster", "headline_top": "One part number.", "headline_main": "Three correct prices.", "sub": "Which one did your buyer see?", "alt": "One steel valve with three glowing price tags, each reached for by a different buyer."},
+    {"type": "point", "headline": "Monday, 9:12 am. The distributor.", "body": "Contract tier. Net 30. He expects the price he negotiated in March.", "alt": "Distributor in a warehouse holding a contract binder and a phone."},
+    {"type": "point", "headline": "Tuesday, 9:15 pm. A new buyer.", "body": "No account yet. List price. She is comparing three tabs and one deadline.", "alt": "Buyer at a night laptop with three browser tabs open and rain on the window."},
+    {"type": "point", "headline": "Friday, 4:50 pm. The big account.", "body": "A volume break starts at the next step. Nobody remembers which line.", "alt": "Pallets beside a glowing staircase of price steps for volume breaks."},
+    {"type": "point", "headline": "A guessed price always costs.", "body": "Guess high and the buyer leaves. Guess low and the margin does.", "alt": "Rep guessing a price over a spreadsheet while a buyer walks out of the door."},
+    {"type": "point", "headline": "Price should follow the buyer.", "body": "I answer from the pricing of the customer group a buyer belongs to.", "alt": "Laptop showing one product with a single glowing price and a customer group badge."}
+  ]
+}

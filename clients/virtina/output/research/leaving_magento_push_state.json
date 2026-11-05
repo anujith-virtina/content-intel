@@ -1,0 +1,46 @@
+{
+ "post_id": 43876,
+ "status": "draft",
+ "slug": "leaving-magento-what-moves-breaks",
+ "link": "https://virtina.com/?p=43876",
+ "yoast_title_persisted": true,
+ "yoast_desc_persisted": true,
+ "old_media": [
+  {
+   "featured": {
+    "id": 43872,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-featured.jpg"
+   },
+   "body1": {
+    "id": 43873,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body1.jpg"
+   },
+   "body2": {
+    "id": 43874,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body2.jpg"
+   },
+   "body3": {
+    "id": 43875,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body3.jpg"
+   }
+  }
+ ],
+ "media": {
+  "featured": {
+   "id": 43888,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-magento-to-woocommerce-migration-featured.jpg"
+  },
+  "body1": {
+   "id": 43879,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body1-1.jpg"
+  },
+  "body2": {
+   "id": 43880,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body2-1.jpg"
+  },
+  "body3": {
+   "id": 43881,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-leaving-magento-what-moves-breaks-body3-1.jpg"
+  }
+ }
+}

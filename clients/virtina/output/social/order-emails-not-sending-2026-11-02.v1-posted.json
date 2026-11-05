@@ -1,0 +1,102 @@
+{
+  "client": "virtina",
+  "slug": "order-emails-not-sending",
+  "date": "2026-11-02",
+  "wp_post_id": 43764,
+  "canonical_url": "https://virtina.com/order-emails-not-sending/",
+  "title": "WooCommerce emails not sending? Diagnose it in four steps",
+  "approved": true,
+  "linkedin": {
+    "post": "Would you notice if your store stopped sending order emails today?\n\nMost owners find out when a customer writes, \"I never got my order email.\" Orders sit in your dashboard. Nobody hears anything. Buyers wonder if the purchase went through, and support tickets pile up.\n\nNo jargon, no guesswork. A missing email fails at one of four stages, and each stage has its own first place to look. Installing a mail tool before you know which stage broke costs days.\n\nHere are the five things to check, in the order to check them:\n\n1️⃣ The email never starts\nSometimes the order never reaches the point where an email fires. A payment left half finished is a common cause. The email may also be switched off, or have no one to send to. Most of these cases end with one setting or one status.\n\n2️⃣ The store tried and failed\nYour store keeps a record of every attempt. It shows whether the message went out or was skipped. Reading that record takes minutes and names the stage. Until you read it, you are guessing.\n\n3️⃣ The inbox said no\nThe message left your store, but the receiving inbox refused it. A sending address on a free mail service is a common reason. Your own domain gives inboxes something to trust. Sent in your store does not mean accepted by theirs.\n\n4️⃣ It landed in spam\nThe customer did check. The email was filed as junk because the inbox could not confirm it came from you. Customers rarely look there, so they assume you never sent it. Your host or mail service can confirm that proof is in place.\n\n5️⃣ When to call a developer\nSome problems need access you may not have. Paid orders that never move forward, or the same fault coming back, are signs. Hand over your test results and the record, and the fix gets shorter.\n\nIf a customer placed an order right now, could you say which stage would fail first?\n\nRead the full article to run the four checks on one test order:\nhttps://virtina.com/order-emails-not-sending/",
+    "hashtags": [
+      "ecommerce",
+      "woocommerce",
+      "ecommercetips",
+      "onlinestore"
+    ]
+  },
+  "instagram": {
+    "caption": "🚨 Customers saying \"I never got my order email\"? It failed at one of four stages.\n\nOrders show in your dashboard, but nobody hears a thing. Buyers start to wonder if the purchase went through.\n\nHere are 5 things to check, in order:\n\n1️⃣ The email never starts\nCheck that the order moved forward and the email is switched on.\n\n2️⃣ The store tried and failed\nYour store's record of attempts names the stage in minutes.\n\n3️⃣ The inbox said no\nSend from an address on your own domain, not a free mail one.\n\n4️⃣ It landed in spam\nAsk your host to confirm inboxes can verify the email came from you.\n\n5️⃣ When to call a developer\nPaid orders that never move forward, or a fault that keeps returning, need one.\n\n💡 Guessing wastes days. One test order and one record show you where it broke.\n\n👉 Read the full article to find the stage that failed:\nhttps://virtina.com/order-emails-not-sending/",
+    "hashtags": [
+      "ecommerce",
+      "woocommerce",
+      "ecommercetips",
+      "onlinestore",
+      "customerexperience",
+      "wordpress"
+    ]
+  },
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "Customers Say No Email Arrived.",
+      "headline_main": "Where Did It Fail?",
+      "sub": "4 stages to check, then when to call help",
+      "cards": [
+        {
+          "label": "Never triggered",
+          "detail": "Order status or email is off"
+        },
+        {
+          "label": "Not sent",
+          "detail": "Your store tried and failed"
+        },
+        {
+          "label": "Not accepted",
+          "detail": "The receiving inbox said no"
+        },
+        {
+          "label": "Landed in spam",
+          "detail": "Filed as junk by the inbox"
+        },
+        {
+          "label": "Call a developer",
+          "detail": "Paid orders stuck, faults return"
+        }
+      ],
+      "alt": "Store owner at night with paid orders on screen while the phone inbox is empty and an envelope fades away."
+    },
+    {
+      "type": "point",
+      "headline": "Email Never Triggered",
+      "body": "The order never reached the point where an email fires, or the email is switched off or has no one to send to. Check this first.",
+      "alt": "A glowing envelope stopped behind a red barrier gate: the order email never triggered."
+    },
+    {
+      "type": "point",
+      "headline": "Store Tried, Email Not Sent",
+      "body": "Your store keeps a record of each attempt. It shows if the message went out or was skipped. Read it and you stop guessing.",
+      "alt": "A monitor log of green checks and one red failed row under a magnifying glass: the email was not sent."
+    },
+    {
+      "type": "point",
+      "headline": "Inbox Refused The Email",
+      "body": "The message left your store, but the receiving inbox said no. Send from an address on your own domain, not a free mail one.",
+      "alt": "A security guard at a velvet rope turning away an envelope with a mismatched badge: the inbox refused it."
+    },
+    {
+      "type": "point",
+      "headline": "Email Landed In Spam",
+      "body": "The inbox took it but filed it as junk, because it could not confirm the email came from you. Ask your host to check the proof is set.",
+      "alt": "An envelope falling into an overflowing junk bin in a dim basement: the email landed in spam."
+    },
+    {
+      "type": "point",
+      "headline": "When To Bring In A Developer",
+      "body": "Paid orders that never move forward, or the same fault returning, need one. Hand over your test results and the record.",
+      "alt": "A developer at a night desk with monitors as a glowing envelope reaches an inbox: bring in a developer."
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7522972615557169153/",
+      "posted_at": "2026-11-02T16:20:16",
+      "via": "browser"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/virtinapro/p/DfPIUypk23w/",
+      "posted_at": "2026-11-02T16:20:16",
+      "via": "browser"
+    }
+  }
+}

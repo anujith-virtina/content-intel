@@ -1,0 +1,94 @@
+{
+  "client": "virtina",
+  "slug": "woocommerce-backorders-lead-times",
+  "date": "2026-11-04",
+  "wp_post_id": 43845,
+  "canonical_url": "https://virtina.com/woocommerce-backorders-lead-times/",
+  "title": "WooCommerce backorders for B2B: how to set lead times, cap orders and avoid overselling",
+  "approved": false,
+  "linkedin": {
+    "post": "A buyer orders a pallet of one part.\nYou have a handful on the shelf.\n\nYour store says yes anyway.\n\nNo warning to the buyer. No limit. Nothing stops it.\n\nThree things most owners miss:\n\n1️⃣ There is no backorder status on the order.\nYour team can't filter for the risky ones.\n\n2️⃣ The one alert goes to your staff, not the buyer.\nIf nobody reads that mailbox, nobody knows.\n\n3️⃣ The link to your stock system can switch itself off.\nIt happens after more than five failed deliveries in a row. Then it stops sending.\n\nTry this today.\n\nPlace one test order past zero on a product you stock.\n\nThen read what your team receives. And what the buyer sees.\n\nA backorder is a promise.\n\nDoes your store keep it?",
+    "hashtags": [
+      "ecommerce",
+      "woocommerce",
+      "b2bcommerce",
+      "inventory"
+    ],
+    "first_comment": "The full walkthrough, with lead-time wording, the limits and the stock-system checks: https://virtina.com/woocommerce-backorders-lead-times/"
+  },
+  "instagram": {
+    "caption": "🚨 Your buyer ordered a pallet. You had a handful of units.\n\nYour store accepted the order anyway. Now someone has to explain the delay.\n\nHere are 4 stages of a backorder, seen from your buyer's side:\n\n1️⃣ The promise\nThe order goes through, and the buyer may see no delay at all.\n\n2️⃣ The wait\nWithout a date, the buyer has nothing to plan around.\n\n3️⃣ The surprise\nStock drops below zero, and your team gets one quiet email.\n\n4️⃣ The fix\nA date you can keep, a limit you set and a mailbox someone reads.\n\n💡 A backorder is a promise. One test order shows you what your buyer and your team really see.\n\n👉 Read the full article to set lead times and avoid overselling:\nhttps://virtina.com/woocommerce-backorders-lead-times/",
+    "hashtags": [
+      "ecommerce",
+      "woocommerce",
+      "b2becommerce",
+      "inventorymanagement",
+      "ecommercetips",
+      "onlinestore"
+    ]
+  },
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "The Order Was Accepted.",
+      "headline_main": "Then Nothing Arrived.",
+      "sub": "4 stages of a backorder, from promise to fix",
+      "cards": [
+        {
+          "label": "The promise",
+          "detail": "The order goes through"
+        },
+        {
+          "label": "The wait",
+          "detail": "No date for the buyer"
+        },
+        {
+          "label": "The surprise",
+          "detail": "Stock falls below zero"
+        },
+        {
+          "label": "The fix",
+          "detail": "A date, a limit, a mailbox"
+        }
+      ],
+      "alt": "B2B buyer at a desk checking a confirmed order on screen while a warehouse shelf behind shows only a few boxes left."
+    },
+    {
+      "type": "point",
+      "headline": "The Cart Says Yes",
+      "body": "A buyer adds a large quantity of one part. Only a few units sit on your shelf, yet the order goes through with no warning.",
+      "alt": "Buyer confirming a large parts order on a laptop while a warehouse shelf nearby holds only a few units."
+    },
+    {
+      "type": "point",
+      "headline": "Then The Buyer Waits",
+      "body": "A notice that only says backordered gives no date to plan around. The buyer expects every unit this week and calls sales.",
+      "alt": "Frustrated buyer on the phone at a desk, checking a calendar with no delivery date marked for the order."
+    },
+    {
+      "type": "point",
+      "headline": "Your Team Hears Late",
+      "body": "Stock drops below zero. The only signal is one email to your staff, and it goes to a mailbox that may not be read.",
+      "alt": "Warehouse manager looking at an empty shelf while an unread staff inbox sits open on a nearby computer."
+    },
+    {
+      "type": "point",
+      "headline": "Fix It Around The Promise",
+      "body": "Give a ship-by date from a confirmed supplier order. Set your own limit, and make sure someone reads the mailbox.",
+      "alt": "Operations manager and warehouse lead reviewing a supplier delivery date on a printed order beside shelves."
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7523706689427111937/",
+      "posted": "2026-11-04",
+      "format": "document carousel (5 slides)",
+      "first_comment": "posted"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/virtinapro/",
+      "posted": "2026-11-04",
+      "format": "carousel (5 slides)"
+    }
+  }
+}

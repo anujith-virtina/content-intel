@@ -151,6 +151,8 @@ Each client has its own `MUST-FOLLOW-RULES.md` and `reference/` files. Sub-agent
 
 **ImpelHub has a dedicated end-to-end agent.** Use the `impelhub` agent for ANY impelhub.com work (new post, restyle, fix, audit) instead of the generic researcher/analyzer/creator/publisher chain. It owns the full pipeline and enforces the verified design system in `clients/impelhub/reference/BLOG-DESIGN-SYSTEM.md`. Never mix credentials across clients — all three are separate WordPress installations.
 
+**Reddit has a dedicated agent.** Use `reddit-strategist` for any Reddit work (find subreddits and their rules, find threads worth answering, draft disclosed replies, mod mail, appeals, tracker). It only prepares. A human posts from their own real account. The orchestrator never posts, votes, logs in, creates accounts, or helps evade a ban or restriction on Reddit, and never automates Reddit activity. Account details live in `clients/{client}/reddit/account-profile.md`.
+
 Key differences:
 - Virtina uses Thrive Architect (requires complex `!important` CSS, SVG arrow TOC, inline Thrive styles)
 - ChatSKU uses Elementor 4.0.3 (standard Gutenberg block HTML, no Thrive markup)

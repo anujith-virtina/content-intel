@@ -1,0 +1,10 @@
+# /black-hole-pipeline/ rendered text (page 27)
+
+## Headings
+H1 The Black Hole Pipeline
+H2 Your pipeline exists in people's heads and inboxes.
+H2 One deployment. Problem closed.
+H2 Stop losing revenue to pipeline you can&#039;t see.
+
+## Text
+ Problems › The Black Hole Pipeline High The Black Hole Pipeline If it isn't tracked, it isn't revenue. It's a guess. Your pipeline exists in people's heads and inboxes. Inquiry channels were never unified into a single system. This kills your RFQ form conversion rate. Email, phone, and contact forms each deposit leads into different places owned by different people. Without a structured intake process, the pipeline has no single source of truth. It exists as a collection of individual memories, inboxes, and spreadsheets that no one fully owns or can see completely. Sales managers have no visibility into inquiry volume, quote stage, or potential revenue value. THE PROBLEM Inquiries arrive through scattered channels, get missed, buried, or assigned informally. No tracking. No follow-up. No audit trail. Sales managers have no visibility into inquiry volume, quote stage, or potential revenue value. The pipeline exists only in people's heads and inboxes. Your competitor answered. You didn't know it happened. THE COST Scattered Inquiries across email, phone, and forms with no single owner 0 Management visibility into quote status or pipeline value 100% Of ChatSKU inquiries captured into a structured dashboard THE FIX One deployment. Problem closed. Every conversation ChatSKU handles is captured, structured, and surfaced in a unified dashboard. Inquiry source, product interest, buyer intent signals, and quote status are all visible in one place. Sales managers see the full pipeline for the first time. Nothing gets lost, buried, or forgotten. Explore the AI sales assistant for B2B eCommerce. ChatSKU I need a quote on 200 units of the titanium hex bolts. Confirmed. I've started a quote for 200x TI-HEX-025. Your rep will have it ready within the hour. Anything else? Stop losing revenue to pipeline you can't see. See ChatSKU close this gap live, on a real catalog. See ChatSKU Live → Start Free → 

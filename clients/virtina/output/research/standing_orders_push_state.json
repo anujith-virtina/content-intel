@@ -1,0 +1,64 @@
+{
+ "post_id": 43857,
+ "status": "draft",
+ "slug": "standing-orders-plugin-or-custom-build",
+ "link": "https://virtina.com/?p=43857",
+ "yoast_title_persisted": true,
+ "yoast_desc_persisted": true,
+ "old_media": [
+  {
+   "featured": {
+    "id": 43853,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-featured.jpg"
+   },
+   "body1": {
+    "id": 43854,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body1.jpg"
+   },
+   "body2": {
+    "id": 43855,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body2.jpg"
+   },
+   "body3": {
+    "id": 43856,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body3.jpg"
+   }
+  },
+  {
+   "featured": {
+    "id": 43866,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-featured-1.jpg"
+   },
+   "body1": {
+    "id": 43868,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body1-1.jpg"
+   },
+   "body2": {
+    "id": 43869,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body2-1.jpg"
+   },
+   "body3": {
+    "id": 43870,
+    "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body3-1.jpg"
+   }
+  }
+ ],
+ "media": {
+  "featured": {
+   "id": 43883,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-featured-2.jpg"
+  },
+  "body1": {
+   "id": 43884,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body1-2.jpg"
+  },
+  "body2": {
+   "id": 43885,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body2-2.jpg"
+  },
+  "body3": {
+   "id": 43886,
+   "url": "https://virtina.com/wp-content/uploads/2026/11/virtina-standing-orders-plugin-or-custom-build-body3-2.jpg"
+  }
+ }
+}

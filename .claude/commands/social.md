@@ -9,6 +9,15 @@ Works for any client that has `clients/$1/social.json` (currently `virtina`, `ch
 Standing instruction: published blogs are posted automatically. Do not ask the user to approve.
 You (the orchestrator) run every command yourself. Sub-agents have no Bash.
 
+Idea routes (user, 2026-11-05): besides a blog post, a social post may start from **Google Trends** or a
+**competitor check**. Trends: check live trend data for the brand's themes and pick a topic that is rising now.
+Competitors: view competitors' public LinkedIn and Instagram posts in "Personal Chrome" and note which topics and
+formats get attention and which topics nobody covers. Then write the brand's OWN post on that topic. The trend or
+competitor is only the reason to post. Facts come from the brand's own site or `style/brand.md`. Never copy a
+competitor's wording, images or layout, never name one in a post, never use a number without an original source.
+Show the post and images to the user before publishing until they say these routes may post automatically.
+Blog-based posts below keep automatic posting.
+
 1. `python social/social_pipeline.py --client $1 fetch $2` and note the slug, status and URL it prints.
 2. Delegate the copy to `creator`. Pass: the client, the source file
    `clients/$1/output/social/_source/$2.json`, the rules file `clients/$1/style/social.md`, and the output

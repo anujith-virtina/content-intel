@@ -1,0 +1,142 @@
+{
+  "client": "chatsku",
+  "slug": "part-number-cross-reference",
+  "date": "2026-10-30",
+  "wp_post_id": 3929,
+  "canonical_url": "https://chatsku.com/part-number-cross-reference/",
+  "title": "Part number cross reference: the record nobody designed",
+  "approved": true,
+  "linkedin": {
+    "post": "A buyer types a competitor's part number, and your table answers with one bare number.\n\nHer line is down and she needs a replacement today. A row with two numbers does not say if the part fits, what differs, or whether you have it.\n\nI am the ChatSKU AI catalog assistant. I answer from the cross-reference table you upload and say so when there is no row. The slides walk through the record in a few swipes.\n\nWhich of your buyers hold numbers your table has never seen?\n\nRead the full article:\nhttps://chatsku.com/part-number-cross-reference/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "PartsCatalog",
+      "ProductData"
+    ]
+  },
+  "instagram": {
+    "caption": "Your table has two numbers. Your buyer needs a decision.\n\nA maintenance buyer holds a worn part stamped by another maker. She wants to know if yours fits, what differs, and if it is in stock.\n\nI am the ChatSKU AI catalog assistant. I answer from the table you upload, with the match type and the differences. When there is no row, I say so and hand off to a person.\n\nWhat would your table say to that buyer today?\n\nRead the full article:\nhttps://chatsku.com/part-number-cross-reference/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "PartsCatalog"
+    ]
+  },
+  "slides": [
+    {
+      "type": "statement",
+      "kicker": "Part number cross reference",
+      "line1": "Your row holds two numbers.",
+      "line2": "That is not an answer.",
+      "sub": "A buyer needs a decision, not a lookup.",
+      "alt": "Cover slide: a cross reference row with two numbers is not an answer for a buyer"
+    },
+    {
+      "type": "chat",
+      "headline": "Another maker's number?",
+      "accent": "Which reply helps?",
+      "screen": "Parts search",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "Do you have an equivalent for Maker A model 4410?"
+        },
+        {
+          "who": "general",
+          "text": "Your SKU 77-210.",
+          "tag": "No context"
+        },
+        {
+          "who": "catalog",
+          "text": "77-210 is a functional equivalent. Wider mounting holes. In stock. I can start a quote.",
+          "tag": "A decision"
+        }
+      ],
+      "alt": "Chat where a bare SKU reply gives no context and a catalog assistant explains the match and offers a quote"
+    },
+    {
+      "type": "split",
+      "headline": "Two numbers in a row.",
+      "accent": "Six fields missing.",
+      "left": {
+        "title": "What most tables store",
+        "big": "2",
+        "text": "Their number and yours"
+      },
+      "right": {
+        "title": "What the buyer needs",
+        "big": "6 more",
+        "text": "Match, difference, direction, date, stock, next step"
+      },
+      "footer": "Fit, differences, and stock are the questions the bare pair never answers.",
+      "alt": "Split comparison of the two numbers most tables store against the six extra fields a buyer needs"
+    },
+    {
+      "type": "form",
+      "headline": "The record, as a card.",
+      "accent": "One row, one answer.",
+      "title": "Record",
+      "fields": [
+        {
+          "label": "Match type",
+          "value": "Functional equivalent"
+        },
+        {
+          "label": "What differs",
+          "value": "Mounting holes slightly wider"
+        },
+        {
+          "label": "Direction",
+          "value": "Two way"
+        },
+        {
+          "label": "Last verified",
+          "value": "Dated, with who checked"
+        },
+        {
+          "label": "Stock and next step",
+          "value": "In stock. Start a quote."
+        }
+      ],
+      "alt": "A cross reference record card listing match type, differences, direction, verification, stock and the next step"
+    },
+    {
+      "type": "chat",
+      "headline": "A number not in your table?",
+      "accent": "Say so.",
+      "screen": "Parts search",
+      "messages": [
+        {
+          "who": "buyer",
+          "text": "Do you have a match for this number?"
+        },
+        {
+          "who": "catalog",
+          "text": "I have no confirmed match. Send the specs or a photo, and a person will follow up.",
+          "tag": "Honest no"
+        }
+      ],
+      "alt": "Chat where a catalog assistant states there is no confirmed match and asks for specs instead of guessing"
+    },
+    {
+      "type": "statement",
+      "kicker": "The takeaway",
+      "line1": "Design the record first.",
+      "line2": "Then decide who delivers it.",
+      "sub": "Give it an owner, a review trigger, and a no-match answer.",
+      "alt": "Closing slide: design the cross reference record first, then decide what delivers it"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "post_urn": "urn:li:activity:7521863429398106112",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7521863429398106112/",
+      "posted_via": "browser (ChatSKU page admin), document post (6-page ChatGPT PDF); first version with rendered cards deleted by user decision",
+      "posted_on": "2026-10-30"
+    }
+  },
+  "image_source": "ChatGPT generated, 6 square scenes (1254x1254 resized to 1080x1080) with ChatSKU logo, headline and page number added in Pillow; slides in slides/part-number-cross-reference-2026-10-30/chatgpt/"
+}

@@ -1,0 +1,359 @@
+<div style="background:linear-gradient(rgba(0,213,192,0.28),rgba(0,213,192,0.28));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="summary" dir="ltr" style="color:#43627f;font-size:30px;">Summary</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A Magento to WooCommerce migration is a data-mapping job. Products, categories and images move cleanly. Customer groups, bundles, tier pricing, tax rules, extensions and the theme have to be rebuilt.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Passwords and product URLs break unless you handle them. Company accounts, shared catalogs and negotiable quotes decide whether you should go at all.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">This guide maps sixteen Magento objects to their WooCommerce result. Facts checked 5 November 2026.</p>
+</div>
+<div style="background:linear-gradient(rgba(241,243,250,0.5),rgba(241,243,250,0.5));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="introduction" style="color:#43627f;font-size:30px;">Introduction</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A distributor has a clean product export and a launch date. Late in the project, someone asks where the company accounts, the negotiated prices and the old product URLs will live. This is an illustrative scene, not a client result.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Nobody planned for those answers because the export looked complete. That is the usual trap. Product rows are the easy part of a platform move.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Virtina is an ecommerce solutions partner that scopes platform moves before any build starts. Its view here is simple. Treat the move as a mapping exercise, and let the objects that do not map shape the plan.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The post covers what moves, what is rebuilt and what breaks. It then covers the route, the stay test and the cutover. Facts were checked on 5 November 2026 against Adobe, WooCommerce, WordPress and Google documentation.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;"><strong>How this was checked:</strong> the facts come from Adobe, WooCommerce, WordPress and Google documentation, read on 5 November 2026. Claims from tool makers are labeled as theirs. No prices or timelines are quoted.</p>
+</div>
+<h3 style="color:#43627f;font-size:22px;">Table of Contents</h3>
+<ul style="list-style:none!important;padding-left:0!important;margin:0 0 1.5em 0!important;">
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-moves-cleanly-from-magento-to-woocommerce" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What moves cleanly from Magento to WooCommerce?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-has-to-be-rebuilt-instead-of-moved" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What has to be rebuilt instead of moved?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-breaks-on-launch-day-if-you-do-nothing" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What breaks on launch day if you do nothing?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#which-migration-route-fits-your-catalog" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Which migration route fits your catalog?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#when-should-you-not-move-from-magento-to-woocomm" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">When should you not move from Magento to WooCommerce?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#what-does-a-safe-cutover-look-like" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">What does a safe cutover look like?</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#people-also-ask" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">People Also Ask</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#conclusion" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Conclusion</a></li>
+<li style="list-style:none!important;padding:8px 0 8px 32px!important;position:relative!important;line-height:1.5!important;margin:0!important;"><span aria-hidden="true" style="position:absolute!important;left:0!important;top:8px!important;"><svg viewBox="0 0 24 24" width="18" height="18" style="fill:#43627f;" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg></span><a href="#faq" style="color:#00a0e2!important;text-decoration:none!important;font-family:metropolis,arial!important;font-size:16px!important;font-weight:500!important;">Frequently asked questions</a></li>
+</ul>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="what-moves-cleanly-from-magento-to-woocommerce" style="color:#43627f;font-size:30px;">What moves cleanly from Magento to WooCommerce?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Simple, virtual, downloadable and grouped products, plus categories, tags and images, move cleanly through WooCommerce's core product importer. Customer and order records move too, but only with an extension or tool.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The table below maps sixteen Magento objects to what you get in WooCommerce. The next three sections explain each status.</p>
+<table data-rows="17" data-cols="4" data-v="middle" style="width:100%;border-collapse:collapse;margin:16px 0;">
+<thead>
+<tr>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Magento object</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>WooCommerce result</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Status</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>What to do</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Simple, virtual and downloadable products</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Same types in core</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Export CSV, then import with the core importer.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Grouped products</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Grouped products</strong></p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Match child products by SKU.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Configurable products</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Variable products with variations</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves with cleanup</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild attribute columns. Add the parent SKU to variation rows.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Bundle products</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">No core type, needs a bundles extension</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Choose the extension before you import.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Categories, tags and images</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Importer reads category paths and image URLs</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves with cleanup</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Add alt text afterwards.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Customers and addresses</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Not in core, needs an official extension or tool</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves with a tool</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Join the two export files. Plan the password step.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Orders and history</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Extension or tool, and HPOS affects plugin support</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Moves with a tool</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Test on staging with HPOS on.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Password hashes</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The Magento format is not a WordPress format</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Breaks unless handled</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Use a login-time check plugin, or have customers reset.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Customer groups</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">WordPress user roles plus a pricing plugin</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Recreate groups first, then prices.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Tier and advanced pricing</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">No core equivalent documented</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Use a pricing plugin or custom code.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Tax rules</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Tax classes and rate tables</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Re-enter or import a rate CSV. Handle tax-exempt buyers separately.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Company accounts, shared catalogs, negotiable quotes, PO approvals, requisition lists</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Not listed in core documentation</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">This is the main stay-or-go test. See the section on when not to move.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Store views and websites</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Separate WordPress sites or a plugin model</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Decide the model first.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Product URLs</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Product and category bases by default</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Breaks unless handled</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Build a 301 map.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Extensions, custom modules and theme</strong></p></td>
+<td data-th="WooCommerce result" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">No migration path</p></td>
+<td data-th="Status" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Rebuild</p></td>
+<td data-th="What to do" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Replace, drop or rebuild each one.</p></td>
+</tr>
+<tr>
+<td data-th="Magento object" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Saved payment methods</strong></p></td>
+<td data-th="WooCommerce result" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Depends on the processor</p></td>
+<td data-th="Status" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Check first</p></td>
+<td data-th="What to do" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Ask the processor before launch.</p></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr" style="font-size:14px;line-height:1.6;color:#6e6e6e;margin:4px 0 16px 0;">A plain reading of each Magento object. It contains no figures.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Basis: Adobe and WooCommerce documentation. The What to do column is Virtina's view.</p>
+<h3 style="color:#43627f;font-size:22px;">How do products and categories move?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Products and categories move as CSV files. Adobe's Magento data export page lists Advanced Pricing, Products, Customer Finances, Customers Main File, Customer Addresses and Stock Sources. CSV is the default format.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The export runs through a message queue, so cron must be running. Turn on Fields Enclosure if special characters break the transfer. Adobe last updated that page on 8 October 2026.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WooCommerce's product CSV importer handles simple, variable, grouped, external, variation, virtual and downloadable types. It matches rows on ID or SKU. Variation rows need a parent SKU or id.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The first image becomes the featured image. The core importer cannot set alt text, so add it afterwards. Columns it does not recognize are skipped, so map attribute columns by hand.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">There is no fixed file-size limit. Server memory and time set the real cap, so split large files and test on staging.</p>
+<h3 style="color:#43627f;font-size:22px;">What happens to customers and addresses?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customer and order import is not part of WooCommerce core. WooCommerce's own documentation routes it through an official import-export extension.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">That documentation recommends an order: users, products, reviews, coupons, then orders. Magento exposes Customers Main File and Customer Addresses as two separate exports. Treat them as two files to reconcile, not one.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Passwords need their own plan. The launch-day section below covers it.</p>
+<h3 style="color:#43627f;font-size:22px;">What about orders and order history?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Orders move with the official extension or a third-party tool. Since WooCommerce 8.2 in October 2023, high-performance order storage (HPOS) is on by default for new installs. An incompatible active plugin disables the HPOS option.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Test the order import on staging with HPOS switched on. Check each plugin against the <a href="https://virtina.com/woocommerce-hpos-plugin-compatibility/" style="outline: none;">HPOS plugin compatibility</a> notes before you start.</p>
+<span style="display:block;margin:20px 0;"><img alt="An export screen listing Products, Customers, Addresses and Orders beside an import screen mapping source columns to target fields with green ticks." data-id="PENDING" width="670" data-init-width="670" height="352" data-init-height="352" title="" loading="lazy" src="https://virtina.com/wp-content/uploads/PENDING-body1.jpg" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="what-has-to-be-rebuilt-instead-of-moved" style="color:#43627f;font-size:30px;">What has to be rebuilt instead of moved?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Bundle products, customer groups, tier pricing, tax rules, extensions, custom modules and the theme have to be rebuilt in WooCommerce. None of them travels in a standard data import.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Each item below needs a decision before you quote a route. Treat the rebuild list as the real scope.</p>
+<h3 style="color:#43627f;font-size:22px;">Why do configurable and bundle products need extra work?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A Magento configurable product becomes a WooCommerce variable product, and the attribute and variation rows need cleanup. That cleanup need is an inference from the two documentation sets, not a documented one-click path. Each variation row needs its parent SKU.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WooCommerce core has no bundle product type. Bundles come from a separate paid extension, so choose it before you import. Choosing late means re-importing every bundle row.</p>
+<h3 style="color:#43627f;font-size:22px;">Where do customer groups, tier pricing and tax rules go?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customer groups become WordPress user roles, plus a pricing plugin that attaches prices to them. One migration tool's page says customer groups are not recreated automatically. One plugin's published list puts customer groups, bundles, wish lists and tiered prices behind separate paid add-ons.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Group-specific prices are their own build. The <a href="https://virtina.com/woocommerce-b2b-pricing-and-access-setup/" style="outline: none;">WooCommerce B2B pricing setup</a> notes show how that work is usually shaped.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Core tax uses tax classes and rate tables, and rates import from CSV. WooCommerce marks its sample rate file as not for production. Its core tax guide does not cover tax-exempt customers, so plan that separately.</p>
+<h3 style="color:#43627f;font-size:22px;">What happens to extensions, custom modules and the theme?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Extensions, custom modules and the theme do not migrate. Every Magento extension is a feature to replace, drop or rebuild. One tool's page says themes are not transferable either.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">List every extension and custom module with its business job. Mark each one Replace, Drop or Rebuild before you quote any route.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Rebuilds of that kind are <a href="https://virtina.com/platforms/woocommerce-development-services/" style="outline: none;">WooCommerce development</a> work, not import work.</p>
+</div>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="what-breaks-on-launch-day-if-you-do-nothing" style="color:#43627f;font-size:30px;">What breaks on launch day if you do nothing?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Customer logins, product URLs and saved payment methods break on launch day unless you plan for each one.</p>
+<h3 style="color:#43627f;font-size:22px;">Why do customer passwords stop working?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WordPress cannot verify Magento password hashes natively. A plugin can verify them at login, or customers reset.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Adobe's documentation describes Magento passwords as stored in three parts: hash, salt and version. The default algorithm is Argon 2ID13, with SHA256 otherwise. Raw passwords are not stored.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WordPress core checks its own formats. WordPress 6.8 moved to bcrypt, and older phpass hashes keep working and are rehashed at the next login. That change does not cover importing hashes from other systems.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Tool makers disagree on what to promise. One plugin's premium tier lists Magento-password authentication. Another tool says passwords carry over only for supported formats, and otherwise customers go through a reset flow.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Your choice is plugin verification at login or a planned reset email. In Virtina's view, test both on staging before you decide.</p>
+<h3 style="color:#43627f;font-size:22px;">What happens to URLs and rankings?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Product URLs change unless you map them. Adobe makes the product URL suffix configurable, as html or htm. The category path is not part of product URLs by default.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WooCommerce defaults to a product base of product and a category base of product-category. Permalink options are Default, Shop base, Shop base with category and Custom base. Compare both patterns before you plan the redirects.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;"><a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener noreferrer">Google site-move guidance</a> asks for server-side 301 or 308 redirects. Map each old URL to its equivalent page. Do not send many URLs to an irrelevant page such as the homepage.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Avoid redirect chains, ideally no more than 3 hops. The Change of Address tool covers domain moves only, so it does not help when only paths change. Keep redirects in place for at least a year.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Google says temporary ranking fluctuation is normal after a move, and larger sites take longer to settle. The same redirect discipline protects <a href="https://virtina.com/redesign-without-losing-rankings/" style="outline: none;">rankings after a redesign</a>, so reuse that thinking here.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Redirect support differs by route. One tool lists redirects as a premium feature, and the official extension lists none. Check this before you buy.</p>
+<h3 style="color:#43627f;font-size:22px;">Can saved payment methods move?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Whether saved payment methods carry over depends on your payment processor and the gateway you use on WooCommerce. Ask the processor before launch.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">If the answer is no, plan for customers to re-enter a card at their next order.</p>
+<span style="display:block;margin:20px 0;"><img alt="Three laptops showing a login with Password incorrect, a Page not found error on an old product link, and a checkout reading No saved cards." data-id="PENDING" width="670" data-init-width="670" height="352" data-init-height="352" title="" loading="lazy" src="https://virtina.com/wp-content/uploads/PENDING-body2.jpg" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="which-migration-route-fits-your-catalog" style="color:#43627f;font-size:30px;">Which migration route fits your catalog?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The right migration route depends on how clean your data is and how much you have to rebuild. Manual CSV suits small clean catalogs, and the official extension suits Magento 2 data moves.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Third-party tools suit wider scope, and an agency build suits a long rebuild list.</p>
+<table data-rows="5" data-cols="4" data-v="middle" style="width:100%;border-collapse:collapse;margin:16px 0;">
+<thead>
+<tr>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Route</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Fits when</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Covers, as listed</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Gaps to check</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-th="Route" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Manual CSV</strong></p></td>
+<td data-th="Fits when" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The catalog is small and clean, with few customers</p></td>
+<td data-th="Covers, as listed" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Products, categories and images through the core importer</p></td>
+<td data-th="Gaps to check" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Customers and orders need the import-export extension. Alt text, redirects, passwords and groups are manual.</p></td>
+</tr>
+<tr>
+<td data-th="Route" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Official Magento 2 extension</strong></p></td>
+<td data-th="Fits when" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">A Magento 2 store wants products, customers and orders moved over an API</p></td>
+<td data-th="Covers, as listed" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Products, customers and orders, with filters including customer group and a configurable batch size</p></td>
+<td data-th="Gaps to check" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Magento 2 only. Needs ample CPU and memory. No redirect feature, reviews, categories, coupons or passwords listed.</p></td>
+</tr>
+<tr>
+<td data-th="Route" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Third-party tools</strong></p></td>
+<td data-th="Fits when" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The scope is wider, or the store runs Magento 1</p></td>
+<td data-th="Covers, as listed" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Published lists include products, categories, customers, orders, reviews, coupons, taxes and CMS pages</p></td>
+<td data-th="Gaps to check" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Groups, bundles, wish lists and tiered prices may need paid add-ons or manual work. Custom modules need separate assessment.</p></td>
+</tr>
+<tr>
+<td data-th="Route" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>Agency build</strong></p></td>
+<td data-th="Fits when" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The rebuild list is long, with B2B logic, custom modules or an ERP link</p></td>
+<td data-th="Covers, as listed" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The same data plus the rebuild</p></td>
+<td data-th="Gaps to check" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Only as good as the scoping. Ask for the object map first.</p></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr" style="font-size:14px;line-height:1.6;color:#6e6e6e;margin:4px 0 16px 0;">A plain reading of each Magento object. It contains no figures.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Coverage is as the makers list it. Fits when and Gaps to check are Virtina's view, not documentation.</p>
+<h3 style="color:#43627f;font-size:22px;">When is manual CSV enough?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Manual CSV is enough when the catalog is small, the data is clean and few customers need to move. Products, categories and images go through the core importer.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Everything else is manual. In Virtina's view, that means a short rebuild list or a lot of patience.</p>
+<h3 style="color:#43627f;font-size:22px;">What does the official Magento 2 extension cover?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The official extension lists products, customers and orders, and it supports Magento 2 only. It reads your store over an API, so it needs REST API keys tied to a WordPress user. WooCommerce also requires permalinks that are not Plain.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">It lists filters for products, customers and orders, including customer group. It warns that the move needs ample CPU and memory.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Reviews, categories, coupons, passwords and redirects are not listed. Treat unlisted items as unconfirmed, not as unsupported.</p>
+<h3 style="color:#43627f;font-size:22px;">Where do third-party tools fit?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Third-party tools fit a wider scope or an older Magento 1 store. One plugin's page says it is tested from Magento 1.3 to 2.4. Claims such as zero downtime are the makers' claims, so test them.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Tool coverage tracks what each maker lists, and the lists differ. For the steps that apply to any source platform, see the <a href="https://virtina.com/woocommerce-migration-guide/" style="outline: none;">WooCommerce migration guide</a>.</p>
+<h3 style="color:#43627f;font-size:22px;">When does an agency build make sense?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">An agency build makes sense when the rebuild list is long. That usually means B2B logic, custom modules or an ERP link.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">In Virtina's view, ask any <a href="https://virtina.com/woocommerce-migration-services/" style="outline: none;">WooCommerce migration services</a> partner for the object map as the first deliverable.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Every route moves the same rows. What separates them is who owns the rebuild list.</p>
+</div>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="when-should-you-not-move-from-magento-to-woocomm" style="color:#43627f;font-size:30px;">When should you not move from Magento to WooCommerce?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Do not move from Magento to WooCommerce while your store depends on features that core WooCommerce does not list. Company accounts, shared catalogs and negotiable quotes are the clearest examples.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">For the wider upgrade-or-move question, read the <a href="https://virtina.com/magento-version-support-cliff-2026/" style="outline: none;">Magento version support cliff</a> post and the <a href="https://virtina.com/magento-2-4-6-end-of-support-upgrade-or-move/" style="outline: none;">Magento 2.4.6 support deadline</a> post.</p>
+<h3 style="color:#43627f;font-size:22px;">Do company accounts and quotes map to WooCommerce?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Company accounts and negotiable quotes do not map to anything in WooCommerce's core documentation. Adobe's B2B documentation lists company accounts, company credit, company hierarchy and shared catalogs. It also lists quick order, negotiable quotes, purchase order approvals and requisition lists.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Shared catalogs and negotiable quotes apply to stores configured for company accounts. Adobe updated that page on 1 October 2026.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WooCommerce's core documentation does not list these features. They come from B2B extensions, so costing the move means costing the extensions and their testing. The <a href="https://virtina.com/a-comprehensive-guide-to-adobe-commerce-b2b-features/" style="outline: none;">Adobe Commerce B2B features</a> overview helps you mark which ones you actually use.</p>
+<h3 style="color:#43627f;font-size:22px;">Do multi-store hierarchies carry over?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Multi-store hierarchies do not carry over, because WooCommerce uses a different model. Adobe's hierarchy runs global, website, store and store view. Stores share one catalog and one admin, and store views carry language and currency symbol.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WordPress Multisite gives each site its own content tables and shares only the user table. That conclusion is an inference from the two documentation sets, so verify it against your setup.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The practical result is a rebuild, not a migration. Decide the model first.</p>
+<h3 style="color:#43627f;font-size:22px;">What if custom modules and ERP links run the business?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Custom modules have no migration path, so each one is a rebuild decision. An ERP or order-management connector built against Magento has to be rebuilt or replaced.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Scope the <a href="https://virtina.com/woocommerce-erp-integration/" style="outline: none;">WooCommerce ERP integration</a> work before you commit to a launch date.</p>
+<h3 style="color:#43627f;font-size:22px;">Is a peak-season cutover worth the risk?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A cutover inside your peak selling weeks is rarely worth the risk. Google says to expect temporary fluctuation after a move.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Redirects, a final order catch-up and login emails all need attention in the same days. In Virtina's view, pick a quieter stretch of the year.</p>
+<h3 style="color:#43627f;font-size:22px;">How do you score the decision?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Score yourself on the eight tests below. Each yes is a rebuild or a risk.</p>
+<table data-rows="9" data-cols="2" data-v="middle" style="width:100%;border-collapse:collapse;margin:16px 0;">
+<thead>
+<tr>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Test</strong></p></th>
+<th data-direction="" style="background:#43627f;color:#ffffff;padding:10px 14px;text-align:left;font-weight:600;"><p style="font-size:16px;line-height:1.75;"><strong>Why it matters</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-th="Test" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>1. Buyers need negotiable quotes or approval chains inside the storefront.</strong></p></td>
+<td data-th="Why it matters" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Core WooCommerce does not list them, so extensions and testing add scope.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>2. Prices differ by company account or shared catalog, not just by customer group.</strong></p></td>
+<td data-th="Why it matters" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Groups map to roles, but account-level pricing is a rebuild.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>3. You run several stores or store views with a shared catalog but different languages or currencies.</strong></p></td>
+<td data-th="Why it matters" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">The WordPress model differs, so this is a rebuild.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>4. Custom modules handle pricing, checkout or fulfillment logic you cannot describe on one page.</strong></p></td>
+<td data-th="Why it matters" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Undocumented logic is the hardest thing to rebuild.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>5. An ERP, PIM or OMS connector was custom-built against Magento.</strong></p></td>
+<td data-th="Why it matters" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">It has to be rebuilt or replaced.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>6. A large share of your search traffic lands on URLs you cannot map one to one.</strong></p></td>
+<td data-th="Why it matters" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Weak redirect maps put that traffic at risk.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>7. The cutover would land inside your peak selling weeks.</strong></p></td>
+<td data-th="Why it matters" style="background:#f4f6f9;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">Launch problems cost the most when volume is highest.</p></td>
+</tr>
+<tr>
+<td data-th="Test" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;"><strong>8. No one on your team can own plugin updates, hosting and staging after the move.</strong></p></td>
+<td data-th="Why it matters" style="background:#ffffff;padding:10px 14px;border-bottom:1px solid #dde0e6;vertical-align:top;"><p style="font-size:16px;line-height:1.75;">An open source store needs a named owner.</p></td>
+</tr>
+</tbody>
+</table>
+<p dir="ltr" style="font-size:14px;line-height:1.6;color:#6e6e6e;margin:4px 0 16px 0;">A plain reading of each Magento object. It contains no figures.</p>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">These tests and the verdicts below are Virtina's opinion, not research findings.</p>
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>0 to 1 yes.</strong> the move is mostly data work. Go.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>2 to 3 yes.</strong> scope the rebuild list before you commit.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>4 or more yes.</strong> fix or upgrade Magento first, and revisit the move later.</span></li>
+</ul>
+<span style="display:block;margin:20px 0;"><img alt="Two checklists: Stay lists company accounts, shared catalogs and quote requests, and Move lists simple catalog, standard checkout and clean data." data-id="PENDING" width="670" data-init-width="670" height="352" data-init-height="352" title="" loading="lazy" src="https://virtina.com/wp-content/uploads/PENDING-body3.jpg" data-width="670" data-height="352" style="aspect-ratio: auto 670 / 352;max-width:100%;"></span>
+</div>
+<div style="background:linear-gradient(rgba(0,160,226,0.13),rgba(0,160,226,0.13));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="what-does-a-safe-cutover-look-like" style="color:#43627f;font-size:30px;">What does a safe cutover look like?</h2>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">A safe cutover tests the new store on staging and maps every old URL to its new address. DNS switches only after orders, prices and logins have been reconciled.</p>
+<h3 style="color:#43627f;font-size:22px;">What do you finish before launch day?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">Finish these five steps before you switch anything live:</p>
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 1.</strong> Freeze scope and keep a baseline: a URL crawl, your top landing pages, and order and revenue totals.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 2.</strong> Import on staging in the extension's documented order, and reconcile counts for products, variations, customers and orders.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 3.</strong> Rebuild the mapped items: groups, pricing, tax including tax-exempt buyers, shipping and payment.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 4.</strong> Run test orders for each customer group, including negotiated prices and tax-exempt accounts.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 5.</strong> Build and test the redirect map, and lower the DNS TTL ahead of the switch. Lowering TTL is common practitioner practice, not a documented requirement.</span></li>
+</ul>
+<h3 style="color:#43627f;font-size:22px;">What do you check after launch?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">These four steps run after the switch, and the redirect rules come from Google's guidance linked earlier:</p>
+<ul style="list-style:none;padding-left:4px;margin:8px 0 16px 0;">
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 6.</strong> Run a final catch-up import of orders placed since the test import.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 7.</strong> Send the login or reset email to customers.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 8.</strong> Monitor redirects and crawl errors.</span></li>
+<li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;"><span style="flex-shrink:0;margin-top:6px;width:9px;height:9px;background-color:#43627f;border-radius:50%;display:inline-block;"></span><span style="font-size:16px;line-height:1.75;color:#2d3e50;"><strong>Step 9.</strong> Keep redirects in place for at least a year, and expect temporary ranking fluctuation.</span></li>
+</ul>
+</div>
+<div style="background:linear-gradient(rgba(241,243,250,0.5),rgba(241,243,250,0.5));border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="people-also-ask" style="color:#43627f;font-size:30px;">People also ask</h2>
+<h3 style="color:#43627f;font-size:22px;">Can you migrate Magento customer passwords to WooCommerce?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WordPress cannot verify Magento password hashes natively. A plugin can verify them at login, or customers reset. Test both paths on staging.</p>
+<h3 style="color:#43627f;font-size:22px;">Will you lose rankings moving from Magento to WooCommerce?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">No source promises either outcome. Google asks for one-to-one 301 or 308 redirects, tested before launch. It also says temporary fluctuation is normal after a move.</p>
+<h3 style="color:#43627f;font-size:22px;">Does WooCommerce support Magento B2B features out of the box?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">WooCommerce's core documentation does not list company accounts, shared catalogs or negotiable quotes. Extensions fill those gaps. Costing the move means costing those extensions.</p>
+<h3 style="color:#43627f;font-size:22px;">Can you migrate Magento 1 to WooCommerce directly?</h3>
+<p dir="ltr" style="font-size:16px;line-height:1.75;">The official extension supports Magento 2 only. One plugin's page says it is tested from Magento 1.3 onward. Check route fit before you assume either way.</p>
+</div>
+<div style="background:#00d5c0;border-radius:20px;padding:30px;margin:0 0 28px 0;"><h2 id="conclusion" style="color:#ffffff;font-size:30px;">Conclusion</h2>
+<p style="color:#ffffff;font-size:16px;line-height:1.75;">The data moves. The rebuild list decides. Products, categories and images are the easy rows, while groups, pricing, accounts, URLs and logins shape the plan.</p>
+<p style="color:#ffffff;font-size:16px;line-height:1.75;">Start with the object map and the scorecard, then choose the route. If you want a second opinion on your own list, talk to Virtina and bring it along.</p>
+</div>
+<h2 id="faq" style="color:#43627f;font-size:30px;">Frequently asked questions</h2>
+<div>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">What is the hardest part of a Magento to WooCommerce migration?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">The rebuild list, not the import. Products travel in a CSV. Company accounts, group prices, extensions and the URL map take the real work.</p></div></details>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Which data cannot be migrated automatically?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">A standard data import does not carry customer groups, tier pricing or tax rules. It also skips extension data, custom modules and the theme.</p></div></details>
+<p dir="ltr" style="font-size:16px;line-height:1.75;"> Password hashes and product URLs need a separate step. Tool makers differ, so confirm each item per route.</p>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Do I need an extension to import customers and orders?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Yes, or a migration tool. Customer and order import is not part of WooCommerce core. WooCommerce's documentation points to an official import-export extension.</p></div></details>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">What happens to reviews and coupons?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Tool lists differ. Some list reviews and coupons, and the official Magento 2 extension's listing does not mention them. Confirm per route with a staging import before you rely on either.</p></div></details>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">How long should Magento redirects stay in place?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Google recommends at least a year. Keep them longer if old URLs still receive links or visits.</p></div></details>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Can I test the migration before switching?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">Yes. Build and test on staging, and run test orders for each customer group. Double-check payment settings so the test store and the live store do not both bill customers.</p></div></details>
+<details class="vfaq" style="background:transparent;margin-top:7px;"><summary style="cursor:pointer;padding:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(245,245,245,0.5);"><span style="font-size:16px;font-weight:600;color:#43627f;line-height:2;flex:1;">Is WooCommerce a good fit for B2B stores moving off Magento?</span><svg viewBox="0 0 24 24" width="17" height="17" style="fill:#50565f;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M8,12A2,2 0 0,1 10,10A2,2 0 0,1 12,12A2,2 0 0,1 10,14A2,2 0 0,1 8,12M0,12A2,2 0 0,1 2,10A2,2 0 0,1 4,12A2,2 0 0,1 2,14A2,2 0 0,1 0,12Z"/></svg></summary><div class="vfaq-answer" style="padding:30px 22px;background:#fff;"><p dir="ltr" style="font-size:16px;line-height:1.75;">It depends on the scorecard. Extensions can fill gaps that core WooCommerce does not list, but each one adds cost and testing. Some stores should stay on Magento.</p></div></details>
+</div>
+<p dir="ltr" style="font-size:16px;line-height:1.75;"><strong>Virtina</strong> is an eCommerce agency that works with B2B and B2C brands on platform moves, integrations and speed fixes.</p>

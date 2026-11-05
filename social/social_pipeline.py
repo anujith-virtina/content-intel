@@ -68,6 +68,12 @@ def wp_auth(cfg, env):
 def wp_post(cfg, env, post_id):
     r = requests.get('%s/wp-json/wp/v2/posts/%s?context=edit' % (cfg['wp']['site'], post_id),
                      headers=wp_auth(cfg, env), timeout=60)
+    if r.status_code == 500:
+        # Some posts 500 on the single-post route but load through the collection route.
+        r = requests.get('%s/wp-json/wp/v2/posts?include=%s' % (cfg['wp']['site'], post_id),
+                         headers={'User-Agent': UA}, timeout=60)
+        r.raise_for_status()
+        return r.json()[0]
     r.raise_for_status()
     return r.json()
 
@@ -389,7 +395,7 @@ def draw_form(cfg, slide, number, total):
     x0, x1, top = 150, W - 150, y + 34
     fields = slide['fields']
     step = 92 if cfg.get('site_label') else 104
-    bottom = top + 100 + len(fields) * step + 96
+    bottom = top + 100 + len(fields) * step + (96 if slide.get('button') else 24)
     d.rounded_rectangle([x0 + 8, top + 14, x1 + 8, bottom + 14], radius=30, fill='#030a17')
     d.rounded_rectangle([x0, top, x1, bottom], radius=30, fill=UI['screen'])
     d.text((x0 + 40, top + 34), slide['title'], font=font(cfg, 'extrabold', 34), fill=UI['ink'])
@@ -402,8 +408,9 @@ def draw_form(cfg, slide, number, total):
         d.rounded_rectangle([x0 + 40, fy + 30, x1 - 40, fy + 86], radius=12, fill=UI['field'], outline=UI['line'], width=2)
         d.text((x0 + 60, fy + 58), fld['value'], font=f_val, fill=UI['ink'], anchor='lm')
         fy += step
-    d.rounded_rectangle([x0 + 40, fy + 4, x1 - 40, fy + 66], radius=14, fill=UI['bad'])
-    d.text((W / 2, fy + 35), slide['button'], font=font(cfg, 'semibold', 28), fill='#ffffff', anchor='mm')
+    if slide.get('button'):
+        d.rounded_rectangle([x0 + 40, fy + 4, x1 - 40, fy + 66], radius=14, fill=UI['bad'])
+        d.text((W / 2, fy + 35), slide['button'], font=font(cfg, 'semibold', 28), fill='#ffffff', anchor='mm')
     if slide.get('note'):
         f = font(cfg, 'semibold', 30)
         tw = d.textlength(slide['note'], font=f)
@@ -739,7 +746,7 @@ LIMITS = {'headline_top': 34, 'headline_main': 26, 'sub': 58, 'label': 20, 'deta
           'button': 28, 'note': 40, 'kicker': 30, 'line1': 32, 'line2': 32,
           'query': 40, 'site': 30, 'snippet': 110, 'result_title': 60}
 REQUIRED = {'poster': ('headline_top', 'headline_main', 'sub'), 'point': ('headline', 'body'), 'chat': ('headline',),
-            'split': ('headline',), 'search': ('headline', 'query'), 'form': ('headline', 'title', 'button'), 'statement': ('kicker', 'line1', 'line2'),
+            'split': ('headline',), 'search': ('headline', 'query'), 'form': ('headline', 'title'), 'statement': ('kicker', 'line1', 'line2'),
             'phone': ('headline',)}
 NOT_DRAWN = ('type', 'alt', 'who', 'typing', 'good', 'kind')
 
@@ -785,7 +792,11 @@ def qa(pack, cfg, source):
         mode = (r.get('caption_emoji') or {}).get(label.split('.')[0])
         allowed = HOUSE_EMOJI.sub('', text) if mode == 'house' else NUM_EMOJI.sub('', text) if mode == 'numbers' else text
         need(not EMOJI.search(allowed), '%s: emoji not allowed here' % label)
-        need(pack['canonical_url'] in text, '%s: article URL missing' % label)
+        in_comment = label.startswith('linkedin') and pack['canonical_url'] in (pack['linkedin'].get('first_comment') or '')
+        ig_no_url = label.startswith('instagram') and pack['instagram'].get('no_url')
+        need(pack['canonical_url'] in text or in_comment or ig_no_url, '%s: article URL missing' % label)
+        if in_comment or ig_no_url:
+            need(pack['canonical_url'] not in text, '%s: URL must not be in the caption body' % label)
     for label, field, text in drawn:
         need(text.strip(), '%s: empty' % label)
         need(len(text) <= LIMITS.get(field, 170), '%s: %d chars, max %d' % (label, len(text), LIMITS.get(field, 170)))

@@ -47,7 +47,7 @@
   },
   "rules": {
     "linkedin_chars": [
-      1500,
+      600,
       2200
     ],
     "linkedin_hook_chars": 210,

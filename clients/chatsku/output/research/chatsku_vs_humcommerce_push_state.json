@@ -1,0 +1,50 @@
+{
+  "post_id": 4095,
+  "link": "https://chatsku.com/?p=4095",
+  "media": {
+    "featured": {
+      "id": 4097,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-featured-1.jpg",
+      "alt": "Split scene of a laptop showing one line of code with a green tick beside a whiteboard of unfinished sticky notes for a phased project."
+    },
+    "body1": {
+      "id": 4098,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body1-1.jpg",
+      "alt": "Laptop with a glowing Live badge and one line of code beside a four phase board where Plan and Connect are ticked and Pilot and Launch are empty."
+    },
+    "body2": {
+      "id": 4099,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body2-1.jpg",
+      "alt": "Stack of printed catalogs and a spreadsheet feeding a chat window beside a server rack feeding live ERP data into another chat window."
+    },
+    "body3": {
+      "id": 4100,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body3-1.jpg",
+      "alt": "Two answer cards under the same buyer message, one showing a tiered group price with a Quote button, one a contract price stamped Approved."
+    }
+  },
+  "media_history": [
+    {
+      "featured": {
+        "id": 4097,
+        "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-featured-1.jpg",
+        "alt": "Split scene of a laptop showing one line of code with a green tick beside a whiteboard of unfinished sticky notes for a phased project."
+      },
+      "body1": {
+        "id": 4098,
+        "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body1-1.jpg",
+        "alt": "Laptop with a glowing Live badge and one line of code beside a four phase board where Plan and Connect are ticked and Pilot and Launch are empty."
+      },
+      "body2": {
+        "id": 4099,
+        "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body2-1.jpg",
+        "alt": "Stack of printed catalogs and a spreadsheet feeding a chat window beside a server rack feeding live ERP data into another chat window."
+      },
+      "body3": {
+        "id": 4100,
+        "url": "https://chatsku.com/wp-content/uploads/2026/11/chatsku-vs-humcommerce-body3-1.jpg",
+        "alt": "Two answer cards under the same buyer message, one showing a tiered group price with a Quote button, one a contract price stamped Approved."
+      }
+    }
+  ]
+}

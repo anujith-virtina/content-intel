@@ -1,0 +1,91 @@
+{
+  "client": "chatsku",
+  "slug": "inquiry-tracking-seven-day-count",
+  "date": "2026-11-02",
+  "wp_post_id": 4015,
+  "canonical_url": "https://chatsku.com/inquiry-tracking-seven-day-count/",
+  "title": "How many B2B inquiries never reach your pipeline? Run a 7-day count",
+  "approved": true,
+  "linkedin": {
+    "post": "Your best rep may have the worst score.\n\nAnswering every email is not the same as logging it.\n\nI sit on the website door of a B2B catalog.\n\nWhen a buyer asks me a question at 9pm, it becomes an entry.\n\nA person can open it in the morning.\n\nThe other doors work differently.\n\nA phone call ends when the receiver goes down.\n\nAn email waits in one inbox.\n\nA rep's memory is not a record.\n\nHere is the twist about running a count.\n\nDo not announce it as an audit of people.\n\nReps who feel watched tally less. Your baseline is wrong before day one.\n\nCall it a count of doors.\n\nI do not record phone calls or email. That part is process, and it is yours.\n\nBut every website conversation I handle becomes a record.\n\nSo one door stops leaking while you fix the others.\n\nWhich door leaks most in your shop?",
+    "first_comment": "Full guide to the 7-day count: https://chatsku.com/inquiry-tracking-seven-day-count/",
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "SalesOps",
+      "PipelineVisibility"
+    ]
+  },
+  "instagram": {
+    "caption": "Nobody is lying about last week's quotes. They are counting different piles.\n\nOne pile is in an inbox. One is in a notebook. One lives in a rep's head.\n\nHere is a test I like.\n\nCan a teammate find the entry without asking you?\n\nIf not, it is not a record. It is a private memory with a deadline.\n\nYou do not need new software to see this. You need a tally sheet and one honest week.\n\nI sit on the website door and write down every conversation I handle. Phone and email are a different job.\n\nWhich door leaks most in your shop?\n\nFull guide: link in bio",
+    "no_url": true,
+    "hashtags": [
+      "Manufacturing",
+      "Distribution",
+      "B2BeCommerce",
+      "SalesOps"
+    ]
+  },
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "Three people. Three answers.",
+      "headline_main": "One Monday question.",
+      "sub": "How many inquiries came in last week?",
+      "cards": [
+        {
+          "label": "Counter rep",
+          "detail": "A handful"
+        },
+        {
+          "label": "Inside sales",
+          "detail": "19 came by email"
+        },
+        {
+          "label": "Shared CRM",
+          "detail": "11 on record"
+        }
+      ],
+      "alt": "Tense Monday morning with three colleagues each holding a different glowing number note"
+    },
+    {
+      "type": "point",
+      "headline": "Email is the biggest pile.",
+      "body": "Example week: 41 emails counted, 16 with a shared record. The other 25 sat in personal inboxes.",
+      "alt": "A sales rep buried under an avalanche of glowing envelopes representing the email door"
+    },
+    {
+      "type": "point",
+      "headline": "Phone is the leakiest door.",
+      "body": "15 of 17 product calls left no record. The phone rang, someone answered, and nothing was written down.",
+      "alt": "A desk phone ringing in a dark empty office with fading sound rings representing the phone door"
+    },
+    {
+      "type": "point",
+      "headline": "The whole formula fits on a note.",
+      "body": "Counted minus recorded, divided by counted. In the example, 41 of 70 is about 59%.",
+      "alt": "Glowing calculator and tally sheets under a spotlight showing the unlogged inquiry formula"
+    },
+    {
+      "type": "point",
+      "headline": "Your number is a floor.",
+      "body": "Buyers who looked and left never appear on a tally. The true gap is at least this wide.",
+      "alt": "Iceberg with a small tip above a desk and a huge glowing mass below representing unseen lost inquiries"
+    },
+    {
+      "type": "point",
+      "headline": "Count it this week.",
+      "body": "Tally sheets on Monday. Reconcile on day eight. Fix the biggest door first, then count again.",
+      "alt": "Sunrise over a desk with a tally clipboard and a clean glowing dashboard"
+    }
+  ],
+  "state": {
+    "linkedin": {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7522985083121721344/",
+      "posted_at": "2026-11-02T17:09:05",
+      "via": "browser",
+      "first_comment_posted": true
+    }
+  }
+}

@@ -214,7 +214,7 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/demo/` — book a demo
   - `/signup/` — start free trial
   - `/features/` — catalog integration / what ChatSKU connects to
-  - ~~`/pricing/`~~ — **DO NOT USE. Verified 2026-09-07: 301-redirects to `/ROI-Calculator`. There is no standalone pricing page.**
+  - ~~`/pricing/`~~ — **DO NOT USE for links in posts. Verified 2026-09-07: `/pricing/` 301-redirects to `/ROI-Calculator`. NOTE 2026-11-04: `/chatsku-pricing/` is live (200) but its plans exclude customer groups and tiered pricing from the free trial; do not promise those in trials.**
   - `/roi-calculator/` — model the ROI / revenue impact (verified 200, 2026-09-07). **`/revenue-calculator` is stale: it 301-redirects here. Always use the canonical `/roi-calculator/`.**
   - `/faq/` — FAQ page
   - `/for-b2b-manufacturers-distributors-and-wholesalers/` — solution page for distributors/manufacturers
@@ -260,6 +260,8 @@ No custom CSS circles, no inline `border-radius:50%`, no `list-style:none` overr
   - `/will-ai-replace-b2b-sales-reps/` — Will AI replace your B2B sales reps? What actually changes for your team (post 3010, live, published 2026-09-21 — owns the "will it replace reps" framing, the four-persona day-in-the-life narrative (rep/manager/new-hire/owner), the "is it actually cutting jobs" evidence debate, and careless-rollout failure modes. Format D.)
   - `/sales-kpis-comp-ramp-ai-catalog-assistant/` — What changes in your sales KPIs, comp plan, and ramp-up once AI handles first-touch (post 3294 — prescriptive support post for 3010: owns the three operational levers (KPI redesign: deflection rate/qualified-handoff rate/time-to-quota; comp-plan trigger reset; 90-day ramp curriculum). Deliberately NOT a persona narrative. Format A. Stats discipline: BCG 2025 survey cited only as hedged directional evidence, no number attached; SalesCookie and Mindtickle figures excluded as inapplicable/unsourced. **Still a draft — do not link to it until it is published.**)
   - `/woocommerce-b2b-chatbot-buyers-guide/` — Most "how to choose a WooCommerce B2B chatbot" guides ask you the wrong questions (post 3305 — focused keyword "woocommerce b2b chatbot", shared with 685 and 1455 by deliberate user choice. Owns vendor-agnostic BUYER'S EVALUATION intent (commercial-investigation, no vendor chosen yet): six in-demo tests (pricing-plugin blind spot, WooCommerce-vs-ERP evaluation mismatch, variation+tier combo, spike-month billing, escalation-vs-hallucination behavior, plugin-switch portability). Format E. Never ranks ChatSKU #1, never names HumCommerce, never cites the Forrester 94% figure or any specific plugin price. Mandatory hand-off links to both 685 (deployment how-to) and 1455 (API/plugin architecture) — do not let a future post re-explain either. **Still a draft — do not link to it until it is published.**)
+  - `/inquiry-tracking-seven-day-count/` — How many B2B inquiries never reach your pipeline? Run a 7-day count (post 4015, live, published 2026-11-02 — supporting post for the `/black-hole-pipeline/` money page; owns the MEASUREMENT step: the 7-Day Inquiry Count, the coined "unlogged inquiry rate" formula, ownerless rate, stale-stage count, per-door worked example (illustrative), and the honest "the rate is a floor" section. Format D. Zero external stats and zero external links by design. Never claims ChatSKU captures phone or email. Fenced against 299, 3846, 3010, 3929, 3294.)
+  - `/best-b2b-platforms-for-catalog-chatbot/` — Best B2B store platforms for a catalog chatbot: Shopify, BigCommerce, WooCommerce and Magento (post 4078, live, published 2026-11-04 — owns the FOUR-PLATFORM COMPARISON framed by what a catalog assistant needs FROM the platform: specs in fields, buyer-specific prices, API access with change events, quote handoff; the price-rule-precedence idea; the Volusion/older-platform section with Virtina Template B. Format B. Fenced against 685, 1455, 1056, 3066, 3305, 3039 and Blog 1 `/is-your-b2b-catalog-ready-for-ai-chatbot/`. Table holds only verified cells; four cells deliberately say check current docs.)
   - Add new posts to this list immediately after publishing
   - **Note: `/product-information-management-software/` (post 1538) 404s while post 1538 stays in WP draft status. Do not link to it until it is published.**
   - `/tiered-b2b-pricing-online/` — Tiered B2B pricing (post 3039). **The short slug 301-redirects to `/one-catalog-a-thousand-prices-making-tiered-b2b-pricing-work-online/`, which is canonical. The REST API reports the short slug, so a redirect-following check returns 200 and hides this. Verified 2026-09-30.**
@@ -428,6 +430,22 @@ Real or representative client scenarios with concrete numbers. Use for: "How a m
 2. Do not use Format A for more than 1 of the next 3 posts — rotate
 3. Pick format that best fits the topic
 4. Brief must state chosen format and reason
+
+---
+
+## 11b. AI VISIBILITY FIRST (user instruction, 2026-11-05)
+
+Classic SEO is slow. AI visibility matters most: LLM platforms (ChatGPT, Perplexity, Gemini, Claude, AI Overviews) must be able to find, read and cite ChatSKU's pages. The user's observation is that comparison-type posts earn AI visibility quickly. Treat this as a strategy, not a guarantee, and never promise results in copy or reports.
+
+1. **Prefer brand-vs-brand comparison posts** ("ChatSKU vs [named competitor]", "ChatSKU alternatives", "best [category] tools"). This is what the user means by a comparison post (clarified 2026-11-05). Naming competitors is allowed in these posts, overriding the old no-competitor-names habit. Every claim about a competitor must come from its own public pages or documentation, dated, and be fair and neutral: say where the competitor is the better fit. No invented pricing, no disparagement, no unverifiable claims. Decision posts (build vs buy, which to choose) are the second choice.
+2. **Answer first.** Every H2 starts with a direct, self-contained answer in its first one or two sentences, so a model can quote it alone.
+3. **Define the entity early.** Name ChatSKU exactly and describe it in one plain sentence (see brand.md): what it is, who it is for, what it does. Keep that wording consistent across posts.
+4. **A real comparison table** with named criteria and neutral, factual cells. No invented numbers.
+5. **Quotable structure:** short paragraphs, a short summary near the top, a clear conclusion, a People Also Ask block and FAQ with plain answers.
+6. **Verifiable and dated.** Every fact traces to a source or to ChatSKU's own pages. State the check date for anything that changes (features, platform capabilities).
+7. **Link the pages AI should see:** the home page, the live demo, the RFQ page and the relevant platform page, with natural anchors.
+8. **Schema:** use the FAQ and Article/AIO-GEO schema pattern from post 4015 where the build supports it.
+9. The analyzer must record in the brief which comparison the post makes, the criteria in the table, and the question each H2 answers.
 
 ---
 

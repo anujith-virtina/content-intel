@@ -1,0 +1,47 @@
+{
+  "client": "chatsku",
+  "slug": "catalog-ready-ai-chatbot",
+  "date": "2026-11-03",
+  "channel": "ChatSKU company page (document post)",
+  "wp_post_id": 4066,
+  "related_post": "https://chatsku.com/is-your-b2b-catalog-ready-for-ai-chatbot/",
+  "slides": [
+    {
+      "type": "poster",
+      "headline_top": "AX-4410. AX4410.",
+      "headline_main": "Same part. Zero results.",
+      "sub": "A missing dash just cost you a buyer.",
+      "alt": "Night-time buyer holding a sticky note with a part number while her search shows no results and a competitor's site glows behind her."
+    },
+    {
+      "type": "point",
+      "headline": "She types ball valve.",
+      "body": "Your catalog says BV-050-BR. Add the words buyers type, plus old part numbers.",
+      "alt": "Brass valve pulled between buyer words and internal catalog codes."
+    },
+    {
+      "type": "point",
+      "headline": "Specs trapped in a PDF.",
+      "body": "A buyer on a phone will not pinch a 14-page datasheet. Move top specs into fields.",
+      "alt": "Buyer on a phone blocked by a giant chained PDF tablet."
+    },
+    {
+      "type": "point",
+      "headline": "A fast wrong answer hurts.",
+      "body": "Site says in stock. Warehouse says no. Trust drops. Match prices and stock to your ERP.",
+      "alt": "Shop-window display full of stock in front of an empty warehouse."
+    },
+    {
+      "type": "point",
+      "headline": "Answer to quote, one place.",
+      "body": "Every retyped part number loses buyers. Let her ask, add and request a quote together.",
+      "alt": "Buyer at a broken bridge between an answer and a quote."
+    },
+    {
+      "type": "point",
+      "headline": "Fix the catalog. Then the chat.",
+      "body": "The full guide has all seven checks. Run check 1 on your top five parts today.",
+      "alt": "Organised night warehouse with a glowing assistant beside a clean catalog."
+    }
+  ]
+}

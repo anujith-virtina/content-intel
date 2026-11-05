@@ -1,0 +1,26 @@
+{
+  "post_id": 4090,
+  "link": "https://chatsku.com/?p=4090",
+  "media": {
+    "featured": {
+      "id": 4086,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/build-or-buy-ai-catalog-assistant-featured.jpg",
+      "alt": "Three paper cards labelled Build, Hybrid and Buy on a desk beside a pen and a printed product catalog page, for choosing an AI catalog assistant."
+    },
+    "body1": {
+      "id": 4087,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/build-or-buy-ai-catalog-assistant-body1.jpg",
+      "alt": "Split panel on a monitor listing what you build yourself, login, pricing, quote and review, beside what the model API gives you."
+    },
+    "body2": {
+      "id": 4088,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/build-or-buy-ai-catalog-assistant-body2.jpg",
+      "alt": "A laptop showing a comparison table with Build, Buy and Hybrid columns and rows for time, pricing, quote, security and upkeep."
+    },
+    "body3": {
+      "id": 4089,
+      "url": "https://chatsku.com/wp-content/uploads/2026/11/build-or-buy-ai-catalog-assistant-body3.jpg",
+      "alt": "A clipboard with a four step decision path of product, rules, data and engineers, beside an open product catalog page."
+    }
+  }
+}

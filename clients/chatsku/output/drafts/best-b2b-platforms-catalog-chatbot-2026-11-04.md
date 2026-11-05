@@ -20,8 +20,6 @@ headlines:
 
 ## Executive Summary
 
-Updated November 2026
-
 No single B2B store platform is best for a catalog chatbot, because the right one depends on your catalog shape, pricing rules, team, and budget. This guide treats B2B platforms for catalog chatbot use as a decision, not a ranking.
 
 An AI catalog assistant needs four things from the store: specs in fields, buyer-specific prices, API access, and a quote handoff. Shopify, BigCommerce, WooCommerce, and Magento each cover those needs in different ways.

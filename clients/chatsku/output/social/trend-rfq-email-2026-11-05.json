@@ -1,0 +1,92 @@
+{
+ "client": "chatsku",
+ "slug": "trend-rfq-email",
+ "date": "2026-11-05",
+ "wp_post_id": 0,
+ "canonical_url": "https://chatsku.com/rfq-automation-for-product-catalogs/",
+ "title": "An RFQ email is not a quote request yet",
+ "approved": true,
+ "linkedin": {
+  "post": "An RFQ email usually leaves out the one thing I need to quote it.\n\nA buyer writes, \"Need 500 stainless fasteners, can you quote?\" There is no size, no grade and no delivery date.\n\nSomeone on your team writes back with questions. The buyer waits for the next message.\n\nI ask those questions in the conversation. Size, quantity and timeline come up in one chat, and your team gets a complete request.\n\nWhich detail does your team chase most often on a quote request?\n\nSee how it works:\nhttps://chatsku.com/rfq-automation-for-product-catalogs/",
+  "hashtags": [
+   "Manufacturing",
+   "Distribution",
+   "B2BeCommerce",
+   "RFQ"
+  ]
+ },
+ "instagram": {
+  "caption": "A one-line RFQ email is not a quote request yet.\n\n\"Need 500 stainless fasteners, can you quote?\" No size, no grade, no delivery date.\n\nI ask those questions in the conversation, so your team receives a complete request instead of a thread of follow-ups.\n\nWhich detail does your team chase most often on a quote request?\n\nSee how it works:\nhttps://chatsku.com/rfq-automation-for-product-catalogs/",
+  "hashtags": [
+   "Manufacturing",
+   "Distribution",
+   "B2BeCommerce",
+   "RFQ"
+  ]
+ },
+ "slides": [
+  {
+   "type": "statement",
+   "kicker": "The RFQ email",
+   "line1": "An RFQ email is not",
+   "line2": "a quote request yet.",
+   "sub": "It leaves out what a quote needs.",
+   "alt": "Statement slide: an RFQ email is not a quote request yet"
+  },
+  {
+   "type": "split",
+   "headline": "One line in, three gaps out",
+   "accent": "Your team writes back",
+   "left": {
+    "title": "The email",
+    "big": "1 line",
+    "text": "\"Need 500 stainless fasteners, can you quote?\""
+   },
+   "right": {
+    "title": "Still missing",
+    "big": "3 gaps",
+    "text": "Size, grade and delivery date."
+   },
+   "footer": "Every gap is another message and another wait.",
+   "alt": "Split slide comparing a one-line RFQ email with the three details still missing"
+  },
+  {
+   "type": "chat",
+   "headline": "I ask while the buyer is here",
+   "accent": "One question at a time",
+   "screen": "ChatSKU",
+   "messages": [
+    {
+     "who": "buyer",
+     "text": "Need 500 stainless fasteners, can you quote?"
+    },
+    {
+     "who": "catalog",
+     "text": "Which size and grade do you need?"
+    },
+    {
+     "who": "catalog",
+     "text": "When do you need delivery?",
+     "tag": "Request taking shape"
+    }
+   ],
+   "alt": "Chat slide where the assistant asks the buyer for size, grade and delivery date"
+  },
+  {
+   "type": "statement",
+   "kicker": "What your team gets",
+   "line1": "A complete request,",
+   "line2": "not a thread of follow-ups.",
+   "sub": "See how it works at chatsku.com",
+   "alt": "Statement slide: your team gets a complete request, not a thread of follow-ups"
+  }
+ ],
+ "state": {
+  "linkedin": {
+   "url": "https://www.linkedin.com/company/112709006/admin/page-posts/published/",
+   "posted": "2026-11-05",
+   "format": "4-image post (statement, split, chat, statement)",
+   "route": "google-trends"
+  }
+ }
+}
