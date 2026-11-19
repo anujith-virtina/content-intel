@@ -113,6 +113,10 @@ Standing instruction from the user (2026-11-02): image quality is never compromi
 - Images are realistic documentary-style photos of a person in the exact situation of the section (for example a worried developer at a laptop showing a WooCommerce error). No abstract concept art, neon, glow, or metaphor scenes.
 - A client's MUST-FOLLOW-RULES.md may set the displayed dimensions, but it cannot lower these quality floors.
 
+## Blog standard: SEO + AEO + GEO + AIO (all clients)
+
+Standing instruction from the user (2026-11-19): every blog is written for search engines and AI answer engines together. `reference/blog-standard-seo-aeo-geo-aio.md` defines the structure (Quick Answer, Key Takeaways, question H2s with direct answers, table, checklist, PAA, FAQ mirrored in schema) and the QA gate. Tell the analyzer, creator and publisher to read it, alongside the client's MUST-FOLLOW-RULES.md, which still wins on visual and format rules.
+
 ## Per-client mandatory rules
 
 When working on any client task, before delegating to sub-agents, read `clients/{client-slug}/MUST-FOLLOW-RULES.md` if it exists. Instruct every sub-agent to read this file as their first action.
