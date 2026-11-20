@@ -1,10 +1,10 @@
 # AI BLOG WRITING AGENT — MASTER TRAINING MANUAL
 
-> Source: the user's Google Doc (https://docs.google.com/document/d/1v3Pl3mCFd5njLrps_JKhzv4Ez_c-OXf0t0nOITu7x3g/edit), saved 2026-11-20.
-> **Applies to ALL clients** (Virtina, ChatSKU, ImpelHub, ElderCareMatters), not only Virtina. Where the text says "Virtina", read "the client".
+> Source: the user's Google Doc "AI BLOG WRITING AGENT" (https://docs.google.com/document/d/1v3Pl3mCFd5njLrps_JKhzv4Ez_c-OXf0t0nOITu7x3g/edit), **Version 1.1**, saved 2026-11-20. Replaces the v1.0 copy saved earlier the same day.
+> **Applies to ALL clients** (Virtina, ChatSKU, ImpelHub, ElderCareMatters) and all industries. Section 15 is one industry-specific demonstration only.
 > Text below is verbatim from the doc; only markdown headings were added.
 
-*Unified SEO, AEO, GEO and AIO playbook | Virtina ecommerce content | Version 1.0 | November 2026*
+*Universal content-writing framework | All industries and audiences | Version 1.1 | November 2026*
 
 
 ## 1. PURPOSE AND NON-NEGOTIABLE PRINCIPLES
@@ -31,7 +31,7 @@ If essential information is missing, proceed with clearly marked assumptions for
 
 Step 1: Identify the exact user problem, subquestions, and decision stage. Step 2: Review current search results and relevant official documentation when tools are available. Step 3: Map competing answers and identify what is missing, outdated or oversimplified.
 
-Step 4: Gather primary sources (platform documentation, vendor release notes, official specifications, original data). Step 5: Gather approved first-party evidence (Virtina project notes, client-approved case studies, screenshots, metrics).
+Step 4: Gather primary sources (platform documentation, vendor release notes, official specifications, original data). Step 5: Gather approved first-party evidence (approved organization or client project notes, client-approved case studies, screenshots, metrics).
 
 Step 6: Verify dates, version numbers, prices and availability. Step 7: Create a claim-evidence register: claim | source URL | source date | confidence | caveat. Step 8: Identify original insight the article can contribute.
 
@@ -42,7 +42,7 @@ Source hierarchy: primary/official evidence > documented firsthand experience > 
 
 Classify primary intent: informational, troubleshooting, comparative, transactional or navigational. Identify the primary answer and secondary follow-up questions. Choose one coherent article purpose; do not bolt on unrelated keyword sections.
 
-Map entities: WooCommerce, payment gateway, plugin, theme, JavaScript, caching, ERP, etc., only where relevant. Distinguish beginner explanation from technical diagnosis. Cover decision criteria and trade-offs rather than merely listing features.
+Map entities relevant to the subject (people, products, organizations, concepts, processes, locations and technical terms). Distinguish beginner explanation from technical diagnosis. Cover decision criteria and trade-offs rather than merely listing features.
 
 Create an outline from user questions, not from a fixed universal H2 template.
 
@@ -80,7 +80,7 @@ Never claim 'AI will cite this' or promise placement. A citation-worthy page may
 
 ## 8. AI OPTIMIZATION (AIO) AND ENTITY CLARITY
 
-Use consistent canonical names for organizations, platforms, products and features. Explain relationships: a WooCommerce checkout may depend on payment gateways, plugins, theme, custom code, server configuration and third-party integrations.
+Use consistent canonical names for organizations, platforms, products and features. Explain relationships: a healthcare article may connect symptoms, diagnosis and treatment, while a technology article may connect products, dependencies and integrations.
 
 Avoid ambiguous pronouns and unsupported generalizations. Keep service descriptions consistent with verified company pages. Maintain crawlable, accessible text, descriptive navigation and logical topical connections.
 
@@ -91,13 +91,13 @@ Do not create 'AI-only' hidden copy or alternate pages stuffed with entities. Av
 
 Plan links during outlining, not as an afterthought. Link naturally from the relevant passage to approved service pages, related articles, useful guides and verified case studies.
 
-Use descriptive anchors such as 'WooCommerce maintenance services' rather than 'click here'. Choose destinations based on reader usefulness and topical fit; do not link every keyword.
+Use descriptive anchors such as 'website maintenance services' rather than 'click here'. Choose destinations based on reader usefulness and topical fit; do not link every keyword.
 
 Include a contextual commercial link where appropriate, not an aggressive CTA in every section.
 
 Typical opportunities: introduction to relevant pillar page; technical section to deeper guide; example to real case study; decision section to service page; conclusion to appropriate contact or audit page.
 
-No universal 3–6-link quota: link count depends on article length and available relevant pages. Verify destination URL, canonical status, redirects and relevance. Never invent Virtina URLs. Record anchor | URL | purpose in the publishing brief.
+No universal 3–6-link quota: link count depends on article length and available relevant pages. Verify destination URL, canonical status, redirects and relevance. Never invent organization-specific URLs. Record anchor | URL | purpose in the publishing brief.
 
 
 ## 10. EXTERNAL SOURCES AND CITATION RULES
@@ -115,7 +115,7 @@ Use this evidence ladder: (A) verified client case with approval and documented 
 
 Preferred case structure: business context; baseline; exact symptom/problem; investigation; confirmed root cause; implemented fix; verification method; outcome and timeframe; limitations; approved proof link.
 
-Do not invent a client name, industry, revenue lift, conversion improvement, checkout recovery rate or project duration. If no measured outcome exists, say what was validated, not 'sales increased'. An illustrative example must be explicitly labeled 'hypothetical' and must never be framed as Virtina's client work.
+Do not invent a client name, industry, revenue lift, conversion improvement, checkout recovery rate or project duration. If no measured outcome exists, say what was validated, not 'sales increased'. An illustrative example must be explicitly labeled 'hypothetical' and must never be framed as verified client work.
 
 
 ## 12. COMPARISONS, COSTS AND RECOMMENDATIONS
@@ -140,14 +140,14 @@ AI crawlers and search crawlers may have different controls; validate current pr
 
 ## 14. STYLE AND EDITORIAL QUALITY
 
-Write in clear, specific, professional language for ecommerce decision-makers. Lead with reader outcomes and actual mechanisms. Prefer concrete examples over buzzwords. Use precise terms: 'payment authorization failed' rather than 'checkout is broken' when supported.
+Write in clear, specific, professional language suited to the intended reader. Lead with reader outcomes and actual mechanisms. Prefer concrete examples over buzzwords. Use precise terms: 'payment authorization failed' rather than 'checkout is broken' when supported.
 
 Explain jargon on first use. Keep tone balanced and useful; avoid keyword stuffing, generic AI filler, forced transitions, excessive superlatives and repeated CTAs.
 
 Use tables only for real comparisons, lists only where they aid comprehension, and visuals only when they teach something. Image captions and alt text should describe actual content, not stuff keywords. Avoid making claims about a person or business without evidence.
 
 
-## 15. FULL EXAMPLE ARTICLE — TRAINING MODEL
+## 15. WORKED EXAMPLE ARTICLE — ONE INDUSTRY-SPECIFIC DEMONSTRATION
 
 **H1:** Why Is WooCommerce Checkout Not Working? Common Causes and Safe Fixes
 
@@ -173,17 +173,17 @@ Yes. Extensions can conflict with the checkout flow after updates, especially wh
 
 Isolate plugin, theme, cache and custom-code interactions. 6. Apply a minimal fix. 7. Test successful and unsuccessful transactions, webhooks and order status. 8. Deploy with backup and rollback readiness.
 
-**H2:** Real-world example — hypothetical scenario (not a Virtina client case)
+**H2:** Illustrative scenario — hypothetical, not a verified client case
 
 A wholesale parts store finds that buyers can enter their address but cannot submit checkout after an extension update. In staging, a developer reproduces the failure, identifies a front-end script conflict and tests a compatibility fix.
 
-The team validates several payment paths before deployment. This scenario illustrates a diagnostic workflow; it does not claim an actual client result or revenue impact. Replace with a verified Virtina case only after obtaining project evidence and permission.
+The team validates several payment paths before deployment. This industry-specific example illustrates a diagnostic workflow; it does not claim an actual client result or revenue impact. Replace with a verified case only after obtaining evidence and permission.
 
 [INTERNAL LINK NEEDED: approved checkout case study]
 
 **H2:** When should a store hire a WooCommerce developer?
 
-Escalate when checkout failures are recurring, affect multiple payment methods, involve custom B2B pricing or ERP workflows, or cannot be reproduced safely by the store team. A specialist can review logs, integrations and code paths. [INTERNAL LINK NEEDED: verified WooCommerce development service page]
+Escalate when checkout failures are recurring, affect multiple payment methods, involve custom B2B pricing or ERP workflows, or cannot be reproduced safely by the store team. A specialist can review logs, integrations and code paths. [INTERNAL LINK NEEDED: verified relevant service page]
 
 **H2:** How can checkout failures be prevented?
 
@@ -195,14 +195,14 @@ Q: Why does checkout keep spinning? A: A script error, blocked request, server i
 
 A: Some flows create an order before payment authorization finishes; check order notes and gateway events. Q: Can caching break checkout? A: Misconfigured caching can interfere with dynamic cart and checkout sessions; review platform-specific caching exclusions.
 
-Conclusion: Start with evidence, reproduce safely and test the complete purchase flow. If checkout errors are recurring, seek a qualified technical review. [INTERNAL LINK NEEDED: relevant Virtina support page]
+Conclusion: Start with evidence, reproduce safely and test the complete purchase flow. If checkout errors are recurring, seek a qualified technical review. [INTERNAL LINK NEEDED: relevant organization support page]
 
 EXAMPLE AUDIT: Strong AEO: direct answer, question headings, steps and FAQ. Strong AIO: specific technical entities and relationships. GEO opportunity: replace hypothetical scenario with verified original case, include sources and documented evidence. SEO opportunity: implement real internal links, metadata, semantic HTML and technical checks.
 
 
 ## 16. REUSABLE AGENT INSTRUCTION PROMPT
 
-ROLE: You are a senior ecommerce technical editor and evidence-first SEO/AEO/GEO/AIO writer. Your priority is accurate, helpful, original content for the specified reader.
+ROLE: You are a senior cross-industry editor and evidence-first SEO/AEO/GEO/AIO writer. Your priority is accurate, helpful, original content for the specified reader.
 
 Follow the workflow: (1) clarify brief, (2) research and build source register, (3) map intent and entities, (4) outline answer-first sections, (5) draft with evidence and contextual internal links, (6) audit claims and sources, (7) technical/publishing audit, (8) deliver article plus source/link ledger and unresolved gaps.
 
