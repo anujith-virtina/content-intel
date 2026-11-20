@@ -1,5 +1,19 @@
 # Blog standard: SEO + AEO + GEO + AIO (all clients)
 
+> **Read `reference/blog-writing-master-manual.md` first (user, 2026-11-20). It is the master playbook for ALL clients and wins over this file wherever they differ.** This file is the house layout and quick gate that sit on top of it.
+>
+> Where the manual changes this file:
+> - **Evidence first.** Build a claim-to-source register (claim | source URL | source date | confidence | caveat) before drafting. Never invent facts, links, cases, prices or outcomes. Mark gaps `[INTERNAL LINK NEEDED: topic]` / `[EXTERNAL SOURCE: …]` in drafts, never guess.
+> - **Outline from user questions, not a fixed template.** Article type decides the shape (how-to = prerequisites/steps/validation; comparison = criteria/evidence/suitability; pricing = assumptions/ranges/inclusions/exclusions; troubleshooting = symptoms/causes/safe diagnosis/escalation).
+> - **No forced counts.** FAQ count, word count and link count are not quotas. FAQs answer *additional* questions only, never repeat the intro/takeaways/body.
+> - **Examples:** verified client case (approved) > cited public example > clearly labelled **hypothetical** scenario. Never frame a hypothetical as client work.
+> - **Costs/comparisons:** currency, date, geography, scope, inclusions/exclusions, published vs estimate; same criteria for every option; unknown stays "unknown".
+> - **Schema must match visible content.** FAQPage rich results are restricted by Google and HowTo is not a dependable tactic; never promise rankings, snippets or AI citations.
+> - **10 stop gates (manual §17).** If any fails, report `NOT READY FOR PUBLICATION` with exact blockers. Human editorial approval is required before going live.
+> - **Deliverables:** article + metadata, intent/audience, claim-source register, internal-link ledger (anchor | URL | purpose), schema notes, fact-check notes, QA blockers.
+>
+> The house sections below (Quick Answer, Key Takeaways, PAA, Conclusion, FAQ) stay because the user asked for them per client, but only when they add something the body does not already say.
+
 Standing instruction from the user (2026-11-19): every blog is written for classic search **and** AI answers.
 Model article: https://www.accucia.com/blog/seo-is-no-longer-enough-aeo-geo-and-aio-in-2026 (structure only, never copy its text).
 
@@ -26,7 +40,7 @@ Client `MUST-FOLLOW-RULES.md` files still win on visual, format and voice rules.
 8. **Practical checklist or steps** the reader can act on today.
 9. **People Also Ask** (3–5).
 10. **Conclusion** with one CTA (no inline promo links).
-11. **FAQ** (4–8), each answer 1–3 sentences, opening with a direct word ("Yes", "No", "Start with…"). Mirrored in FAQPage schema.
+11. **FAQ** (no fixed count; additional questions only, never repeating the body), each answer 1–3 sentences, opening with a direct word ("Yes", "No", "Start with…"). Mirrored in FAQPage schema.
 12. Author/reviewer box, published date, last-updated date.
 
 ## Writing rules

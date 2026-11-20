@@ -117,6 +117,15 @@ Standing instruction from the user (2026-11-02): image quality is never compromi
 
 Standing instruction from the user (2026-11-19): every blog is written for search engines and AI answer engines together. `reference/blog-standard-seo-aeo-geo-aio.md` defines the structure (Quick Answer, Key Takeaways, question H2s with direct answers, table, checklist, PAA, FAQ mirrored in schema) and the QA gate. Tell the analyzer, creator and publisher to read it, alongside the client's MUST-FOLLOW-RULES.md, which still wins on visual and format rules.
 
+**Master manual (user, 2026-11-20), all clients:** `reference/blog-writing-master-manual.md` is the master playbook for every blog on every client (Virtina, ChatSKU, ImpelHub, ECM), not only Virtina. It wins over `blog-standard-seo-aeo-geo-aio.md` wherever they differ. Every researcher, analyzer, creator, publisher and `impelhub` call must be told to read it first. In short:
+- evidence first, with a claim-to-source register; never invent facts, links, cases, prices or outcomes
+- outline from user questions, not a fixed template, and no forced FAQ, word or link counts
+- hypothetical examples are labelled as such
+- comparisons and costs are dated and scoped
+- schema matches the visible content
+- the 10 stop gates in §17: any failure means `NOT READY FOR PUBLICATION` with the exact blockers
+- human approval before anything goes live
+
 ## Per-client mandatory rules
 
 When working on any client task, before delegating to sub-agents, read `clients/{client-slug}/MUST-FOLLOW-RULES.md` if it exists. Instruct every sub-agent to read this file as their first action.

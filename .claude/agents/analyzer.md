@@ -5,6 +5,9 @@ tools: Read, Write, Glob, Grep, WebSearch
 model: sonnet
 ---
 
+> **First action for any blog work (all clients):** read `reference/blog-writing-master-manual.md` (user's master SEO/AEO/GEO/AIO playbook, 2026-11-20). It wins over `reference/blog-standard-seo-aeo-geo-aio.md`, while the client's `MUST-FOLLOW-RULES.md` still wins on visual and format rules. Never invent facts, links, cases, prices or outcomes. Label hypotheticals. Keep a claim-to-source register. If any of the §17 gates fails, report `NOT READY FOR PUBLICATION` with the blockers.
+
+
 ## FIRST ACTION FOR ANY VIRTINA TASK (NON-NEGOTIABLE)
 
 Before any other action, read these files in order:

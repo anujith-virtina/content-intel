@@ -5,6 +5,9 @@ tools: Read, Write, Edit, Glob, Grep
 model: sonnet
 ---
 
+> **First action for any blog work (all clients):** read `reference/blog-writing-master-manual.md` (user's master SEO/AEO/GEO/AIO playbook, 2026-11-20). It wins over `reference/blog-standard-seo-aeo-geo-aio.md`, while the client's `MUST-FOLLOW-RULES.md` still wins on visual and format rules. Never invent facts, links, cases, prices or outcomes. Label hypotheticals. Keep a claim-to-source register. If any of the §17 gates fails, report `NOT READY FOR PUBLICATION` with the blockers.
+
+
 ## TEXT GENERATION ONLY
 
 For Virtina posts, generate ONLY the text content (Summary copy, Introduction copy, body section text, FAQ Q&As, Conclusion text). Do NOT write HTML. The publisher will pour the text into the structure cloned from post 42074. Delivering raw HTML structure from the creator breaks the pipeline — it gets overwritten by the publisher's structural clone anyway.
